@@ -1,0 +1,95 @@
+# Japanese translation.
+# TAKAGI Masahiro <matakagi@gmail.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2006-06-27 20:42+0000\n"
+"PO-Revision-Date: 2007-06-13 17:56+0900\n"
+"Last-Translator: TAKAGI Masahiro <matakagi@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: ja\n"
+"Language-Name: Japanese\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+# Default: Survey
+#: ../content/Survey.py
+msgid "Survey"
+msgstr "アンケート"
+
+# Default: Sub Survey
+#: ../content/SubSurvey.py
+msgid "Sub Survey"
+msgstr "サブアンケート"
+
+# Default: Survey Question
+#: ../content/SurveyQuestion.py
+msgid "Survey Question"
+msgstr "アンケートの質問"
+
+# Default: Survey Likert Question
+#: ../content/SurveyLikertQuestion.py
+msgid "Survey Likert Question"
+msgstr "リッカート法による質問"
+
+# Default: Survey Matrix
+#: ../content/SurveyMatrix.py
+msgid "Survey Matrix"
+msgstr "マトリックス形式の質問"
+
+# Default: Survey Select Question
+#: ../content/SurveySelectQuestion.py
+msgid "Survey Select Question"
+msgstr "択一式の質問"
+
+# Default: Survey Text Question
+#: ../content/SurveyTextQuestion.py
+msgid "Survey Text Question"
+msgstr "自由回答形式の質問"
+
+# Default: Comment Field
+#: ../content/BaseQuestion.py
+msgid "Comment Field"
+msgstr "コメント欄"
+
+# Default: Introduction
+#: ../content/BaseQuestion.py
+msgid "Introduction"
+msgstr "導入"
+
+# Default: Results
+#: ../content/Survey.py
+msgid "Results"
+msgstr "結果"
+
+# Default: Reset
+#: ../content/Survey.py
+msgid "Reset"
+msgstr "リセット"
+
+# Default: Overview
+#: ../content/Survey.py
+msgid "Overview"
+msgstr "概要"
+
+# THESE WERE ADDED 31.10.2006
+# Default: default
+msgid "default"
+msgstr "基本情報"
+
+# Default: Branching
+msgid "Branching"
+msgstr "ブランチの作成"
+
+# Default: None
+msgid "None"
+msgstr "なし"
+
+# Default: Survey Matrix Question
+msgid "Survey Matrix Question"
+msgstr "マトリックス形式の質問"
+

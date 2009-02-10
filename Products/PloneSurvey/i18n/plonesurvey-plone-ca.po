@@ -1,0 +1,93 @@
+# Pilar Marinas Luis <pilar.marinas@upcnet.es>, 2008
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneSurvey 1.2.0\n"
+"POT-Creation-Date: 2006-06-27 20:42+0000\n"
+"PO-Revision-Date: 2008-12-15 16:26+0100\n"
+"Last-Translator: Pilar Marinas Luis <pilar.marinas@upcnet.es>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language-Code: ca\n"
+"Language-Name: Catalan\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+# Default: Survey
+#: ../content/Survey.py
+msgid "Survey"
+msgstr "Qüestionari"
+
+# Default: Sub Survey
+#: ../content/SubSurvey.py
+msgid "Sub Survey"
+msgstr "Sub qüestionari"
+
+# Default: Survey Question
+#: ../content/SurveyQuestion.py
+msgid "Survey Question"
+msgstr "Pregunta"
+
+# Default: Survey Likert Question
+#: ../content/SurveyLikertQuestion.py
+msgid "Survey Likert Question"
+msgstr ""
+
+# Default: Survey Matrix
+#: ../content/SurveyMatrix.py
+msgid "Survey Matrix"
+msgstr "Matriu de respostes"
+
+# Default: Survey Select Question
+#: ../content/SurveySelectQuestion.py
+msgid "Survey Select Question"
+msgstr "Pregunta de selecció"
+
+# Default: Survey Text Question
+#: ../content/SurveyTextQuestion.py
+msgid "Survey Text Question"
+msgstr "Pregunta de text"
+
+# Default: Comment Field
+#: ../content/BaseQuestion.py
+msgid "Comment Field"
+msgstr "Camp de comentari"
+
+# Default: Introduction
+#: ../content/BaseQuestion.py
+msgid "Introduction"
+msgstr "Introducció"
+
+# Default: Results
+#: ../content/Survey.py
+msgid "Results"
+msgstr "Resultats"
+
+# Default: Reset
+#: ../content/Survey.py
+msgid "Reset"
+msgstr "Buidar"
+
+# Default: Overview
+#: ../content/Survey.py
+msgid "Overview"
+msgstr "Resum"
+
+# Default: default
+msgid "default"
+msgstr "valor per defecte"
+
+# Default: Branching
+msgid "Branching"
+msgstr "Branques"
+
+# Default: None
+msgid "None"
+msgstr "Cap"
+
+# Default: Survey Matrix Question
+msgid "Survey Matrix Question"
+msgstr "Pregunta matriu"
+

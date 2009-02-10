@@ -1,0 +1,38 @@
+# Original: Overview
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2008-08-14 10:42+0100\n"
+"Last-Translator: jakob Bruun <jakob@headnet.dk>\n"
+"Language-Team: Marc Van Coillie <marc.van.coillie@eife-l.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Code: da\n"
+"Language-Name: Danish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+# Original: Survey Text Question
+#: ../content/SurveyTextQuestion.py
+msgid "Survey Text Question"
+msgstr "Survey Textspørgsmål"
+
+# THESE WERE ADDED 31.10.2006
+# Default: default
+msgid "default"
+msgstr "Deafult"
+
+# Default: Branching
+msgid "Branching"
+msgstr ""
+
+# Default: None
+msgid "None"
+msgstr "Intet"
+
+# Default: Survey Question
+msgid "Survey Matrix Question"
+msgstr "Survey Matrixspørgsmål "
+

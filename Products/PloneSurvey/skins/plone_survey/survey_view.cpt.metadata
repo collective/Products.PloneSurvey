@@ -1,0 +1,11 @@
+[validators]
+validators=validate_survey
+validators..submit=validate_survey
+validators..reset_survey=validate_reset_survey
+
+[actions]
+action.success..save=redirect_to:string:saveSurvey
+action.success..submit=redirect_to:string:getNextPage
+action.success..reset_survey=redirect_to:string:survey_view
+action.success=redirect_to:string:getNextPage
+action.failure=traverse_to:string:survey_view

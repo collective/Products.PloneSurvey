@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonesurvey">
+
+<body>
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+        tal:define="questions here/getAllQuestionsInOrder"
+	tal:condition="python:user.has_permission('PloneSurvey: View Survey Results',here)">
+
+        <div metal:use-macro="here/document_actions/macros/document_actions" />
+        <h1 i18n:translate="heading_results">Results for survey
+            <span i18n:name="title" tal:replace="here/Title" />
+        </h1>
+
+        <div class="row" style="border: solid gray 1px; padding: 3px;"
+             tal:repeat="question questions">
+            <tal:help tal:define="helpid string: ${question/getId}_help">
+                <h2 i18n:translate="heading_totals_for">Totals for
+                    <span tal:replace="question/Title"
+                          tal:omit-tag=""
+                          i18n:name="title" />:
+                </h2>
+                <div class="formHelp"
+                     tal:attributes="id helpid"
+                     tal:content="question/Description" />
+            </tal:help>
+            <table>
+                <tr>
+                    <td tal:condition="python:question.meta_type not in ['SurveyTextQuestion', 'SurveyMatrix', 'SurveyTwoDimensional']">
+                        <div metal:use-macro="here/question_barchart/macros/barchart" />
+                    </td>
+                    <td valign="top">
+                        <ul tal:condition="python: question.meta_type not in ('SurveyMatrix','SurveyTwoDimensional') and question.getInputType() not in ('text', 'area')">
+                            <li tal:define="totals question/getAggregateAnswers;
+                                            pct_answers question/getPercentages;
+                                            options question/getQuestionOptions"
+                                tal:repeat="option options">
+                                <span tal:condition="not:question/getLikertOptions"
+                                      tal:content="option" />
+                                <span tal:condition="question/getLikertOptions"
+                                      tal:content="python:options.values()[repeat['option'].index]" />
+                                <span tal:content="python:'(' + str(totals.get(option, 0)) + ')'" />
+                                <span tal:content="python:str(pct_answers[option]) + '%'" />
+                            </li>
+                        </ul>
+                        <p tal:condition="python: question.getInputType() in ('text', 'area')" >
+                            <span i18n:translate="label_use_detailed_for_text">This question had a text input type, for results use the </span>
+                            <a tal:attributes="href string:${here/absolute_url}/spreadsheet2"
+                               i18n:translate="detailed_spreadsheet">
+                                detailed spreadsheet
+                            </a>
+                        </p>
+
+                        <div class="comments"
+                             tal:condition="question/commentType | nothing"
+                             tal:attributes="id string:${question/getId}_comments">
+                            <h3 i18n:translate="heading_comments">Comments</h3>
+                            <metal:block tal:define="comments question/getComments"
+                                         tal:repeat="item comments">
+                                <p tal:condition="python:item['comments'].strip()">
+                                    <strong tal:content="item/userid">userid:</strong>
+                                    <a tal:attributes="href string:${here/absolute_url}/comments_view#${question/getId}_${item/userid}">
+                                        <em tal:content="python: item['comments'][:100]" />
+                                    </a>
+                                </p>
+                            </metal:block>
+                            <a tal:attributes="href string:${here/absolute_url}/comments_view"
+                               i18n:translate="view_comments_in_full">view comments in full...</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </tal:main-macro>
+    <tal:block
+        tal:condition="python:not user.has_permission('PloneSurvey: View Survey Results',here)">
+        <tal:block replace="here/raiseUnauthorized" />
+    </tal:block>
+</metal:main>
+</body>
+</html>

@@ -1,0 +1,5 @@
+[validators]
+
+[actions]
+action.success=redirect_to:string:repair_survey_results
+action.failure=traverse_to:string:repair_survey_results

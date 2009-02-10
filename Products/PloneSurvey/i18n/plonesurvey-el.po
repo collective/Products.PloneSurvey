@@ -1,0 +1,707 @@
+# PloneSurvey
+# Nikos Viorres <nviorres@aegean.gr>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneSurvey\n"
+"POT-Creation-Date: 2006-06-27 20:42+0000\n"
+"PO-Revision-Date: 2007-03-02 13:00+0000\n"
+"Last-Translator: Nikos Viorres <nviorres@aegean.gr>\n"
+"Language-Team: Greek <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: el\n"
+"Language-Name: Greek\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plonesurvey\n"
+
+#: ../skins/plone_survey/survey_reset_form.cpt
+#. <input class="standalone" i18n:attributes="value label_reset" name="reset" type="submit" value=" Reset "/>
+# Default: " Reset "
+msgid "label_reset"
+msgstr "Επαναφορά"
+
+
+#: ../skins/plone_survey/survey_view.cpt
+#. <input class="context" i18n:attributes="value submit_page_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="here/isMultipage" type="submit" value="Next"/>
+# Default: "Next"
+msgid "submit_page_button"
+msgstr "Επόμενο"
+
+
+#: ../skins/plone_survey/question_matrix_macro.pt
+#. <option class="noborder" i18n:translate="Please select" value="">
+#.  -- Please, select --
+#. </option>
+# Default: "-- Please, select --"
+msgid "Please select"
+msgstr "Παρακαλώ επιλέξτε"
+
+
+#: ../skins/plone_survey/question_matrix_macro.pt
+#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired|nothing" title="Required">
+#.  (Required)
+#. </span>
+#: ../skins/plone_survey/question_macro.pt
+#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired" title="Required">
+#.  (Required)
+#. </span>
+# Default: "(Required)"
+msgid "Required"
+msgstr "Υποχρεωτικό"
+
+
+#: ../skins/plone_survey/respondents_view.cpt
+#. <input class="context" i18n:attributes="value reset_button" name="submit" tal:attributes="tabindex tabindex/next" type="submit" value="Reset"/>
+# Default: "Reset"
+msgid "reset_button"
+msgstr "Επαναφορά"
+
+
+#: ../skins/plone_survey/survey_view.cpt
+#. <input class="context" i18n:attributes="value reset_survey_button" name="form.button.reset_survey" tabindex="" tal:attributes="tabindex tabindex/next" type="submit" value="Reset Survey"/>
+# Default: "Reset Survey"
+msgid "reset_survey_button"
+msgstr "Επαναφορά Ερωτηματολογίου"
+
+
+#: ../skins/plone_survey/survey_view.cpt
+#. <input class="context" i18n:attributes="value save_button" name="form.button.save" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="nothing" type="submit" value="Save"/>
+# Default: "Save"
+msgid "save_button"
+msgstr "Αποθήκευση"
+
+
+#: ../skins/plone_survey/survey_view.cpt
+#. <input class="context" i18n:attributes="value submit_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="not: here/isMultipage" type="submit" value="Submit"/>
+# Default: "Submit"
+msgid "submit_button"
+msgstr "Υποβολή"
+
+
+#: ../skins/plone_survey/survey_reset_form.cpt
+#. <p i18n:translate="desc_reset_survey">
+#.         This will remove all the answers from the current survey. Are you sure?
+#. </p>
+# Default: "This will remove all the answers from the current survey. Are you sure?"
+msgid "desc_reset_survey"
+msgstr "Αυτή η δράση θα διαγράψει όλες τις απαντήσεις από το τρέχων ερωτηματολόγιο. Είστε σίγουρη(ος);"
+
+
+#: ../skins/plone_survey/survey_overview.cpt
+#. <p i18n:translate="desc_survey_overview">
+#.         This is an overview of the current survey.
+#. </p>
+# Default: "This is an overview of the current survey."
+msgid "desc_survey_overview"
+msgstr "Προεπισκόπηση του τρέχοντος ερωτηματολογίου"
+
+
+#: ../skins/plone_survey/survey_view_results.pt
+#. <a i18n:translate="detailed_spreadsheet" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">
+#.                                 detailed spreadsheet
+#. </a>
+# Default: "detailed spreadsheet"
+msgid "detailed_spreadsheet"
+msgstr "λεπτομερές φύλλο εργασίας"
+
+
+#: ../skins/plone_survey/survey_view_results.pt
+#. <span i18n:translate="download_detail_selected">
+#.  download detailed spreadsheet (selection numbers only)
+#. </span>
+# Default: "download detailed spreadsheet (selection numbers only)"
+msgid "download_detail_selected"
+msgstr "κατέβασμα φύλλου εργασίας (μόνο τις επιλεγμένες ερωτήσεις)"
+
+
+#: ../skins/plone_survey/survey_view_results.pt
+#. <span i18n:translate="download_detail_spreadsheet">
+#.  download detailed spreadsheet
+#. </span>
+# Default: "download detailed spreadsheet"
+msgid "download_detail_spreadsheet"
+msgstr "κατέβασμα φύλλου εργασίας"
+
+
+#: ../skins/plone_survey/survey_view_results.pt
+#. <span i18n:translate="download_summary_spreadsheet">
+#.  download summary spreadsheet
+#. </span>
+# Default: "download summary spreadsheet"
+msgid "download_summary_spreadsheet"
+msgstr "κατέβασμα περιληπτικού φύλλου εργασίας"
+
+
+#: ../skins/plone_survey/survey_view_results.pt
+#. <h3 i18n:translate="heading_comments">
+#.  Comments
+#. </h3>
+# Default: "Comments"
+msgid "heading_comments"
+msgstr "Σχόλια"
+
+
+#: ../skins/plone_survey/comments_view.pt
+#. <h4 i18n:translate="heading_comments_for">
+#.  All comments for
+#.  ${objective}
+#.  ${title}
+#. </h4>
+# Default: "All comments for ${objective} ${title}"
+msgid "heading_comments_for"
+msgstr "Όλα τα σχόλια για"
+
+
+#: ../skins/plone_survey/survey_reset_form.cpt
+#. <h1 i18n:translate="heading_reset_survey">
+#.  Reset Survey
+#. </h1>
+# Default: "Reset Survey"
+msgid "heading_reset_survey"
+msgstr "Επαναφορά ερωτηματολογίου"
+
+
+#: ../skins/plone_survey/survey_overview.cpt
+#. <h1 i18n:translate="heading_survey_overview">
+#.  Survey Overview
+#. </h1>
+# Default: "Survey Overview"
+msgid "heading_survey_overview"
+msgstr "Γενική επισκόπηση ερωτηματολογίου"
+
+
+#: ../skins/plone_survey/survey_view_results.pt
+#. <h1 i18n:translate="heading_results">
+#.  Results for survey
+#.  ${title}
+#. </h1>
+# Default: "Results for survey ${title}"
+msgid "heading_results"
+msgstr "Αποτελέσματα ερωτηματολογίου"
+
+
+#: ../skins/plone_survey/portlet_questions.pt
+#. <h5 i18n:translate="heading_survey_contents">
+#.  Survey Contents
+#. </h5>
+# Default: "Survey Contents"
+msgid "heading_survey_contents"
+msgstr "Περιεχόμενα Ερωτηματολογίου"
+
+
+#: ../skins/plone_survey/survey_view_results.pt
+#  <h2 i18n:translate="heading_totals_for">Totals for
+#    <span tal:replace="question/Title"
+#      tal:omit-tag=""
+#      i18n:name="title" />:
+#  </h2>
+# Default: "Totals for ${title}:"
+msgid "heading_totals_for"
+msgstr "Σύνολα για"
+
+
+# Default: Enter the options you want to be available to the user here. Press enter to seperate the options.
+msgid "help_answer_options"
+msgstr "Εισάγετε τις επιλογές που θέλετε να είναι διαθέσιμες στους χρήστες εδώ. Πατήστε enter για να χωρήσετε τις επιλογές"
+
+
+# Default: The comment label.
+msgid "help_comment_label"
+msgstr "Η ετικέτα του σχολίου"
+
+
+# Default: Add a short description of the survey here.
+msgid "help_description"
+msgstr "Προσθέστε μία σύντομη περιγραφή του ερωτηματολογίου"
+
+
+# Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
+msgid "help_exit_url"
+msgstr "Αυτός είναι ο υπερσύνδεσμος (URL) στον οποίο θα μεταφερθεί ο χρήστης μετά την ολοκληρωση του ερωτηματολογίου. Χρησιμοποιήστε http://site.to.go.to/page για εξωτερικό σύνδεσμο ή route/to/page για σύνδεσμο εσωτερικό του πόρταλ"
+
+
+# Default: Please select what type of input you would like to use for this question.
+msgid "help_input_type"
+msgstr "Παρακαλώ επιλέξτε τι είδους είσοδο επιθυμείτε για αυτή την ερώτηση"
+
+
+# Default: Select what type of comment box you would like.
+msgid "help_label_comment_type"
+msgstr "Επιλέξτε τι είδους πλαίσιο σχολίου επιθυμείτε"
+
+
+# Default: The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally.
+msgid "help_previous_question"
+msgstr "Η ερώτηση συνθήκη καθορίζει εαν θα εμφανισθεί το Υπο-ερωτηματολόγιο. Επιλέξτε Καμία για να εμφανισθεί άνευ όρων"
+
+
+# Default: Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed.
+msgid "help_previous_question_answer"
+msgstr "Εισάγετε την απαιτούμενη απάντηση στην ερώτηση συνθήκη, με βάση την οποία θα αποφασισθεί εαν θα εμφανισθεί το Υπο-ερωτηματολόγιο"
+
+
+# Default: Check this box if the required answer should be selected for this Sub Survey to be displayed.
+msgid "help_previous_question_answer_yes_no"
+msgstr "Τσεκάρετε αυτό το Κουτί αν η απαιτούμενη απάντηση πρέπει να έχει επιλεχθεί για να εμφανισθεί το Υπο-ερωτηματολόγιο"
+
+
+# Default: Add a long description of the question here, to clarify any details.
+msgid "help_question_description"
+msgstr "Προσθέστε μία λεπτομερής περιγραφή της ερώτησης εδώ για την αποσαφήνιση λεπτομερειών"
+
+
+# Default: Select if this question is required, meaning participant must give a response.
+msgid "help_required"
+msgstr "Επιλέξτε αν η ερώτηση θα είναι υποχρεωτική"
+
+
+# Default: Enter an email address to receive notifications of survey completions.
+msgid "help_survey_notification_email"
+msgstr "Εισάγετε μία διεύθυνση ηλεκτρονικού ταχυδρομείου για να λαμβάνετε ειδοποιητήρια για κάθε επιτυχή συμπλήρωση του ερωτηματολογίου"
+
+
+# Default: Select a method to receive notification emails.
+msgid "help_survey_notification_method"
+msgstr "Επιλέξτε μία μέθοδο για να λαμβάνετε ηλεκτρονικά τα μηνύματα ειδοποιητηρίων"
+
+
+# Default: Enter a number of columns for this field (width of the field in the characters)
+msgid "help_text_cols"
+msgstr "Εισάγετε τον αριθμό των στηλών για αυτό το πεδίο (πλάτος του πεδίου στους χαρακτήρες)"
+
+
+# Default: Enter a number of rows for this field. This value is applicable only in the Text Area input type
+msgid "help_text_rows"
+msgstr "Εισάγετε τον αριθμό των σειρών για αυτό το πεδίο. Αυτή η τιμή έχει εφαρμογή μόνο στο πεδίο εισόδο Περιοχή Κειμένου"
+
+
+# Default: This is the message that will be displayed to the user when they complete the survey.
+msgid "help_thankyou"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στους χρήστες μετά την ολοκλήρωση του ερωτηαμτολογίου"
+
+
+# Default: Enter a title.
+msgid "help_title"
+msgstr "Εισάγετε έναν τίτλο"
+
+
+# Default: Select a validation for this question
+msgid "help_validation"
+msgstr "Επιλέξτε μία μέθοδο επικύρωσης για την ερώτηση"
+
+
+# Default: Email on each submission
+msgid "label_all_emails"
+msgstr "Εmail για κάθε υποβολή"
+
+
+# Default: Allow Anonymous
+msgid "label_allow_anonymous"
+msgstr "Επιτρέψτε την συμπλήρωση από ανώνυμους (μη-ταυτοποιημένους) χρήστες"
+
+
+# Default: Answer options
+msgid "label_answer_options"
+msgstr "Επιλογές απάντησης"
+
+
+# Default: Check Boxes
+msgid "label_check_boxes"
+msgstr ""
+#msgstr "Τσεκαριζόμενα Κουτιά"
+
+
+# Default: Comment label
+msgid "label_comment_label"
+msgstr "Ετικέτα Σχολίου"
+
+
+# Default: Comment Type
+msgid "label_comment_type"
+msgstr "Τύπος Σχολίου"
+
+
+# Default: Survey description
+msgid "label_description"
+msgstr "Περιγραφή Ερωτηματολογίου"
+
+
+# Default: Exit URL
+msgid "label_exit_url"
+msgstr "URL εξόδου"
+
+
+# Default: Input Type
+msgid "label_input_type"
+msgstr "Τύπος Εισόδου"
+
+
+# Default: Add survey status to the survey title (open, closed)?
+msgid "label_modify_title"
+msgstr "Προσθέστε κατάσταση αναφοράς στον τίτλο του ερωτηματολογίου (ανοιχτό, κλειστό)"
+
+
+# Default: Multiple Selection Box
+msgid "label_multiple_selection_box"
+msgstr ""
+#msgstr "Κουτί Πολλαπλών Επιλογών"
+
+
+# Default: No emails
+msgid "label_no_emails"
+msgstr "Όχι emails"
+
+
+# Default: Conditional Question
+msgid "label_previous_question"
+msgstr "Ερώτηση Συνθήκη"
+
+
+# Default: Required Answer
+msgid "label_previous_question_answer"
+msgstr "Απαιτούμενη Απάντηση"
+
+
+# Default: Use Required Answer?
+msgid "label_previous_question_answer_yes_no"
+msgstr "Χρησιμοποίηση Απαιτούμενης Απάντησης;"
+
+
+# Default: Description
+msgid "label_question_description"
+msgstr "Περιγραφή"
+
+
+# Default: Radio Buttons
+msgid "label_radio_buttons"
+msgstr ""
+
+
+# Default: Required
+msgid "label_required"
+msgstr "Υποχρεωτική"
+
+
+# Default: 'Saved' message test
+msgid "label_saved_text"
+msgstr "Το κείμενο του 'μηνύματος αποθήκευσης ερωτηματολογίου'"
+
+
+# Default: Selection Box
+msgid "label_selection_box"
+msgstr ""
+#msgstr "Κουτί Επιλογών"
+
+
+# Default: Closed
+msgid "label_survey_closed"
+msgstr "Κλειστό"
+
+
+# Default: Survey Notification Email Address
+msgid "label_survey_notification_email"
+msgstr "Διεύθυνση Αποστολής Ειδοποιητηρίων"
+
+
+# Default: Survey Notification Method
+msgid "label_survey_notification_method"
+msgstr "Μέθεδος Ειδοποίησης Ερωτηματολογίου"
+
+
+# Default: Open
+msgid "label_survey_open"
+msgstr "Ανοιχτό"
+
+
+# Default: Survey currently
+msgid "label_survey_status"
+msgstr "Αναφορά κατάστασης ερωτηματολογίου"
+
+
+# Default: Text Area
+msgid "label_text_area"
+msgstr ""
+#msgstr "Περιοχή κειμένου"
+
+
+# Default: Cols (width in characters)
+msgid "label_text_cols"
+msgstr "Στήλες (πλάτος σε χαρακτήρες)"
+
+
+# Default: Text Field
+msgid "label_text_field"
+msgstr ""
+#msgstr "Πεδίο Κειμένου"
+
+
+# Default: Rows (number of lines)
+msgid "label_text_rows"
+msgstr "Σειρές (αριθμός)"
+
+
+# Default: 'Thank you' message text
+msgid "label_thank"
+msgstr "Ευχαρηστήριο μήνυμα"
+
+
+# Default: Title
+msgid "label_title"
+msgstr "Τίτλος"
+
+
+# Default: Validation
+msgid "label_validation"
+msgstr "Επικύρωση"
+
+
+#: ../skins/plone_survey/survey_view.cpt
+#. <legend i18n:translate="legend_already_completed">
+#.  You have already filled in this survey
+#. </legend>
+# Default: "You have already filled in this survey"
+msgid "legend_already_completed"
+msgstr "Έχετε ήδη συμπληρώση αυτό το ερωτηματολόγιο"
+
+
+#: ../skins/plone_survey/survey_view.cpt
+#. <legend i18n:translate="legend_question_details">
+#.  Question details
+#. </legend>
+# Default: "Question details"
+msgid "legend_question_details"
+msgstr "Ερωτήσεις"
+
+
+#: ../skins/plone_survey/respondents_view.cpt
+#. <legend i18n:translate="reset_users">
+#.  Reset Users
+#. </legend>
+# Default: "Reset Users"
+msgid "reset_users"
+msgstr "Επαναφορά Χρηστών"
+
+
+#: ../skins/plone_survey/respondents_view.cpt
+#. <span i18n:translate="respondents_for_survey">
+#.  Respondents for survey
+#. </span>
+# Default: "Respondents for survey"
+msgid "respondents_for_survey"
+msgstr "Ερωτώμενοι"
+
+
+#: ../skins/plone_survey/survey_reset_form.cpt
+#. <legend i18n:translate="survey_reset">
+#.  Survey Reset
+#. </legend>
+# Default: "Survey Reset"
+msgid "survey_reset"
+msgstr "Επαναφορά Ερωτηματολογίου"
+
+
+# Default: Please correct the errors shown
+msgid "text_correct_errors"
+msgstr "Παρακαλώ διορθώστε τα ακόλουθα λάθη"
+
+
+# Default: You have saved the survey. Don't forget to come back and finish it.
+msgid "text_default_saved_message"
+msgstr "Η κατάσταση του ερωτηματολογίου αποθηκεύτηκε"
+
+
+# Default: Thank you for completing the survey.
+msgid "text_default_thank_you"
+msgstr "Ευχαριστούμε που συμπληρώσατε το ερωτηματολόγιο"
+
+
+# Default: Survey did not reset correctly
+msgid "text_survey_reset_error"
+msgstr "Υπήρξε σφάλμα κατά την επαναφορά του ερωτηματολογίου"
+
+
+# Default: Survey has been reset
+msgid "text_survey_reset_success"
+msgstr "Έγινε επαναφορά του ερωτηματολογίου"
+
+
+# Default: ${users} have been reset
+msgid "text_survey_users_reset_error"
+msgstr "έχουν επανέλθει στην αρχική κατάσταση"
+
+
+#: ../skins/plone_survey/survey_view_results.pt
+#. <a i18n:translate="view_comments_in_full" tal:attributes="href string:${here/absolute_url}/comments_view">
+#.  view comments in full...
+#. </a>
+# Default: "view comments in full..."
+msgid "view_comments_in_full"
+msgstr "απεικόνιση ολόκληρων των σχολίων"
+
+
+#: ../skins/plone_survey/survey_view_results.pt
+#. <a i18n:translate="view_respondents" tal:attributes="href string:${here/absolute_url}/respondents_view">
+#.                     view respondents
+#. </a>
+# Default: "view respondents"
+msgid "view_respondents"
+msgstr "απεικόνιση ερωτηθέντων"
+
+# Default: Enter an introduction for the survey.
+msgid "help_introduction"
+msgstr "Εισάγετε μια εισαγωγή για το ερωτηματολόγιο"
+
+# Default: Survey introduction
+msgid "label_introduction"
+msgstr "Εισαγωγή ερωτηματολογίου"
+
+#: ../skins/plone_survey/survey_view_results.pt
+#<span i18n:translate="label_use_detailed_for_text">This question had a text
+# input type, for results use the </span>
+# Default: This question had a text input type, for results use the
+msgid "label_use_detailed_for_text"
+msgstr "Αυτή η ερώτηση έχει 'κείμενο' ως τύπο εισόδου, για αποτελέσματα χρησιμοποιήστε"
+
+#: ../skins/plone_survey/survey_overview.pt
+#   <th i18n:translate="">Question Id</th>
+# Default: Question Id
+msgid "Question Id"
+msgstr "Id Ερώτησης"
+
+#: ../skins/plone_survey/survey_overview.pt
+# <th i18n:translate="">Question Title</th>
+# Default: Question Title
+msgid "Question Title"
+msgstr "Τίτλος Ερώτησης"
+
+#: ../skins/plone_survey/survey_overview.pt
+#<th i18n:translate="">Question Type</th>
+# Default: Question Type
+msgid "Question Type"
+msgstr "Τύπος Ερώτησης"
+
+#: ../skins/plone_survey/survey_overview.pt
+#<th i18n:translate="">Sub Survey</th>
+# Default: Sub Survey
+msgid "Sub Survey"
+msgstr "Υπό-ερωτηματολόγιο"
+
+#: ../skins/plone_survey/survey_overview.pt
+#<th i18n:translate="">Branching</th>
+# Default: Branching
+msgid "Branching"
+msgstr "Διακλάδωση"
+
+#: ../skins/plone_survey/survey_overview.pt
+#<th i18n:translate="">Required</th>
+# Default: Required
+msgid "Required"
+msgstr "Υποχρεωτική"
+
+#: ../skins/plone_survey/survey_overview.pt
+# <td i18n:translate="" tal:condition="python: question.aq_parent.portal_type
+# == 'Sub Survey'  or question.portal_type == 'Sub Survey'">Yes</td>
+# Default: Yes
+msgid "Yes"
+msgstr "Ναι"
+
+#<td i18n:translate="" tal:condition="python:
+#question.aq_parent.portal_type != 'Sub Survey' and question.portal_type !=
+# 'Sub Survey'">No</td>
+# Default: No
+msgid "No"
+msgstr "Οχι"
+
+#: ../content/BaseSurvey.py
+msgid "label_no_comment_field"
+msgstr ""
+
+# Default: Agree Strongly
+msgid "Agree Strongly"
+msgstr "Συμφωνώ απολύτως"
+
+# Default: Agree
+msgid "Agree"
+msgstr "Συμφωνώ"
+
+# Default: Neutral
+msgid "Neutral"
+msgstr "Ουδέτερα"
+
+# Default: Disagree
+msgid "Disagree"
+msgstr "Διαφωνώ"
+
+# Default: Disagree Strongly
+msgid "Disagree Strongly"
+msgstr "Διαφωνώ απολύτως"
+
+# Default: Please provide an answer for the question
+msgid "please_provide_answer_for"
+msgstr "Παρακαλώ απαντήστε στην ερώτηση"
+
+# Default: Please provide an answer for this question
+msgid "please_provide_answer"
+msgstr "Παρακαλώ απαντήστε σε αυτή την ερώτηση"
+
+# Default: user
+msgid "user"
+msgstr "χρήστης"
+
+# Default: Completed
+msgid "Completed"
+msgstr "Ολοκληρώθηκε"
+
+# Default: Not Completed
+msgid "Not Completed"
+msgstr "Δεν έχει ολοκληρωθεί"
+
+
+# THESE WERE ADDED FOR 31.10.2006
+
+# Default: This is the message that will be displayed to the user when they save the survey, but don't submit it.
+msgid "help_saved_text"
+msgstr "Αυτό το μήνυμα θα εμφανίζεται στον χρήστη όταν αποθηκεύει το ερωτηματολόγιο χωρίς να το έχει υποβάλει."
+
+# Default: Allow Save Functionality
+msgid "label_allow_save"
+msgstr "Επιτρέψτε την δυνατότητα αποθήκευσης"
+
+# Default: Allow logged in users to save survey for finishing later.
+msgid "help_allow_save"
+msgstr "Επιτρέψτε στους ταυτοποιημένους χρήστες να αποθηκεύσουν το ερωτηματολόγιο ώστε να το ολοκληρώσουν στο μέλλον."
+
+# Default: edit
+msgid "label_overview_edit"
+msgstr "επεξεργασία"
+
+# Default: contents
+msgid "label_overview_contents"
+msgstr "περιεχόμενα"
+
+# Default: branching
+msgid "label_overview_branching"
+msgstr "διακλάδοση"
+
+# Default: There are no questions on this page.
+msgid "label_overview_no_question"
+msgstr "Δεν υπάρχουν ερωτήσεις στη συγκεκριμένη σελίδα"
+
+# Default: Add Question
+msgid "label_overview_add_question"
+msgstr "Προσθήκη Ερώτησης"
+
+# Default: Add Page
+msgid "label_overview_add_page"
+msgstr "Προσθήκη Σελίδας"
+
+# Default: Question
+msgid "label_matrix_question"
+msgstr "Ερώτηση"
+
+# Default: No users have completed the survey yet.
+msgid "label_no_users_yet"
+msgstr "Το ερωτηματολόγιο δεν έχει συμπληρωθεί ακόμη από κάποιον χρήστη."

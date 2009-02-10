@@ -1,0 +1,6 @@
+[validators]
+validators=respondents_reset
+
+[actions]
+action.success=traverse_to:string:respondents_view
+action.failure=traverse_to:string:respondents_view

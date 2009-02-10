@@ -1,0 +1,6 @@
+[default]
+title=Add an Authenticated Respondent
+
+[actions]
+action.failure=traverse_to:string:manage_authenticated_respondents
+action.success=traverse_to:string:manage_authenticated_respondents

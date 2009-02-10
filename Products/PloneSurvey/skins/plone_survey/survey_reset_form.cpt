@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonesurvey">
+<body>
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+        tal:define="errors python:request.get('errors', {});
+                    Iterator python:modules['Products.CMFPlone'].IndexIterator;
+                    tabindex python:Iterator();">
+
+    <h1 i18n:translate="heading_reset_survey">Reset Survey</h1>
+    <p i18n:translate="desc_reset_survey">
+        This will remove all the answers from the current survey. Are you sure?
+    </p>
+        <form tal:attributes="action template/id">
+            <fieldset>
+                <legend i18n:translate="survey_reset">Survey Reset</legend>
+                <div class="formControls">
+                    <input type="submit" name="reset" value=" Reset " class="standalone"
+                           i18n:attributes="value label_reset"/>
+                </div>
+                <input type="hidden" name="form.submitted" value="1" />
+            </fieldset>
+        </form>
+    </tal:main-macro>
+</metal:main>
+</body>
+</html>

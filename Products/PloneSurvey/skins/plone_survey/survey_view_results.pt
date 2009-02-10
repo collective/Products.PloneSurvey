@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonesurvey">
+
+<body>
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+        tal:define="questions here/getAllQuestionsInOrder"
+	tal:condition="python:user.has_permission('PloneSurvey: View Survey Results',here)">
+
+        <div metal:use-macro="here/document_actions/macros/document_actions" />
+        <h1 i18n:translate="heading_results">Results for survey
+            <span i18n:name="title" tal:replace="here/Title" />
+        </h1>
+        <ul>
+            <li>
+                <a i18n:translate="XXX"
+                   tal:attributes="href string:${here/absolute_url}/survey_barchart">
+                    View survey results in a barchart 
+                </a>
+            </li>
+            <li>
+                <a i18n:translate="view_respondents"
+                   tal:attributes="href string:${here/absolute_url}/respondents_view">
+                    view respondents
+                </a>
+            </li>
+            <li tal:condition="here/getDimensions|nothing">
+                <a i18n:translate="view_dimensions"
+                   tal:attributes="href string:${here/absolute_url}/survey_results_dimensions">
+                    view results as a barchart of dimensions versus score
+                </a>
+            </li>
+            <li tal:condition="nothing">
+                <a i18n:translate="view_questions"
+                   tal:attributes="href string:${here/absolute_url}/survey_results_questions">
+                    view results as a barchart of questions versus score
+                </a>
+            </li>
+
+            <!-- commented out until get summary spreadsheet to work properly <li>
+                <span i18n:translate="download_summary_spreadsheet">download summary spreadsheet</span>
+                (<a tal:attributes="href string:${here/absolute_url}/spreadsheet">csv</a>)
+            </li> -->
+            <li>
+                <span i18n:translate="download_detail_spreadsheet">download detailed spreadsheet</span>
+                (<a href="#" tal:attributes="href string:${here/absolute_url}/spreadsheet2">csv</a>)
+                (<a href="#" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">html</a>)
+            </li>
+            <li>
+                <span i18n:translate="download_detail_selected">download detailed spreadsheet (selection numbers only)</span>
+                (<a href="#" tal:attributes="href string:${here/absolute_url}/spreadsheet3">csv</a>)
+            </li>
+	    <li>
+                <span i18n:translate="XXX-these-descriptions-might-change">download spreadsheet for select questions</span>
+                (<a href="#" tal:attributes="href string:${here/absolute_url}/spreadsheet_select">csv</a>)
+            </li>
+            <li>
+                <span i18n:translate="XXX-these-descriptions-might-change">download spreadsheet for select questions with answers as booleans</span>
+                (<a href="#" tal:attributes="href string:${here/absolute_url}/spreadsheet_select?answers=boolean">csv</a>)
+            </li>
+        </ul>
+    </tal:main-macro>
+    <tal:block
+        tal:condition="python:not user.has_permission('PloneSurvey: View Survey Results',here)">
+        <tal:block replace="here/raiseUnauthorized" />
+    </tal:block>
+</metal:main>
+</body>
+</html>

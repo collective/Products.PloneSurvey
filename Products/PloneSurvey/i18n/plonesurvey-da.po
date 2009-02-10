@@ -1,0 +1,514 @@
+# Original: Not Completed
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2008-08-14 11:17+0100\n"
+"Last-Translator: jakob Bruun <jakob@headnet.dk>\n"
+"Language-Team: EIfEL Team <marc.van.coillie@eife-l.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Code: da\n"
+"Language-Name: Danish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plonesurvey\n"
+
+# Original: " Reset "
+#. <input class="standalone" i18n:attributes="value label_reset" name="reset" type="submit" value=" Reset "/>
+#: ../skins/plone_survey/survey_reset_form.cpt
+msgid "label_reset"
+msgstr "Annuller"
+
+# Original: "Next"
+#. <input class="context" i18n:attributes="value submit_page_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="here/isMultipage" type="submit" value="Next"/>
+#: ../skins/plone_survey/survey_view.cpt
+msgid "submit_page_button"
+msgstr "Næste"
+
+# Original: "-- Please, select --"
+#. <option class="noborder" i18n:translate="Please select" value="">
+#.  -- Please, select --
+#. </option>
+#: ../skins/plone_survey/question_matrix_macro.pt
+msgid "Please select"
+msgstr "-- Vælg --"
+
+# Original: "(Required)"
+#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired|nothing" title="Required">
+#.  (Required)
+#. </span>
+#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired" title="Required">
+#.  (Required)
+#. </span>
+#: ../skins/plone_survey/question_matrix_macro.pt
+#: ../skins/plone_survey/question_macro.pt
+msgid "Required"
+msgstr "(Påkrævet)"
+
+# Original: "Reset"
+#. <input class="context" i18n:attributes="value reset_button" name="submit" tal:attributes="tabindex tabindex/next" type="submit" value="Reset"/>
+#: ../skins/plone_survey/respondents_view.cpt
+msgid "reset_button"
+msgstr "Reset"
+
+# Original: "Reset Survey"
+#. <input class="context" i18n:attributes="value reset_survey_button" name="form.button.reset_survey" tabindex="" tal:attributes="tabindex tabindex/next" type="submit" value="Reset Survey"/>
+#: ../skins/plone_survey/survey_view.cpt
+msgid "reset_survey_button"
+msgstr "Reset survey"
+
+# Original: "Save"
+#. <input class="context" i18n:attributes="value save_button" name="form.button.save" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="nothing" type="submit" value="Save"/>
+#: ../skins/plone_survey/survey_view.cpt
+msgid "save_button"
+msgstr "Gem"
+
+# Original: "Submit"
+#. <input class="context" i18n:attributes="value submit_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="not: here/isMultipage" type="submit" value="Submit"/>
+#: ../skins/plone_survey/survey_view.cpt
+msgid "submit_button"
+msgstr "Send"
+
+# Original: "This will remove all the answers from the current survey. Are you sure?"
+#. <p i18n:translate="desc_reset_survey">
+#.         This will remove all the answers from the current survey. Are you sure?
+#. </p>
+#: ../skins/plone_survey/survey_reset_form.cpt
+msgid "desc_reset_survey"
+msgstr "Dette vil fjerne alle svar fra dette survey. Er du sikker?"
+
+# Original: "This is an overview of the current survey."
+#. <p i18n:translate="desc_survey_overview">
+#.         This is an overview of the current survey.
+#. </p>
+#: ../skins/plone_survey/survey_overview.cpt
+msgid "desc_survey_overview"
+msgstr "Dette er en oversigt over surveyet."
+
+# Original: "detailed spreadsheet"
+#. <a i18n:translate="detailed_spreadsheet" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">
+#.                                 detailed spreadsheet
+#. </a>
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "detailed_spreadsheet"
+msgstr "Detaljeret oversigt"
+
+# Original: "download detailed spreadsheet (selection numbers only)"
+#. <span i18n:translate="download_detail_selected">
+#.  download detailed spreadsheet (selection numbers only)
+#. </span>
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "download_detail_selected"
+msgstr "download detaljeret regneark (valgte numre)"
+
+# Original: "download detailed spreadsheet"
+#. <span i18n:translate="download_detail_spreadsheet">
+#.  download detailed spreadsheet
+#. </span>
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "download_detail_spreadsheet"
+msgstr "download detaljeret oversigt"
+
+# Original: "download summary spreadsheet"
+#. <span i18n:translate="download_summary_spreadsheet">
+#.  download summary spreadsheet
+#. </span>
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "download_summary_spreadsheet"
+msgstr "download sammenfatning"
+
+# Original: "Comments"
+#. <h3 i18n:translate="heading_comments">
+#.  Comments
+#. </h3>
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "heading_comments"
+msgstr "Kommentarer"
+
+# Original: "All comments for ${objective} ${title}"
+#. <h4 i18n:translate="heading_comments_for">
+#.  All comments for
+#.  ${objective}
+#.  ${title}
+#. </h4>
+#: ../skins/plone_survey/comments_view.pt
+msgid "heading_comments_for"
+msgstr "Alle kommentarer til ${objective} ${title}"
+
+# Original: "Reset Survey"
+#. <h1 i18n:translate="heading_reset_survey">
+#.  Reset Survey
+#. </h1>
+#: ../skins/plone_survey/survey_reset_form.cpt
+msgid "heading_reset_survey"
+msgstr ""
+
+# Original: "Survey Overview"
+#. <h1 i18n:translate="heading_survey_overview">
+#.  Survey Overview
+#. </h1>
+#: ../skins/plone_survey/survey_overview.cpt
+msgid "heading_survey_overview"
+msgstr "Survey oversigt"
+
+# Original: "Results for survey ${title}"
+#. <h1 i18n:translate="heading_results">
+#.  Results for survey
+#.  ${title}
+#. </h1>
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "heading_results"
+msgstr "Resultater for survey: ${title}"
+
+# Original: "Survey Contents"
+#. <h5 i18n:translate="heading_survey_contents">
+#.  Survey Contents
+#. </h5>
+#: ../skins/plone_survey/portlet_questions.pt
+msgid "heading_survey_contents"
+msgstr "Survey indhold"
+
+#  <h2 i18n:translate="heading_totals_for">Totals for
+#    <span tal:replace="question/Title"
+#      tal:omit-tag=""
+#      i18n:name="title" />:
+#  </h2>
+# Original: "Totals for ${title}:"
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "heading_totals_for"
+msgstr "Total for ${title}:"
+
+# Default: Enter the options you want to be available to the user here. Press enter to seperate the options.
+msgid "help_answer_options"
+msgstr "Skriv de mulige svar her. Brug enter til at seperere svarmulighederne"
+
+# Default: The comment label.
+msgid "help_comment_label"
+msgstr "Kommentar."
+
+# Default: Add a short description of the survey here.
+msgid "help_description"
+msgstr "En kort beskrivelse af surveyet her."
+
+# Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
+msgid "help_exit_url"
+msgstr "Dette er den URL, som brugeren vil blive henvist til når han har afsluttet surveyet. Brug \"http://site.to.go.to/page\" eller \"route/to/page\" hvis siden ligger på dette site."
+
+# Default: Please select what type of input you would like to use for this question.
+msgid "help_input_type"
+msgstr ""
+
+# Default: Select what type of comment box you would like.
+msgid "help_label_comment_type"
+msgstr ""
+
+# Default: The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally.
+msgid "help_previous_question"
+msgstr ""
+
+# Default: Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed.
+msgid "help_previous_question_answer"
+msgstr ""
+
+# Default: Check this box if the required answer should be selected for this Sub Survey to be displayed.
+msgid "help_previous_question_answer_yes_no"
+msgstr ""
+
+# Default: Add a long description of the question here, to clarify any details.
+msgid "help_question_description"
+msgstr ""
+
+# Default: Select if this question is required, meaning participant must give a response.
+msgid "help_required"
+msgstr ""
+
+# Default: Enter an email address to receive notifications of survey completions.
+msgid "help_survey_notification_email"
+msgstr ""
+
+# Default: Select a method to receive notification emails.
+msgid "help_survey_notification_method"
+msgstr ""
+
+# Default: Enter a number of columns for this field (width of the field in the characters)
+msgid "help_text_cols"
+msgstr ""
+
+# Default: Enter a number of rows for this field. This value is applicable only in the Text Area input type
+msgid "help_text_rows"
+msgstr ""
+
+# Default: This is the message that will be displayed to the user when they complete the survey.
+msgid "help_thankyou"
+msgstr ""
+
+# Default: Enter a title.
+msgid "help_title"
+msgstr ""
+
+# Default: Select a validation for this question
+msgid "help_validation"
+msgstr ""
+
+# Default: Email on each submission
+msgid "label_all_emails"
+msgstr ""
+
+# Default: Allow Anonymous
+msgid "label_allow_anonymous"
+msgstr ""
+
+# Default: Answer options
+msgid "label_answer_options"
+msgstr ""
+
+# Default: Check Boxes
+msgid "label_check_boxes"
+msgstr ""
+
+# Default: Comment label
+msgid "label_comment_label"
+msgstr ""
+
+# Default: Comment Type
+msgid "label_comment_type"
+msgstr ""
+
+# Default: Survey description
+msgid "label_description"
+msgstr ""
+
+# Default: Exit URL
+msgid "label_exit_url"
+msgstr ""
+
+# Default: Input Type
+msgid "label_input_type"
+msgstr "Inputtype"
+
+# Default: Add survey status to the survey title (open, closed)?
+msgid "label_modify_title"
+msgstr ""
+
+# Default: Multiple Selection Box
+msgid "label_multiple_selection_box"
+msgstr ""
+
+# Default: No emails
+msgid "label_no_emails"
+msgstr "ingen email"
+
+# Default: Conditional Question
+msgid "label_previous_question"
+msgstr ""
+
+# Default: Required Answer
+msgid "label_previous_question_answer"
+msgstr "Svar påkrævet"
+
+# Default: Use Required Answer?
+msgid "label_previous_question_answer_yes_no"
+msgstr ""
+
+# Default: Description
+msgid "label_question_description"
+msgstr ""
+
+# Default: Radio Buttons
+msgid "label_radio_buttons"
+msgstr ""
+
+# Default: Required
+msgid "label_required"
+msgstr "Påkrævet"
+
+# Default: 'Saved' message test
+msgid "label_saved_text"
+msgstr ""
+
+# Default: Selection Box
+msgid "label_selection_box"
+msgstr ""
+
+# Default: Closed
+msgid "label_survey_closed"
+msgstr "Slut"
+
+# Default: Survey Notification Email Address
+msgid "label_survey_notification_email"
+msgstr "Enquête notificatie-emailadres"
+
+# Default: Survey Notification Method
+msgid "label_survey_notification_method"
+msgstr ""
+
+# Default: Open
+msgid "label_survey_open"
+msgstr "Åben"
+
+# Default: Survey currently
+msgid "label_survey_status"
+msgstr ""
+
+# Default: Text Area
+msgid "label_text_area"
+msgstr "Tekstbox"
+
+# Default: Cols (width in characters)
+msgid "label_text_cols"
+msgstr "Kollonner (bredde i karakterer)"
+
+# Default: Text Field
+msgid "label_text_field"
+msgstr "Tekstfelt"
+
+# Default: Rows (number of lines)
+msgid "label_text_rows"
+msgstr "Rækker (antal linjer)"
+
+# Default: 'Thank you' message text
+msgid "label_thank"
+msgstr "Tak"
+
+# Default: Title
+msgid "label_title"
+msgstr "Titel"
+
+# Default: Validation
+msgid "label_validation"
+msgstr "Validering"
+
+# Original: "You have already filled in this survey"
+#. <legend i18n:translate="legend_already_completed">
+#.  You have already filled in this survey
+#. </legend>
+#: ../skins/plone_survey/survey_view.cpt
+msgid "legend_already_completed"
+msgstr "Du har allerede udfyldt dette survey."
+
+# Original: "Question details"
+#. <legend i18n:translate="legend_question_details">
+#.  Question details
+#. </legend>
+#: ../skins/plone_survey/survey_view.cpt
+msgid "legend_question_details"
+msgstr ""
+
+# Original: "Reset Users"
+#. <legend i18n:translate="reset_users">
+#.  Reset Users
+#. </legend>
+#: ../skins/plone_survey/respondents_view.cpt
+msgid "reset_users"
+msgstr ""
+
+# Original: "Respondents for survey"
+#. <span i18n:translate="respondents_for_survey">
+#.  Respondents for survey
+#. </span>
+#: ../skins/plone_survey/respondents_view.cpt
+msgid "respondents_for_survey"
+msgstr "Surveyets respondenter"
+
+# Original: "Survey Reset"
+#. <legend i18n:translate="survey_reset">
+#.  Survey Reset
+#. </legend>
+#: ../skins/plone_survey/survey_reset_form.cpt
+msgid "survey_reset"
+msgstr ""
+
+# Default: Please correct the errors shown
+msgid "text_correct_errors"
+msgstr "Ret venligst de markerede fejl."
+
+# Default: You have saved the survey. Don't forget to come back and finish it.
+msgid "text_default_saved_message"
+msgstr "Du har gemt surveyet. Glem ikke at kome tilbage og gøre det færdigt."
+
+# Default: Thank you for completing the survey.
+msgid "text_default_thank_you"
+msgstr "Tak fordi du færdiggjorde surveyet."
+
+# Default: Survey did not reset correctly
+msgid "text_survey_reset_error"
+msgstr ""
+
+# Default: Survey has been reset
+msgid "text_survey_reset_success"
+msgstr ""
+
+# Default: ${users} have been reset
+msgid "text_survey_users_reset_error"
+msgstr ""
+
+# Original: "view comments in full..."
+#. <a i18n:translate="view_comments_in_full" tal:attributes="href string:${here/absolute_url}/comments_view">
+#.  view comments in full...
+#. </a>
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "view_comments_in_full"
+msgstr "Se kommentarer (fuld visning)"
+
+# Original: "view respondents"
+#. <a i18n:translate="view_respondents" tal:attributes="href string:${here/absolute_url}/respondents_view">
+#.                     view respondents
+#. </a>
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "view_respondents"
+msgstr "Se respondenter"
+
+# Default: Enter an introduction for the survey.
+msgid "help_introduction"
+msgstr "En indledende tekst til surveyet."
+
+# Default: Survey introduction
+msgid "label_introduction"
+msgstr "Indledning"
+
+# THESE WERE ADDED FOR 31.10.2006
+# Default: This is the message that will be displayed to the user when they save the survey, but don't submit it.
+msgid "help_saved_text"
+msgstr "Dette er bedsken til brugere der gemmer surveyet men ikke indsender det."
+
+# Default: Allow Save Functionality
+msgid "label_allow_save"
+msgstr "Tillad gem"
+
+# Default: Allow logged in users to save survey for finishing later.
+msgid "help_allow_save"
+msgstr "Skal brugere der er logget ind kunne gemme surveyet og gøre det færdigt senere?."
+
+# Default: edit
+msgid "label_overview_edit"
+msgstr "rediger"
+
+# Default: contents
+msgid "label_overview_contents"
+msgstr "inhold"
+
+# Default: branching
+msgid "label_overview_branching"
+msgstr ""
+
+# Default: There are no questions on this page.
+msgid "label_overview_no_question"
+msgstr "Der e ringen spørgsmål på denne side."
+
+# Default: Add Question
+msgid "label_overview_add_question"
+msgstr "Tilføj spørgsmål"
+
+# Default: Add Page
+msgid "label_overview_add_page"
+msgstr "Tilføj side"
+
+# Default: Question
+msgid "label_matrix_question"
+msgstr "Spørgsmål"
+
+# Default: No users have completed the survey yet.
+msgid "label_no_users_yet"
+msgstr "Ingen brugere endnu."
+

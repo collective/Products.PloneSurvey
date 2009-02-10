@@ -1,0 +1,47 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plonesurvey">
+<body>
+
+<!-- The Survey navigation box -->
+
+<div metal:define-macro="portlet"
+     tal:define="survey_root here/getSurveyRoot;"
+     tal:condition="python:survey_root and survey_root.isMultipage()">
+
+    <div class="portlet"
+       tal:define="sub_surveys python: survey_root.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True);
+                   member_id survey_root/getSurveyId">
+
+        <h5 i18n:translate="heading_survey_contents">Survey Contents</h5>
+
+        <div class="portletBody">
+            <div class="portletContent odd">
+                <tal:block tal:define="iscurrent python: survey_root.absolute_url() == here.absolute_url();
+                                       completed python:survey_root.checkCompletedFor(member_id)">
+                    <a tal:attributes="href survey_root/absolute_url">
+                       <img tal:attributes='src python: test(completed, "SurveyIcon_Ticked.gif", "SurveyIcon_Empty.gif");
+                                            alt python: test(completed, "completed", "incomplete")'/>
+                       &nbsp;<span tal:attributes="class python: test(iscurrent, 'currentNavItem', None)"
+                                   tal:content="survey_root/title" />
+                    </a>
+                </tal:block>
+            </div>
+            <div class="portletContent odd"
+                 tal:repeat="sub_survey sub_surveys">
+                <tal:block tal:define="iscurrent python: sub_survey.absolute_url() == here.absolute_url();
+                                       completed sub_survey/checkCompleted">
+                    <a tal:attributes="href sub_survey/absolute_url">
+                       <img tal:attributes='src python: test(completed, "SurveyIcon_Ticked.gif", "SurveyIcon_Empty.gif");
+                                            alt python: test(completed, "completed", "incomplete")'/>
+                       &nbsp;<span tal:attributes="class python: test(iscurrent, 'currentNavItem', None)"
+                                   tal:content="sub_survey/title" />
+                    </a>
+                </tal:block>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

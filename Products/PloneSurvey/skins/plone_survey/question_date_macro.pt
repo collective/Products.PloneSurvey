@@ -1,0 +1,80 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plonesurvey">
+<body>
+<div class="fieldWrapper"
+     metal:define-macro="question"
+     tal:define="qid question/getId;
+                 helpid string:${qid}_help;
+                 answer python: request.get(qid, None) or question.getAnswerFor(member_id)">
+    <script type="text/javascript" charset="iso-8859-1"
+            tal:attributes="src string:$portal_url/jscalendar/calendar_stripped.js">
+    </script>
+    <script type="text/javascript" charset="iso-8859-1"
+            tal:attributes="src string:$portal_url/jscalendar/calendar-en.js">
+    </script>
+
+    <h2 class="questionTitle">
+        <label tal:attributes="for qid"
+               tal:content="question/Title" />
+        <span class="fieldRequired"
+              title="Required"
+              tal:condition="python:question.getRequired()"
+              i18n:translate="Required">(Required)</span>
+    </h2>
+
+    <div class="formHelp"
+         tal:attributes="id helpid"
+         tal:content="question/Description" />
+        <div tal:condition="python:question.getBody() and question.getTextLocation() == 2"
+             tal:content="structure question/getBody" />
+    <div tal:define="error errors/?qid|nothing"
+         tal:attributes="class python:test(error, 'field error', 'field')">
+        <div tal:content="error" />
+
+    </div>
+
+    <div tal:define="formname string:survey_view;
+                     inputname question/id;
+                     inputvalue python:DateTime();
+                     show_ymd question/getShowYMD;
+                     show_hm question/getShowHM;
+                     starting_year question/getStartingYear;
+                     ending_year question/getEndingYear;
+                     future_years question/getFutureYears;">
+         <div metal:use-macro="here/calendar_macros/macros/calendarDatePickerBox" />
+    </div>
+
+    <div class="field"
+         tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()"
+         tal:define="name string:${qid}_comments;
+                     error errors/?qid_comments|nothing"
+         tal:attributes="class python:test(error, 'field error', 'field')">
+
+        <div tal:content="question/getCommentLabel">Comment - mandatory if "no"</div>
+
+        <textarea cols="28"
+                  rows="6"
+                  tal:content="python:request.get(name,'') or question.getCommentsFor(member_id)"
+                  tal:attributes="tabindex tabindex/next;
+                                  name name"
+                  tal:condition="python: question.getCommentType()=='area'" />
+        <input type="text"
+               tal:attributes="name name;
+                               tabindex tabindex/next;
+                               value python:request.get(name,'') or question.getCommentsFor(member_id)"
+               tal:condition="python: question.getCommentType()=='text'"/>
+    </div>
+</div>
+<dl metal:define-macro="display">
+    <dt tal:content="question/Title" />
+    <dd tal:content="python: question.getAnswerFor(member_id)" />
+    <div tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()"
+         tal:omit-tag="">
+        <dt>Comment</dt>
+        <dd tal:content="python: question.getCommentsFor(member_id) or 'No Comment'" />
+    </div>
+</dl>
+</body>
+</html>
+

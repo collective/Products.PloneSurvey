@@ -1,0 +1,96 @@
+# Brazilian Portuguese translation.
+# Luis Flavio Loreto da Rocha <lflrocha@gmail.com>, 2007.
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2006-06-27 20:42+0000\n"
+"PO-Revision-Date: 2007-01-10 09:58-0200\n"
+"Last-Translator: Luis Flavio Rocha <lflrocha@gmail.com>\n"
+"Language-Team: Portuguese/Brazil <tchezope@tchezope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: pt-br\n"
+"Language-Name: Português do Brasil\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+#: ../content/Survey.py
+# Default: Survey
+msgid "Survey"
+msgstr "Questionário"
+
+#: ../content/SubSurvey.py
+# Default: Sub Survey
+msgid "Sub Survey"
+msgstr "Sub Questionário"
+
+#: ../content/SurveyQuestion.py
+# Default: Survey Question
+msgid "Survey Question"
+msgstr "Questão"
+
+#: ../content/SurveyLikertQuestion.py
+# Default: Survey Likert Question
+msgid "Survey Likert Question"
+msgstr "Questão Likert"
+
+#: ../content/SurveyMatrix.py
+# Default: Survey Matrix
+msgid "Survey Matrix"
+msgstr "Questionário em Matriz"
+
+#: ../content/SurveySelectQuestion.py
+# Default: Survey Select Question
+msgid "Survey Select Question"
+msgstr "Questão de seleção"
+
+#: ../content/SurveyTextQuestion.py
+# Default: Survey Text Question
+msgid "Survey Text Question"
+msgstr "Questão de texto"
+
+#: ../content/BaseQuestion.py
+# Default: Comment Field
+msgid "Comment Field"
+msgstr "Comentário"
+
+#: ../content/BaseQuestion.py
+# Default: Introduction
+msgid "Introduction"
+msgstr "Introdução"
+
+#: ../content/Survey.py
+# Default: Results
+msgid "Results"
+msgstr "Resultado"
+
+#: ../content/Survey.py
+# Default: Reset
+msgid "Reset"
+msgstr "Reiniciar"
+
+#: ../content/Survey.py
+# Default: Overview
+msgid "Overview"
+msgstr "Visão geral"
+
+# THESE WERE ADDED 31.10.2006
+# Default: default
+msgid "default"
+msgstr "padrão"
+
+# Default: Branching
+msgid "Branching"
+msgstr ""
+
+# Default: None
+msgid "None"
+msgstr "Nenhum"
+
+# Default: Survey Matrix Question
+msgid "Survey Matrix Question"
+msgstr "Questão em Matriz"
+

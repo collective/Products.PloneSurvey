@@ -1,0 +1,6 @@
+[validators]
+validators=survey_reset
+
+[actions]
+action.success=traverse_to:string:survey_view
+action.failure=traverse_to:string:survey_reset_form

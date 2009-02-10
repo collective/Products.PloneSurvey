@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object name="portal_factory" meta_type="Plone Factory Tool">
+  <factorytypes>
+    <type portal_type="Survey" />
+    <type portal_type="Sub Survey" />
+    <type portal_type="Survey Date Question" />
+    <type portal_type="Survey Matrix" />
+    <type portal_type="Survey Matrix Question" />
+    <type portal_type="Survey Select Question" />
+    <type portal_type="Survey Text Question" />
+    <type portal_type="Survey Two Dimensional" />
+    <type portal_type="Survey 2-Dimensional Question" />
+  </factorytypes>
+</object>
