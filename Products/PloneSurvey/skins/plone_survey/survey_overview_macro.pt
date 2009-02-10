@@ -1,0 +1,46 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plonesurvey">
+<body>
+<div metal:define-macro="question_overview">
+
+    <h4 tal:define="question_wf_state question/review_state|python: wtool.getInfoFor(question, 'review_state', '');
+                    question_wf_state_class python:'state-' + normalizeString(question_wf_state);"
+        tal:attributes="class question_wf_state_class">
+        <span tal:content="question/getId" />:
+        <span tal:content="question/Title" />
+        <span class="fieldRequired"
+              title="Required"
+              tal:condition="question/getRequired"
+              i18n:translate="Required">(Required)</span>
+    </h4>
+    <form method="post"
+          tal:attributes="action string:${question/absolute_url}/base_edit">
+        <input class="context"
+              type="submit"
+              value="Edit Question"
+              tal:attributes="tabindex tabindex/next;"
+              i18n:attributes="value XXX"
+              />
+        </form>
+    <div class="formHelp"
+         tal:content="question/Description" />
+    <ul>
+        <li tal:content="question/portal_type" />
+        <li tal:content="question/getInputType" />
+        <li tal:condition="python:hasattr(question, 'getQuestionOptions') and len(question.getQuestionOptions()) > 0"
+            tal:content="question/getQuestionOptions" />
+        <li tal:condition="python:hasattr(question, 'getValidation') and question.getValidation() != 'None'"
+            tal:content="question/getValidation" />
+        <li tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()">
+            <span i18n="XXX">Comment:</span>
+            <ul>
+                <li tal:content="question/getCommentLabel" />
+                <li tal:content="question/getCommentType" />
+            </ul>
+        </li>
+    </ul>
+
+</div>
+</body>
+</html>

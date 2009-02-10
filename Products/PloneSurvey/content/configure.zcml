@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/five">
+
+  <deprecatedManageAddDelete
+      class=".Survey.Survey" />
+  <deprecatedManageAddDelete
+      class=".SubSurvey.SubSurvey" />
+  <deprecatedManageAddDelete
+      class=".BaseQuestion.BaseQuestion" />
+  <deprecatedManageAddDelete
+      class=".SurveyMatrix.SurveyMatrix" />
+  <deprecatedManageAddDelete
+      class=".SurveyMatrixQuestion.SurveyMatrixQuestion" />
+  <deprecatedManageAddDelete
+      class=".SurveySelectQuestion.SurveySelectQuestion" />
+  <deprecatedManageAddDelete
+      class=".SurveyTextQuestion.SurveyTextQuestion" />
+
+</configure>

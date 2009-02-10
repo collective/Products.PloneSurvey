@@ -1,0 +1,126 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonesurvey">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+        tal:define="errors python:request.get('errors', {});
+                    Iterator python:modules['Products.CMFPlone'].IndexIterator;
+                    tabindex python:Iterator();
+                    pages python:here.getFolderContents(
+                        contentFilter={'portal_type':['Sub Survey',]},
+                            full_objects=True);">
+
+        <div metal:use-macro="here/document_actions/macros/document_actions" />
+        <h1 i18n:translate="heading_survey_overview">Survey Overview</h1>
+        <form style="float: left;"
+              method="post"
+              tal:attributes="action string:${here/absolute_url}/base_edit">
+            <input class="context"
+                   type="submit"
+                   value="Edit Survey"
+                   tal:attributes="tabindex tabindex/next;"
+                   i18n:attributes="value label_overview_edit"
+                   />
+        </form>
+        <form method="post"
+              tal:attributes="action string:${here/absolute_url}/folder_contents">
+            <input class="context"
+                   type="submit"
+                   value="Survey Contents"
+                   tal:attributes="tabindex tabindex/next;"
+                   i18n:attributes="value label_overview_contents"
+                   />
+        </form>
+        <div class="documentDescription"
+             i18n:translate="desc_survey_overview">
+            This is an overview of the current survey:
+            <span i18n:name="title" tal:replace="here/Title" />
+        </div>
+        <div class="formHelp"
+             tal:content="here/Description" />
+        <div tal:condition="here/body"
+             tal:content="structure here/body" />
+        <hr />
+        <div tal:define="questions here/getQuestions"
+             tal:repeat="question questions">
+            <div metal:use-macro="here/survey_overview_macro/macros/question_overview" />
+        </div>
+        <form method="post"
+              tal:attributes="action string:${here/absolute_url}/folder_factories">
+            <input class="context"
+                   type="submit"
+                   value="Add Question"
+                   tal:attributes="tabindex tabindex/next;"
+                   i18n:attributes="value label_overview_add_question"
+                   />
+        </form>
+        <div tal:repeat="page pages">
+            <h2 tal:define="page_wf_state page/review_state|python: wtool.getInfoFor(page, 'review_state', '');
+                            page_wf_state_class python:'state-' + normalizeString(page_wf_state);"
+                tal:attributes="class page_wf_state_class"
+                tal:content="page/Title" />
+            <form style="float: left;"
+                  method="post"
+                  tal:attributes="action string:${here/absolute_url}/${page/getId}/base_edit">
+                <input class="context"
+                       type="submit"
+                       value="Edit Page"
+                       tal:attributes="tabindex tabindex/next;"
+                       i18n:attributes="value label_overview_edit"
+                       />
+            </form>
+            <form method="post"
+                  tal:attributes="action string:${here/absolute_url}/${page/getId}/folder_contents">
+                <input class="context"
+                       type="submit"
+                       value="Page Contents"
+                       tal:attributes="tabindex tabindex/next;"
+                       i18n:attributes="value label_overview_contents"
+                       />
+            </form>
+            <p class="documentDescription"
+               tal:condition="page/getRequiredQuestion">
+                <span i18n:translate="label_overview_branching">Branching:</span>
+                <span tal:replace="page/getRequiredQuestion" />
+                <span i18n:translate=""
+                      tal:content="python:test(page.getRequiredAnswerYesNo(), 'is', 'is not')" />
+                <span tal:replace="page/getRequiredAnswer" />
+            </p>
+            <p class="formHelp"
+               tal:condition="page/Description"
+               tal:content="page/Description" />
+            <div tal:define="questions page/getQuestions"
+                 tal:repeat="question questions">
+                <div metal:use-macro="here/survey_overview_macro/macros/question_overview" />
+            </div>
+            <div tal:condition="not:page/getQuestions" i18n:translate="label_overview_no_question">
+                There are no questions on this page.
+            </div>
+            <form method="post"
+                  tal:attributes="action string:${here/absolute_url}/${page/getId}/folder_factories">
+                <input class="context"
+                       type="submit"
+                       value="Add Question"
+                       tal:attributes="tabindex tabindex/next;"
+                       i18n:attributes="value label_overview_add_question"
+                       />
+            </form>
+        </div>
+        <hr />
+        <form method="post"
+              tal:attributes="action string:${here/absolute_url}/createObject">
+            <input type="hidden" value="Sub Survey" name="type_name"/>
+            <input class="context"
+                   type="submit"
+                   value="Add Page"
+                   tal:attributes="tabindex tabindex/next;"
+                   i18n:attributes="value label_overview_add_page"
+                   />
+        </form>
+    </tal:main-macro>
+</metal:main>
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿Credits
+
+Original CMFQuestions Development:
+
+  Main development -- 
+  Seb Bacon, "Jamkit":http://www.jamkit.com
+
+  Sponsored by -- 
+  Defense Academy UK
+
+  UI tweaks --
+  Alexander Limi, "Plone Solutions":http://www.plonesolutions.com
+
+  Enhancements -- 
+  Adam Ullman, "aullman@users.sourceforge.net":mailto:aullman@users.sourceforge.net
+
+PloneSurvey Development:
+
+  Migration to Archetypes --
+  Michael Davis, "Cranfield University":mailto:m.r.davis@cranfield.ac.uk
+
+  Product rename, bug testing --
+  Wendy Chin, "Cranfield University":mailto:w.chin@cranfield.ac.uk
+
+  bug fixes, i18n, small improvements, usability
+  Radim Novotny, "CoreNet Solutions":mailto:radim.novotny@corenet.cz
+
+  testing, bug fixes, small improvements --
+  Jin Tan, "Cranfield University":mailto:J.Tan@cranfield.ac.uk
+
+  Large scale testing, minor bug fixes leading to 1.1 release --
+  Nick Davis, "University of Leicester":mailto:nd51@leicester.ac.uk
+
+  ReportLab integration, two dimensional questions, answer weighting, authenticated respondents, survey dimensions
+  Hedley Roos
+
+  i18n testing
+  Paul Roeland
+
+Translations
+
+  Czech Translation
+  Radim Novotny, "CoreNet Solutions":mailto:radim.novotny@corenet.cz
+
+  German translation
+  Eggert Ehmke, Sven Deichmann
+
+  Polish translation and i18n fixs
+  Piotr Furman - webservice.pl
+
+  French translation
+  Marc Van Coillie, Yves Moisan
+
+  Brasilian Portuguese translation
+  Luís Flávio Rocha
+
+  Italian translation
+  Massimo Azzolini
+
+  Dutch translation
+  Pander
+
+  Spanish translation
+  Héctor Velarde, "La Jornada":mailto:hvelarde@jornada.com.mx

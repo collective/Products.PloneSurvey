@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+ <object name="plone_survey" meta_type="Filesystem Directory View"
+    directory="PloneSurvey/skins/plone_survey"/>
+  <skin-path name="*">
+    <layer name="plone_survey"/>
+  </skin-path>
+</object>

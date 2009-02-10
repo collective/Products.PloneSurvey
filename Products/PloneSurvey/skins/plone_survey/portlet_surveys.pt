@@ -1,0 +1,23 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plonesurvey">
+<body>
+<div metal:define-macro="portlet"
+     tal:define="results python:context.portal_catalog.searchResults(portal_type = ['Survey',])"
+     tal:condition="results">
+    <dl class="portlet" id="portlet-surveys">
+        <dt class="portletHeader">
+            <span>Surveys</span>
+        </dt>
+        <dd tal:repeat="result results">
+            <a class="tile"
+               tal:attributes="href result/getURL;
+                               title result/Description">
+                <img tal:attributes="src result/getIcon"/>
+                <span tal:replace="result/pretty_title_or_id" />
+            </a>
+        </dd>
+    </dl>
+</div>
+</body>
+</html>

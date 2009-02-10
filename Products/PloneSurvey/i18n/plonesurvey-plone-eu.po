@@ -1,0 +1,96 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2006-06-27 20:42+0000\n"
+"PO-Revision-Date: 2007-02-09 11:57+0100\n"
+"Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: eu\n"
+"Language-Name: Basque\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+# Default: Survey
+#: ../content/Survey.py
+msgid "Survey"
+msgstr "Inkesta"
+
+# Default: Sub Survey
+#: ../content/SubSurvey.py
+msgid "Sub Survey"
+msgstr "Azpi inkesta"
+
+# Default: Survey Question
+#: ../content/SurveyQuestion.py
+msgid "Survey Question"
+msgstr "Galdera"
+
+# Default: Survey Likert Question
+#: ../content/SurveyLikertQuestion.py
+msgid "Survey Likert Question"
+msgstr ""
+
+# Default: Survey Matrix
+#: ../content/SurveyMatrix.py
+msgid "Survey Matrix"
+msgstr ""
+
+# Default: Survey Select Question
+#: ../content/SurveySelectQuestion.py
+msgid "Survey Select Question"
+msgstr "Erantzuna aukeratzeko galdera"
+
+# Default: Survey Text Question
+#: ../content/SurveyTextQuestion.py
+msgid "Survey Text Question"
+msgstr "Testua sartzeko galdera"
+
+# Default: Comment Field
+#: ../content/BaseQuestion.py
+msgid "Comment Field"
+msgstr "Iruzkin eremua"
+
+# Default: Introduction
+#: ../content/BaseQuestion.py
+msgid "Introduction"
+msgstr "Sarrera"
+
+# Default: Results
+#: ../content/Survey.py
+msgid "Results"
+msgstr "Emaitzak"
+
+# Default: Reset
+#: ../content/Survey.py
+msgid "Reset"
+msgstr "Berrezarri"
+
+# Default: Overview
+#: ../content/Survey.py
+msgid "Overview"
+msgstr ""
+
+# THESE WERE ADDED 31.10.2006
+# Default: default
+msgid "default"
+msgstr ""
+
+# Default: Branching
+msgid "Branching"
+msgstr ""
+
+# Default: None
+msgid "None"
+msgstr "Bat ere ez"
+
+# Default: Survey Matrix Question
+msgid "Survey Matrix Question"
+msgstr ""
+

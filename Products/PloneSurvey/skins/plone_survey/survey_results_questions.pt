@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonesurvey">
+
+<body>
+<metal:main fill-slot="main">
+  <tal:def define="dimensions python:request.get('dimensions', [])"
+           condition="dimensions">
+    <b>Dimension filter:</b> <span tal:replace="python:', '.join(dimensions)"/>
+    <br/>
+  </tal:def>
+  <img tal:attributes="src string:${here/absolute_url}/results_questions?${request/QUERY_STRING}"/>
+  <br/>
+
+  <tal:questions repeat="question python:context.get_all_questions_in_order_filtered(
+    include_sub_survey=False,
+    dimensions=request.get('dimensions',[]),
+    ignore_meta_types=('SurveyMatrix', 'SurveyTwoDimensional'),
+    ignore_input_types=('text', 'area'))">
+
+    <b><span tal:replace="repeat/question/number"/>. 
+    <span tal:replace="question/title_or_id"/></b><br>
+    
+    <tal:def define="stats_dict question/get_question_stats;
+                     aggr question/getAggregateAnswers">
+     <table>
+         
+       <tr>
+         <td>Option</td>
+         <td>Weight</td>
+         <td>How many respondents chose this option?</td>
+       </tr>
+             
+       <tal:loop repeat="key python:aggr.keys()">
+         <tr>
+           <td><span tal:replace="key"/></td>
+           <td tal:content="python:question.getWeightFor(key)"></td>
+           <td><span tal:replace="python:aggr[key]"/></td>
+         </tr>
+       </tal:loop>
+     
+       <tr><td colspan="3" style="height: 1px;border-top:solid 1px black;"></td></tr>
+
+       <tr>
+         <td colspan="2"><i>Total number of respondents:</i></td>
+         <td><i tal:content="question/getNumberOfRespondents"></i></td>
+       </tr>                    
+       
+       <tr><td colspan="3" style="height: 1px;border-top:solid 1px black;"></td></tr>
+       
+       <tr>
+         <td colspan="2"><i>Average:</i></td>
+         <td>
+           <i><span tal:replace="python:'%.1f' % stats_dict['weighted_average_percentage']"/></i>
+         </td>
+       </tr>
+      </table>
+
+      <br/>
+    </tal:def>
+        
+  </tal:questions>
+
+  <tal:twod define="questions python:context.get_all_questions_in_order_filtered(
+                        include_sub_survey=False,
+                        dimensions=request.get('dimensions',[]),
+                        restrict_meta_types=('SurveyTwoDimensional',))"
+            condition="questions">
+    <h2>Two Dimensional Questions</h2>
+    <tal:loop repeat="question questions">
+      <b tal:content="question/title_or_id"></b><br/>
+      <img tal:attributes="src string:${question/absolute_url}/get_2d_chart"/>
+      <br/>
+    </tal:loop>
+  </tal:twod>
+  
+</metal:main>
+</body>
+</html>

@@ -1,0 +1,205 @@
+﻿1.3.0 - SVN/unreleased
+==================
+
+1.2.2 - SVN/unreleased
+==================
+
+1.2.1 - 2008-05-21
+==================
+
+  * Bugfixes, minor functionality improvements
+    [Michael Davis]
+
+  * Updated French translation
+    [Yves Moisan]
+
+  * Spanish translation
+    [Héctor Velarde]
+
+1.2.0 - 2007-10-15
+==================
+
+  * Bug fixes, minor improvements etc during Naples Sprint
+    [Michael Davis, Nick Davis, Paul Roeland]
+
+  * ReportLab integration, two dimensional questions, answer weighting, authenticated respondents, survey dimensions
+    [Hedley Roos]
+
+  * Italian translation
+    [Massimo Azzolini]
+
+  * Dutch translation
+    [Pander]
+
+  * Brasilian Portuguese translation
+    [Luís Flávio Rocha]
+
+  * Update to German translation
+    [Sven Deichmann]
+
+  * Add Likert scale functionality to types
+    [Michael Davis]
+
+  * Sub class types from ATContentTypes
+    [Michael Davis]
+
+  * Implement generic setup
+    [Michael Davis] 
+
+  * Remove backward compatibility with 1.0
+    [Michael Davis] 
+
+1.1.0 - 21/12/06
+==================
+  * Fix spreadsheet bugs (see resolved issues in tracker)
+    [Michael Davis,Nick Davis] 
+
+  * Remove sub survey from navigation portlet
+    [Michael Davis]
+
+  * Deprecate Survey Likert Question
+    [Michael Davis]
+
+  * Add French translation from Marc Van Coillie
+    [Michael Davis]
+
+  * Add max length for text questions
+    [Michael Davis]
+
+  * Add Polish translation and some i18n fixes
+    [Piotr Furman]
+
+  * Add save functionality
+    [Michael Davis]
+
+  * Convert answers to OOBTree
+    [Michael Davis]
+
+  * Tidy overview template, and add functionality to it
+    [Michael Davis]
+
+  * On the overview template, add links to edit function 
+    [Jin Tan]
+ 
+  * fixed the overview information: sub survey
+    [Jin Tan]
+
+  * Add German po file from Eggert Ehmke
+    [Jin Tan]
+
+  * fixed the overview information: sub survey and branching
+    [Jin Tan]
+
+  * Add overview for user function
+    [Jin Tan]
+
+  * Add method to return questions in correct order
+    [Jin Tan]
+
+  * Remove required field from Survey Matrix and use BaseQuestion abstract
+    [Jin Tan]
+
+  * Don't validate non required fields with no value
+    [Jin Tan]
+
+  * Move getColors to survey root
+    [davismr]
+
+  * Add css file to portal_css
+    [davismr]
+
+  * Add test framework and some basic tests
+    [davismr]
+
+  * Radio buttons and Check boxes are using <label> tag to easy select of item (it is possible
+    to click to the text of the answer, not only to the small area of the circle or box)
+    [naro]
+
+  * removed obsolete i18n files and created new one. Added initial Czech translation.
+    [naro]
+
+  * fixed some errors in SubSurveys caused by using getFolderContents without full_objects parameter.
+    [naro]
+
+  * fixed UnknownValidator error (validator may be empty string sometimes)
+    [naro]
+
+  * fixed some templates - not all question types has Comment field now.
+    [naro]
+
+  * Added rows and cols fields to the SurveyTextQuestion type and fixed text and textarea 
+    macros (question_macro). It is possible to modify number of rows of the textarea field
+    and number of columns of the Text field. Number of columns of the textarea seems to be
+    ignored (or overriden by the Plone CSS).
+    [naro]
+
+  * Added Survey configuration field - modifyTitle. According to this field settings,
+    survey title is extended with the current survey status (open) (closed). 
+    Default behaviour is the same as before (extend title with the status).
+    [naro]
+
+  * Add new types for question matrix and rough macro for view
+    [davismr]
+
+  * Disable enabling objective field
+    [davismr]
+
+  * Change get FolderListingFolderContents to getFolderContents
+    [davismr]
+
+  * Add new questions to view and results
+    [davismr]
+
+  * Add switch for deprecating SurveyQuestion
+    [davismr]
+
+  * Stop new questions from appearing in nav
+    [davismr]
+
+  * Add Likert question type
+    [davismr]
+
+  * Add select question type
+    [davismr]
+
+  * Remove unuseful validators
+    [davismr]
+
+  * Add text question type
+    [davismr]
+
+  * Add branching
+    [davismr]
+
+  * Add validation
+    [davismr]
+
+  * Add question to TypesNotToList
+    [davismr]
+
+  * Enable portal factory for types
+    [davismr]
+
+  * Create base question class
+    [davismr]
+
+  * Fix bug in view results if question options have been deleted with answers for that option
+    [davismr]
+
+  * Add message in view results if no respondents
+    [davismr]
+
+  * Stop view respondents link from opening new window
+    [davismr]
+
+  * Enable allow anonymous function
+    [davismr]
+
+  * Add reset for user function
+    [davismr]
+
+1.0.0 - 2006-06-06
+==================
+
+  * Refactor CMFQuestions to Archetypes
+    [davismr]
