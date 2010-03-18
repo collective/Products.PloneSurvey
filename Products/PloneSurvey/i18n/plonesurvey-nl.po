@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2006-06-27 20:42+0000\n"
-"PO-Revision-Date: 2007-09-04 11:17+0100\n"
-"Last-Translator: Pander <pander@users.sourceforge.net>\n"
+"PO-Revision-Date: 2010-03-18 11:30+0100\n"
+"Last-Translator: Martijn Schenk <martijn.schenk@fourdigits.nl>\n"
 "Language-Team: EIfEL Team <marc.van.coillie@eife-l.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
@@ -16,44 +16,43 @@ msgstr ""
 
 #. Default: Agree
 msgid "Agree"
-msgstr ""
+msgstr "Mee eens"
 
 #. Default: Agree Strongly
 msgid "Agree Strongly"
-msgstr ""
+msgstr "Zeker mee eens"
 
-# <th i18n:translate="">Branching</th>
 #. Default: Branching
 #: ../skins/plone_survey/survey_overview.pt
 msgid "Branching"
-msgstr ""
+msgstr "Vertakking"
 
 #. Default: Completed
 msgid "Completed"
-msgstr ""
+msgstr "Voltooid"
 
 #. Default: Disagree
 msgid "Disagree"
-msgstr ""
+msgstr "Niet mee eens"
 
 #. Default: Disagree Strongly
 msgid "Disagree Strongly"
-msgstr ""
+msgstr "Zeker niet mee eens"
 
 #. Default: Neutral
 msgid "Neutral"
-msgstr ""
+msgstr "Neutraal"
 
 # <td i18n:translate="" tal:condition="python:
 # question.aq_parent.portal_type != 'Sub Survey' and question.portal_type !=
 # 'Sub Survey'">No</td>
 #. Default: No
 msgid "No"
-msgstr ""
+msgstr "Nee"
 
 #. Default: Not Completed
 msgid "Not Completed"
-msgstr ""
+msgstr "Niet volledig ingevuld"
 
 #. Default: "-- Please, select --"
 #. <option class="noborder" i18n:translate="Please select" value="">
@@ -61,25 +60,25 @@ msgstr ""
 #. </option>
 #: ../skins/plone_survey/question_matrix_macro.pt
 msgid "Please select"
-msgstr "-- Selecteer --"
+msgstr "Selecteer"
 
 # <th i18n:translate="">Question Id</th>
 #. Default: Question Id
 #: ../skins/plone_survey/survey_overview.pt
 msgid "Question Id"
-msgstr ""
+msgstr "Vraag ID"
 
 # <th i18n:translate="">Question Title</th>
 #. Default: Question Title
 #: ../skins/plone_survey/survey_overview.pt
 msgid "Question Title"
-msgstr ""
+msgstr "Titel van de vraag"
 
 # <th i18n:translate="">Question Type</th>
 #. Default: Question Type
 #: ../skins/plone_survey/survey_overview.pt
 msgid "Question Type"
-msgstr ""
+msgstr "Type vraag"
 
 #. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired|nothing" title="Required">
 #. (Required)
@@ -87,22 +86,19 @@ msgstr ""
 #. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired" title="Required">
 #. Default: Required
 #: ../skins/plone_survey/survey_overview.pt
-#, fuzzy
 msgid "Required"
-msgstr "(Verplicht)"
+msgstr "Verplicht"
 
 # <th i18n:translate="">Sub Survey</th>
 #. Default: Sub Survey
 #: ../skins/plone_survey/survey_overview.pt
 msgid "Sub Survey"
-msgstr ""
+msgstr "Sub enquete"
 
-# <td i18n:translate="" tal:condition="python: question.aq_parent.portal_type
-# == 'Sub Survey'  or question.portal_type == 'Sub Survey'">Yes</td>
 #. Default: Yes
 #: ../skins/plone_survey/survey_overview.pt
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #. Default: "This will remove all the answers from the current survey. Are you sure?"
 #. <p i18n:translate="desc_reset_survey">
@@ -356,7 +352,7 @@ msgstr "Meervoudige selectiebox"
 
 #: ../content/BaseSurvey.py
 msgid "label_no_comment_field"
-msgstr ""
+msgstr "Geen commentaar"
 
 #. Default: No emails
 msgid "label_no_emails"
@@ -422,11 +418,11 @@ msgstr "Annuleren"
 
 #. Default: 'Saved' message test
 msgid "label_saved_text"
-msgstr "Message de texte pour 'enregistrer'"
+msgstr "De ingevoerde tekst is opgeslagen"
 
 #. Default: Selection Box
 msgid "label_selection_box"
-msgstr "Boite de selection"
+msgstr "Selectieveld"
 
 #. Default: Closed
 msgid "label_survey_closed"
@@ -477,7 +473,7 @@ msgstr "Titel"
 #. Default: This question had a text input type, for results use the
 #: ../skins/plone_survey/survey_view_results.pt
 msgid "label_use_detailed_for_text"
-msgstr ""
+msgstr "Deze vraag heeft een tekst invoerveld. Voor resultaten kies </span>"
 
 #. Default: Validation
 msgid "label_validation"
@@ -501,11 +497,11 @@ msgstr "Details van de enquête"
 
 #. Default: Please provide an answer for this question
 msgid "please_provide_answer"
-msgstr ""
+msgstr "Vooer een antwoord in"
 
 #. Default: Please provide an answer for the question
 msgid "please_provide_answer_for"
-msgstr ""
+msgstr "Voor uw antwoord in op"
 
 #. Default: "Reset"
 #. <input class="context" i18n:attributes="value reset_button" name="submit" tal:attributes="tabindex tabindex/next" type="submit" value="Reset"/>
@@ -587,7 +583,7 @@ msgstr "${users} zijn gereset"
 
 #. Default: user
 msgid "user"
-msgstr ""
+msgstr "gebruiker"
 
 #. Default: "view comments in full..."
 #. <a i18n:translate="view_comments_in_full" tal:attributes="href string:${here/absolute_url}/comments_view">

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2006-06-27 20:42+0000\n"
-"PO-Revision-Date: 2007-09-04 10:42+0100\n"
-"Last-Translator: Pander <pander@users.sourceforge.net>\n"
+"PO-Revision-Date: 2010-03-18 17:47+0100\n"
+"Last-Translator: Martijn Schenk <martijn.schenk@fourdigits.nl>\n"
 "Language-Team: Marc Van Coillie <marc.van.coillie@eife-l.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
@@ -21,12 +21,12 @@ msgstr "Aftakking"
 #. Default: Comment Field
 #: ../content/BaseQuestion.py
 msgid "Comment Field"
-msgstr ""
+msgstr "Reactie veld"
 
 #. Default: Introduction
 #: ../content/BaseQuestion.py
 msgid "Introduction"
-msgstr ""
+msgstr "Introductie"
 
 #. Default: None
 msgid "None"
@@ -35,52 +35,51 @@ msgstr "Geen"
 #. Default: Overview
 #: ../content/Survey.py
 msgid "Overview"
-msgstr ""
+msgstr "Overzicht"
 
 #. Default: Reset
 #: ../content/Survey.py
 msgid "Reset"
-msgstr ""
+msgstr "Herstel"
 
 #. Default: Results
 #: ../content/Survey.py
 msgid "Results"
-msgstr ""
+msgstr "Resultaten"
 
 #. Default: Sub Survey
 #: ../content/SubSurvey.py
 msgid "Sub Survey"
-msgstr ""
+msgstr "Sub Enquete"
 
 #. Default: Survey
 #: ../content/Survey.py
 msgid "Survey"
-msgstr ""
+msgstr "Enquete"
 
 #. Default: Survey Likert Question
 #: ../content/SurveyLikertQuestion.py
 msgid "Survey Likert Question"
-msgstr ""
+msgstr "Enquete Stellig Vraag"
 
 #. Default: Survey Matrix
 #: ../content/SurveyMatrix.py
 msgid "Survey Matrix"
-msgstr ""
+msgstr "Enquete Matrix"
 
 #. Default: Survey Matrix Question
-#, fuzzy
 msgid "Survey Matrix Question"
 msgstr "Enquête matrixvraag"
 
 #. Default: Survey Question
 #: ../content/SurveyQuestion.py
 msgid "Survey Question"
-msgstr ""
+msgstr "Enquete Vraag"
 
 #. Default: Survey Select Question
 #: ../content/SurveySelectQuestion.py
 msgid "Survey Select Question"
-msgstr ""
+msgstr "Selecteer Enquete vraag"
 
 #. Default: Survey Text Question
 #: ../content/SurveyTextQuestion.py
