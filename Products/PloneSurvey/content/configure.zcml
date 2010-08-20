@@ -18,7 +18,7 @@
 
   <subscriber
     for="Products.PloneSurvey.content.Survey.Survey
-         zope.app.event.interfaces.IObjectModifiedEvent"
+         zope.lifecycleevent.interfaces.IObjectModifiedEvent"
     handler="Products.PloneSurvey.content.Survey.createSurveyEventHandler" />
 
 </configure>
