@@ -11,7 +11,6 @@ class TestInstallation(PloneSurveyTestCase):
 
     def afterSetUp(self):
         self.css        = self.portal.portal_css
-        self.kupu       = self.portal.kupu_library_tool
         self.types      = self.portal.portal_types
         self.factory    = self.portal.portal_factory
         self.workflow   = self.portal.portal_workflow
