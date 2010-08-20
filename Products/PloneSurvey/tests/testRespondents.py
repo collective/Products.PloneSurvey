@@ -3,6 +3,7 @@
 #
 import os
 
+from Products.PloneSurvey.tests import utils
 from base import PloneSurveyTestCase
 
 class TestUploadMembers(PloneSurveyTestCase):
@@ -14,12 +15,8 @@ class TestUploadMembers(PloneSurveyTestCase):
     def testUploadMethod(self):
         s1 = getattr(self.folder, 's1')
         assert len(s1.getAuthenticatedRespondents()) == 0
-        data_path = os.path.abspath('../Products/PloneSurvey/tests/utils')
-        try:
-            data_catch = open(data_path + '/user_import', 'rU')
-        except IOError:
-            data_path = os.path.abspath('Products/PloneSurvey/tests/utils')
-            data_catch = open(data_path + '/user_import', 'rU')
+        data_path = os.path.dirname(utils.__file__)
+        data_catch = open(os.path.join(data_path, 'user_import'), 'rU')
         input = data_catch.read()
         data_catch.close()
         s1.uploadRespondents(input=input)
@@ -34,12 +31,8 @@ class TestDeleteMember(PloneSurveyTestCase):
 
     def afterSetUp(self):
         self.createAnonSurvey()
-        data_path = os.path.abspath('../Products/PloneSurvey/tests/utils')
-        try:
-            data_catch = open(data_path + '/user_import', 'rU')
-        except IOError:
-            data_path = os.path.abspath('Products/PloneSurvey/tests/utils')
-            data_catch = open(data_path + '/user_import', 'rU')
+        data_path = os.path.dirname(utils.__file__)
+        data_catch = open(os.path.join(data_path, 'user_import'), 'rU')
         input = data_catch.read()
         data_catch.close()
         self.s1.uploadRespondents(input=input)
@@ -64,12 +57,8 @@ class TestDeleteMember(PloneSurveyTestCase):
         s1.deleteAuthenticatedRespondent('user1@here.com')
         respondents = s1.getAuthenticatedRespondents()
         assert len(respondents) == 0
-        data_path = os.path.abspath('../Products/PloneSurvey/tests/utils')
-        try:
-            data_catch = open(data_path + '/user_import', 'rU')
-        except IOError:
-            data_path = os.path.abspath('Products/PloneSurvey/tests/utils')
-            data_catch = open(data_path + '/user_import', 'rU')
+        data_path = os.path.dirname(utils.__file__)
+        data_catch = open(os.path.join(data_path, 'user_import'), 'rU')
         input = data_catch.read()
         data_catch.close()
         self.s1.uploadRespondents(input=input)

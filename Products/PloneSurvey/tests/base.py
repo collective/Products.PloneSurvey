@@ -19,6 +19,7 @@ from Products.PloneTestCase.PloneTestCase import FunctionalTestCase
 from Products.PloneTestCase.PloneTestCase import setupPloneSite
 
 from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
+from Products.PloneSurvey.tests import utils
 from utils import MockMailHost
 
 # Set up a Plone site, and apply the extension profiles
@@ -78,12 +79,8 @@ class PloneSurveyTestCase(PloneTestCase):
 
     def loadRespondents(self):
         """Load the test respondents"""
-        data_path = os.path.abspath('../Products/PloneSurvey/tests/utils')
-        try:
-            data_catch = open(data_path + '/user_import', 'rU')
-        except IOError:
-            data_path = os.path.abspath('Products/PloneSurvey/tests/utils')
-            data_catch = open(data_path + '/user_import', 'rU')
+        data_path = os.path.dirname(utils.__file__)
+        data_catch = open(os.path.join(data_path, 'user_import'), 'rU')
         input = data_catch.read()
         data_catch.close()
         self.s1.uploadRespondents(input=input)
