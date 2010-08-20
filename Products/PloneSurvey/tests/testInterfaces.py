@@ -1,7 +1,7 @@
 #
 # Test PloneSurvey interfaces
 #
-from Interface.Verify import verifyClass
+from zope.interface.verify import verifyClass
 
 from Products.PloneSurvey.content.Survey import Survey
 from Products.PloneSurvey.content.SurveyMatrixQuestion import SurveyMatrixQuestion
