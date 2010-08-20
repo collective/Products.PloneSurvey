@@ -6,9 +6,9 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
 
-        <div metal:use-macro="here/document_actions/macros/document_actions" />
+        <div tal:replace="structure provider:plone.abovecontenttitle" /> 
         <h1 class="documentFirstHeading"
-            tal:content="object_title" />
+            tal:content="context/Title" />
         <div class="documentDescription"
              tal:condition="here/Description"
              tal:content="here/Description" />

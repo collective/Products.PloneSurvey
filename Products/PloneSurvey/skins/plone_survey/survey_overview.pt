@@ -7,13 +7,11 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
         tal:define="errors python:request.get('errors', {});
-                    Iterator python:modules['Products.CMFPlone'].IndexIterator;
-                    tabindex python:Iterator();
                     pages python:here.getFolderContents(
                         contentFilter={'portal_type':['Sub Survey',]},
                             full_objects=True);">
 
-        <div metal:use-macro="here/document_actions/macros/document_actions" />
+        <div tal:replace="structure provider:plone.abovecontenttitle" /> 
         <h1 i18n:translate="heading_survey_overview">Survey Overview</h1>
         <form style="float: left;"
               method="post"
@@ -21,7 +19,6 @@
             <input class="context"
                    type="submit"
                    value="Edit Survey"
-                   tal:attributes="tabindex tabindex/next;"
                    i18n:attributes="value label_overview_edit"
                    />
         </form>
@@ -30,7 +27,6 @@
             <input class="context"
                    type="submit"
                    value="Survey Contents"
-                   tal:attributes="tabindex tabindex/next;"
                    i18n:attributes="value label_overview_contents"
                    />
         </form>
@@ -53,7 +49,6 @@
             <input class="context"
                    type="submit"
                    value="Add Question"
-                   tal:attributes="tabindex tabindex/next;"
                    i18n:attributes="value label_overview_add_question"
                    />
         </form>
@@ -68,7 +63,6 @@
                 <input class="context"
                        type="submit"
                        value="Edit Page"
-                       tal:attributes="tabindex tabindex/next;"
                        i18n:attributes="value label_overview_edit"
                        />
             </form>
@@ -77,7 +71,6 @@
                 <input class="context"
                        type="submit"
                        value="Page Contents"
-                       tal:attributes="tabindex tabindex/next;"
                        i18n:attributes="value label_overview_contents"
                        />
             </form>
@@ -104,7 +97,6 @@
                 <input class="context"
                        type="submit"
                        value="Add Question"
-                       tal:attributes="tabindex tabindex/next;"
                        i18n:attributes="value label_overview_add_question"
                        />
             </form>
@@ -116,7 +108,6 @@
             <input class="context"
                    type="submit"
                    value="Add Page"
-                   tal:attributes="tabindex tabindex/next;"
                    i18n:attributes="value label_overview_add_page"
                    />
         </form>

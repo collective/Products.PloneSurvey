@@ -5,9 +5,7 @@
 <body>
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
-        tal:define="errors python:request.get('errors', {});
-                    Iterator python:modules['Products.CMFPlone'].IndexIterator;
-                    tabindex python:Iterator();">
+        tal:define="errors python:request.get('errors', {});">
 
     <h1 i18n:translate="XXX">Repair Survey Results</h1>
     <p i18n:translate="XXX">

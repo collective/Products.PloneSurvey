@@ -56,12 +56,10 @@
         <textarea cols="28"
                   rows="6"
                   tal:content="python:request.get(name,'') or question.getCommentsFor(member_id)"
-                  tal:attributes="tabindex tabindex/next;
-                                  name name"
+                  tal:attributes="name name"
                   tal:condition="python: question.getCommentType()=='area'" />
         <input type="text"
                tal:attributes="name name;
-                               tabindex tabindex/next;
                                value python:request.get(name,'') or question.getCommentsFor(member_id)"
                tal:condition="python: question.getCommentType()=='text'"/>
     </div>

@@ -31,9 +31,7 @@
                id="fullname"
                size="30"
                value="fullname"
-               tabindex=""
-               tal:attributes="value fullname;
-                               tabindex tabindex/next;"/>
+               tal:attributes="value fullname;"/>
       </div>
 
       <div class="field"
@@ -55,9 +53,7 @@
                id="emailaddress"
                size="30"
                value="emailaddress"
-               tabindex=""
-               tal:attributes="value emailaddress;
-                               tabindex tabindex/next;"/>
+               tal:attributes="value emailaddress;"/>
       </div>
 
 <!--
@@ -80,9 +76,7 @@
                id="password"
                size="30"
                value="password"
-               tabindex=""
-               tal:attributes="value password;
-                               tabindex tabindex/next;"/>
+               tal:attributes="value password;"/>
       </div>
 -->
       <div class="formControls">
@@ -90,7 +84,6 @@
                type="submit"
                value="Create Respondent"
                name="form.button.add_respondent"
-               tal:attributes="tabindex tabindex/next"
                                i18n:attributes="value create_respondent_button" />
       </div>
     </fieldset>

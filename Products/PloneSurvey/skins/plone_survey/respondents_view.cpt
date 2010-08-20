@@ -8,7 +8,7 @@
     <tal:main-macro metal:define-macro="main"
         tal:define="users here/getRespondents">
 
-        <div metal:use-macro="here/document_actions/macros/document_actions" />
+        <div tal:replace="structure provider:plone.abovecontenttitle" /> 
         <h1>
             <span tal:replace="here/Title">Title</span><br />
             <span i18n:translate="respondents_for_survey">Respondents for survey</span>
@@ -52,8 +52,7 @@
                                        name="answer"
                                        value="option"
                                        tal:attributes="value user;
-                                                       name string:users;
-                                                       tabindex tabindex/next;" />
+                                                       name string:users;" />
                             </td>
                             <td>
                                 <span tal:replace="python:context.getRespondentFullName(user) or user" />
@@ -72,7 +71,6 @@
                        type="submit"
                        value="Reset"
                        name="submit"
-                       tal:attributes="tabindex tabindex/next"
                        i18n:attributes="value reset_button" />
             </div>
         </form>

@@ -19,7 +19,6 @@
         <input class="context"
               type="submit"
               value="Edit Question"
-              tal:attributes="tabindex tabindex/next;"
               i18n:attributes="value overview_editquestion"
               />
         </form>

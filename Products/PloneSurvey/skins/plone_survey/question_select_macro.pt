@@ -35,8 +35,7 @@
                        tal:attributes="value option;
                                        name qid;
                                        id string:${qid}-${repeat/option/number};
-                                       checked python: option == answer;
-                                       tabindex tabindex/next;" />
+                                       checked python: option == answer;" />
                 <label i18n:translate=""
                        tal:content="python:test(same_type(option, 'string'), option, hasattr(question.getQuestionOptions(), 'getValue') and question.getQuestionOptions().getValue(option))"
                        tal:attributes="for string:${qid}-${repeat/option/number}" />
@@ -45,8 +44,7 @@
 
         <select tal:define="null_value question/getNullValue|nothing"
                 tal:condition="python: question.getInputType() == 'selectionBox' and hasOptions"
-                tal:attributes="name qid;
-                                tabindex tabindex/next;">
+                tal:attributes="name qid;">
             <option class="noborder" value=""
                     i18n:translate="Please select"
                     tal:condition="not:null_value">-- Please, select --</option>
@@ -60,7 +58,7 @@
 
         <select tal:condition="python: question.getInputType() == 'multipleSelect' and hasOptions"
                 multiple="multiple"
-                tal:attributes="name qid; tabindex tabindex/next;">
+                tal:attributes="name qid;">
             <option tal:repeat="option question/getQuestionOptions"
                     class="noborder"
                     value="option"
@@ -80,8 +78,7 @@
                        tal:attributes="value option;
                                        name qid;
                                        id string:${qid}-${repeat/option/number};
-                                       checked python: answer and option in answer;
-                                       tabindex tabindex/next;" />
+                                       checked python: answer and option in answer;" />
                 <label i18n:translate="" tal:content="option" tal:attributes="for string:${qid}-${repeat/option/number}" />
             </div>
         </tal:checkbox>
@@ -99,12 +96,10 @@
         <textarea cols="28"
                   rows="6"
                   tal:content="python:request.get(name,'') or question.getCommentsFor(member_id)"
-                  tal:attributes="tabindex tabindex/next;
-                                  name name"
+                  tal:attributes="name name"
                   tal:condition="python: question.getCommentType()=='area'" />
         <input type="text"
                tal:attributes="name name;
-                               tabindex tabindex/next;
                                value python:request.get(name,'') or question.getCommentsFor(member_id)"
                tal:condition="python: question.getCommentType()=='text'"/>
     </div>

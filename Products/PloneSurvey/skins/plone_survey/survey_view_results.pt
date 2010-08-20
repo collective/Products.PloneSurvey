@@ -9,7 +9,7 @@
         tal:define="questions here/getAllQuestionsInOrder"
 	tal:condition="python:user.has_permission('PloneSurvey: View Survey Results',here)">
 
-        <div metal:use-macro="here/document_actions/macros/document_actions" />
+        <div tal:replace="structure provider:plone.abovecontenttitle" /> 
         <h1 i18n:translate="heading_results">Results for survey
             <span i18n:name="title" tal:replace="here/Title" />
         </h1>

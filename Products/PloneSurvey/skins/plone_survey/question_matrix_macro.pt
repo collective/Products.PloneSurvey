@@ -61,16 +61,14 @@
                            tal:attributes="value option;
                                            name string:${qid}-${mqid};
                                            id string:${qid}-${mqid};
-                                           checked python:str(option) == answer;
-                                           tabindex tabindex/next;" />
+                                           checked python:str(option) == answer;" />
                 </td>
                 <td tal:define="null_value question/getNullValue"
                     tal:condition="python:input_type == 'selectionBox'">
                     <select tal:condition="python:question.getInputType() == 'selectionBox' and hasOptions"
                             tal:define="answer python:request.get(str(qid) + '-' + str(mqid), None) or matrix_question.getAnswerFor(member_id);"
                             tal:attributes="name string:${qid}-${mqid};
-                                            id string:${qid}-${mqid};
-                                            tabindex tabindex/next;">
+                                            id string:${qid}-${mqid};">
                         <option class="noborder" value=""
                                 i18n:translate="Please select"
                                 tal:condition="not:null_value">-- Please, select --</option>
@@ -86,8 +84,7 @@
                             tal:define="answer python:request.get(str(qid) + '-' + str(mqid), None) or matrix_question.getAnswerFor(member_id);"
                             multiple="multiple"
                             tal:attributes="name string:${qid}-${mqid}; 
-                                            id string:${qid}-${mqid}; 
-                                            tabindex tabindex/next;">
+                                            id string:${qid}-${mqid};">
                         <option tal:repeat="option question/getQuestionOptions"
                                 class="noborder"
                                 value="option"
@@ -106,8 +103,7 @@
                            tal:attributes="value option;
                                            name string:${qid}-${mqid};
                                            id string:${qid}-${mqid};
-                                           checked python: answer and option in answer;
-                                           tabindex tabindex/next;"/>
+                                           checked python: answer and option in answer;"/>
                 </td>
             </div>
         </tr>

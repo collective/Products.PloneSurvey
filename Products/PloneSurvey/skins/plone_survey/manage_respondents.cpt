@@ -10,7 +10,7 @@
                     respondents context/getAuthenticatedRespondents;
                     standard_module modules/Products/PythonScripts/standard">
 
-        <div metal:use-macro="here/document_actions/macros/document_actions" />
+        <div tal:replace="structure provider:plone.abovecontenttitle" /> 
         <h1>
             <span tal:replace="here/Title">Title</span><br />
             <span i18n:translate="xxx">Users who have not responded yet</span>
@@ -100,8 +100,7 @@
                                    name="answer"
                                    value="option"
                                    tal:attributes="value user;
-                                                   name string:users;
-                                                   tabindex tabindex/next;" />
+                                                   name string:users;" />
                         </td>
                         <td>
                             <span tal:replace="python:context.getRespondentFullName(user) or user" />

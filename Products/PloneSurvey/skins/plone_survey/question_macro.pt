@@ -31,16 +31,13 @@
                tal:attributes="name qid;
                                id qid;
                                size question/getCols | default;
-                               tabindex tabindex/next;
                                value answer" />
         <textarea cols="28"
                   rows="6"
                   tal:condition="python:question.getInputType()=='area'"
                   name="comments"
-                  tabindex=""
                   tal:content="answer"
-                  tal:attributes="tabindex tabindex/next;
-                                  cols question/getCols | default;
+                  tal:attributes="cols question/getCols | default;
                                   rows question/getRows | default;
                                   id qid;
                                   name qid;" />

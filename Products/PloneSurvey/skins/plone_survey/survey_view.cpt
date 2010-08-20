@@ -12,8 +12,6 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
         tal:define="errors options/state/getErrors;
-                    Iterator python:modules['Products.CMFPlone'].IndexIterator;
-                    tabindex python:Iterator();
                     member_id here/getSurveyId;
                     questions here/getQuestions;
                     completed python:here.checkCompletedFor(member_id);
@@ -21,12 +19,13 @@
                     qi_tool here/portal_quickinstaller;
                     captcha_prod string:quintagroup.plonecaptchas;
                     captcha_installed python:qi_tool.isProductInstalled(captcha_prod);
+                    isAnon context/@@plone_portal_state/anonymous;
                     pagetype here/portal_type">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading"
-            tal:content="object_title" />
+            tal:content="context/Title" />
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
@@ -83,24 +82,18 @@
                            type="submit"
                            value="Save"
                            name="form.button.save"
-                           tabindex=""
-                           tal:attributes="tabindex tabindex/next"
                            i18n:attributes="value save_button" />
                     <input class="context"
                            tal:condition="here/isMultipage"
                            type="submit"
                            value="Next"
                            name="form.button.submit"
-                           tabindex=""
-                           tal:attributes="tabindex tabindex/next"
                            i18n:attributes="value submit_page_button" />
                     <input class="context"
                            tal:condition="not: here/isMultipage"
                            type="submit"
                            value="Submit"
                            name="form.button.submit"
-                           tabindex=""
-                           tal:attributes="tabindex tabindex/next"
                            i18n:attributes="value submit_button" />
                 </div>
 
@@ -123,8 +116,6 @@
                            type="submit"
                            value="Reset Survey"
                            name="form.button.reset_survey"
-                           tabindex=""
-                           tal:attributes="tabindex tabindex/next"
                            i18n:attributes="value reset_survey_button"
                            tal:condition="python:user.has_permission('PloneSurvey: Reset Own Responses', here)" />
                 </div>
