@@ -78,7 +78,7 @@ class SurveySelectQuestion(BaseQuestion):
             vocab = LIKERT_OPTIONS_MAP[self.getLikertOptions()]
             vocab = vocab
             if self.getReverseLikert():
-                vocab = vocab.sortedByKey()
+                vocab = IntDisplayList(sorted(vocab.items()))
             if self.getNullValue():
                 options = IntDisplayList()
                 for item in vocab:
