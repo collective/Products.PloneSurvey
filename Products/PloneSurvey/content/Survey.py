@@ -15,6 +15,7 @@ from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.exceptions import BadRequest
 from Products.CMFPlone import PloneMessageFactory
 
 from Products.PluggableAuthService.PluggableAuthService import addPluggableAuthService
@@ -56,6 +57,14 @@ class Survey(ATCTOrderedFolder):
     def reset(self):
         """Remove all respondents."""
         self.respondents = OOBTree()
+
+    def _checkId(self, id, allow_dup=0):
+        """Bypass the root object check for the local acl_users"""
+        try:
+            return super(Survey, self)._checkId(id, allow_dup=0)
+        except BadRequest:
+            if id != 'acl_users':
+                raise
 
     security.declarePrivate('createLocalPas')
     def createLocalPas(self):
