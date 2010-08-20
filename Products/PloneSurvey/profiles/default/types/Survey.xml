@@ -96,7 +96,7 @@
  <action title="Respondents" action_id="authenticated_respondents"
     category="object"
     condition_expr=""
-    url_expr="string:$object_url/manage_authenticated_respondents" visible="True">
+    url_expr="string:$object_url/manage_respondents" visible="True">
   <permission value="Modify portal content"/>
  </action>
 </object>

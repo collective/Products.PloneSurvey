@@ -99,43 +99,52 @@ class SubSurvey(ATCTOrderedFolder):
     security.declareProtected(permissions.View, 'getNextPage')
     def getNextPage(self):
         """Return the next page of the survey"""
+        previous_page = True
         parent = self.aq_parent
-        userid = self.getSurveyId()
         pages = parent.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
-        num_pages = len(pages)
-        for i in range(num_pages):
-            if pages[i].getId() == self.getId():
-                current_page = i
-        while 1==1:
-            try:
-                next_page = pages[current_page+1]
-            except IndexError:
-                # no next page, so survey finished
-                return parent.exitSurvey()
-            if next_page.getRequiredQuestion():
-                if not self.getRequiredQuestion():
-                    question = self[next_page.getRequiredQuestion()]
-                    if next_page.getRequiredAnswerYesNo():
-                        if question.getAnswerFor(userid) == next_page.getRequiredAnswer():
-                            return next_page()
-                    else:
-                        if question.getAnswerFor(userid) != next_page.getRequiredAnswer():
-                            return next_page()
-                else:
-                    if self.getRequiredQuestion() != next_page.getRequiredQuestion():
-                        try:
-                            question = self[next_page.getRequiredQuestion()]
-                        except KeyError:
-                            next_page = pages[current_page+2]
-                            return next_page()
-                        if next_page.getRequiredAnswerYesNo():
-                            if question.getAnswerFor(userid) == next_page.getRequiredAnswer():
-                                return next_page()
-                        else:
-                            if question.getAnswerFor(userid) != next_page.getRequiredAnswer():
-                                return next_page()
-            else:
-                return next_page()
-            current_page += 1
+        for page in pages:
+            if previous_page:
+                if page.getId() == self.getId():
+                     previous_page = False
+            elif page.displaySubSurvey():
+                return page()
+        return self.exitSurvey()
+
+    security.declareProtected(permissions.View, 'displaySubSurvey')
+    def displaySubSurvey(self):
+        """Determine whether this page should be displayed"""
+        parent = self.aq_parent
+        userid = parent.getSurveyId()
+        required_question = self.getRequiredQuestion()
+        if not required_question:
+             return True
+        # find the right question
+        # TODO: this assumes that no questions exist with a duplicate id
+        if required_question in parent.objectIds():
+            question = parent[required_question]
+        else:
+            pages = parent.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
+            for page in pages:
+                if required_question in page.objectIds():
+                    question = page[required_question]
+                    break
+        # TODO: this assumes the question actually exists
+        required_answer = self.getRequiredAnswer()
+        required_positive = self.getRequiredAnswerYesNo()
+        answer = question.getAnswerFor(userid)
+        if hasattr(answer, 'lower'):
+            if required_positive and answer == required_answer:
+                return True
+            elif answer != required_answer and not required_positive:
+                return True
+            return False
+        elif hasattr(answer, 'append'): # it's a list
+            if required_positive and required_answer in answer :
+                return True
+            elif required_answer not in answer and not required_positive:
+                return True
+            return False
+        else: # question not answered, so don't display
+            return False
 
 registerATCT(SubSurvey, PROJECTNAME)

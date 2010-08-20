@@ -1,6 +1,0 @@
-[validators]
-validators=validate_add_authenticated_respondent
-
-[actions]
-action.success=traverse_to:string:add_authenticated_respondent
-action.failure=traverse_to:string:manage_authenticated_respondents

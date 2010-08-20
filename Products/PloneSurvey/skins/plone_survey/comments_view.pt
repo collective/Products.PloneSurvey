@@ -25,10 +25,11 @@
 
                 <tal:comments tal:repeat="item question/getComments">
                     <div class="comments"
+                         tal:condition="item/comments"
                          tal:attributes="id string:${question/getId}_comments">
                         <a tal:attributes="name string:${question/getId}_${item/userid}" />
-                        <strong tal:content="item/userid">userid:</strong>
-                        <em tal:content="item/comments">comments go here</em>
+                        <strong tal:content="item/userid" />
+                        <em tal:content="item/comments" />
                     </div>
                 </tal:comments>
             </tal:condition>

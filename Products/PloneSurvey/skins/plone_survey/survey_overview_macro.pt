@@ -20,7 +20,7 @@
               type="submit"
               value="Edit Question"
               tal:attributes="tabindex tabindex/next;"
-              i18n:attributes="value XXX"
+              i18n:attributes="value overview_editquestion"
               />
         </form>
     <div class="formHelp"
@@ -33,7 +33,7 @@
         <li tal:condition="python:hasattr(question, 'getValidation') and question.getValidation() != 'None'"
             tal:content="question/getValidation" />
         <li tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()">
-            <span i18n="XXX">Comment:</span>
+            <span i18n:translate="overview_comment">Comment:</span>
             <ul>
                 <li tal:content="question/getCommentLabel" />
                 <li tal:content="question/getCommentType" />

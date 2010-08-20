@@ -7,7 +7,7 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
         tal:define="questions here/getAllQuestionsInOrder"
-	tal:condition="python:user.has_permission('PloneSurvey: View Survey Results',here)">
+        tal:condition="python:user.has_permission('PloneSurvey: View Survey Results',here)">
 
         <div metal:use-macro="here/document_actions/macros/document_actions" />
         <h1 i18n:translate="heading_results">Results for survey
@@ -28,11 +28,11 @@
             </tal:help>
             <table>
                 <tr>
-                    <td tal:condition="python:question.meta_type not in ['SurveyTextQuestion', 'SurveyMatrix', 'SurveyTwoDimensional']">
+                    <td tal:condition="python:question.meta_type not in ['SurveyTextQuestion', 'SurveyMatrix', 'SurveyTwoDimensional', 'SurveyDateQuestion']">
                         <div metal:use-macro="here/question_barchart/macros/barchart" />
                     </td>
                     <td valign="top">
-                        <ul tal:condition="python: question.meta_type not in ('SurveyMatrix','SurveyTwoDimensional') and question.getInputType() not in ('text', 'area')">
+                        <ul tal:condition="python: question.meta_type not in ('SurveyMatrix','SurveyTwoDimensional', 'SurveyDateQuestion') and question.getInputType() not in ('text', 'area')">
                             <li tal:define="totals question/getAggregateAnswers;
                                             pct_answers question/getPercentages;
                                             options question/getQuestionOptions"
@@ -52,12 +52,19 @@
                                 detailed spreadsheet
                             </a>
                         </p>
+                        <p tal:condition="python: question.meta_type == 'SurveyDateQuestion'">
+                            <span i18n:translate="label_use_detailed_for_date">This question had a date input type, for results use the </span>
+                            <a tal:attributes="href string:${here/absolute_url}/spreadsheet2"
+                               i18n:translate="detailed_spreadsheet">
+                                detailed spreadsheet
+                            </a>
+                        </p>
 
                         <div class="comments"
                              tal:condition="question/commentType | nothing"
                              tal:attributes="id string:${question/getId}_comments">
                             <h3 i18n:translate="heading_comments">Comments</h3>
-                            <metal:block tal:define="comments question/getComments"
+                            <metal:block tal:define="comments python:question.getComments()[:5]"
                                          tal:repeat="item comments">
                                 <p tal:condition="python:item['comments'].strip()">
                                     <strong tal:content="item/userid">userid:</strong>

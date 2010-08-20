@@ -2,7 +2,10 @@
 <object name="portal_skins">
  <object name="plone_survey" meta_type="Filesystem Directory View"
     directory="PloneSurvey/skins/plone_survey"/>
+ <object name="plone_survey_images" meta_type="Filesystem Directory View"
+    directory="PloneSurvey/skins/plone_survey_images"/>
   <skin-path name="*">
     <layer name="plone_survey"/>
+    <layer name="plone_survey_images"/>
   </skin-path>
 </object>

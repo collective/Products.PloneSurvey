@@ -13,6 +13,14 @@
             <span tal:replace="here/Title">Title</span><br />
             <span i18n:translate="respondents_for_survey">Respondents for survey</span>
         </h1>
+        <div tal:condition="not:context/getAllowAnonymous">
+             <div tal:define="already_responded context/getRespondents;
+                              respondents python:context.get_acl_users().getUserNames()">
+                 Responses: <span tal:replace="python:len(already_responded)" />/<span tal:replace="python:len(respondents)" />
+                 - <span tal:condition="respondents"
+                         tal:replace="python:round(float(len(already_responded))/float(len(respondents))*100, 2)" />%
+             </div>
+        </div>
 
         <form name="reset_users_form"
               method="post"
@@ -28,10 +36,11 @@
                     <tr>
                         <th class="nosort">
                         </th>
-                        <th>User Id</th>
-                        <th>IP Address</th>
-                        <th>Start</th>
-                        <th>End</th>
+                        <th i18n:translate="respondents_userid">User Id</th>
+                        <th i18n:translate="respondents_ip">IP Address</th>
+                        <th i18n:translate="respondents_start">Start</th>
+                        <th i18n:translate="respondents_end">End</th>
+                        <th i18n:translate="XXX">Time Taken</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,8 +59,9 @@
                                 <span tal:replace="python:context.getRespondentFullName(user) or user" />
                             </td>
                             <td tal:content="python:user_details['ip_address']" />
-                            <td tal:content="python:user_details['start']" />
-                            <td tal:content="python:user_details['end']" />
+                            <td tal:content="python:context.restrictedTraverse('@@plone').toLocalizedTime(user_details['start'],long_format=1)" />
+                            <td tal:content="python:context.restrictedTraverse('@@plone').toLocalizedTime(user_details['end'],long_format=1)" />
+                            <td tal:content="python:user_details['time_taken']" />
                         </tr>
                     </tal:items>
                 </tbody>
@@ -68,6 +78,22 @@
         </form>
         <div tal:condition="not:users" i18n:translate="label_no_users_yet">
             No users have completed the survey yet.
+        </div>
+        <div tal:condition="not:context/getAllowAnonymous">
+            <h2>Users who have not responded yet</h2>
+            <ul tal:define="already_responded context/getRespondents;
+                            respondents python:context.get_acl_users().getUserNames()">
+                <tal:repeat repeat="respondent respondents">
+                    <li tal:condition="python:respondent not in already_responded"
+                        tal:content="respondent" />
+                </tal:repeat>
+            </ul>
+            <hr />
+            <div>
+                 <a tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=all"
+                     onClick="return window.confirm('Are you sure?');">Click</a> 
+                 to send survey invite to all respondents who have not yet responded.
+            </div>
         </div>
     </tal:main-macro>
 </metal:main>

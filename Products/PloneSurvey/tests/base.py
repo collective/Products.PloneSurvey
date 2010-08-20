@@ -4,6 +4,7 @@ Note that importing this module has various side-effects: it registers a set of
 products with Zope, and it sets up a sandbox Plone site with the appropriate
 products installed.
 """
+import os
 
 from Testing import ZopeTestCase
 from DateTime import DateTime
@@ -16,6 +17,9 @@ ZopeTestCase.installProduct('PloneSurvey')
 from Products.PloneTestCase.PloneTestCase import PloneTestCase
 from Products.PloneTestCase.PloneTestCase import FunctionalTestCase
 from Products.PloneTestCase.PloneTestCase import setupPloneSite
+
+from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
+from utils import MockMailHost
 
 # Set up a Plone site, and apply the extension profiles
 # to make sure they are installed.
@@ -31,11 +35,15 @@ class PloneSurveyTestCase(PloneTestCase):
         member.setMemberProperties({'fullname': fullname, 'email': email,
                                     'last_login_time': DateTime(last_login_time),})
 
+    def useMockMailHost(self):
+        self.portal.MailHost = MockMailHost('MailHost')
+
     def createAnonSurvey(self):
         """Create an open survey"""
         self.folder.invokeFactory('Survey', 's1')
         self.s1 = getattr(self.folder, 's1')
         self.s1.setAllowAnonymous(True)
+        self.s1.setEmailInvite(DEFAULT_SURVEY_INVITE)
 
     def createSubSurvey(self):
         """Create a survey with a sub survey"""
@@ -47,6 +55,38 @@ class PloneSurveyTestCase(PloneTestCase):
         self.createSubSurvey()
         self.s1.invokeFactory('Survey Text Question', 'stq1')
         self.s1.ss1.invokeFactory('Survey Text Question', 'stq2')
+
+    def createBranchingSurvey(self):
+        """Create a survey with branching"""
+        self.createAnonSurvey()
+        self.s1 = getattr(self.folder, 's1')
+        self.s1.invokeFactory('Sub Survey', 'ss1')
+        self.s1.invokeFactory('Sub Survey', 'ss2')
+        self.s1.invokeFactory('Sub Survey', 'ss3')
+        self.ss1 = getattr(self.s1, 'ss1')
+        self.ss2 = getattr(self.s1, 'ss2')
+        self.ss3 = getattr(self.s1, 'ss3')
+        self.s1.invokeFactory('Survey Select Question', 'ssq1')
+        self.ss1.invokeFactory('Survey Select Question', 'ssq2')
+        self.ss2.invokeFactory('Survey Select Question', 'ssq3')
+        self.ss1.setRequiredQuestion('ssq1')
+        self.ss1.setRequiredAnswer('No')
+        self.ss2.setRequiredQuestion('ssq1')
+        self.ss2.setRequiredAnswer('Yes')
+        self.ss3.setRequiredQuestion('ssq2')
+        self.ss3.setRequiredAnswer('Yes')
+
+    def loadRespondents(self):
+        """Load the test respondents"""
+        data_path = os.path.abspath('../Products/PloneSurvey/tests/utils')
+        try:
+            data_catch = open(data_path + '/user_import', 'rU')
+        except IOError:
+            data_path = os.path.abspath('Products/PloneSurvey/tests/utils')
+            data_catch = open(data_path + '/user_import', 'rU')
+        input = data_catch.read()
+        data_catch.close()
+        self.s1.uploadRespondents(input=input)
 
     def fixLineEndings(self, txt):
         if txt.count('\r\n'): # MS DOS

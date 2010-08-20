@@ -14,7 +14,7 @@ if form.get('form.button.save', ''):
         else:
             matrix_questions = q.getQuestions()
             for matrix_q in matrix_questions:
-                value = form.get(matrix_q.getId(), '')
+                value = form.get(q.getId() + '-' + matrix_q.getId(), '')
                 matrix_q.addAnswer(value)
     return state.set(status='success')
 
@@ -73,6 +73,11 @@ for q in questions:
                 domain='plonesurvey')
             state.setError(q.getId(), "%s %s" % (error_msg, qnum))
 
+if not state.getErrors():
+    if context.getShowCaptcha():
+        if context.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas'):
+            context.captcha_validator()
+    
 if state.getErrors():
     return state.set(status='failure', portal_status_message=_(msgid='text_correct_errors', domain='plonesurvey', default='Please correct the errors shown'))
 else:

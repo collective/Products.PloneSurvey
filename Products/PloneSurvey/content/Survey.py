@@ -1,5 +1,8 @@
+import datetime
 import string
 import csv
+import os
+import transaction
 from Products.CMFPlone.utils import safe_unicode
 
 from cStringIO import StringIO
@@ -14,6 +17,7 @@ from persistent.mapping import PersistentMapping
 from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
+from Products.ATContentTypes.utils import dt2DT, DT2dt
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.exceptions import BadRequest
 from Products.CMFPlone import PloneMessageFactory
@@ -89,7 +93,7 @@ class Survey(ATCTOrderedFolder):
         plone_pas = uf.manage_addProduct['PlonePAS']
         plone_pas.manage_delObjects('mutable_properties')
         plone_pas.manage_addZODBMutablePropertyProvider('mutable_properties',
-            fullname='', key='')
+            fullname='', key='', email_sent='')
         activatePluginInterfaces(self, 'mutable_properties')
         if remove_role:
             self.manage_delLocalRoles(userids=[current_userid,])
@@ -244,25 +248,10 @@ class Survey(ATCTOrderedFolder):
     def getNextPage(self):
         """Return the next page of the survey"""
         pages = self.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
-        current_page = -1
-        userid = self.getSurveyId()
-        while 1==1:
-            try:
-                next_page = pages[current_page+1]
-            except IndexError:
-                # no next page, so survey finished
-                return self.exitSurvey()
-            if next_page.getRequiredQuestion():
-                question = next_page[next_page.getRequiredQuestion()]
-                if next_page.getRequiredAnswerYesNo():
-                    if question.getAnswerFor(userid) == next_page.getRequiredAnswer():
-                        return next_page()
-                else:
-                    if question.getAnswerFor(userid) != next_page.getRequiredAnswer():
-                        return next_page()
-            else:
-                return next_page()
-            current_page += 1
+        for page in pages:
+            if page.displaySubSurvey():
+                return page()
+        return self.exitSurvey()
 
     security.declareProtected(permissions.View, 'exitSurvey')
     def exitSurvey(self):
@@ -423,6 +412,10 @@ class Survey(ATCTOrderedFolder):
         details = self.respondents[respondent]
         for k in details.keys():
             details_dict[k] = details[k]
+        if details['start'] and details['end']:
+            details_dict['time_taken'] = DT2dt(details['end']) - DT2dt(details['start'])
+        else:
+            details_dict['time_taken'] = ''
         return details_dict
 
     security.declareProtected(permissions.ModifyPortalContent, 'addRespondent')
@@ -549,7 +542,14 @@ class Survey(ATCTOrderedFolder):
     def deleteAuthenticatedRespondent(self, email, REQUEST=None):
         """Delete authenticated respondent"""
         # xxx: delete answers by this user as well?
-        self.get_acl_users().userFolderDelUsers([email])
+        acl_users = self.get_acl_users()
+        user = acl_users.getUserById(email)
+        props = acl_users.mutable_properties.getPropertiesForUser(user)
+        props = BasicPropertySheet(props)
+        for prop in props.propertyItems():
+            props.setProperty(prop[0], '')
+        acl_users.mutable_properties.setPropertiesForUser(user, props)
+        acl_users.userFolderDelUsers([email])
         if REQUEST is not None:
             pu = getToolByName(self, 'plone_utils')
             pu.addPortalMessage(
@@ -560,12 +560,12 @@ class Survey(ATCTOrderedFolder):
     def addAuthenticatedRespondent(self, emailaddress, **kw):
         acl_users = self.get_acl_users()
         portal_registration = getToolByName(self, 'portal_registration')
-        
+        if not emailaddress:
+            return False
         # Create user
         password = portal_registration.generatePassword()
         acl_users.userFolderAddUser(emailaddress, password, roles=['Member'], domains=[],
             groups=())
-        
         # Set user properties
         user = acl_users.getUserById(emailaddress)
         props = acl_users.mutable_properties.getPropertiesForUser(user)
@@ -573,6 +573,17 @@ class Survey(ATCTOrderedFolder):
         for k,v in kw.items():
             props.setProperty(k, v)
         props.setProperty('key', password)
+        acl_users.mutable_properties.setPropertiesForUser(user, props)
+        return True
+
+    security.declareProtected(permissions.ModifyPortalContent, 'registerRespondentSent')
+    def registerRespondentSent(self, email_address):
+        """Mark the respondent as being sent an email"""
+        acl_users = self.get_acl_users()
+        user = acl_users.getUserById(email_address)
+        props = acl_users.mutable_properties.getPropertiesForUser(user)
+        props = BasicPropertySheet(props)
+        props.setProperty('email_sent', str(DateTime()))
         acl_users.mutable_properties.setPropertiesForUser(user, props)
 
     security.declareProtected(permissions.ModifyPortalContent, 'getAuthenticatedRespondent')
@@ -592,7 +603,59 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.ModifyPortalContent, 'getAuthenticatedRespondents')
     def getAuthenticatedRespondents(self):
         return [self.getAuthenticatedRespondent(id) for id in self.get_acl_users().getUserNames()]
-    
+
+    security.declareProtected(permissions.ModifyPortalContent, 'sendSurveyInvite')
+    def sendSurveyInvite(self, email_address):
+        """Send a survey Invite"""
+        portal_properties = getToolByName(self, 'portal_properties')
+        acl_users = self.get_acl_users()
+        user = acl_users.getUserById(email_address)
+        user_details = self.getAuthenticatedRespondent(email_address)
+        email_from_name = self.getInviteFromName()
+        if not email_from_name:
+            email_from_name = self.email_from_name
+        email_from_address = self.getInviteFromEmail()
+        if not email_from_address:
+            email_from_address = self.email_from_address
+        email_body = self.getEmailInvite()
+        email_body = email_body.replace('**Name**', user_details['fullname'])
+        survey_url = self.absolute_url() + '/login_form_bridge?email=' + email_address + '&amp;key=' + user_details['key']
+        email_body = email_body.replace('**Survey**', '<a href="' + survey_url + '">' + self.Title() + '</a>')
+        mail_text = self.survey_send_invite_template(
+            user=user,
+            recipient=user.getId(),
+            email_from_name=email_from_name,
+            email_from_address=email_from_address,
+            email_body=email_body,
+            subject="Survey %s" % self.title_or_id())
+        host = self.MailHost
+        site_props = portal_properties.site_properties
+        mail_text = mail_text.encode(site_props.default_charset or 'utf-8')
+        host.send(mail_text)
+        self.registerRespondentSent(email_address)
+
+    security.declareProtected(permissions.ModifyPortalContent, 'sendSurveyInviteAll')
+    def sendSurveyInviteAll(self, send_to_all=False, use_transactions=False):
+        """Send survey Invites to all respondents"""
+        if use_transactions:
+            transaction.abort()
+        respondents = self.acl_users.getUserNames()
+        already_completed = self.getRespondents()
+        for respondent in respondents:
+            if use_transactions:
+                transaction.get()
+            respondent_details = self.getAuthenticatedRespondent(respondent)
+            if respondent in already_completed:
+                # don't send out an invite if already responded
+                continue
+            if not send_to_all:
+                # don't send an email if one already sent
+                if respondent_details['email_sent']:
+                    continue
+            self.sendSurveyInvite(respondent)
+        # return number of invites sent
+        return len(respondents)
+
     def get_acl_users(self):
         """Fetch acl_users. Create if it does not yet exist."""
         if not 'acl_users' in self.objectIds():
@@ -775,6 +838,45 @@ class Survey(ATCTOrderedFolder):
         if plone_version[:3] == '2.5':
             return True
         return False
+
+    security.declareProtected(permissions.ManagePortal, 'openFile')
+    def openFile(self):
+        """open the file, and return the file contents"""
+        data_path = os.path.abspath('import')
+        try:
+            data_catch = open(data_path + '/user_import', 'rU')
+        except IOError: # file does not exist, or path is wrong
+            try:
+                # we might be in foreground mode
+                data_path = os.path.abspath('../import')
+                data_catch = open(data_path + '/user_import', 'rU')
+            except IOError: # file does not exist, or path is wrong
+                return 'File does not exist'
+        input = data_catch.read()
+        data_catch.close()
+        return input
+
+    security.declareProtected(permissions.ManagePortal, 'uploadRespondents')
+    def uploadRespondents(self, input=None):
+        """upload the respondents"""
+        if input is None:
+            input = self.openFile()
+        input = input.split('\n')
+        errors = []
+        for user in input:
+            if not user: # empty line
+                continue
+            user_details = user.split('|')
+            if not self.addAuthenticatedRespondent(user_details[1], fullname=user_details[0]):
+                errors.append(user)
+        return errors
+
+    def pre_validate(self, REQUEST, errors):
+        """ checks captcha """
+        product_installed = self.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas')
+        if not product_installed and REQUEST.get('showCaptcha', 0):
+            if int(REQUEST.get('showCaptcha')):
+                errors['showCaptcha'] = 'Product quintagroup.plonecaptchas not installed'
 
 registerATCT(Survey, PROJECTNAME)
 

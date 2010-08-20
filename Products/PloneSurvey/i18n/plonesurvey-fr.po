@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2006-06-27 20:42+0000\n"
 "PO-Revision-Date: 2009-01-19 10:49+0100\n"
-"Last-Translator: Eric BREHAULT <eric.brehault@makina-corpus.org>\n"
+"Last-Translator: Matthias Broquet a.k.a tiazma <mbroquet@atreal.net>\n"
 "Language-Team: EIfEL Team <marc.van.coillie@eife-l.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -13,15 +13,8 @@ msgstr ""
 "Language-Name: French\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plonesurvey\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 
-#. Default: Agree
-msgid "Agree"
-msgstr "D'accord"
-
-#. Default: Agree Strongly
-msgid "Agree Strongly"
-msgstr "Tout à fait d'accord"
 
 # <th i18n:translate="">Branching</th>
 #. Default: Branching
@@ -33,17 +26,6 @@ msgstr "Branchement"
 msgid "Completed"
 msgstr "Complété"
 
-#. Default: Disagree
-msgid "Disagree"
-msgstr "En désaccord"
-
-#. Default: Disagree Strongly
-msgid "Disagree Strongly"
-msgstr "Tout à fait en désaccord"
-
-#. Default: Neutral
-msgid "Neutral"
-msgstr "Neutre"
 
 # <td i18n:translate="" tal:condition="python:
 # question.aq_parent.portal_type != 'Sub Survey' and question.portal_type !=
@@ -110,15 +92,20 @@ msgstr "Oui"
 #. </p>
 #: ../skins/plone_survey/survey_reset_form.cpt
 msgid "desc_reset_survey"
-msgstr "Ceci va supprimer toutes les réponses de l'évaluation actuelle. Etes-vous sûr ?"
+msgstr "Ceci va supprimer toutes les réponses de l'évaluation actuelle. Êtes-vous sûr ?"
 
-#. Default: "This is an overview of the current survey."
 #. <p i18n:translate="desc_survey_overview">
 #. This is an overview of the current survey.
 #. </p>
 #: ../skins/plone_survey/survey_overview.cpt
 msgid "desc_survey_overview"
 msgstr "Ceci est une prévisualisation du questionnaire actuel."
+
+msgid "overview_editquestion"
+msgstr "Modifier la question"
+
+msgid "overview_comment"
+msgstr "Commentaires:"
 
 #. Default: "detailed spreadsheet"
 #. <a i18n:translate="detailed_spreadsheet" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">
@@ -134,7 +121,7 @@ msgstr "tableau détaillé"
 #. </span>
 #: ../skins/plone_survey/survey_view_results.pt
 msgid "download_detail_selected"
-msgstr "télécharger le tableau détaillé (seulement les nombres selectionnés)"
+msgstr "Télécharger le tableau détaillé (seulement les nombres selectionnés)"
 
 #. Default: "download detailed spreadsheet"
 #. <span i18n:translate="download_detail_spreadsheet">
@@ -142,7 +129,7 @@ msgstr "télécharger le tableau détaillé (seulement les nombres selectionnés
 #. </span>
 #: ../skins/plone_survey/survey_view_results.pt
 msgid "download_detail_spreadsheet"
-msgstr "télécharger le tableau détaillé"
+msgstr "Télécharger le tableau détaillé"
 
 #. Default: "download summary spreadsheet"
 #. <span i18n:translate="download_summary_spreadsheet">
@@ -223,7 +210,7 @@ msgstr "Entrez les options que vous voulez rendre accessibles aux utilisateurs i
 
 #. Default: The comment label.
 msgid "help_comment_label"
-msgstr "Etiquette du commentaire."
+msgstr "Étiquette du commentaire."
 
 #. Default: Add a short description of the survey here.
 msgid "help_description"
@@ -314,13 +301,31 @@ msgstr "Permettre la sauvegarde"
 msgid "label_answer_options"
 msgstr "Options de réponse"
 
+msgid "label_likertoptions"
+msgstr "Ensemble de réponses prédéfinies"
+
+msgid "help_likertoptions"
+msgstr "Vous pouvez choisir ici un ensemble de réponses prédéfinies, ou bien les configurer manuellement dans les champs suivants"
+
+msgid "label_reverselikert"
+msgstr "Inverser l'ordre des réponses"
+
+msgid "help_reverselikert"
+msgstr "En cochant cette case, les réponses seront présentées dans l'ordre inverse, du pire au meilleur"
+
+msgid "label_nullvalue"
+msgstr "Réponse alternative"
+
+msgid "help_nullvalue"
+msgstr "Vous pouvez ajouter une réponse alternative, qui sera ajoutée à l'ensemble des réponses (ex: Ne se prononce pas). Laissez ce champ vide si la réponse est obligatoire. Saisissez n'importe quoi dans le cas d'une sélection multiple ou de case à cocher."
+
 #. Default: Check Boxes
 msgid "label_check_boxes"
 msgstr "Case à cocher"
 
 #. Default: Comment label
 msgid "label_comment_label"
-msgstr "Etiquette du commentaire"
+msgstr "Étiquette du commentaire"
 
 #. Default: Comment Type
 msgid "label_comment_type"
@@ -334,9 +339,21 @@ msgstr "Description du questionnaire"
 msgid "label_exit_url"
 msgstr "URL d'abandon"
 
+msgid "label_confidential"
+msgstr "Privé"
+
+msgid "help_confidential"
+msgstr "Évite aux utilisateurs ayant répondu au questionnaire d'apparaitre dans les résultats"
+
 #. Default: Input Type
 msgid "label_input_type"
 msgstr "Type d'entrée"
+
+msgid "label_maxlength"
+msgstr "Nombre maximum de caractères"
+
+msgid "help_maxlength"
+msgstr "Nombre maximum de caractères que l'utilisateur pourra saisir dans ce champs"
 
 #. Default: Survey introduction
 msgid "label_introduction"
@@ -365,6 +382,18 @@ msgstr "Pas d'envoi de courriel"
 #. Default: No users have completed the survey yet.
 msgid "label_no_users_yet"
 msgstr "Personne n'a encore complété le sondage."
+
+msgid "respondents_userid"
+msgstr "Identifiant"
+
+msgid "respondents_ip"
+msgstr "Adresse IP"
+
+msgid "respondents_start"
+msgstr "Date de début"
+
+msgid "respondents_end"
+msgstr "Date de fin"
 
 #. Default: Add Page
 msgid "label_overview_add_page"
@@ -446,7 +475,7 @@ msgstr "Ouvert"
 
 #. Default: Survey currently
 msgid "label_survey_status"
-msgstr "Etat actuel du questionnaire"
+msgstr "État actuel du questionnaire"
 
 #. Default: Text Area
 msgid "label_text_area"
@@ -477,7 +506,14 @@ msgstr "Titre"
 #. Default: This question had a text input type, for results use the
 #: ../skins/plone_survey/survey_view_results.pt
 msgid "label_use_detailed_for_text"
-msgstr "Cette question avait un champ texte ..."
+msgstr "Cette question comportait un champ texte. Pour consulter les résultats vous devez utiliser le "
+
+# <span i18n:translate="label_use_detailed_for_question">This question had a date
+# input type, for results use the </span>
+#. Default: This question had a date input type, for results use the
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "label_use_detailed_for_date"
+msgstr "Cette question comportait un champ date. Pour consulter les résultats vous devez utiliser le "
 
 #. Default: Validation
 msgid "label_validation"
@@ -603,5 +639,73 @@ msgstr "voir les commentaires complets..."
 #. </a>
 #: ../skins/plone_survey/survey_view_results.pt
 msgid "view_respondents"
-msgstr "Voir les réponses"
+msgstr "Voir le détails des personnes ayant répondus au sondage"
 
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "view_results_barchart"
+msgstr "Voir les réponses sous la forme de graphiques"
+
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "download_select_spreadsheet"
+msgstr "Télécharger les résultats des listes de selection"
+
+#: ../skins/plone_survey/survey_view_results.pt
+msgid "download_selectasboolean_spreadsheet"
+msgstr "Télécharger les résultats des listes de selection, avec des réponses boolénnes (Vrai/Faux)"
+
+msgid "label_showymd"
+msgstr "Afficher la date"
+
+msgid "help_showymd"
+msgstr "Cochez cette case si vous souhaitez afficher la date à l'utilisateur"
+
+msgid "label_showhm"
+msgstr "Afficher les heures et les minutes"
+
+msgid "help_showhm"
+msgstr "Cochez cette case si vous souhaitez que l'utilisateur puisse spécifier les heures et les minutes"
+
+msgid "label_startingyear"
+msgstr "Année de départ"
+
+msgid "help_startingyear"
+msgstr "Année de départ dans l'intervalle"
+
+msgid "label_endingyear"
+msgstr "Année de fin"
+
+msgid "help_endingyear"
+msgstr "Année de fin dans l'intervalle. Ne peut être supérieure à l'année courante. Si c'est le cas, utilisez le champ suivant"
+
+msgid "label_futureyears"
+msgstr "Année future"
+
+msgid "help_futureyears"
+msgstr "Année future dans l'intervalle. Ne peut être inférieure à l'année courante. Si c'est le cas, utilisez le champ précédent"
+
+msgid "Text block"
+msgstr "Bloc de texte"
+
+msgid "label_textblockbody"
+msgstr "Bloc de texte"
+
+msgid "help_textblockbody"
+msgstr "Texte explicatif en relation avec la question texte"
+
+msgid "label_textlocation"
+msgstr "Positionnement"
+
+msgid "help_textlocation"
+msgstr "Détermine la position du bloc de texte par rapport à la question"
+
+msgid "label_textlocation_0"
+msgstr "N'apparait pas"
+
+msgid "label_textlocation_1"
+msgstr "Au-dessus"
+
+msgid "label_textlocation_2"
+msgstr "Au milieu"
+
+msgid "label_textlocation_3"
+msgstr "Au-dessous"

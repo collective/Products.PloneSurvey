@@ -1,59 +1,8 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      lang="en"
-      metal:use-macro="here/main_template/macros/master"
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
       i18n:domain="plonesurvey">
-
 <body>
-<metal:main fill-slot="main">
-
-  <div metal:use-macro="here/document_actions/macros/document_actions" />
-
-  <tal:def define="users context/getAuthenticatedRespondents;
-                   standard_module modules/Products/PythonScripts/standard">
-    <label>Authenticated Respondents:</label><br/>
-    
-    <tal:if condition="not:users">
-      <i>No respondents found</i>
-      <br/>
-    </tal:if>
-    
-    <tal:if condition="users">
-      <table class="listing">
-        <tr>
-          <th>Respondent</th>
-          <th>Key</th>
-          <th>Action</th>
-        </tr>
-        <tr tal:repeat="user users"
-            tal:attributes="class python:(repeat['user'].index % 2 == 0) and 'odd' or 'even'">
-          <td tal:content="string:${user/fullname} (${user/id})"></td>
-          <td tal:content="user/key"></td>
-
-          <td tal:define="encoded_email python:standard_module.url_quote(user['id'])">
-            <ul>
-            
-              <li>
-                <a tal:attributes="href string:${here/absolute_url}/survey_send_invite?email=${encoded_email}">
-                  Send Invite
-                </a>
-              </li>
-
-              <li>
-                <a tal:attributes="href string:${here/absolute_url}/deleteAuthenticatedRespondent?email=${encoded_email}"
-                   onClick="return window.confirm('Are you sure?');">Delete Respondent</a>
-              </li>
-              
-            </ul>
-          </td>
-        </tr>
-      </table>
-
-      <a tal:attributes="href string:${here/absolute_url}/survey_send_invite?email=all">Click</a> 
-      to send survey invite to all respondents.
-    </tal:if>
-    
-  </tal:def>
-  
+<div metal:define-macro="add_respondent">
   <form name="add_authenticated_respondent"
               method="post"
               tal:attributes="action template/id"
@@ -140,13 +89,13 @@
         <input class="context"
                type="submit"
                value="Create Respondent"
-               name="submit"
+               name="form.button.add_respondent"
                tal:attributes="tabindex tabindex/next"
                                i18n:attributes="value create_respondent_button" />
       </div>
     </fieldset>
   </form>
-</metal:main>
-
+</div>
 </body>
 </html>
+

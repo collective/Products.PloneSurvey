@@ -1,0 +1,125 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonesurvey">
+
+<body>
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+        tal:define="already_responded context/getRespondents;
+                    respondents context/getAuthenticatedRespondents;
+                    standard_module modules/Products/PythonScripts/standard">
+
+        <div metal:use-macro="here/document_actions/macros/document_actions" />
+        <h1>
+            <span tal:replace="here/Title">Title</span><br />
+            <span i18n:translate="xxx">Users who have not responded yet</span>
+        </h1>
+    <div tal:condition="not:respondents">No respondents</div>
+        <div tal:condition="not:context/getAllowAnonymous">
+             <div tal:define="already_responded context/getRespondents;
+                              respondents python:context.get_acl_users().getUserNames()">
+                 Responses: <span tal:replace="python:len(already_responded)" />/<span tal:replace="python:len(respondents)" />
+                 - <span tal:condition="respondents"
+                         tal:replace="python:round(float(len(already_responded))/float(len(respondents))*100, 2)" />%
+             </div>
+        </div>
+    <div metal:use-macro="context/respondent_macros/macros/add_respondent" />
+        <h2 i18n:translate="xxx">Invited Respondents</h2>
+        <table id="sortable"
+               class="listing">
+        <thead>
+            <th i18n:translate="xxx">Name</th>
+            <th i18n:translate="xxx">Email Address</th>
+            <th i18n:translate="xxx">Email Sent</th>
+            <th i18n:translate="xxx_will_be_refactored">Action</th>
+        </thead>
+            <tbody>
+            <tal:invited repeat="respondent respondents">
+            <tr tal:define="encoded_email python:standard_module.url_quote(respondent['id'])"
+                tal:condition="python:respondent['id'] not in already_responded">
+                <td tal:content="python:respondent['fullname']" />
+                        <td tal:content="python:respondent['emailaddress']" />
+                <td>
+                    <span tal:condition="respondent/email_sent|nothing"
+                          tal:content="python:context.restrictedTraverse('@@plone').toLocalizedTime(respondent['email_sent'],long_format=1)" />
+                    <a tal:condition="not:respondent/email_sent|nothing"
+                       tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=${encoded_email}">
+                      Send Invite
+                    </a>
+                </td>
+                <td>
+                            <ul>
+                                <li>
+                                    <a tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=${encoded_email}">
+                                        Send Reminder
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tal:attributes="href string:${context/absolute_url}/deleteAuthenticatedRespondent?email=${encoded_email}"
+                                        onClick="return window.confirm('Are you sure?');">Delete Respondent</a>
+                                </li>
+                                <li>
+                                    <a target="_blank"
+                                        tal:define="key python:respondent['key']"
+                                        tal:attributes="href string:${context/absolute_url}/login_form_bridge?email=${encoded_email}&key=${key}">
+                                        Complete for User</a>
+                                </li>
+                            </ul>
+                </td>
+                </tr>
+        </tal:invited>
+            </tbody>
+        </table>
+        <div>
+             <a tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=new"
+                 onClick="return window.confirm('Are you sure?');"> 
+                 send survey invite</a> to all respondents who have not been invited yet.
+        </div>
+        <div>&nbsp;</div>
+        <h2 i18n:translate="xxx">Users who have responded</h2>
+
+        <table id="sortable"
+               class="listing">
+            <thead>
+                <tr>
+                    <th class="nosort">&nbsp;</th>
+                    <th i18n:translate="respondents_userid">User Id</th>
+                    <th i18n:translate="respondents_ip">IP Address</th>
+                    <th i18n:translate="respondents_start">Start</th>
+                    <th i18n:translate="respondents_end">End</th>
+                    <th i18n:translate="XXX">Time Taken</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tal:items repeat="user already_responded"> 
+                    <tr tal:define="user_details python:here.getRespondentDetails(user)">
+                        <td>
+                            <input type="checkbox"
+                                   class="noborder"
+                                   name="answer"
+                                   value="option"
+                                   tal:attributes="value user;
+                                                   name string:users;
+                                                   tabindex tabindex/next;" />
+                        </td>
+                        <td>
+                            <span tal:replace="python:context.getRespondentFullName(user) or user" />
+                        </td>
+                        <td tal:content="python:user_details['ip_address']" />
+                        <td tal:content="python:context.restrictedTraverse('@@plone').toLocalizedTime(user_details['start'],long_format=1)" />
+                        <td tal:content="python:context.restrictedTraverse('@@plone').toLocalizedTime(user_details['end'],long_format=1)" />
+                        <td tal:content="python:user_details['time_taken']" />
+                    </tr>
+                </tal:items>
+            </tbody>
+        </table>
+        <div>
+            <a tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=all"
+               onClick="return window.confirm('Are you sure?');">
+               send survey reminder/invite</a> to all respondents who have not yet responded.
+        </div>
+    </tal:main-macro>
+</metal:main>
+</body>
+</html>

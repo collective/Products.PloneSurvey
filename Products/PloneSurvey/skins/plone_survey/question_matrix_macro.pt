@@ -17,7 +17,8 @@
     <div class="formHelp"
          tal:attributes="id helpid"
          tal:content="question/Description" />
-
+    <div tal:condition="python:question.getBody() and question.getTextLocation() == 2"
+         tal:content="structure question/getBody" />
     <div tal:attributes="class python:test(error, 'field error', 'field')">
     <div tal:content="error" />
 
@@ -29,11 +30,11 @@
         <tr>
             <th class="questionColumn nosort"
                 i18n:translate="label_matrix_question">Question</th>
-            <th class="nosort"
+            <th class="nosort" style="text-transform: none;"
                 tal:condition="python:input_type in ['radio', 'checkbox']"
                 tal:repeat="option options"
                 tal:content="python:test(same_type(options, ()), option, hasattr(options, 'getValue') and options.getValue(option))"/>
-            <th class="nosort"
+            <th class="nosort" style="text-transform: none;"
                   tal:condition="python:input_type not in ['radio', 'checkbox']">
                 Select Option
             </th>

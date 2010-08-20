@@ -17,14 +17,25 @@
                     member_id here/getSurveyId;
                     questions here/getQuestions;
                     completed python:here.checkCompletedFor(member_id);
+                    show_captcha here/getShowCaptcha|nothing;
+                    qi_tool here/portal_quickinstaller;
+                    captcha_prod string:quintagroup.plonecaptchas;
+                    captcha_installed python:qi_tool.isProductInstalled(captcha_prod);
                     pagetype here/portal_type">
 
-        <div metal:use-macro="here/document_actions/macros/document_actions" />
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
         <h1 class="documentFirstHeading"
             tal:content="object_title" />
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
         <div class="documentDescription"
              tal:condition="here/Description"
              tal:content="here/Description" />
+        
+	<div tal:replace="structure provider:plone.abovecontentbody" />
+
         <div tal:condition= "python:pagetype=='Survey'"
              tal:content="structure here/getBody"/> 
         <form name="edit_form"
@@ -61,6 +72,10 @@
                     <div tal:condition="python:question.getBody() and question.getTextLocation() == 3"
                           tal:content="structure question/getBody" />
                 </tal:question>
+
+                <tal:captcha tal:condition="python:show_captcha and captcha_installed">
+                    <div metal:use-macro="here/captcha_widget/macros/captcha" />
+                </tal:captcha>
 
                 <div class="formControls">
                     <input class="context"
@@ -115,6 +130,8 @@
                 </div>
             </fieldset>
         </form>
+        
+	<div tal:replace="structure provider:plone.belowcontentbody" />
     </tal:main-macro>
 </metal:main>
 </body>

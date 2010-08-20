@@ -1,10 +1,12 @@
-from Products.CMFCore import permissions
+PROJECTNAME = "PloneSurvey"
+
 from Products.Archetypes.utils import DisplayList
 from Products.Archetypes.utils import IntDisplayList
 from Products.validation import validation
 
+import permissions
+
 ADD_CONTENT_PERMISSION = permissions.AddPortalContent
-PROJECTNAME = "PloneSurvey"
 SKINS_DIR = 'skins'
 
 GLOBALS = globals()
@@ -15,6 +17,11 @@ except ImportError:
     HAS_REPORTLAB = False
 else:
     HAS_REPORTLAB = True
+
+DEFAULT_SURVEY_INVITE = u'''
+<p>Dear **Name**,</p>
+<p>Please complete the **Survey**</p>
+<p>Thank you</p>'''
 
 SURVEY_STATUS = DisplayList((
     ('open', 'Open', 'label_survey_open'),

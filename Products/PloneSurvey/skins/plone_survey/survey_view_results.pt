@@ -15,7 +15,7 @@
         </h1>
         <ul>
             <li>
-                <a i18n:translate="XXX"
+                <a i18n:translate="view_results_barchart"
                    tal:attributes="href string:${here/absolute_url}/survey_barchart">
                     View survey results in a barchart 
                 </a>
@@ -53,11 +53,11 @@
                 (<a href="#" tal:attributes="href string:${here/absolute_url}/spreadsheet3">csv</a>)
             </li>
 	    <li>
-                <span i18n:translate="XXX-these-descriptions-might-change">download spreadsheet for select questions</span>
+                <span i18n:translate="download_select_spreadsheet">download spreadsheet for select questions</span>
                 (<a href="#" tal:attributes="href string:${here/absolute_url}/spreadsheet_select">csv</a>)
             </li>
             <li>
-                <span i18n:translate="XXX-these-descriptions-might-change">download spreadsheet for select questions with answers as booleans</span>
+                <span i18n:translate="download_selectasboolean_spreadsheet">download spreadsheet for select questions with answers as booleans</span>
                 (<a href="#" tal:attributes="href string:${here/absolute_url}/spreadsheet_select?answers=boolean">csv</a>)
             </li>
         </ul>

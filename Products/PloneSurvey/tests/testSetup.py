@@ -12,7 +12,6 @@ class TestInstallation(PloneSurveyTestCase):
     def afterSetUp(self):
         self.css        = self.portal.portal_css
         self.kupu       = self.portal.kupu_library_tool
-        self.skins      = self.portal.portal_skins
         self.types      = self.portal.portal_types
         self.factory    = self.portal.portal_factory
         self.workflow   = self.portal.portal_workflow
@@ -32,7 +31,8 @@ class TestInstallation(PloneSurveyTestCase):
         self.failUnless('survey_results.css' in self.css.getResourceIds())
 
     def testSkinLayersInstalled(self):
-        self.failUnless('plone_survey' in self.skins.objectIds())
+        self.failUnless('plone_survey' in self.portal.portal_skins.objectIds())
+        self.failUnless('plone_survey_images' in self.portal.portal_skins.objectIds())
 
     def testPortalFactorySetup(self):
         self.failUnless('Survey' in self.factory.getFactoryTypes())

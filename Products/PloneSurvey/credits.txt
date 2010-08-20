@@ -37,6 +37,9 @@ PloneSurvey Development:
   i18n testing
   Paul Roeland
 
+  Captcha integration
+  Suresh V., "Grafware.com":mailto:suresh@grafware.com
+
 Translations
 
   Czech Translation
@@ -49,7 +52,7 @@ Translations
   Piotr Furman - webservice.pl
 
   French translation
-  Marc Van Coillie, Yves Moisan
+  Marc Van Coillie, Yves Moisan, Matthias Broquet
 
   Brasilian Portuguese translation
   Luís Flávio Rocha
