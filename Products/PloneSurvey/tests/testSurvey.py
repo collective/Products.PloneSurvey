@@ -147,9 +147,10 @@ class TestCanNotResetResponse(PloneSurveyTestCase):
         s1.setCompletedForUser()
         assert len(s1.getRespondentsList()) == 1
         self.logout()
-        # XXX this should fail
-        s1.resetForUser('survey_user')
-        assert len(s1.getRespondentsList()) == 0
+        self.assertRaises(Unauthorized,
+                          s1.resetForUser,
+                          'survey_user')
+        assert len(s1.getRespondentsList()) == 1
 
     def testAnonymousCantResetFromResetMethod(self):
         """Ensure anonymous user can't reset response"""
@@ -157,11 +158,9 @@ class TestCanNotResetResponse(PloneSurveyTestCase):
         s1 = getattr(self.folder, 's1')
         s1.setCompletedForUser()
         assert len(s1.getRespondentsList()) == 1
-        # XXX this should fail
-        s1.resetForUser('survey_user')
-        """self.assertRaises(Unauthorized,
-                    s1.resetForUser,
-                    'survey_user')"""
+        self.assertRaises(Unauthorized,
+                          s1.resetForUser,
+                          'survey_user')
         assert len(s1.getRespondentsList()) == 1
 
 class TestSurvey(PloneSurveyTestCase):
