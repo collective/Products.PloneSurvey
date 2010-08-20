@@ -79,10 +79,9 @@ class Survey(ATCTOrderedFolder):
             remove_role = True
         # Re-use code in PlonePAS install
         addPluggableAuthService(self)
-        io = StringIO()
-        challenge_chooser_setup(self, io)
+        challenge_chooser_setup(self)
         registerPluginTypes(self.acl_users)
-        setupPlugins(self, io)
+        setupPlugins(self)
         
         # Recreate mutable_properties but specify fields
         uf = self.acl_users
@@ -91,7 +90,7 @@ class Survey(ATCTOrderedFolder):
         plone_pas.manage_delObjects('mutable_properties')
         plone_pas.manage_addZODBMutablePropertyProvider('mutable_properties',
             fullname='', key='')
-        activatePluginInterfaces(self, 'mutable_properties', io)
+        activatePluginInterfaces(self, 'mutable_properties')
         if remove_role:
             self.manage_delLocalRoles(userids=[current_userid,])
 
