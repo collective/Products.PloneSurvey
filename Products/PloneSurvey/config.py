@@ -47,7 +47,7 @@ INPUT_TYPE = DisplayList((
     ('checkbox', 'Check Boxes', 'label_check_boxes'),
     ))
 
-TEXT_LOCATION = DisplayList((
+TEXT_LOCATION = IntDisplayList((
     (0, 'Does not appear', 'XXX'),
     (1, 'Appears above question', 'XXX'),
     (2, 'Appears between question and answer', 'XXX'),
