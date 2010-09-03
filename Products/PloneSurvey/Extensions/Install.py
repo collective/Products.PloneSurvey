@@ -10,9 +10,7 @@ def install(self):
     out = StringIO()
 
     portal_setup = getToolByName(self, 'portal_setup')
-    portal_setup.setImportContext('profile-Products.PloneSurvey:default')
-    portal_setup.runAllImportSteps()
-
+    portal_setup.runAllImportStepsFromProfile('profile-Products.PloneSurvey:default')
     # Create External methods
     if HAS_REPORTLAB:
         if not hasattr(self, 'get_2d_chart'):

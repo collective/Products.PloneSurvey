@@ -53,7 +53,8 @@
                    />
         </form>
         <div tal:repeat="page pages">
-            <h2 tal:define="page_wf_state page/review_state|python: wtool.getInfoFor(page, 'review_state', '');
+            <h2 tal:define="page_wf_state page/review_state|python: context.portal_workflow.getInfoFor(page, 'review_state', '');
+							normalizeString nocall:context/@@plone/normalizeString;
                             page_wf_state_class python:'state-' + normalizeString(page_wf_state);"
                 tal:attributes="class page_wf_state_class"
                 tal:content="page/Title" />

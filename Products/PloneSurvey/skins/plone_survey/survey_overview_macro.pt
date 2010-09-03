@@ -4,7 +4,8 @@
 <body>
 <div metal:define-macro="question_overview">
 
-    <h4 tal:define="question_wf_state question/review_state|python: wtool.getInfoFor(question, 'review_state', '');
+    <h4 tal:define="question_wf_state question/review_state|python: context.portal_workflow.getInfoFor(question, 'review_state', '');
+					normalizeString nocall:context/@@plone/normalizeString;
                     question_wf_state_class python:'state-' + normalizeString(question_wf_state);"
         tal:attributes="class question_wf_state_class">
         <span tal:content="question/getId" />:
