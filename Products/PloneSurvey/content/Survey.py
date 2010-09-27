@@ -835,16 +835,6 @@ class Survey(ATCTOrderedFolder):
                 answers = question.answers
         return 'done'
 
-    security.declareProtected(permissions.View, 'checkPloneVersion')
-    def checkPloneVersion(self):
-        """Check if we are on Plone 2.5"""
-        # TODO for Plone 3.0, can be removed once sharing and properties actions on types removed
-        migration_tool = getToolByName(self, 'portal_migration')
-        plone_version = migration_tool.getInstanceVersion()
-        if plone_version[:3] == '2.5':
-            return True
-        return False
-
     security.declareProtected(permissions.ManagePortal, 'openFile')
     def openFile(self):
         """open the file, and return the file contents"""
