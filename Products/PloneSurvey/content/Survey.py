@@ -73,6 +73,10 @@ class Survey(ATCTOrderedFolder):
     security.declarePrivate('createLocalPas')
     def createLocalPas(self):
         """Create PAS acl_users else login_form does not work"""
+        try:
+             portal_membership = getToolByName(self, 'portal_membership')
+        except AttributeError:
+            return
         # need Manager role to add an acl_users object
         remove_role = False
         if not getSecurityManager().checkPermission(permissions.ManagePortal, self):
