@@ -100,8 +100,7 @@ class TestResetOwnResponse(PloneSurveyTestCase):
     """Ensure user can reset their own response"""
 
     def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+        self.createAnonSurvey()
         self.folder.s1.invokeFactory('Survey Text Question', 'stq1')
 
     def testResetOwnResponse(self):
@@ -125,9 +124,8 @@ class TestCanNotResetResponse(PloneSurveyTestCase):
 
     def afterSetUp(self):
         self.addMember('survey_user', 'Survey User', 'survey@here.com', 'Member', DateTime())
-        self.folder.invokeFactory('Survey', 's1')
+        self.createAnonSurvey()
         self.folder.s1.invokeFactory('Survey Text Question', 'stq1')
-        self.folder.s1.setAllowAnonymous(True)
         self.logout()
 
     def testResetOwnResponse(self):
