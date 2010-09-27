@@ -191,9 +191,7 @@ class TestAddAnswer(PloneSurveyTestCase):
     """Ensure survey question can be answered"""
 
     def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
-        self.s1.setAllowAnonymous(True)
+        self.createAnonSurvey()
         self.s1.invokeFactory('Survey Text Question', 'stq1')
         stq1 = getattr(self.s1, 'stq1')
         stq1.setRequired(True)
