@@ -3,6 +3,7 @@ import string
 import csv
 import os
 import transaction
+from StringIO import StringIO
 from Products.CMFPlone.utils import safe_unicode
 
 from cStringIO import StringIO
@@ -87,9 +88,10 @@ class Survey(ATCTOrderedFolder):
             remove_role = True
         # Re-use code in PlonePAS install
         addPluggableAuthService(self)
-        challenge_chooser_setup(self)
+        out = StringIO()
+        challenge_chooser_setup(self, out)
         registerPluginTypes(self.acl_users)
-        setupPlugins(self)
+        setupPlugins(self, out)
         
         # Recreate mutable_properties but specify fields
         uf = self.acl_users
@@ -98,7 +100,7 @@ class Survey(ATCTOrderedFolder):
         plone_pas.manage_delObjects('mutable_properties')
         plone_pas.manage_addZODBMutablePropertyProvider('mutable_properties',
             fullname='', key='', email_sent='')
-        activatePluginInterfaces(self, 'mutable_properties')
+        activatePluginInterfaces(self, 'mutable_properties', out)
         if remove_role:
             self.manage_delLocalRoles(userids=[current_userid,])
 
