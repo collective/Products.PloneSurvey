@@ -6,6 +6,6 @@
   <subscriber
     for="Products.PloneSurvey.content.Survey.Survey
          zope.app.container.interfaces.IObjectAddedEvent"
-    handler="Products.PloneSurvey.content.Survey.createSurveyEventHandler" />
+    handler="Products.PloneSurvey.content.events.createSurveyEventHandler" />
 
 </configure>

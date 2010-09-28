@@ -871,8 +871,3 @@ class Survey(ATCTOrderedFolder):
                 errors['showCaptcha'] = 'Product quintagroup.plonecaptchas not installed'
 
 registerATCT(Survey, PROJECTNAME)
-
-def createSurveyEventHandler(ob, event):
-    """Initialise the survey"""
-    if not 'acl_users' in ob.objectIds():
-        ob.createLocalPas()
