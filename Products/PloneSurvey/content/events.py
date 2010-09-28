@@ -7,3 +7,10 @@ def createSurveyEventHandler(ob, event):
         respondents = ob.respondents
     except AttributeError:
         ob.reset()
+
+def createQuestionEventHandler(ob, event):
+    """Initialise the question"""
+    try:
+        answers = ob.answers
+    except AttributeError:
+        ob.reset()

@@ -8,4 +8,24 @@
          zope.app.container.interfaces.IObjectAddedEvent"
     handler="Products.PloneSurvey.content.events.createSurveyEventHandler" />
 
+  <subscriber
+    for="Products.PloneSurvey.content.SurveyDateQuestion.SurveyDateQuestion
+         zope.app.container.interfaces.IObjectAddedEvent"
+    handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
+
+  <subscriber
+    for="Products.PloneSurvey.content.SurveyMatrixQuestion.SurveyMatrixQuestion
+         zope.app.container.interfaces.IObjectAddedEvent"
+    handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
+
+  <subscriber
+    for="Products.PloneSurvey.content.SurveySelectQuestion.SurveySelectQuestion
+         zope.app.container.interfaces.IObjectAddedEvent"
+    handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
+
+  <subscriber
+    for="Products.PloneSurvey.content.SurveyTextQuestion.SurveyTextQuestion
+         zope.app.container.interfaces.IObjectAddedEvent"
+    handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
+
 </configure>
