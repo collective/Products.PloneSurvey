@@ -52,7 +52,7 @@ class TestSendMethods(PloneSurveyTestCase):
         assert len(respondents) == 2
 
     def testAllSend(self):
-        """Test send to one user"""
+        """Test send to all users"""
         s1 = getattr(self.folder, 's1')
         s1.survey_send_invite(email='all')
         messages = self.portal.MailHost.messages
@@ -60,15 +60,26 @@ class TestSendMethods(PloneSurveyTestCase):
         respondents = s1.getAuthenticatedRespondents()
         assert len(respondents) == 2
 
+    def testAllSendMethod(self):
+        """Test send to all users from method"""
+        s1 = getattr(self.folder, 's1')
+        number_sent = s1.sendSurveyInviteAll(send_to_all=True)
+        messages = self.portal.MailHost.messages
+        assert len(messages) == 2
+        respondents = s1.getAuthenticatedRespondents()
+        assert len(respondents) == 2
+        assert number_sent == 2
+
     def testNotSentTwice(self):
         """Test can't send twice to same user"""
         s1 = getattr(self.folder, 's1')
         s1.sendSurveyInvite('user2@here.com')
         messages = self.portal.MailHost.messages
         assert len(messages) == 1
-        s1.survey_send_invite(email='new')
+        number_sent = s1.sendSurveyInviteAll(send_to_all=False)
         messages = self.portal.MailHost.messages
         assert len(messages) == 2, len(messages)
+        assert number_sent == 1
 
     def testReminderSentTwice(self):
         """Test reminder sent twice to same user"""
@@ -76,9 +87,25 @@ class TestSendMethods(PloneSurveyTestCase):
         s1.sendSurveyInvite('user2@here.com')
         messages = self.portal.MailHost.messages
         assert len(messages) == 1
-        s1.survey_send_invite(email='all')
+        number_sent = s1.sendSurveyInviteAll(send_to_all=True)
         messages = self.portal.MailHost.messages
         assert len(messages) == 3, len(messages)
+        assert number_sent == 2
+
+# XXX this won't work as we can't set it completed or easily login as the user
+#    def testReminderNotSentCompleted(self):
+#        """Test reminder sent twice to same user"""
+#        s1 = getattr(self.folder, 's1')
+#        s1.sendSurveyInvite('user2@here.com')
+#        messages = self.portal.MailHost.messages
+#        assert len(messages) == 1
+#        self.login('user2@here.com')
+#        self.setCompletedForUser()
+#        self.login('test_user_1_')
+#        number_sent = s1.sendSurveyInviteAll(send_to_all=True)
+#        messages = self.portal.MailHost.messages
+#        assert len(messages) == 2, len(messages)
+#        assert number_sent == 1
 
 class TestRegisterSent(PloneSurveyTestCase):
     """Test send method registers a respondent as being sent an email"""

@@ -630,6 +630,7 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.ModifyPortalContent, 'sendSurveyInviteAll')
     def sendSurveyInviteAll(self, send_to_all=False, use_transactions=False):
         """Send survey Invites to all respondents"""
+        number_sent = 0
         if use_transactions:
             transaction.abort()
         respondents = self.acl_users.getUsers()
@@ -647,8 +648,9 @@ class Survey(ATCTOrderedFolder):
                 if respondent_details['email_sent']:
                     continue
             self.sendSurveyInvite(email_address)
+            number_sent += 1
         # return number of invites sent
-        return len(respondents)
+        return number_sent
 
     def get_acl_users(self):
         """Fetch acl_users. Create if it does not yet exist."""
