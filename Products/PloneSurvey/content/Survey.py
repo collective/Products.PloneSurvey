@@ -632,20 +632,21 @@ class Survey(ATCTOrderedFolder):
         """Send survey Invites to all respondents"""
         if use_transactions:
             transaction.abort()
-        respondents = self.acl_users.getUserNames()
+        respondents = self.acl_users.getUsers()
         already_completed = self.getRespondents()
         for respondent in respondents:
             if use_transactions:
                 transaction.get()
-            respondent_details = self.getAuthenticatedRespondent(respondent)
-            if respondent in already_completed:
+            email_address = respondent.getId()
+            respondent_details = self.getAuthenticatedRespondent(email_address)
+            if email_address in already_completed:
                 # don't send out an invite if already responded
                 continue
             if not send_to_all:
                 # don't send an email if one already sent
                 if respondent_details['email_sent']:
                     continue
-            self.sendSurveyInvite(respondent)
+            self.sendSurveyInvite(email_address)
         # return number of invites sent
         return len(respondents)
 
