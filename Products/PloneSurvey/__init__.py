@@ -7,7 +7,7 @@ from Products.CMFCore.DirectoryView import registerDirectory
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.GenericSetup import EXTENSION, profile_registry
 
-#import isodatevalidator
+import isodatevalidator
 
 from config import SKINS_DIR, GLOBALS, PROJECTNAME
 from config import ADD_CONTENT_PERMISSION
