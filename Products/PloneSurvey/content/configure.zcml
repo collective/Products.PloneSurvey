@@ -3,6 +3,19 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:five="http://namespaces.zope.org/five">
 
+  <five:deprecatedManageAddDelete
+      class=".Survey.Survey" />
+  <five:deprecatedManageAddDelete
+      class=".SubSurvey.SubSurvey" />
+  <five:deprecatedManageAddDelete
+      class=".SurveyMatrix.SurveyMatrix" />
+  <five:deprecatedManageAddDelete
+      class=".SurveyMatrixQuestion.SurveyMatrixQuestion" />
+  <five:deprecatedManageAddDelete
+      class=".SurveySelectQuestion.SurveySelectQuestion" />
+  <five:deprecatedManageAddDelete
+      class=".SurveyTextQuestion.SurveyTextQuestion" />
+
   <subscriber
     for="Products.PloneSurvey.content.Survey.Survey
          zope.app.container.interfaces.IObjectAddedEvent"
