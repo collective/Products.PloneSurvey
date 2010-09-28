@@ -377,11 +377,6 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.ModifyPortalContent, 'getRespondentsDetails')
     def getRespondentsDetails(self):
         """Return a list of respondents details"""
-        # TODO needs moving to an event handler
-        try:
-            respondents = self.respondents
-        except AttributeError:
-            self.reset()
         return self.respondents
 
     security.declareProtected(permissions.ModifyPortalContent, 'getRespondentsList')
