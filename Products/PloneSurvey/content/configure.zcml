@@ -8,6 +8,8 @@
   <five:deprecatedManageAddDelete
       class=".SubSurvey.SubSurvey" />
   <five:deprecatedManageAddDelete
+      class=".SurveyDateQuestion.SurveyDateQuestion" />
+  <five:deprecatedManageAddDelete
       class=".SurveyMatrix.SurveyMatrix" />
   <five:deprecatedManageAddDelete
       class=".SurveyMatrixQuestion.SurveyMatrixQuestion" />
