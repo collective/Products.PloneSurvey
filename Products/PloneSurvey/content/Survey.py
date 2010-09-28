@@ -54,10 +54,6 @@ class Survey(ATCTOrderedFolder):
 
     security = ClassSecurityInfo()
 
-    def __init__(self, oid, **kwargs):
-        self.reset()
-        ATCTOrderedFolder.__init__(self, oid, **kwargs)
-
     security.declareProtected(permissions.ModifyPortalContent, 'reset')
     def reset(self):
         """Remove all respondents."""
