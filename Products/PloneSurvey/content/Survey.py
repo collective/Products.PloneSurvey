@@ -595,7 +595,12 @@ class Survey(ATCTOrderedFolder):
 
     security.declareProtected(permissions.ModifyPortalContent, 'getAuthenticatedRespondents')
     def getAuthenticatedRespondents(self):
-        return [self.getAuthenticatedRespondent(id) for id in self.get_acl_users().getUserNames()]
+        """Build up the list of users"""
+        respondents = []
+        users = self.get_acl_users().getUsers()
+        for user in users:
+            respondents.append(user.getId())
+        return [self.getAuthenticatedRespondent(user_id) for user_id in respondents]
 
     security.declareProtected(permissions.ModifyPortalContent, 'sendSurveyInvite')
     def sendSurveyInvite(self, email_address):
