@@ -1,5 +1,3 @@
-from zope import interface
-
 from Products.validation import validation
 from Products.validation.interfaces.IValidator import IValidator
 from DateTime import DateTime
@@ -7,7 +5,7 @@ from DateTime import DateTime
 
 class IsoDateValidator:
 
-    interface.implements(IValidator)
+    __implements__ = IValidator
 
     def __init__(self, name, title='', description=''):
         self.name = name

@@ -3,6 +3,7 @@ import string
 import csv
 import os
 import transaction
+from StringIO import StringIO
 from Products.CMFPlone.utils import safe_unicode
 
 from cStringIO import StringIO
@@ -53,10 +54,6 @@ class Survey(ATCTOrderedFolder):
 
     security = ClassSecurityInfo()
 
-    def __init__(self, oid, **kwargs):
-        self.reset()
-        ATCTOrderedFolder.__init__(self, oid, **kwargs)
-
     security.declareProtected(permissions.ModifyPortalContent, 'reset')
     def reset(self):
         """Remove all respondents."""
@@ -83,9 +80,10 @@ class Survey(ATCTOrderedFolder):
             remove_role = True
         # Re-use code in PlonePAS install
         addPluggableAuthService(self)
-        challenge_chooser_setup(self)
+        out = StringIO()
+        challenge_chooser_setup(self, out)
         registerPluginTypes(self.acl_users)
-        setupPlugins(self)
+        setupPlugins(self, out)
         
         # Recreate mutable_properties but specify fields
         uf = self.acl_users
@@ -94,7 +92,7 @@ class Survey(ATCTOrderedFolder):
         plone_pas.manage_delObjects('mutable_properties')
         plone_pas.manage_addZODBMutablePropertyProvider('mutable_properties',
             fullname='', key='', email_sent='')
-        activatePluginInterfaces(self, 'mutable_properties')
+        activatePluginInterfaces(self, 'mutable_properties', out)
         if remove_role:
             self.manage_delLocalRoles(userids=[current_userid,])
 
@@ -375,11 +373,6 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.ModifyPortalContent, 'getRespondentsDetails')
     def getRespondentsDetails(self):
         """Return a list of respondents details"""
-        # TODO needs moving to an event handler
-        try:
-            respondents = self.respondents
-        except AttributeError:
-            self.reset()
         return self.respondents
 
     security.declareProtected(permissions.ModifyPortalContent, 'getRespondentsList')
@@ -602,7 +595,12 @@ class Survey(ATCTOrderedFolder):
 
     security.declareProtected(permissions.ModifyPortalContent, 'getAuthenticatedRespondents')
     def getAuthenticatedRespondents(self):
-        return [self.getAuthenticatedRespondent(id) for id in self.get_acl_users().getUserNames()]
+        """Build up the list of users"""
+        respondents = []
+        users = self.get_acl_users().getUsers()
+        for user in users:
+            respondents.append(user.getId())
+        return [self.getAuthenticatedRespondent(user_id) for user_id in respondents]
 
     security.declareProtected(permissions.ModifyPortalContent, 'sendSurveyInvite')
     def sendSurveyInvite(self, email_address):
@@ -637,24 +635,27 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.ModifyPortalContent, 'sendSurveyInviteAll')
     def sendSurveyInviteAll(self, send_to_all=False, use_transactions=False):
         """Send survey Invites to all respondents"""
+        number_sent = 0
         if use_transactions:
             transaction.abort()
-        respondents = self.acl_users.getUserNames()
+        respondents = self.acl_users.getUsers()
         already_completed = self.getRespondents()
         for respondent in respondents:
             if use_transactions:
                 transaction.get()
-            respondent_details = self.getAuthenticatedRespondent(respondent)
-            if respondent in already_completed:
+            email_address = respondent.getId()
+            respondent_details = self.getAuthenticatedRespondent(email_address)
+            if email_address in already_completed:
                 # don't send out an invite if already responded
                 continue
             if not send_to_all:
                 # don't send an email if one already sent
                 if respondent_details['email_sent']:
                     continue
-            self.sendSurveyInvite(respondent)
+            self.sendSurveyInvite(email_address)
+            number_sent += 1
         # return number of invites sent
-        return len(respondents)
+        return number_sent
 
     def get_acl_users(self):
         """Fetch acl_users. Create if it does not yet exist."""
@@ -829,16 +830,6 @@ class Survey(ATCTOrderedFolder):
                 answers = question.answers
         return 'done'
 
-    security.declareProtected(permissions.View, 'checkPloneVersion')
-    def checkPloneVersion(self):
-        """Check if we are on Plone 2.5"""
-        # TODO for Plone 3.0, can be removed once sharing and properties actions on types removed
-        migration_tool = getToolByName(self, 'portal_migration')
-        plone_version = migration_tool.getInstanceVersion()
-        if plone_version[:3] == '2.5':
-            return True
-        return False
-
     security.declareProtected(permissions.ManagePortal, 'openFile')
     def openFile(self):
         """open the file, and return the file contents"""
@@ -879,8 +870,3 @@ class Survey(ATCTOrderedFolder):
                 errors['showCaptcha'] = 'Product quintagroup.plonecaptchas not installed'
 
 registerATCT(Survey, PROJECTNAME)
-
-def createSurveyEventHandler(ob, event):
-    """Initialise the survey"""
-    if not 'acl_users' in ob.objectIds():
-        ob.createLocalPas()

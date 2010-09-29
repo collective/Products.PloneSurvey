@@ -9,6 +9,8 @@ import os
 from Testing import ZopeTestCase
 from DateTime import DateTime
 
+from Products.CMFCore.utils import getToolByName
+
 # Let Zope know about the two products we require above-and-beyond a basic
 # Plone install (PloneTestCase takes care of these).
 ZopeTestCase.installProduct('PloneSurvey')
@@ -44,18 +46,29 @@ class PloneSurveyTestCase(PloneTestCase):
         self.folder.invokeFactory('Survey', 's1')
         self.s1 = getattr(self.folder, 's1')
         self.s1.setAllowAnonymous(True)
+        self.workflow = getToolByName(self.portal, 'portal_workflow')
+        self.setRoles(('Reviewer',))
+        self.workflow.doActionFor(self.s1,'publish')
+        self.setRoles(('Member',))
         self.s1.setEmailInvite(DEFAULT_SURVEY_INVITE)
 
     def createSubSurvey(self):
         """Create a survey with a sub survey"""
         self.createAnonSurvey()
         self.s1.invokeFactory('Sub Survey', 'ss1')
+        self.setRoles(('Reviewer',))
+        self.workflow.doActionFor(self.s1.ss1,'publish')
+        self.setRoles(('Member',))
 
     def createSimpleTwoPageSurvey(self):
         """Create a survey with some questions"""
         self.createSubSurvey()
         self.s1.invokeFactory('Survey Text Question', 'stq1')
         self.s1.ss1.invokeFactory('Survey Text Question', 'stq2')
+        self.setRoles(('Reviewer',))
+        self.workflow.doActionFor(self.s1.ss1.stq1,'publish')
+        self.workflow.doActionFor(self.s1.ss1.stq2,'publish')
+        self.setRoles(('Member',))
 
     def createBranchingSurvey(self):
         """Create a survey with branching"""

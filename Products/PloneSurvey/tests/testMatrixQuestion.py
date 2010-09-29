@@ -1,6 +1,9 @@
 #
 # Test PloneSurvey Matrix Question
 #
+from zope.event import notify
+from zope.lifecycleevent import ObjectCreatedEvent
+
 from Testing.makerequest import makerequest
 
 from Products.Archetypes.utils import DisplayList
@@ -176,11 +179,12 @@ class testMatrixQuestionValidation(PloneSurveyTestCase):
         sm1 = getattr(self.s1, 'sm1')
         sm1.setInputType('checkbox')
         sm1.invokeFactory('Survey Matrix Question', 'smq1')
+        notify(ObjectCreatedEvent(sm1.smq1))
 
     def testMultipleCheckboxAnswersValidates(self):
         s1 = getattr(self, 's1')
         sm1 = getattr(s1, 'sm1')
-        smq1 = getattr(sm1, 'smq1')        
+        smq1 = getattr(sm1, 'smq1')
         app = makerequest(self.app)
         # add your form variables
         app.REQUEST.form['sm1-smq1'] = ['5', '4']

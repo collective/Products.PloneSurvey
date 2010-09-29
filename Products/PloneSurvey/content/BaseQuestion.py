@@ -19,10 +19,6 @@ class BaseQuestion(ATCTContent):
     include_default_actions = 1
     _at_rename_after_creation = True
 
-    def __init__(self, oid, **kwargs):
-        self.reset()
-        BaseContent.__init__(self, oid, **kwargs)
-
     security = ClassSecurityInfo()
 
     security.declareProtected(permissions.ModifyPortalContent, 'reset')
