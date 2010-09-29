@@ -32,6 +32,12 @@
     url_expr="string:${object_url}/edit" visible="True">
   <permission value="Modify portal content"/>
  </action>
+ <action title="Properties" action_id="metadata" category="object"
+    condition_expr="object/checkPloneVersion"
+    url_expr="string:${object_url}/properties"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
  <action title="References" action_id="references" category="object"
     condition_expr="object/archetype_tool/has_graphviz"
     url_expr="string:${object_url}/reference_graph" visible="True">
@@ -47,6 +53,11 @@
     condition_expr="object/externalEditorEnabled"
     url_expr="string:${object_url}/external_edit" visible="False">
   <permission value="Modify portal content"/>
+ </action>
+ <action title="Sharing" action_id="local_roles" category="object"
+    condition_expr="object/checkPloneVersion"
+    url_expr="string:${object_url}/sharing" visible="True">
+  <permission value="Manage properties"/>
  </action>
  <action title="State" action_id="content_status_history"
     category="object_tabs"

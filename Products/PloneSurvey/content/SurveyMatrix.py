@@ -1,6 +1,5 @@
 import string
 from AccessControl import ClassSecurityInfo
-from BTrees.OOBTree import OOBTree
 
 from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
@@ -24,7 +23,7 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
 
     # A matrix doesn't have answers of its own, but it needs to have an
     # 'answers' attribute so that it plays properly with getAnswerFor etc.
-    answers = OOBTree()
+    answers = {}
 
     security.declareProtected(permissions.View, 'validateAnswer')
     def validateAnswer(self, form, state):
