@@ -81,9 +81,17 @@ class Survey(ATCTOrderedFolder):
         # Re-use code in PlonePAS install
         addPluggableAuthService(self)
         out = StringIO()
-        challenge_chooser_setup(self, out)
+        try:
+            challenge_chooser_setup(self)
+        except TypeError:
+            # BBB needed for Plone 3.3.5
+            challenge_chooser_setup(self, out)
         registerPluginTypes(self.acl_users)
-        setupPlugins(self, out)
+        try:
+            setupPlugins(self)
+        except TypeError:
+            # BBB needed for Plone 3.3.5
+            setupPlugins(self, out)
         
         # Recreate mutable_properties but specify fields
         uf = self.acl_users
