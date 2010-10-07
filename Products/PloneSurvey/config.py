@@ -6,6 +6,10 @@ from Products.validation import validation
 
 import permissions
 
+# Import "PloneSurveyMessageFactory as _" to create messages in plonesurvey domain
+from zope.i18nmessageid import MessageFactory
+PloneSurveyMessageFactory = _ = MessageFactory('plonesurvey')
+
 ADD_CONTENT_PERMISSION = permissions.AddPortalContent
 SKINS_DIR = 'skins'
 
@@ -29,8 +33,8 @@ SURVEY_STATUS = DisplayList((
     ))
 
 NOTIFICATION_METHOD = DisplayList((
-    ('', 'No emails', 'label_no_emails'),
-    ('each_submission', 'Email on each submission', 'label_all_emails'),
+    ('', _(u'label_no_emails', default=u'No emails')),
+    ('each_submission', _(u'label_all_emails', default=u'Email on each submission')),
     ))
 
 TEXT_INPUT_TYPE = DisplayList((
