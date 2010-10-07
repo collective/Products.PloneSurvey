@@ -218,6 +218,21 @@ msgid "help_description"
 msgstr ""
 
 
+# Default: An email invite will be sent to loaded respondents, use '**Name**' for the respondents name, and '**Survey**' for the title of the survey as a link to the survey.
+msgid "help_email_invite"
+msgstr ""
+
+
+# Default: Enter person's name that the survey invite email is from.
+msgid "help_invite_from_name"
+msgstr ""
+
+
+# Default: Enter person's email address that the survey invite email is from.
+msgid "help_invite_from_email"
+msgstr ""
+
+
 # Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
 msgid "help_exit_url"
 msgstr ""
@@ -328,6 +343,11 @@ msgid "label_description"
 msgstr ""
 
 
+# Default: Email Invite
+msgid "label_email_invite"
+msgstr ""
+
+
 # Default: Exit URL
 msgid "label_exit_url"
 msgstr ""
@@ -335,6 +355,16 @@ msgstr ""
 
 # Default: Input Type
 msgid "label_input_type"
+msgstr ""
+
+
+# Default: Person Invite From
+msgid "label_invite_from_name"
+msgstr ""
+
+
+# Default: Email Invite From
+msgid "label_invite_from_email"
 msgstr ""
 
 
@@ -392,6 +422,9 @@ msgstr ""
 msgid "label_selection_box"
 msgstr ""
 
+# Default: Show Captcha
+msgid "label_show_captcha"
+msgstr ""
 
 # Default: Closed
 msgid "label_survey_closed"

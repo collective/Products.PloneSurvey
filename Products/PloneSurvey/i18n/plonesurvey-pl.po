@@ -487,6 +487,30 @@ msgstr "Wybierz sposób otrzymywaina powiadomień."
 msgid "label_show_captcha"
 msgstr "Pokaż Captcha"
 
+# Default: Email Invite
+msgid "label_email_invite"
+msgstr "Zaproszenie e-mailowe"
+
+# Default: An email invite will be sent to loaded respondents, use '**Name**' for the respondents name, and '**Survey**' for the title of the survey as a link to the survey.
+msgid "help_email_invite"
+msgstr "Zaproszenie e-mailowe zostanie wysłane do załadowanych respondentów, użyj '**Name**' w miejscu nazw respondentów, a '**Survey**' w miejscu tytułu badania jako linku do ankiety."
+
+# Default: Person Invite From
+msgid "label_invite_from_name"
+msgstr "Nazwa osoby zapraszającej"
+
+# Default: Enter person's name that the survey invite email is from.
+msgid "help_invite_from_name"
+msgstr "Podaj nazwę osoby od której jest zaproszenie emailowe do ankiety."
+
+# Default: Email Invite From
+msgid "label_invite_from_email"
+msgstr "E-mail osoby zapraszającej"
+
+# Default: Enter person's email address that the survey invite email is from.
+msgid "help_invite_from_email"
+msgstr "Podaj e-mail osoby od której jest zaproszenie emailowe do ankiety."
+
 #: Survey.py
 # Default: Survey description
 msgid "label_description"
