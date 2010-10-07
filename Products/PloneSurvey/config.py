@@ -28,8 +28,8 @@ DEFAULT_SURVEY_INVITE = u'''
 <p>Thank you</p>'''
 
 SURVEY_STATUS = DisplayList((
-    ('open', 'Open', 'label_survey_open'),
-    ('closed', 'Closed', 'label_survey_closed'),
+    ('open', _(u'label_survey_open', default=u'Open')),
+    ('closed', _(u'label_survey_closed', default=u'Closed')),
     ))
 
 NOTIFICATION_METHOD = DisplayList((
@@ -50,12 +50,12 @@ SELECT_INPUT_TYPE = DisplayList((
     ))
 
 INPUT_TYPE = DisplayList((
-    ('radio', 'Radio Buttons', 'label_radio_buttons'),
-    ('selectionBox', 'Selection Box', 'label_selection_box'),
-    ('text', 'Text Field', 'label_text_field'),
-    ('area', 'Text Area', 'label_text_area'),
-    ('multipleSelect', 'Multiple Selection Box', 'label_multiple_selection_box'),
-    ('checkbox', 'Check Boxes', 'label_check_boxes'),
+    ('radio', _(u'label_radio_buttons', default=u'Radio Buttons')),
+    ('selectionBox', _(u'label_selection_box', default=u'Selection Box')),
+    ('text', _(u'label_text_field', default=u'Text Field')),
+    ('area', _(u'label_text_area', default=u'Text Area')),
+    ('multipleSelect', _(u'label_multiple_selection_box', default=u'Multiple Selection Box')),
+    ('checkbox', _(u'label_check_boxes', default=u'Check Boxes')),
     ))
 
 TEXT_LOCATION = IntDisplayList((
@@ -72,8 +72,8 @@ COMMENT_TYPE = DisplayList((
     ))
     
 TWO_D_INPUT_TYPE = DisplayList((
-    ('radio', 'Radio Buttons', 'label_radio_buttons'),
-    ('selectionBox', 'Selection Box', 'label_selection_box'),
+    ('radio', _(u'label_radio_buttons', default=u'Radio Buttons')),
+    ('selectionBox', _(u'label_selection_box', default=u'Selection Box')),
     ))
 
 LIKERT_OPTIONS = IntDisplayList((
