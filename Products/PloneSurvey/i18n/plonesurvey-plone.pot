@@ -98,3 +98,7 @@ msgstr ""
 # Default: Introduction
 msgid "label_schema_Introduction"
 msgstr ""
+
+# Default: Email Invite
+msgid "label_schema_Email Invite"
+msgstr ""
