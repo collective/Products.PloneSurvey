@@ -24,7 +24,7 @@ msgstr "Annuller"
 #. <input class="context" i18n:attributes="value submit_page_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="here/isMultipage" type="submit" value="Next"/>
 #: ../skins/plone_survey/survey_view.cpt
 msgid "submit_page_button"
-msgstr "Næste"
+msgstr "Nï¿½ste"
 
 # Original: "-- Please, select --"
 #. <option class="noborder" i18n:translate="Please select" value="">
@@ -32,19 +32,19 @@ msgstr "Næste"
 #. </option>
 #: ../skins/plone_survey/question_matrix_macro.pt
 msgid "Please select"
-msgstr "-- Vælg --"
+msgstr "-- Vï¿½lg --"
 
 # Original: "(Required)"
-#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired|nothing" title="Required">
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired|nothing" title="Required">
 #.  (Required)
 #. </span>
-#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired" title="Required">
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired" title="Required">
 #.  (Required)
 #. </span>
 #: ../skins/plone_survey/question_matrix_macro.pt
 #: ../skins/plone_survey/question_macro.pt
-msgid "Required"
-msgstr "(Påkrævet)"
+msgid "label_required_in_parentheses"
+msgstr "(Pï¿½krï¿½vet)"
 
 # Original: "Reset"
 #. <input class="context" i18n:attributes="value reset_button" name="submit" tal:attributes="tabindex tabindex/next" type="submit" value="Reset"/>
@@ -193,7 +193,7 @@ msgstr "En kort beskrivelse af surveyet her."
 
 # Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
 msgid "help_exit_url"
-msgstr "Dette er den URL, som brugeren vil blive henvist til når han har afsluttet surveyet. Brug \"http://site.to.go.to/page\" eller \"route/to/page\" hvis siden ligger på dette site."
+msgstr "Dette er den URL, som brugeren vil blive henvist til nï¿½r han har afsluttet surveyet. Brug \"http://site.to.go.to/page\" eller \"route/to/page\" hvis siden ligger pï¿½ dette site."
 
 # Default: Please select what type of input you would like to use for this question.
 msgid "help_input_type"
@@ -305,7 +305,7 @@ msgstr ""
 
 # Default: Required Answer
 msgid "label_previous_question_answer"
-msgstr "Svar påkrævet"
+msgstr "Svar pï¿½krï¿½vet"
 
 # Default: Use Required Answer?
 msgid "label_previous_question_answer_yes_no"
@@ -321,7 +321,7 @@ msgstr ""
 
 # Default: Required
 msgid "label_required"
-msgstr "Påkrævet"
+msgstr "Pï¿½krï¿½vet"
 
 # Default: 'Saved' message test
 msgid "label_saved_text"
@@ -337,7 +337,7 @@ msgstr "Slut"
 
 # Default: Survey Notification Email Address
 msgid "label_survey_notification_email"
-msgstr "Enquête notificatie-emailadres"
+msgstr "Enquï¿½te notificatie-emailadres"
 
 # Default: Survey Notification Method
 msgid "label_survey_notification_method"
@@ -345,7 +345,7 @@ msgstr ""
 
 # Default: Open
 msgid "label_survey_open"
-msgstr "Åben"
+msgstr "ï¿½ben"
 
 # Default: Survey currently
 msgid "label_survey_status"
@@ -365,7 +365,7 @@ msgstr "Tekstfelt"
 
 # Default: Rows (number of lines)
 msgid "label_text_rows"
-msgstr "Rækker (antal linjer)"
+msgstr "Rï¿½kker (antal linjer)"
 
 # Default: 'Thank you' message text
 msgid "label_thank"
@@ -425,11 +425,11 @@ msgstr "Ret venligst de markerede fejl."
 
 # Default: You have saved the survey. Don't forget to come back and finish it.
 msgid "text_default_saved_message"
-msgstr "Du har gemt surveyet. Glem ikke at kome tilbage og gøre det færdigt."
+msgstr "Du har gemt surveyet. Glem ikke at kome tilbage og gï¿½re det fï¿½rdigt."
 
 # Default: Thank you for completing the survey.
 msgid "text_default_thank_you"
-msgstr "Tak fordi du færdiggjorde surveyet."
+msgstr "Tak fordi du fï¿½rdiggjorde surveyet."
 
 # Default: Survey did not reset correctly
 msgid "text_survey_reset_error"
@@ -478,7 +478,7 @@ msgstr "Tillad gem"
 
 # Default: Allow logged in users to save survey for finishing later.
 msgid "help_allow_save"
-msgstr "Skal brugere der er logget ind kunne gemme surveyet og gøre det færdigt senere?."
+msgstr "Skal brugere der er logget ind kunne gemme surveyet og gï¿½re det fï¿½rdigt senere?."
 
 # Default: edit
 msgid "label_overview_edit"
@@ -494,19 +494,19 @@ msgstr ""
 
 # Default: There are no questions on this page.
 msgid "label_overview_no_question"
-msgstr "Der e ringen spørgsmål på denne side."
+msgstr "Der e ringen spï¿½rgsmï¿½l pï¿½ denne side."
 
 # Default: Add Question
 msgid "label_overview_add_question"
-msgstr "Tilføj spørgsmål"
+msgstr "Tilfï¿½j spï¿½rgsmï¿½l"
 
 # Default: Add Page
 msgid "label_overview_add_page"
-msgstr "Tilføj side"
+msgstr "Tilfï¿½j side"
 
 # Default: Question
 msgid "label_matrix_question"
-msgstr "Spørgsmål"
+msgstr "Spï¿½rgsmï¿½l"
 
 # Default: No users have completed the survey yet.
 msgid "label_no_users_yet"

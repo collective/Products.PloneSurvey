@@ -80,13 +80,13 @@ msgstr "Titel van de vraag"
 msgid "Question Type"
 msgstr "Type vraag"
 
-#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired|nothing" title="Required">
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired|nothing" title="Required">
 #. (Required)
 #. </span>
-#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired" title="Required">
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired" title="Required">
 #. Default: Required
 #: ../skins/plone_survey/survey_overview.pt
-msgid "Required"
+msgid "label_required_in_parentheses"
 msgstr "Verplicht"
 
 # <th i18n:translate="">Sub Survey</th>
@@ -106,7 +106,7 @@ msgstr "Ja"
 #. </p>
 #: ../skins/plone_survey/survey_reset_form.cpt
 msgid "desc_reset_survey"
-msgstr "Dit verwijdert alle antwoorden van de huidige enquête. Weet u het zeker?"
+msgstr "Dit verwijdert alle antwoorden van de huidige enquï¿½te. Weet u het zeker?"
 
 #. Default: "This is an overview of the current survey."
 #. <p i18n:translate="desc_survey_overview">
@@ -114,7 +114,7 @@ msgstr "Dit verwijdert alle antwoorden van de huidige enquête. Weet u het zeker?
 #. </p>
 #: ../skins/plone_survey/survey_overview.cpt
 msgid "desc_survey_overview"
-msgstr "Dit is een overzicht van de huidige enquête."
+msgstr "Dit is een overzicht van de huidige enquï¿½te."
 
 #. Default: "detailed spreadsheet"
 #. <a i18n:translate="detailed_spreadsheet" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">
@@ -172,7 +172,7 @@ msgstr "Al het commentaar voor ${objective} ${title}"
 #. </h1>
 #: ../skins/plone_survey/survey_reset_form.cpt
 msgid "heading_reset_survey"
-msgstr "Reset de enquête"
+msgstr "Reset de enquï¿½te"
 
 #. Default: "Results for survey ${title}"
 #. <h1 i18n:translate="heading_results">
@@ -181,7 +181,7 @@ msgstr "Reset de enquête"
 #. </h1>
 #: ../skins/plone_survey/survey_view_results.pt
 msgid "heading_results"
-msgstr "Resultaten voor enquête ${title}"
+msgstr "Resultaten voor enquï¿½te ${title}"
 
 #. Default: "Survey Contents"
 #. <h5 i18n:translate="heading_survey_contents">
@@ -189,7 +189,7 @@ msgstr "Resultaten voor enquête ${title}"
 #. </h5>
 #: ../skins/plone_survey/portlet_questions.pt
 msgid "heading_survey_contents"
-msgstr "Enquête-inhoud"
+msgstr "Enquï¿½te-inhoud"
 
 #. Default: "Survey Overview"
 #. <h1 i18n:translate="heading_survey_overview">
@@ -197,7 +197,7 @@ msgstr "Enquête-inhoud"
 #. </h1>
 #: ../skins/plone_survey/survey_overview.cpt
 msgid "heading_survey_overview"
-msgstr "Enquête overzicht"
+msgstr "Enquï¿½te overzicht"
 
 # <h2 i18n:translate="heading_totals_for">Totals for
 # <span tal:replace="question/Title"
@@ -211,11 +211,11 @@ msgstr "Totaal voor ${title}:"
 
 #. Default: Allow logged in users to save survey for finishing later.
 msgid "help_allow_save"
-msgstr "Bied ingelogde gebruikers de mogelijkheid aan om de enquête op te slaan en later te voltooien."
+msgstr "Bied ingelogde gebruikers de mogelijkheid aan om de enquï¿½te op te slaan en later te voltooien."
 
 #. Default: Enter the options you want to be available to the user here. Press enter to seperate the options.
 msgid "help_answer_options"
-msgstr "Voer de opties in die u hier aan de geënquêteerde beschikbaar wil stellen. Druk op enter om de opties te scheiden."
+msgstr "Voer de opties in die u hier aan de geï¿½nquï¿½teerde beschikbaar wil stellen. Druk op enter om de opties te scheiden."
 
 #. Default: The comment label.
 msgid "help_comment_label"
@@ -223,11 +223,11 @@ msgstr "Het commentaallabel."
 
 #. Default: Add a short description of the survey here.
 msgid "help_description"
-msgstr "Voer hier een korte beschrijving van de enquête in."
+msgstr "Voer hier een korte beschrijving van de enquï¿½te in."
 
 #. Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
 msgid "help_exit_url"
-msgstr "Dit is de URL waarnaar de gebruiker doorverwezen zal worden na het invullen van de enquête. gebruik \"http://site.waar.naar.toe.te.gaan/pagina\" of \"route/naar/pagina\" voor een interne link binnen de huidige site."
+msgstr "Dit is de URL waarnaar de gebruiker doorverwezen zal worden na het invullen van de enquï¿½te. gebruik \"http://site.waar.naar.toe.te.gaan/pagina\" of \"route/naar/pagina\" voor een interne link binnen de huidige site."
 
 #. Default: Please select what type of input you would like to use for this question.
 msgid "help_input_type"
@@ -235,7 +235,7 @@ msgstr "Selecteer het type invoer dat u voor deze vraag wil gebruiken."
 
 #. Default: Enter an introduction for the survey.
 msgid "help_introduction"
-msgstr "Voer een inleiding in voor de enquête."
+msgstr "Voer een inleiding in voor de enquï¿½te."
 
 #. Default: Select what type of comment box you would like.
 msgid "help_label_comment_type"
@@ -243,15 +243,15 @@ msgstr "Selecteer het type commentaarbox dat u wil gebruiken."
 
 #. Default: The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally.
 msgid "help_previous_question"
-msgstr "Een conditionele vraag bepaalt of er een subenquête moet worden getoond. Selecteer 'Geen' om de subenquête altijd weer te geven."
+msgstr "Een conditionele vraag bepaalt of er een subenquï¿½te moet worden getoond. Selecteer 'Geen' om de subenquï¿½te altijd weer te geven."
 
 #. Default: Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed.
 msgid "help_previous_question_answer"
-msgstr "Vul een verplicht antwoord in voor de conditionele vraag hierboven om te bepalen of de subenquête moet worden getoond."
+msgstr "Vul een verplicht antwoord in voor de conditionele vraag hierboven om te bepalen of de subenquï¿½te moet worden getoond."
 
 #. Default: Check this box if the required answer should be selected for this Sub Survey to be displayed.
 msgid "help_previous_question_answer_yes_no"
-msgstr "Vink deze box aan als het verplichte antwoord geselecteerd moet worden om de subenquête te tonen."
+msgstr "Vink deze box aan als het verplichte antwoord geselecteerd moet worden om de subenquï¿½te te tonen."
 
 #. Default: Add a long description of the question here, to clarify any details.
 msgid "help_question_description"
@@ -259,16 +259,16 @@ msgstr "Voer een lange beschrijving in voor deze vraag om de details uit te legg
 
 #. Default: Select if this question is required, meaning participant must give a response.
 msgid "help_required"
-msgstr "Selecteer of deze vraag verplicht is, dit betekend dat de geënquêteerde een antwoord moet geven."
+msgstr "Selecteer of deze vraag verplicht is, dit betekend dat de geï¿½nquï¿½teerde een antwoord moet geven."
 
 # THESE WERE ADDED FOR 31.10.2006
 #. Default: This is the message that will be displayed to the user when they save the survey, but don't submit it.
 msgid "help_saved_text"
-msgstr "Deze text zal getoond worden als de geënquêteerde de enquête opslaat maar niet verstuurt."
+msgstr "Deze text zal getoond worden als de geï¿½nquï¿½teerde de enquï¿½te opslaat maar niet verstuurt."
 
 #. Default: Enter an email address to receive notifications of survey completions.
 msgid "help_survey_notification_email"
-msgstr "Voer een emailadres in om notificaties van voltooide enquêtes te ontvangen."
+msgstr "Voer een emailadres in om notificaties van voltooide enquï¿½tes te ontvangen."
 
 #. Default: Select a method to receive notification emails.
 msgid "help_survey_notification_method"
@@ -284,7 +284,7 @@ msgstr "Voer een aantal rijen in voor dit veld. Deze waarde is alleen van toepas
 
 #. Default: This is the message that will be displayed to the user when they complete the survey.
 msgid "help_thankyou"
-msgstr "Dit is het bericht dat aan de geënquêteerde getoond zal worden als de enquête is voltooit."
+msgstr "Dit is het bericht dat aan de geï¿½nquï¿½teerde getoond zal worden als de enquï¿½te is voltooit."
 
 #. Default: Enter a title.
 msgid "help_title"
@@ -324,7 +324,7 @@ msgstr "Commentaartype"
 
 #. Default: Survey description
 msgid "label_description"
-msgstr "Enquête beschrijving"
+msgstr "Enquï¿½te beschrijving"
 
 #. Default: Exit URL
 msgid "label_exit_url"
@@ -344,7 +344,7 @@ msgstr "Vraag"
 
 #. Default: Add survey status to the survey title (open, closed)?
 msgid "label_modify_title"
-msgstr "Voeg enquêtestatus toe aan de enquêtetitel (open, gesloten)?"
+msgstr "Voeg enquï¿½testatus toe aan de enquï¿½tetitel (open, gesloten)?"
 
 #. Default: Multiple Selection Box
 msgid "label_multiple_selection_box"
@@ -360,7 +360,7 @@ msgstr "Geen email"
 
 #. Default: No users have completed the survey yet.
 msgid "label_no_users_yet"
-msgstr "Er zijn geënquêteerden die op dit moment de enquête heben voltooit."
+msgstr "Er zijn geï¿½nquï¿½teerden die op dit moment de enquï¿½te heben voltooit."
 
 #. Default: Add Page
 msgid "label_overview_add_page"
@@ -430,7 +430,7 @@ msgstr "Sluit"
 
 #. Default: Survey Notification Email Address
 msgid "label_survey_notification_email"
-msgstr "Enquête notificatie-emailadres"
+msgstr "Enquï¿½te notificatie-emailadres"
 
 #. Default: Survey Notification Method
 msgid "label_survey_notification_method"
@@ -442,7 +442,7 @@ msgstr "Open"
 
 #. Default: Survey currently
 msgid "label_survey_status"
-msgstr "Huidige enquête"
+msgstr "Huidige enquï¿½te"
 
 #. Default: Text Area
 msgid "label_text_area"
@@ -485,7 +485,7 @@ msgstr "Validatie"
 #. </legend>
 #: ../skins/plone_survey/survey_view.cpt
 msgid "legend_already_completed"
-msgstr "U heeft deze enquête reeds ingevuld."
+msgstr "U heeft deze enquï¿½te reeds ingevuld."
 
 #. Default: "Question details"
 #. <legend i18n:translate="legend_question_details">
@@ -493,7 +493,7 @@ msgstr "U heeft deze enquête reeds ingevuld."
 #. </legend>
 #: ../skins/plone_survey/survey_view.cpt
 msgid "legend_question_details"
-msgstr "Details van de enquête"
+msgstr "Details van de enquï¿½te"
 
 #. Default: Please provide an answer for this question
 msgid "please_provide_answer"
@@ -513,7 +513,7 @@ msgstr "Reset"
 #. <input class="context" i18n:attributes="value reset_survey_button" name="form.button.reset_survey" tabindex="" tal:attributes="tabindex tabindex/next" type="submit" value="Reset Survey"/>
 #: ../skins/plone_survey/survey_view.cpt
 msgid "reset_survey_button"
-msgstr "Reset de enquête"
+msgstr "Reset de enquï¿½te"
 
 #. Default: "Reset Users"
 #. <legend i18n:translate="reset_users">
@@ -521,7 +521,7 @@ msgstr "Reset de enquête"
 #. </legend>
 #: ../skins/plone_survey/respondents_view.cpt
 msgid "reset_users"
-msgstr "Reset geënquêteerden"
+msgstr "Reset geï¿½nquï¿½teerden"
 
 #. Default: "Respondents for survey"
 #. <span i18n:translate="respondents_for_survey">
@@ -529,7 +529,7 @@ msgstr "Reset geënquêteerden"
 #. </span>
 #: ../skins/plone_survey/respondents_view.cpt
 msgid "respondents_for_survey"
-msgstr "Geënquêteerden"
+msgstr "Geï¿½nquï¿½teerden"
 
 #. Default: "Save"
 #. <input class="context" i18n:attributes="value save_button" name="form.button.save" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="nothing" type="submit" value="Save"/>
@@ -555,7 +555,7 @@ msgstr "Volgende"
 #. </legend>
 #: ../skins/plone_survey/survey_reset_form.cpt
 msgid "survey_reset"
-msgstr "Enquête reset"
+msgstr "Enquï¿½te reset"
 
 #. Default: Please correct the errors shown
 msgid "text_correct_errors"
@@ -563,19 +563,19 @@ msgstr "Corrigeer de aangegeven fouten."
 
 #. Default: You have saved the survey. Don't forget to come back and finish it.
 msgid "text_default_saved_message"
-msgstr "U hebt de enquête opgeslagen. Kom later terug naar deze site om deze af te ronden."
+msgstr "U hebt de enquï¿½te opgeslagen. Kom later terug naar deze site om deze af te ronden."
 
 #. Default: Thank you for completing the survey.
 msgid "text_default_thank_you"
-msgstr "Dank u voor het invullen van de enquête."
+msgstr "Dank u voor het invullen van de enquï¿½te."
 
 #. Default: Survey did not reset correctly
 msgid "text_survey_reset_error"
-msgstr "Enquête is niet goed gereset."
+msgstr "Enquï¿½te is niet goed gereset."
 
 #. Default: Survey has been reset
 msgid "text_survey_reset_success"
-msgstr "Enquête is gereset"
+msgstr "Enquï¿½te is gereset"
 
 #. Default: ${users} have been reset
 msgid "text_survey_users_reset_error"
@@ -599,5 +599,5 @@ msgstr "bekijk het volledige commentaar..."
 #. </a>
 #: ../skins/plone_survey/survey_view_results.pt
 msgid "view_respondents"
-msgstr "Bekijk geënquêteerden."
+msgstr "Bekijk geï¿½nquï¿½teerden."
 

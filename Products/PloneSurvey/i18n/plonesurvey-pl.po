@@ -38,15 +38,15 @@ msgid "Please select"
 msgstr "-- wybierz --"
 
 # Default: "(Required)"
-#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired|nothing" title="Required">
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired|nothing" title="Required">
 #.  (Required)
 #. </span>
-#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired" title="Required">
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired" title="Required">
 #.  (Required)
 #. </span>
 #: ../skins/plone_survey/question_matrix_macro.pt
 #: ../skins/plone_survey/question_macro.pt
-msgid "Required"
+msgid "label_required_in_parentheses"
 msgstr "(Wymagane)"
 
 # Default: "Reset"
@@ -439,12 +439,12 @@ msgstr "To jest adres, pod który zostanie przekierowany użytkownik po wypełni
 
 #: Survey.py
 # Default: Confidential
-msgid "label_confidental"
+msgid "label_confidential"
 msgstr "Poufna"
 
 #: Survey.py
 # Default: Prevent respondents usernames from appearing in results
-msgid "help_confidental"
+msgid "help_confidential"
 msgstr "Wyłącza pokazywane loginów użytkowników w wynikach ankiety."
 
 #: Survey.py
@@ -481,6 +481,11 @@ msgstr "Sposób otrzymywania powiadomień"
 # Default: Select a method to receive notification emails.
 msgid "help_survey_notification_method"
 msgstr "Wybierz sposób otrzymywaina powiadomień."
+
+#: Survey.py
+# Default: Show Captcha
+msgid "label_show_captcha"
+msgstr "Pokaż Captcha"
 
 #: Survey.py
 # Default: Survey description

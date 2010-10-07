@@ -16,7 +16,7 @@
          <span class="fieldRequired"
                title="Required"
                tal:condition="question/getRequired"
-               i18n:translate="Required">(Required)</span>
+               i18n:translate="label_required_in_parentheses">(Required)</span>
      </h2>
 
     <label tal:attributes="for qid"
@@ -24,7 +24,7 @@
     <span class="fieldRequired"
           title="Required"
           tal:condition="question/getRequired"
-          i18n:translate="Required">(Required)</span>
+          i18n:translate="label_required_in_parentheses">(Required)</span>
     <div class="formHelp"
          tal:attributes="id helpid"
          tal:content="question/Description" />

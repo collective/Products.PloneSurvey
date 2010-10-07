@@ -22,7 +22,7 @@
 
         <span class="fieldRequired" title="Required"
               i18n:attributes="title title_required;"
-              i18n:translate="label_required">(Required)</span>
+              i18n:translate="label_required_in_parentheses">(Required)</span>
       
         <div tal:content="error">Validation error output</div>
 
@@ -44,7 +44,7 @@
 
         <span class="fieldRequired" title="Required"
               i18n:attributes="title title_required;"
-              i18n:translate="label_required">(Required)</span>
+              i18n:translate="label_required_in_parentheses">(Required)</span>
       
         <div tal:content="error">Validation error output</div>
 
@@ -67,7 +67,7 @@
 
         <span class="fieldRequired" title="Required"
               i18n:attributes="title title_required;"
-              i18n:translate="label_required">(Required)</span>
+              i18n:translate="label_required_in_parentheses">(Required)</span>
       
         <div tal:content="error">Validation error output</div>
 

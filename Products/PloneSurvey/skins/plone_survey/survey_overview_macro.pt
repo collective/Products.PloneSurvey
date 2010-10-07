@@ -13,7 +13,7 @@
         <span class="fieldRequired"
               title="Required"
               tal:condition="question/getRequired"
-              i18n:translate="Required">(Required)</span>
+              i18n:translate="label_required_in_parentheses">(Required)</span>
     </h4>
     <form method="post"
           tal:attributes="action string:${question/absolute_url}/base_edit">

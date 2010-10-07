@@ -41,15 +41,15 @@ msgstr "-- prosím vyberte --"
 
 
 #: ../skins/plone_survey/question_macro.pt
-#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired" title="Required">
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired" title="Required">
 #.  (Required)
 #. </span>
 #: ../skins/plone_survey/question_matrix_macro.pt
-#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired|nothing" title="Required">
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired|nothing" title="Required">
 #.  (Required)
 #. </span>
 # Original: "(Required)"
-msgid "Required"
+msgid "label_required_in_parentheses"
 msgstr "(Vyžadováno)"
 
 

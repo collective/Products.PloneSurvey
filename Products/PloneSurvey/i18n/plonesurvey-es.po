@@ -36,15 +36,15 @@ msgid "Please select"
 msgstr "Seleccione, por favor"
 
 # Default: "(Required)"
-#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired|nothing" title="Required">
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired|nothing" title="Required">
 #.  (Required)
 #. </span>
-#. <span class="fieldRequired" i18n:translate="Required" tal:condition="question/getRequired" title="Required">
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired" title="Required">
 #.  (Required)
 #. </span>
 #: ../skins/plone_survey/question_matrix_macro.pt
 #: ../skins/plone_survey/question_macro.pt
-msgid "Required"
+msgid "label_required_in_parentheses"
 msgstr "Requerido"
 
 # Default: "Reset"
