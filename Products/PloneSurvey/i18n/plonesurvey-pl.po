@@ -511,6 +511,38 @@ msgstr "E-mail osoby zapraszającej"
 msgid "help_invite_from_email"
 msgstr "Podaj e-mail osoby od której jest zaproszenie emailowe do ankiety."
 
+# Default: Show hours and minutes
+msgid "label_showhm"
+msgstr "Pokaż godziny i minuty"
+
+# Default: Show date
+msgid "label_showymd"
+msgstr "Pokaż datę"
+
+# Default: Starting Year
+msgid "label_startingyear"
+msgstr "Rok startowy"
+
+# Default: Ending Year
+msgid "label_endingyear"
+msgstr "Rok końcowy"
+
+# Default: Future Years
+msgid "label_futureyears"
+msgstr "Lata przyszłe"
+
+# Default: Text Block
+msgid "label_textblockbody"
+msgstr "Blok tekstowy"
+
+# Default: Location of Text Block
+msgid "label_textlocation"
+msgstr "Położenie bloku tekstowego"
+
+# Default: Select where the text block above should appear.
+msgid "help_textlocation"
+msgstr "Wybierz gdzie powinien znajdować się powyższy blok tekstowy."
+
 #: Survey.py
 # Default: Survey description
 msgid "label_description"
@@ -820,6 +852,26 @@ msgstr "Nie"
 # Default: Disagree Strongly
 msgid "Disagree Strongly"
 msgstr "Zdecydowanie Nie"
+
+#: config.py
+# Default: Does not appear
+msgid "label_does_not_appear"
+msgstr "Niewidoczny"
+
+#: config.py
+# Default: Appears above question
+msgid "label_appears_above_question"
+msgstr "Przed pytaniem"
+
+#: config.py
+# Default: Appears between question and answer
+msgid "label_appears_between_question_and_answer"
+msgstr "Pomiędzy pytaniem i odpowiedzią"
+
+#: config.py
+# Default: Appears after answer
+msgid "label_appears_after_answer"
+msgstr "Po odpowiedzi"
 
 #. question_matrix_macro.pt
 # Default: Select Option

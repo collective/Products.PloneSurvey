@@ -283,6 +283,11 @@ msgid "help_survey_notification_method"
 msgstr ""
 
 
+# Default: Select where the text block above should appear.
+msgid "help_textlocation"
+msgstr ""
+
+
 # Default: Enter a number of columns for this field (width of the field in the characters)
 msgid "help_text_cols"
 msgstr ""
@@ -348,8 +353,18 @@ msgid "label_email_invite"
 msgstr ""
 
 
+# Default: Ending Year
+msgid "label_endingyear"
+msgstr ""
+
+
 # Default: Exit URL
 msgid "label_exit_url"
+msgstr ""
+
+
+# Default: Future Years
+msgid "label_futureyears"
 msgstr ""
 
 
@@ -422,9 +437,26 @@ msgstr ""
 msgid "label_selection_box"
 msgstr ""
 
+
+# Default: Show hours and minutes
+msgid "label_showhm"
+msgstr ""
+
+
+# Default: Show date
+msgid "label_showymd"
+msgstr ""
+
+
 # Default: Show Captcha
 msgid "label_show_captcha"
 msgstr ""
+
+
+# Default: Starting Year
+msgid "label_startingyear"
+msgstr ""
+
 
 # Default: Closed
 msgid "label_survey_closed"
@@ -448,6 +480,16 @@ msgstr ""
 
 # Default: Survey currently
 msgid "label_survey_status"
+msgstr ""
+
+
+# Default: Text Block
+msgid "label_textblockbody"
+msgstr ""
+
+
+# Default: Location of Text Block
+msgid "label_textlocation"
 msgstr ""
 
 
@@ -665,6 +707,26 @@ msgstr ""
 
 # Default: Disagree Strongly
 msgid "Disagree Strongly"
+msgstr ""
+
+#: config.py
+# Default: Does not appear
+msgid "label_does_not_appear"
+msgstr ""
+
+#: config.py
+# Default: Appears above question
+msgid "label_appears_above_question"
+msgstr ""
+
+#: config.py
+# Default: Appears between question and answer
+msgid "label_appears_between_question_and_answer"
+msgstr ""
+
+#: config.py
+# Default: Appears after answer
+msgid "label_appears_after_answer"
 msgstr ""
 
 # Default: Please provide an answer for the question 

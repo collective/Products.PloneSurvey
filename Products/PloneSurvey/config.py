@@ -59,10 +59,10 @@ INPUT_TYPE = DisplayList((
     ))
 
 TEXT_LOCATION = IntDisplayList((
-    (0, 'Does not appear', 'XXX'),
-    (1, 'Appears above question', 'XXX'),
-    (2, 'Appears between question and answer', 'XXX'),
-    (3, 'Appears after answer', 'XXX'),
+    (0, _(u'label_does_not_appear', default=u'Does not appear')),
+    (1, _(u'label_appears_above_question', default=u'Appears above question')),
+    (2, _(u'label_appears_between_question_and_answer', default=u'Appears between question and answer')),
+    (3, _(u'label_appears_after_answer', default=u'Appears after answer')),
     ))
 
 COMMENT_TYPE = DisplayList((

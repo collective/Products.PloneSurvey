@@ -52,6 +52,11 @@ msgstr "Pytanie z Listą Odpowiedzi"
 msgid "Survey Text Question"
 msgstr "Pytanie z Polem Tekstowym"
 
+# Default: Survey Date Question
+#: ../content/SurveyDateQuestion.py
+msgid "Survey Date Question"
+msgstr "Pytanie z Datą"
+
 # Default: Comment Field
 #: ../content/BaseQuestion.py
 msgid "Comment Field"
@@ -101,3 +106,11 @@ msgstr "Wprowadzenie"
 # Default: Email Invite
 msgid "label_schema_Email Invite"
 msgstr "Zaproszenie e-mailowe"
+
+# Default: Branching
+msgid "label_schema_Branching"
+msgstr "Rozgałęzienia"
+
+# Default: Text Block
+msgid "label_schema_Text Block"
+msgstr "Blok tekstowy"
