@@ -95,4 +95,6 @@ msgstr ""
 msgid "Survey Matrix Question"
 msgstr ""
 
-
+# Default: Introduction
+msgid "label_schema_Introduction"
+msgstr ""

@@ -94,3 +94,10 @@ msgstr "Brak"
 msgid "Survey Matrix Question"
 msgstr "Pytanie w Tablicy"
 
+# Default: Introduction
+msgid "label_schema_Introduction"
+msgstr "Wprowadzenie"
+
+# Default: Email Invite
+msgid "label_schema_Email Invite"
+msgstr "Zaproszenie e-mailowe"
