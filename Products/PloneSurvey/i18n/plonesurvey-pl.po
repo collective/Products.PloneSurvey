@@ -605,12 +605,12 @@ msgstr "Wybierz typ pól dla tego pytania."
 
 #: SurveyTextQuestion.py
 # Default: Maximum length of characters
-msgid "label_max_length"
+msgid "label_maxlength"
 msgstr "Ograniczenie ilości znaków"
 
 #: SurveyTextQuestion.py
 # Default: Enter the maximum number of characters a user can enter for this question
-msgid "help_max_length"
+msgid "help_maxlength"
 msgstr "Wpisz liczbę do której ograniczona zostanie ilość znaków możliwa do wpisania w tym polu." 
 
 #: SurveyTextQuestion.py
@@ -631,7 +631,7 @@ msgstr "Wiersze (liczba linii)"
 #: SurveyTextQuestion.py
 # Default: Enter a number of rows for this field. This value is applicable only in the Text Area input type
 msgid "help_text_rows"
-msgstr "Wpisz liczbę wierszy tego pola. Ta wartość jest brana pod uwagę tylko jeśli został wybray Obszar Tekstowy."
+msgstr "Wpisz liczbę wierszy tego pola. Ta wartość jest brana pod uwagę tylko jeśli został wybrany Obszar Tekstowy."
 
 #: SurveyTextQuestion.py
 # Default: Validation

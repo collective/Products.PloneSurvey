@@ -38,8 +38,8 @@ NOTIFICATION_METHOD = DisplayList((
     ))
 
 TEXT_INPUT_TYPE = DisplayList((
-    ('text', 'Text Field', 'label_text_field'),
-    ('area', 'Text Area', 'label_text_area'),
+    ('text', _(u'label_text_field', default=u'Text Field')),
+    ('area', _(u'label_text_area', default=u'Text Area')),
     ))
 
 SELECT_INPUT_TYPE = DisplayList((
