@@ -795,3 +795,28 @@ msgstr ""
 # Default: No users have completed the survey yet.
 msgid "label_no_users_yet"
 msgstr ""
+
+#: SurveySelectQuestion.py
+# Default: Likert Options
+msgid "label_likertoptions"
+msgstr ""
+
+#: SurveySelectQuestion.py
+# Default: Select a Likert scale to use for options, or use the box below.
+msgid "help_likertoptions"
+msgstr ""
+
+#: SurveySelectQuestion.py
+# Default: Reverse Likert Scale
+msgid "label_reverselikert"
+msgstr ""
+
+#: SurveySelectQuestion.py
+# Default: Display the likert options in reverse order, bad to good.
+msgid "help_reverselikert"
+msgstr ""
+
+#: schemata.py
+# Default: Comment - mandatory if "no"
+msgid "label_comment_mandatory_if_no"
+msgstr ""

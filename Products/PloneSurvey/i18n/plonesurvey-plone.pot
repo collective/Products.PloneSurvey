@@ -114,3 +114,7 @@ msgstr ""
 # Default: Text Block
 msgid "label_schema_Text Block"
 msgstr ""
+
+# Default: Comment Field
+msgid "label_schema_Comment Field"
+msgstr ""

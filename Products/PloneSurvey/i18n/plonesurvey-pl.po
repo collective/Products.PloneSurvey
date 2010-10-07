@@ -645,13 +645,23 @@ msgstr "Wybierz jeden z gotowych walidatorów"
 
 #: SurveySelectQuestion.py
 # Default: Likert Options
-msgid "label_linkert_options"
+msgid "label_likertoptions"
 msgstr "Gotowe odpowiedzi"
 
 #: SurveySelectQuestion.py
 # Default: Select a Likert scale to use for options, or use the box below.
-msgid "help_linkert_options"
+msgid "help_likertoptions"
 msgstr "Wybierz zestaw gotowych odpowiedzi, lub własne z pola poniżej."
+
+#: SurveySelectQuestion.py
+# Default: Reverse Likert Scale
+msgid "label_reverselikert"
+msgstr "Odwróć skalę odpowiedzi"
+
+#: SurveySelectQuestion.py
+# Default: Display the likert options in reverse order, bad to good.
+msgid "help_reverselikert"
+msgstr "Wyświetl gotowe odpowiedzi w odwrotnej kolejności, od negatywnych do pozytywnych."
 
 #: SurveySelectQuestion.py
 # Default: Answer options
@@ -665,12 +675,12 @@ msgstr "Wpisz możliwe odpowiedzi, po jednej w linii."
 
 #: SurveySelectQuestion.py
 # Default: Null Value
-msgid "label_null_value"
+msgid "label_nullvalue"
 msgstr "Pusta odpowiedź"
 
 #: SurveySelectQuestion.py
 # Default: Leave this blank to make the question required, or enter a value for no response, eg Not applicable. If this is a multiple select or checkbox field, enter some random text, which will not appear in the survey, to make this question not required.
-msgid "help_null_value"
+msgid "help_nullvalue"
 msgstr "Pozostaw to pole puste, aby pytanie było wymagane. Zawartość tego pola zostanie przedstawiona w wynikach w przypadku gdy użytkownik nie udzieli na pytanie odpowiedzi przy wysyłaniu ankiety."
 
 #: SubSurvey.py
@@ -884,3 +894,7 @@ msgstr "Brak Komentarza"
 msgid "Comment"
 msgstr "Komentarz"
 
+#: schemata.py
+# Default: Comment - mandatory if "no"
+msgid "label_comment_mandatory_if_no"
+msgstr "Komentarz - obowiązkowy jeśli \"nie\""

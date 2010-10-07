@@ -12,6 +12,10 @@ from Products.GenericSetup import EXTENSION, profile_registry
 from config import SKINS_DIR, GLOBALS, PROJECTNAME
 from config import ADD_CONTENT_PERMISSION
 
+# Import "PloneSurveyMessageFactory as _" to create messages in plonesurvey domain
+from zope.i18nmessageid import MessageFactory
+PloneSurveyMessageFactory = MessageFactory('plonesurvey')
+
 registerDirectory(SKINS_DIR, GLOBALS)
 
 def initialize(context):

@@ -3,12 +3,12 @@ PROJECTNAME = "PloneSurvey"
 from Products.Archetypes.utils import DisplayList
 from Products.Archetypes.utils import IntDisplayList
 from Products.validation import validation
+from zope.i18nmessageid import MessageFactory
 
 import permissions
 
-# Import "PloneSurveyMessageFactory as _" to create messages in plonesurvey domain
-from zope.i18nmessageid import MessageFactory
-PloneSurveyMessageFactory = _ = MessageFactory('plonesurvey')
+
+_ = MessageFactory('plonesurvey')
 
 ADD_CONTENT_PERMISSION = permissions.AddPortalContent
 SKINS_DIR = 'skins'
@@ -43,10 +43,10 @@ TEXT_INPUT_TYPE = DisplayList((
     ))
 
 SELECT_INPUT_TYPE = DisplayList((
-    ('radio', 'Radio Buttons', 'label_radio_buttons'),
-    ('selectionBox', 'Selection Box', 'label_selection_box'),
-    ('multipleSelect', 'Multiple Selection Box', 'label_multiple_selection_box'),
-    ('checkbox', 'Check Boxes', 'label_check_boxes'),
+    ('radio', _(u'label_radio_buttons', default=u'Radio Buttons')),
+    ('selectionBox', _(u'label_selection_box', default=u'Selection Box')),
+    ('multipleSelect', _(u'label_multiple_selection_box', default=u'Multiple Selection Box')),
+    ('checkbox', _(u'label_check_boxes', default=u'Check Boxes')),
     ))
 
 INPUT_TYPE = DisplayList((
@@ -66,9 +66,9 @@ TEXT_LOCATION = IntDisplayList((
     ))
 
 COMMENT_TYPE = DisplayList((
-    ('', 'None', 'label_no_comment_field'),
-    ('text', 'Text Field', 'label_text_field'),
-    ('area', 'Text Area', 'label_text_area'),
+    ('', _(u'label_no_comment_field', default=u'None')),
+    ('text', _(u'label_text_field', default=u'Text Field')),
+    ('area', _(u'label_text_area', default=u'Text Area')),
     ))
     
 TWO_D_INPUT_TYPE = DisplayList((
@@ -77,33 +77,33 @@ TWO_D_INPUT_TYPE = DisplayList((
     ))
 
 LIKERT_OPTIONS = IntDisplayList((
-    (0, 'Use the options below', 'XXX'),
-    (1, '("Very Good", "Good", "OK Only", "Poor", "Very Poor")', 'XXX'),
-    (2, '("Very Useful", "Useful", "Quite Useful", "A little Useful", "Not Useful")', 'XXX'),
-    (3, '("Agree Strongly", "Agree", "Neutral", "Disagree", "Disagree Strongly")', 'XXX'),
+    (0, _(u'label_use_options_below', default=u'Use the options below')),
+    (1, _(u'list_good_poor', default=u'("Very Good", "Good", "OK Only", "Poor", "Very Poor")')),
+    (2, _(u'list_useful_notuseful', default=u'("Very Useful", "Useful", "Quite Useful", "A little Useful", "Not Useful")')),
+    (3, _(u'list_agree_disagree', default=u'("Agree Strongly", "Agree", "Neutral", "Disagree", "Disagree Strongly")')),
     ))
 
 LIKERT_OPTIONS_MAP = {
     1 : IntDisplayList((
-        (5, 'Very Good', 'Very Good'),
-        (4, 'Good', 'Good'),
-        (3, 'OK Only', 'OK Only'),
-        (2, 'Poor', 'Poor'),
-        (1, 'Very Poor', 'Very Poor'),
+        (5, _(u'Very Good', default=u'Very Good')),
+        (4, _(u'Good', default=u'Good')),
+        (3, _(u'OK Only', default=u'OK Only')),
+        (2, _(u'Poor', default=u'Poor')),
+        (1, _(u'Very Poor', default=u'Very Poor')),
         )),
     2 : IntDisplayList((
-        (5, 'Very Useful', 'Very Useful'),
-        (4, 'Useful', 'Useful'),
-        (3, 'Quite Useful', 'Quite Useful'),
-        (2, 'A little Useful', 'A little Useful'),
-        (1, 'Not Useful', 'Not Useful'),
+        (5, _(u'Very Useful', default=u'Very Useful')),
+        (4, _(u'Useful', default=u'Useful')),
+        (3, _(u'Quite Useful', default=u'Quite Useful')),
+        (2, _(u'A little Useful', default=u'A little Useful')),
+        (1, _(u'Not Useful', default=u'Not Useful')),
         )),
     3 : IntDisplayList((
-        (5, 'Agree Strongly', 'Agree Strongly'),
-        (4, 'Agree', 'Agree'),
-        (3, 'Neutral', 'Neutral'),
-        (2, 'Disagree', 'Disagree'),
-        (1, 'Disagree Strongly', 'Disagree Strongly'),
+        (5, _(u'Agree Strongly', default=u'Agree Strongly')),
+        (4, _(u'Agree', default=u'Agree')),
+        (3, _(u'Neutral', default=u'Neutral')),
+        (2, _(u'Disagree', default=u'Disagree')),
+        (1, _(u'Disagree Strongly', default=u'Disagree Strongly')),
         )),
     }
 
