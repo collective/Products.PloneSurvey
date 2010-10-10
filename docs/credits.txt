@@ -1,4 +1,4 @@
-﻿Credits
+Credits
 
 Original CMFQuestions Development:
 
@@ -37,6 +37,12 @@ PloneSurvey Development:
   i18n testing
   Paul Roeland
 
+  Captcha integration
+  Suresh V., "Grafware.com":mailto:suresh@grafware.com
+
+  Eggification and upgrade to Plone 4 compatibility
+  Ross Patterson and others
+
 Translations
 
   Czech Translation
@@ -47,9 +53,10 @@ Translations
 
   Polish translation and i18n fixs
   Piotr Furman - webservice.pl
+  Maciej Zieba
 
   French translation
-  Marc Van Coillie, Yves Moisan
+  Marc Van Coillie, Yves Moisan, Matthias Broquet
 
   Brasilian Portuguese translation
   Luís Flávio Rocha
@@ -62,3 +69,7 @@ Translations
 
   Spanish translation
   Héctor Velarde, "La Jornada":mailto:hvelarde@jornada.com.mx
+
+  Catalan translation
+  Pilar Marinas, UPCnet (Universitat Politècnica de Catalunya)
+
