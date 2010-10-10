@@ -1,11 +1,52 @@
-1.3.0 - SVN/unreleased
-==================
+Changelog for Products.PloneSurvey
+==================================
 
-1.2.2 - SVN/unreleased
-==================
+1.4.0 - SVN/unreleased
+----------------------
+
+  * Polish translation and i18n improvements
+    [Maciej Zieba]
+
+  * Eggification and upgrade to Plone 4 compatibility
+    [Ross Patterson]
+
+  * Improve the respondents functionality and various other improvements
+    [Michael Davis]
+
+  * Captcha integration (with quintagroup.plonecaptchas)
+    [sureshvv]
+
+  * Bugfix on SurveyDateQuestion, in barchart view
+    [tiazma]
+
+  * French translation update
+    [tiazma]
+
+1.3.0 - 2009-02-10
+------------------
+
+  * Fork for plone 3 compatibility
+
+1.2.2 - alpha1 - 2009-02-09
+---------------------------
+
+  * French translation update
+    [sneridagh]
+
+  * Catalan translation
+    [Pilar Marinas]
+
+  * Date question
+    [Michael Davis]
+
+  * Pass survey id in form to get round cookies disabled problem
+    [Michael Davis]
+
+  * Capture respondent details with date times for start and end
+    [Michael Davis]
 
 1.2.1 - 2008-05-21
-==================
+------------------
 
   * Bugfixes, minor functionality improvements
     [Michael Davis]
@@ -17,7 +58,7 @@
     [Hector Velarde]
 
 1.2.0 - 2007-10-15
-==================
+------------------
 
   * Bug fixes, minor improvements etc during Naples Sprint
     [Michael Davis, Nick Davis, Paul Roeland]
@@ -49,8 +90,8 @@
   * Remove backward compatibility with 1.0
     [Michael Davis] 
 
-1.1.0 - 21/12/06
-==================
+1.1.0 - 2006-12-21
+----------------
   * Fix spreadsheet bugs (see resolved issues in tracker)
     [Michael Davis, Nick Davis] 
 
@@ -199,7 +240,7 @@
     [davismr]
 
 1.0.0 - 2006-06-06
-==================
+------------------
 
   * Refactor CMFQuestions to Archetypes
     [davismr]
