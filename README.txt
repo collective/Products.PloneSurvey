@@ -1,54 +1,58 @@
-Overview
+Products.PloneSurvey - A survey tool for Plone
+============================================================
 
-  PloneSurvey is a simple but powerful product written to collect data from people
-  - feedback on a course, survey, simple data collection etc.
+This package allows users to create a survey or simple form for collecting user's feedback. Surveys can be a simple single page, or a multi page survey with complex branching
+
+Using PloneSurvey
+------------
+Once a survey is added, questions can be added such as select question or 
+
 
 Installation
+------------
 
-  Use the Plone Portal Quickinstaller to install this product. 
+To install the package, list it in the ``eggs`` line in buildout.cfg, e.g.::
+
+    [instance]
+    ...
+    eggs =
+        ...
+        Products.PloneSurvey
+
+Alternatively, use one of the buildouts in the `buildout directory<http://svn.plone.org/svn/collective/Products.PloneSurvey/buildout/>`__
+
+Once you have the package installed, you need to use the Portal Quick Installer to install it into your Plone site.
 
 Usage
+-----
 
-  Add a Survey within a plone site, and add questions and sub-surveys within the survey.
-  Only published questions will be displayed in the survey form for users.
-  The survey is an ordered folder, so question order can be changed within folder contents.
-  There are 6 different types of questions that can be added, 'Radio Buttons', 'Selection Box',
-  'Text Field', 'Text Area', 'Multiple Selection Box' and 'Check Boxes'. These question types
-  correspond to the HTML tag used to display the answer options. For the text input question
-  types there are no answer options and so this field should be ignored. Each Question also
-  has an optional comment field, there are two different types of Comment Field, 'Text Area'
-  or 'Text Field'. 
-  Users are given the option of saving and submitting their data.
-  Saving means that they can come back later and their answers will be remembered. Once a
-  user has submitted their answers will be verified to make sure they gave a response to every
-  question. They only way to later change their answers, is if they choose 'reset' which resets all
-  their answers.
+Once a survey has been added, you can add questions within the survey. For a multi page survey, add a `sub survey` and add your questions within the `sub survey`. To make a survey available to users, publish the survey and the questions within it. If you want the survey to be available to anonymous users, you must select `Allow Anonymous` on the survey edit form.
 
-  The Thank you message text and Saved message text are used when a user completes a survey,
-  and the email options determine whether emails are generated for the survey owner.
-  You can also set the Survey to open or closed (which changes whether users are able to submit)
-  and set whether to allow anonymous users. Anonymous support is done using a cookie __cmfquestions_name
-  which stores the users name. This cookie is not persistent and so when the user exits their browser
-  and returns their username will not be remembered and they will be able to take the questionnaire again.
+There are several question types: Text Question, Select Question, Date Question and Matrix Question. Matrix Questions are for tabular question banks, where the matrix questions share the same answer options.
 
-  Questions and sub-surveys can be branched, meaning they only appear if a certain answer was given to an
-  earlier question. This means the respondent answers only relevant questions and bypasses irrelevant ones.
-  It is a powerful feature which reduces the time respondents take to fill in a survey.
+The sub surveys allow fairly simple branching based on either an option in a previous question being selected or not selected. The option to branch on more than one answer option or more than one question is not supported yet. The branching functionality should support most use cases if your survey is well designed, but it is possible to create portions of your survey that can not be completed by branching on a question that has not been presented to the user before the branch takes place.
 
-  Use the Review results Tab to check the results of the questionnaire. There are 3 different
-  spreadsheets which show different degrees of detail and are in html or csv format which can be
-  opened in Excel or SPSS as well as other Statistical packages that support this format. There
-  is also a summary of results on this page that will show a bar chart and numbers for multiple
-  choice questions (not the text based ones obviously).
+Answers are stored with the question, so deleting a question will also remove all responses to that question. Questions can also be added after the survey is launched without compromising the survey, however users who have already completed the survey will appear to have not completed the new question.
 
-  An exit url property specifies where the user will be forwarded to on completing the survey,
-  this can be an internal or external url.
+You can reset the survey completely, which will remove all answers to all questions, or reset for particular users. There is also a permission `PloneSurvey: Reset Own Responses` that will allow users to reset their own responses and allow them to fill in the survey again.
 
+Anonymous users are tracked with a cookie, so they will be unable to complete the survey more than once. However, if the anonymous user closes their browser and reopens the survey, they will be able to complete the survey as a new anonymous user. This is to support multiple user computers such as drop in computers within Libraries. The IP address is tracked, so users trying to spam the survey can be spotted within the results and these could be reset by the survey administrator.
 
-Known issues:
-Please check the Issue Tracker for PloneSurvey on plone.org , in case issues are discovered after these notes are written.
+There is also a permission, `PloneSurvey: View Survey Results`, to grant users access to the results of the survey. This has not been fully tested and may not work as expected.
 
-Testing
-Tested against Plone 3.1.2 by University of Leicester. Compared to the existing PloneSurvey 1.1.1 that we were running against Plone 2.5,
-we didn't find any new problems. We have quite a lot of quite complex surveys. We cannot guarantee that any new features added since 1.1.1 are working properly. Our main goal at this point was to be able to migrate to Plone 3.x and have PloneSurvey still working.
-This is labelled Alpha but University of Leicester is planning to go live with this.
+Respondents can be categorised as one of three kinds.
+
+1. portal members, who must have view permission on the survey in order to be able to complete it.
+
+2. Anonymous users, who must have view permission, and you must have enabled the `allow anonymous` option on the survey.
+
+3. Survey respondents, who can be added using the respondents tab on the survey. This allows you to add users with a one time  token to allow a closed survey to be completed by users who are not portal members.
+
+Respondents can be added individually, or can be bulk uploaded by adding a file with an id of `user_import` in the import directory of your site. The format must be one user per line, and an example user_import file is in the tests/utils folder within the product. This functionality has not been fully tested and may not work with your configuration.
+
+Known Issues
+------------
+
+The save functionality does not work reliably, and should not be used.
+
+The confidential option on the survey does not do anything yet, and respondent's personal data is still saved to the system.
