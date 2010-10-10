@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.3.0'
+version = open(os.path.join("Products", "PloneSurvey", "version.txt")).read().strip()
 
 setup(name='Products.PloneSurvey',
       version=version,
