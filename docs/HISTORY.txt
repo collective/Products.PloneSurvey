@@ -1,7 +1,7 @@
 Changelog for Products.PloneSurvey
 ==================================
 
-1.4.0 - SVN/unreleased
+1.4.0 - 2010-10-10
 ----------------------
 
   * Polish translation and i18n improvements
