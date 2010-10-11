@@ -4,7 +4,7 @@ Products.PloneSurvey - A survey tool for Plone
 This package allows users to create a survey or simple form for collecting user's feedback. Surveys can be a simple single page, or a multi page survey with complex branching
 
 Using PloneSurvey
-------------
+-----------------
 Once a survey is added, questions can be added such as select question or 
 
 
@@ -19,7 +19,7 @@ To install the package, list it in the ``eggs`` line in buildout.cfg, e.g.::
         ...
         Products.PloneSurvey
 
-Alternatively, use one of the buildouts in the `buildout directory<http://svn.plone.org/svn/collective/Products.PloneSurvey/buildout/>`__
+Alternatively, use one of the buildouts in the `buildout directory <http://svn.plone.org/svn/collective/Products.PloneSurvey/buildout/>`_
 
 Once you have the package installed, you need to use the Portal Quick Installer to install it into your Plone site.
 
