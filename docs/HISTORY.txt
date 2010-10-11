@@ -1,9 +1,11 @@
 Changelog for Products.PloneSurvey
 ==================================
 
-1.4.1 - SVN/Unreleased
+1.4.1 - 2010-10-11
 ----------------------
 
+  * New version as messed up the distribution
+    [Michael Davis]
 
 1.4.0 - 2010-10-10
 ----------------------
