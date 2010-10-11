@@ -95,7 +95,7 @@ Changelog for Products.PloneSurvey
     [Michael Davis] 
 
 1.1.0 - 2006-12-21
-----------------
+------------------
   * Fix spreadsheet bugs (see resolved issues in tracker)
     [Michael Davis, Nick Davis] 
 
