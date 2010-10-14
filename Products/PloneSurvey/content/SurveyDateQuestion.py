@@ -1,7 +1,9 @@
 from AccessControl import ClassSecurityInfo
 from zope.interface import implements
+from zope.interface import classImplements
 
 from Products.Archetypes.atapi import *
+from Products.Archetypes.interfaces import IMultiPageSchema
 from Products.ATContentTypes.content.base import registerATCT
 
 from Products.PloneSurvey import permissions
@@ -81,4 +83,5 @@ class SurveyDateQuestion(BaseQuestion):
         value = year + '/' + month + '/' + day + ' ' + hour + ':' + minute + ':00 GMT'
         self.addAnswer(value)
 
+classImplements(SurveyDateQuestion, IMultiPageSchema)
 registerATCT(SurveyDateQuestion, PROJECTNAME)

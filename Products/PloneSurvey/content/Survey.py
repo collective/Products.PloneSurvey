@@ -10,12 +10,14 @@ from cStringIO import StringIO
 from DateTime import DateTime
 from ZODB.POSException import ConflictError
 from zope.interface import implements
+from zope.interface import classImplements
 from AccessControl import ClassSecurityInfo
 from AccessControl import getSecurityManager
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
 
 from Products.Archetypes.atapi import *
+from Products.Archetypes.interfaces import IMultiPageSchema
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
 from Products.ATContentTypes.utils import dt2DT, DT2dt
@@ -877,4 +879,5 @@ class Survey(ATCTOrderedFolder):
             if int(REQUEST.get('showCaptcha')):
                 errors['showCaptcha'] = 'Product quintagroup.plonecaptchas not installed'
 
+classImplements(Survey, IMultiPageSchema)
 registerATCT(Survey, PROJECTNAME)

@@ -1,7 +1,9 @@
 from AccessControl import ClassSecurityInfo
 from zope.interface import implements
+from zope.interface import classImplements
 
 from Products.Archetypes.atapi import *
+from Products.Archetypes.interfaces import IMultiPageSchema
 from Products.ATContentTypes.content.base import registerATCT
 
 from Products.PloneSurvey import permissions
@@ -147,4 +149,5 @@ class SurveySelectQuestion(BaseQuestion):
             pct_answers[k] = int(value * 100)
         return pct_answers
 
+classImplements(SurveySelectQuestion, IMultiPageSchema)
 registerATCT(SurveySelectQuestion, PROJECTNAME)

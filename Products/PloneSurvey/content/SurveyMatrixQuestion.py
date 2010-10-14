@@ -1,8 +1,10 @@
 import string
 from AccessControl import ClassSecurityInfo
 from zope.interface import implements
+from zope.interface import classImplements
 
 from Products.Archetypes.atapi import *
+from Products.Archetypes.interfaces import IMultiPageSchema
 from Products.ATContentTypes.content.base import registerATCT
 from Products.CMFCore.utils import getToolByName
 
@@ -111,4 +113,5 @@ class SurveyMatrixQuestion(BaseQuestion):
     def getAnswerOptionsWeights(self):
         return self.aq_parent.getAnswerOptionsWeights()
 
+classImplements(SurveyMatrixQuestion, IMultiPageSchema)
 registerATCT(SurveyMatrixQuestion, PROJECTNAME)

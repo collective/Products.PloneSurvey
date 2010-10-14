@@ -1,7 +1,9 @@
 import string
 from AccessControl import ClassSecurityInfo
+from zope.interface import classImplements
 
 from Products.Archetypes.atapi import *
+from Products.Archetypes.interfaces import IMultiPageSchema
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
 from Products.CMFCore.utils import getToolByName
@@ -147,4 +149,5 @@ class SubSurvey(ATCTOrderedFolder):
         else: # question not answered, so don't display
             return False
 
+classImplements(SubSurvey, IMultiPageSchema)
 registerATCT(SubSurvey, PROJECTNAME)
