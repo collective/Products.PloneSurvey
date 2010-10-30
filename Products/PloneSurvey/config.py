@@ -47,7 +47,9 @@ SELECT_INPUT_TYPE = DisplayList((
     ('selectionBox', _(u'label_selection_box', default=u'Selection Box')),
     ('multipleSelect', _(u'label_multiple_selection_box', default=u'Multiple Selection Box')),
     ('checkbox', _(u'label_check_boxes', default=u'Check Boxes')),
-    ))
+    ('text', _(u'label_text_field', default=u'Input text')),
+    ('area', _(u'label_text_area', default=u'Text Area')),
+))
 
 INPUT_TYPE = DisplayList((
     ('radio', _(u'label_radio_buttons', default=u'Radio Buttons')),
