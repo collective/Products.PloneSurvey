@@ -34,6 +34,7 @@
                                value answer" />
         <textarea cols="28"
                   rows="6"
+                  class="autoresize"
                   tal:condition="python:question.getInputType()=='area'"
                   name="comments"
                   tal:content="answer"
