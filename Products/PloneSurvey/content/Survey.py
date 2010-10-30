@@ -105,6 +105,24 @@ class Survey(ATCTOrderedFolder):
         activatePluginInterfaces(self, 'mutable_properties', out)
         if remove_role:
             self.manage_delLocalRoles(userids=[current_userid,])
+	# XXX this should be moved somewhere else
+	# add support for walk tracing
+	swt = self.surveywalk_tool
+	swt.registerSurvey(self.UID())
+
+    def manage_afterClone(self, item):
+        st = self.surveywalk_tool
+        if not st.isRegisteredSurvey(self.UID()):
+         #not registered, let's do it!
+         st.registerSurvey(self.UID())
+	# reopen the survey for all
+	self.setCompletedFor([])
+        ATCTOrderedFolder.manage_afterClone(self, item)
+
+    security.declareProtected(permissions.View, 'getSurveyRoot')
+    def getSurveyRoot(self):
+        """Return me!"""
+        return self
 
     security.declarePublic('canSetDefaultPage')
     def canSetDefaultPage(self):
@@ -128,6 +146,7 @@ class Survey(ATCTOrderedFolder):
         questions = self.getFolderContents(
             contentFilter={'portal_type':[
                 'Survey Date Question',
+                'Survey Grid Question',
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
@@ -143,6 +162,7 @@ class Survey(ATCTOrderedFolder):
         questions = []
         path = string.join(self.getPhysicalPath(), '/')
         results = portal_catalog.searchResults(portal_type = ['Survey Date Question',
+                                                              'Survey Grid Question',
                                                               'Survey Matrix Question',
                                                               'Survey Select Question',
                                                               'Survey Text Question',
@@ -161,6 +181,7 @@ class Survey(ATCTOrderedFolder):
             contentFilter={'portal_type':[
                 'Sub Survey',
                 'Survey Date Question',
+                'Survey Grid Question',
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
@@ -175,6 +196,7 @@ class Survey(ATCTOrderedFolder):
                     contentFilter={'portal_type':[
                         'Survey Matrix',
                         'Survey Date Question',
+                        'Survey Grid Question',
                         'Survey Select Question',
                         'Survey Text Question',
                         'Survey Two Dimensional',
@@ -500,12 +522,34 @@ class Survey(ATCTOrderedFolder):
         questions = self.getAllQuestionsInOrder()
         for question in questions:
             question.resetForUser(userid)
+        #Yuri:reset of values in subsurveys such as if has been validated or where it came from
+	# Then reset the walk
+        subs = self.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
+        for sub in subs:
+            sub.resetForUser(userid)
+	swt = self.surveywalk_tool
+	survey = self.UID()
+	swt.resetWalkForUser(survey, userid)
         try:
             if self.respondents.has_key(userid):
                 del self.respondents[userid]
         except AttributeError:
             # TODO old survey instance
             self.reset()
+
+    security.declareProtected(permissions.ModifyPortalContent, 'copyUserAnswers')
+    def copyUserAnswers(self, emailaddress, newemail):
+	""" copy the answers from one user to another """
+        acl_users = self.get_acl_users()
+        olduser = acl_users.getUserById(emailaddress)
+	newuser = acl_users.getUserById(newemail)
+        questions = self.getAllQuestionsInOrder()
+	if (newuser <> None) and (olduser <> None):
+          for question in questions:
+	    if emailaddress in question.answers.keys():
+             question.answers[newemail] = question.answers[emailaddress]
+	else:
+	  pass
 
     security.declareProtected(permissions.View, 'send_email')
     def send_email(self, userid):
@@ -702,7 +746,8 @@ class Survey(ATCTOrderedFolder):
                 if answer:
                     if not (isinstance(answer, str) or isinstance(answer, int)):
                         # It's a sequence, filter out empty values
-                        answer = ', '.join(filter(None, answer))
+                        #answer = ', '.join(filter(None, answer))
+                        pass
                 row.append(answer)
             
             row.append(self.checkCompletedFor(user) and 'Completed' or 'Not Completed')
@@ -724,7 +769,7 @@ class Survey(ATCTOrderedFolder):
                 answer = ""
                 if question.getInputType() in ['text', 'area']:
                     if question.getAnswerFor(user):
-                        answer = '"' + question.getAnswerFor(user).replace('"',"'") + '"'
+                        answer = '"' + str(question.getAnswerFor(user)).replace('"',"'") + '"'
                     else:
                         answer = ""
                 elif question.getInputType() in ['checkbox', 'multipleSelect']:
