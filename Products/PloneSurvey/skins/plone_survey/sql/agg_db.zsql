@@ -1,0 +1,9 @@
+<dtml-comment>
+
+connection_id : MySQL_database_connection
+
+arguments : dbid
+
+</dtml-comment>
+
+create database <dtml-var dbid>;
