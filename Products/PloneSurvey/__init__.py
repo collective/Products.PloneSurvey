@@ -20,6 +20,7 @@ registerDirectory(SKINS_DIR, GLOBALS)
 
 def initialize(context):
     import Products.PloneSurvey.content
+    import Products.PloneSurvey.SurveyWalkTool
 
     content_types, constructors, ftis = process_types(
         listTypes(PROJECTNAME),
@@ -32,3 +33,7 @@ def initialize(context):
         extra_constructors = constructors,
         fti                = ftis,
         ).initialize(context)
+
+    tools = ( SurveyWalkTool.SurveyWalkTool, )
+    utils.ToolInit('Survey Walk Tool', tools=tools, icon='surveywalk.gif',  
+                       ).initialize(context)
