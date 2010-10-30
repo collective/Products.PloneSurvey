@@ -4,11 +4,13 @@ from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 from Products.ATContentTypes.content.base import ATCTContent
+from Products.ATContentTypes.content.base import registerATCT
 from Products.validation import validation
 from Products.CMFCore.permissions import View, ModifyPortalContent
 
 from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import TEXT_INPUT_TYPE, TEXT_VALIDATORS
+from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.content.BaseQuestion import BaseQuestion
 
 from schemata import BaseQuestionSchema
@@ -420,6 +422,4 @@ class SurveyGridQuestion(BaseQuestion):
         except:
          pass
 
-
-
-registerType(SurveyGridQuestion)
+registerATCT(SurveyGridQuestion, PROJECTNAME)
