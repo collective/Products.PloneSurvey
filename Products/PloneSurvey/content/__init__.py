@@ -1,6 +1,7 @@
 import Survey
 import SubSurvey
 import SurveyDateQuestion
+import SurveyGridQuestion
 import SurveyMatrix
 import SurveyMatrixQuestion
 import SurveySelectQuestion

@@ -79,9 +79,17 @@ class BaseQuestion(ATCTContent):
     def getAnswerFor(self, userid):
         """Get a specific user's answer"""
         answer = self.answers.get(userid, {}).get('value', None)
-        if self.getInputType() in ['multipleSelect', 'checkbox']:
+        if self.getInputType() in ['multipleSelect', 'checkbox', 'text', 'area']:
             if type(answer) == 'NoneType':
                 return []
+        return answer
+
+    security.declareProtected(permissions.View, 'getAllAnswer')
+    def getAllAnswer(self):
+        """Get all user's answer"""
+        answer = []
+	for i in self.answers.values():
+	 answer.append(i)
         return answer
 
     security.declareProtected(permissions.View, 'getCommentsFor')

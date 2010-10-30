@@ -5,6 +5,7 @@
   <property name="metaTypesNotToList" type="lines" purge="False">
    <element value="Sub Survey"/>
    <element value="Survey Date Question"/>
+   <element value="Survey Grid Question"/>
    <element value="Survey Matrix"/>
    <element value="Survey Matrix Question"/>
    <element value="Survey Select Question"/>
