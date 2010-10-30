@@ -1,0 +1,65 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plonesurvey">
+<body>
+
+<div class="fieldWrapper"
+     metal:define-macro="question"
+     tal:define="qid question/getId;
+                 helpid string:${qid}_help;
+                 answer python: question.getAnswerFor(member_id);
+		 colonne python:question.getAllColumnsTitle()">
+
+    <h2 class="questionTitle">
+        <label tal:attributes="for qid"
+               tal:content="question/Title" />
+        <span class="fieldRequired"
+              title="Required"
+              tal:condition="python:question.getRequired() and (question.meta_type != 'SurveyTwoDimensionalQuestion')"
+              i18n:translate="Required">(Required)</span>
+    </h2>
+
+    <div class="formHelp"
+         tal:attributes="id helpid"
+         tal:content="question/Description" />
+    <div tal:condition="python:question.getBody() and question.getTextLocation() == 2"
+          tal:content="structure question/getBody" />
+    <div tal:define="error errors/?qid|nothing"
+         tal:attributes="class python:test(error, 'field error', 'field')">
+        <div tal:content="error" />
+
+<table border="1">
+<tr><th tal:repeat="colonna colonne" ><span tal:content="python:colonna[1]" /></th></tr>
+     <tal:block tal:omit-tag="" tal:repeat="record answer">
+      <tal:block tal:omit-tag="" tal:define="mostra python:here.vuoto(record=record)" tal:condition="mostra">
+       <tr>
+       <td tal:repeat="colonna colonne" >
+         <span tal:on-error="string:XXXX" tal:content="python:record[colonna[0]]" />
+       </td>
+       </tr>
+      </tal:block>
+     </tal:block>
+</table>
+
+ </div>
+</div>
+
+<dl metal:define-macro="display">
+    <dt tal:content="question/Title" />
+    <dd tal:define="dati python:question.getAnswerFor(member_id);
+		    colonne python:question.getAllColumnsTitle()">
+    <div tal:repeat="record dati">
+     <br />
+     <div tal:define="mostra_record python:mostra(record=record)" tal:repeat="colonna colonne" >
+       <span tal:content="python:colonna[1]" /> : <span tal:on-error="string:XXXX" tal:content="python:record[colonnai[0]]" /><br/>
+     </div>
+    </div>
+    </dd>
+    <div tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()"
+         tal:omit-tag="">
+        <dt>Comment</dt>
+        <dd tal:content="python: question.getCommentsFor(member_id) or 'No Comment'" />
+    </div>
+</dl>
+</body>
+</html>

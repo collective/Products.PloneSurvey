@@ -1,0 +1,32 @@
+<metal:block use-macro="here/global_defines/macros/defines" />
+<tal:question tal:define="quest options/quest;
+                          member_id request/utente | here/getSurveyId;
+                          Iterator python:modules['Products.CMFPlone'].IndexIterator;
+                          tabindex python:Iterator();
+                          errors python:{}"
+			  tal:condition="python: member_id == here.getSurveyId() or 'Manager' in user.getRoles()"
+ repeat="question options/questions">
+                 <div tal:omit-tag="" tal:condition="python: not('noreport' in question.Subject())">
+
+                    <div tal:condition="python:question.getBody() and question.getTextLocation() == 1"
+                          tal:content="structure question/getBody" />
+                    <tal:condition condition="python:question.meta_type == 'SurveyTextQuestion'">
+                        <div metal:use-macro="here/question_print_macro/macros/question" />
+                    </tal:condition>
+                    <tal:condition condition="python:question.meta_type == 'SurveyGridQuestion'">
+                        <div metal:use-macro="here/question_print_grid_macro/macros/question" />
+                    </tal:condition>
+
+                    <tal:condition condition="python:question.meta_type == 'SurveyMatrix'">
+                        <div metal:use-macro="here/question_print_matrix_macro/macros/question" />
+                    </tal:condition>
+                    <tal:condition condition="python:question.meta_type == 'SurveySelectQuestion'">
+                        <div metal:use-macro="here/question_print_select_macro/macros/question" />
+                    </tal:condition>
+                    <tal:condition condition="python:question.meta_type == 'SurveyTwoDimensional'">
+                        <div metal:use-macro="here/question_print_twodimensional_macro/macros/question" />
+                    </tal:condition>
+                    <div tal:condition="python:question.getBody() and question.getTextLocation() == 3"
+                          tal:content="structure question/getBody" />
+	</div>
+                </tal:question>
