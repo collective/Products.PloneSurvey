@@ -1,0 +1,710 @@
+.questionTitle {
+
+ font-size: 125%;
+
+}
+
+*.section-futura #portal-column-one {display:none;}
+*.section-futura #portal-column-two {display:none;}
+*.section-futura #portal-column-content #content-plain {margin:0 0 0 0;}
+
+*.section-importati #portal-column-one {display:none;}
+*.section-importati #portal-column-two {display:none;}
+*.section-importati #portal-column-content #content-plain {margin:0 0 0 0;}
+
+textarea {width: 100%}
+
+#name-Cognome_Nome-1 {width:20em;}
+#name-Cognome_Nome-2 {width:20em;}
+#name-Cognome_Nome-3 {width:6em;}
+#Indirizzo-lindirizzo-1 {width:30em;}
+#Indirizzo-lindirizzo-2 {width:6em;}
+#Indirizzo-lindirizzo-3 {width:10em;}
+#data-data-di-nascita-1 {width:3em;}
+#data-data-di-nascita-2 {width:3em;}
+#data-data-di-nascita-3 {width:5em;}
+#note_esperienza-presso-nostro-ateneo_1 {height: 5em}
+#note_esperienza-presso-nostro-ateneo_2 {height: 5em}
+#note_esperienza-presso-nostro-ateneo_3 {height: 5em}
+#note_esperienza-presso-nostro-ateneo_new {height: 5em}
+#Date_esperienza-lavorativa-1_1 {width:10em;}
+#Date_esperienza-lavorativa-1_2 {width:10em;}
+#Date_esperienza-lavorativa-1_3 {width:10em;}
+#Date_esperienza-lavorativa-1_new {width:10em;}
+#Attivita\'_esperienza-lavorativa-1_1 {width:40em;}
+#Attivita\'_esperienza-lavorativa-1_2 {width:40em;}
+#Attivita\'_esperienza-lavorativa-1_3 {width:40em;}
+#Attivita\'_esperienza-lavorativa-1_new {width:40em;}
+#Dove_relazionali_capacita-e-competenze-relazionali_new {height: 5em; width:100% }
+#Dove_relazionali_capacita-e-competenze-relazionali_1 {height: 5em}
+#Dove_relazionali_capacita-e-competenze-relazionali_2 {height: 5em}
+#Dove_relazionali_capacita-e-competenze-relazionali_3 {height: 5em}
+#Dove_relazionali_capacita-e-competenze-relazionali_4 {height: 5em}
+#comp_relazionali_capacita-e-competenze-relazionali_new {height: 3em; width:100% }
+#comp_relazionali_capacita-e-competenze-relazionali_1 {height: 3em}
+#comp_relazionali_capacita-e-competenze-relazionali_2 {height: 3em}
+#comp_relazionali_capacita-e-competenze-relazionali_3 {height: 3em}
+#comp_relazionali_capacita-e-competenze-relazionali_4 {height: 3em}
+#LivelloSoftware_software-conosciuti_new {width:10em;}
+#LivelloSoftware_software-conosciuti_1 {width:10em;}
+#LivelloSoftware_software-conosciuti_1 {width:10em;}
+#software_conosci_software-conosciuti_new {width:50em;}
+#software_conosci_software-conosciuti_1 {width:50em;}
+#software_conosci_software-conosciuti_2 {width:50em;}
+#software_conosci_software-conosciuti_3 {width:50em;}
+#Lingua_lingue-conosciute-1_new {width:30em}
+#Lingua_lingue-conosciute-1_1 {width:30em}
+#Lingua_lingue-conosciute-1_2 {width:30em}
+#Dove_organizzativa_capacita-e-competenze-organizzative_new {height: 5em; width:100%}
+#Dove_organizzativa_capacita-e-competenze-organizzative_1 {height: 5em}
+#Dove_organizzativa_capacita-e-competenze-organizzative_2 {height: 5em}
+#Dove_organizzativa_capacita-e-competenze-organizzative_3 {height: 5em}
+#Dove_organizzativa_capacita-e-competenze-organizzative_4 {height: 5em}
+#Competenza_organizzativa_capacita-e-competenze-organizzative_new {height: 3em; width:100% }
+#Competenza_organizzativa_capacita-e-competenze-organizzative_new_1 {height: 3em}
+#Competenza_organizzativa_capacita-e-competenze-organizzative_new_2 {height: 3em}
+#Competenza_organizzativa_capacita-e-competenze-organizzative_new_3 {height: 3em}
+#Competenza_organizzativa_capacita-e-competenze-organizzative_new_4 {height: 3em}
+#dove_ompetenza_artistica_indicate-capacita-e-competenze-artistiche-e-culturali-1_new {height: 5em}
+
+
+
+#obiettivo-sistema-informativo-1{width:70em;}
+#obiettivo-sistema-formativo-1{width:70em;}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-1-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-2-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-3-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-4-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-5-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-6-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-7-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-8-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-9-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-10-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-11-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-12-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-13-1 {height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-revisione-interna-carichi-di-lavoro-1{height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-incremento-rassegna-di-incontri-serali-terrazza-metelli-1{height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-implementazione-nuovo-sistema-di-stampa-da-pc-utenti-1{height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-automazione-servizio-di-prestito-test-psicologici-1{height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-riversamento-periodici-elettronici-e-aggiornamento-consistenze-periodici-cartacei-1{height: 3em; width: 3em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-1-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-2-2{height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-3-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-4-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-5-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-6-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-7-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-8-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-9-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-10-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-11-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-12-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-obiettivo-13-2 {height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-revisione-interna-carichi-di-lavoro-2{height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-incremento-rassegna-di-incontri-serali-terrazza-metelli-2{height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-implementazione-nuovo-sistema-di-stampa-da-pc-utenti-2{height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-automazione-servizio-di-prestito-test-psicologici-2{height: 5em; width: 60em}
+#realizzazione-degli-obiettivi-di-polo-per-il-2008-riversamento-periodici-elettronici-e-aggiornamento-consistenze-periodici-cartacei-2{height: 5em; width: 60em}
+#id_obiettivi-proposti-per-lanno-2009_new {width:3em;}
+#id_obiettivi-proposti-per-lanno-2009_1 {width:3em;}
+#id_obiettivi-proposti-per-lanno-2009_2 {width:3em;}
+#id_obiettivi-proposti-per-lanno-2009_3 {width:3em;}
+#id_obiettivi-proposti-per-lanno-2009_4 {width:3em;}
+#id_obiettivi-proposti-per-lanno-2009_5 {width:3em;}
+#Obiettivo _obiettivi-proposti-per-lanno-2009_new {width:30em;}
+#Obiettivo _obiettivi-proposti-per-lanno-2009_1 {width:30em;}
+#Obiettivo _obiettivi-proposti-per-lanno-2009_2 {width:30em;}
+#Obiettivo _obiettivi-proposti-per-lanno-2009_3 {width:30em;}
+#Obiettivo _obiettivi-proposti-per-lanno-2009_4 {width:30em;}
+#Obiettivo _obiettivi-proposti-per-lanno-2009_5 {width:30em;}
+#Descrizione_obiettivi-proposti-per-lanno-2009_new {height: 6em; width:60em;}
+#Descrizione_obiettivi-proposti-per-lanno-2009_1 {height: 6em; width:60em;}
+#Descrizione_obiettivi-proposti-per-lanno-2009_2 {height: 6em; width:60em;}
+#Descrizione_obiettivi-proposti-per-lanno-2009_3 {height: 6em; width:60em;}
+#Descrizione_obiettivi-proposti-per-lanno-2009_4 {height: 6em; width:60em;}
+#Descrizione_obiettivi-proposti-per-lanno-2009_5 {height: 6em; width:60em;}
+
+
+
+
+#n°_punti-di-servizio_new{width:3em;}
+#n°_punti-di-servizio_1{width:3em;}
+#n°_punti-di-servizio_2{width:3em;}
+#n°_punti-di-servizio_3{width:3em;}
+#n°_punti-di-servizio_4{width:3em;}
+#n°_punti-di-servizio_5{width:3em;}
+#n°_punti-di-servizio_6{width:3em;}
+#n°_punti-di-servizio_7{width:3em;}
+#denominazione\ punto_punti-di-servizio_new{width:25em;}
+#denominazione\ punto_punti-di-servizio_1{width:25em;}
+#denominazione\ punto_punti-di-servizio_2{width:25em;}
+#denominazione\ punto_punti-di-servizio_3{width:25em;}
+#denominazione\ punto_punti-di-servizio_4{width:25em;}
+#denominazione\ punto_punti-di-servizio_5{width:25em;}
+#denominazione\ punto_punti-di-servizio_6{width:25em;}
+#denominazione\ punto_punti-di-servizio_7{width:25em;}
+#Ore\ apertura\ settimanali_punti-di-servizio_new {width:7em;}
+#Ore\ apertura\ settimanali_punti-di-servizio_1{width:7em;}
+#Ore\ apertura\ settimanali_punti-di-servizio_2{width:7em;}
+#Ore\ apertura\ settimanali_punti-di-servizio_3{width:7em;}
+#Ore\ apertura\ settimanali_punti-di-servizio_4{width:7em;}
+#Ore\ apertura\ settimanali_punti-di-servizio_5{width:7em;}
+#Ore\ apertura\ settimanali_punti-di-servizio_6{width:7em;}
+#Ore\ apertura\ settimanali_punti-di-servizio_7{width:7em;}
+#Settimane\ di\ chiusura\ nel\ 2008_punti-di-servizio_new {width:7em;}
+#Settimane\ di\ chiusura\ nel\ 2008_punti-di-servizio_1{width:7em;}
+#Settimane\ di\ chiusura\ nel\ 2008_punti-di-servizio_2{width:7em;}
+#Settimane\ di\ chiusura\ nel\ 2008_punti-di-servizio_3{width:7em;}
+#Settimane\ di\ chiusura\ nel\ 2008_punti-di-servizio_4{width:7em;}
+#Settimane\ di\ chiusura\ nel\ 2008_punti-di-servizio_5{width:7em;}
+#Settimane\ di\ chiusura\ nel\ 2008_punti-di-servizio_6{width:7em;}
+#Settimane\ di\ chiusura\ nel\ 2008_punti-di-servizio_7{width:7em;}
+#n°\ punto_superfici_new{width:3em;}
+#n°\ punto_superfici_1{width:3em;}
+#n°\ punto_superfici_2{width:3em;}
+#n°\ punto_superfici_3{width:3em;}
+#n°\ punto_superfici_4{width:3em;}
+#n°\ punto_superfici_5{width:3em;}
+#n°\ punto_superfici_6{width:3em;}
+#n°\ punto_superfici_7{width:3em;}
+#Denominazione\ punto_superfici_new{width:25em;}
+#Denominazione\ punto_superfici_1{width:25em;}
+#Denominazione\ punto_superfici_2{width:25em;}
+#Denominazione\ punto_superfici_3{width:25em;}
+#Denominazione\ punto_superfici_4{width:25em;}
+#Denominazione\ punto_superfici_5{width:25em;}
+#Denominazione\ punto_superfici_6{width:25em;}
+#Denominazione\ punto_superfici_7{width:25em;}
+#Superficie\ totale_superfici_new{width:7em;}
+#Superficie\ totale_superfici_1{width:7em;}
+#Superficie\ totale_superfici_2{width:7em;}
+#Superficie\ totale_superfici_3{width:7em;}
+#Superficie\ totale_superfici_4{width:7em;}
+#Superficie\ totale_superfici_5{width:7em;}
+#Superficie\ totale_superfici_6{width:7em;}
+#Superficie\ totale_superfici_7{width:7em;}
+#Superficie\ accessibile_superfici_new{width:7em;}
+#Superficie\ accessibile_superfici_1{width:7em;}
+#Superficie\ accessibile_superfici_2{width:7em;}
+#Superficie\ accessibile_superfici_3{width:7em;}
+#Superficie\ accessibile_superfici_4{width:7em;}
+#Superficie\ accessibile_superfici_5{width:7em;}
+#Superficie\ accessibile_superfici_6{width:7em;}
+#Superficie\ accessibile_superfici_7{width:7em;}
+
+#n°_scaffalature_aperte_new{width:3em;}
+#n°_scaffalature_aperte_1{width:3em;}
+#n°_scaffalature_aperte_2{width:3em;}
+#n°_scaffalature_aperte_3{width:3em;}
+#n°_scaffalature_aperte_4{width:3em;}
+#n°_scaffalature_aperte_5{width:3em;}
+#n°_scaffalature_aperte_6{width:3em;}
+#n°_scaffalature_aperte_7{width:3em;}
+#Denominazione\ punto_scaffalature_aperte_new{width:25em;}
+#Denominazione\ punto_scaffalature_aperte_1{width:25em;}
+#Denominazione\ punto_scaffalature_aperte_2{width:25em;}
+#Denominazione\ punto_scaffalature_aperte_3{width:25em;}
+#Denominazione\ punto_scaffalature_aperte_4{width:25em;}
+#Denominazione\ punto_scaffalature_aperte_5{width:25em;}
+#Denominazione\ punto_scaffalature_aperte_6{width:25em;}
+#Denominazione\ punto_scaffalature_aperte_7{width:25em;}
+#occupati_scaffalature_aperte_new{width:7em;}
+#occupati_scaffalature_aperte_1{width:7em;}
+#occupati_scaffalature_aperte_2{width:7em;}
+#occupati_scaffalature_aperte_3{width:7em;}
+#occupati_scaffalature_aperte_4{width:7em;}
+#occupati_scaffalature_aperte_5{width:7em;}
+#occupati_scaffalature_aperte_6{width:7em;}
+#occupati_scaffalature_aperte_7{width:7em;}
+#doppia\ fila_scaffalature_aperte_new{width:7em;}
+#doppia\ fila_scaffalature_aperte_1{width:7em;}
+#doppia\ fila_scaffalature_aperte_2{width:7em;}
+#doppia\ fila_scaffalature_aperte_3{width:7em;}
+#doppia\ fila_scaffalature_aperte_4{width:7em;}
+#doppia\ fila_scaffalature_aperte_5{width:7em;}
+#doppia\ fila_scaffalature_aperte_6{width:7em;}
+#doppia\ fila_scaffalature_aperte_7{width:7em;}
+#liberi_scaffalature_aperte_new{width:7em;}
+#liberi_scaffalature_aperte_1{width:7em;}
+#liberi_scaffalature_aperte_2{width:7em;}
+#liberi_scaffalature_aperte_3{width:7em;}
+#liberi_scaffalature_aperte_4{width:7em;}
+#liberi_scaffalature_aperte_5{width:7em;}
+#liberi_scaffalature_aperte_6{width:7em;}
+#liberi_scaffalature_aperte_7{width:7em;}
+#n°_scaffalature-chiuse_new{width:3em;}
+#n°_scaffalature-chiuse_1{width:3em;}
+#n°_scaffalature-chiuse_2{width:3em;}
+#n°_scaffalature-chiuse_3{width:3em;}
+#n°_scaffalature-chiuse_4{width:3em;}
+#n°_scaffalature-chiuse_5{width:3em;}
+#n°_scaffalature-chiuse_6{width:3em;}
+#n°_scaffalature-chiuse_7{width:3em;}
+#Denominazione\ punto_scaffalature-chiuse_new{width:25em;}
+#Denominazione\ punto_scaffalature-chiuse_1{width:25em;}
+#Denominazione\ punto_scaffalature-chiuse_2{width:25em;}
+#Denominazione\ punto_scaffalature-chiuse_3{width:25em;}
+#Denominazione\ punto_scaffalature-chiuse_4{width:25em;}
+#Denominazione\ punto_scaffalature-chiuse_5{width:25em;}
+#Denominazione\ punto_scaffalature-chiuse_6{width:25em;}
+#Denominazione\ punto_scaffalature-chiuse_7{width:25em;}
+#occupati_scaffalature-chiuse_new{width:7em;}
+#occupati_scaffalature-chiuse_1{width:7em;}
+#occupati_scaffalature-chiuse_2{width:7em;}
+#occupati_scaffalature-chiuse_3{width:7em;}
+#occupati_scaffalature-chiuse_4{width:7em;}
+#occupati_scaffalature-chiuse_5{width:7em;}
+#occupati_scaffalature-chiuse_6{width:7em;}
+#occupati_scaffalature-chiuse_7{width:7em;}
+#doppia\ fila_scaffalature-chiuse_new{width:7em;}
+#doppia\ fila_scaffalature-chiuse_1{width:7em;}
+#doppia\ fila_scaffalature-chiuse_2{width:7em;}
+#doppia\ fila_scaffalature-chiuse_3{width:7em;}
+#doppia\ fila_scaffalature-chiuse_4{width:7em;}
+#doppia\ fila_scaffalature-chiuse_5{width:7em;}
+#doppia\ fila_scaffalature-chiuse_6{width:7em;}
+#doppia\ fila_scaffalature-chiuse_7{width:7em;}
+#liberi_scaffalature-chiuse_new{width:7em;}
+#liberi_scaffalature-chiuse_1{width:7em;}
+#liberi_scaffalature-chiuse_2{width:7em;}
+#liberi_scaffalature-chiuse_3{width:7em;}
+#liberi_scaffalature-chiuse_4{width:7em;}
+#liberi_scaffalature-chiuse_5{width:7em;}
+#liberi_scaffalature-chiuse_6{width:7em;}
+#liberi_scaffalature-chiuse_7{width:7em;}
+
+#Scaffale\ aperto\ occupato_scaffalature_6{width:7em;}
+#Scaffale\ aperto\ occupato_scaffalature_7{width:7em;}
+#n°_postazioni_new{width:3em;}
+#n°_postazioni_1{width:3em;}
+#n°_postazioni_2{width:3em;}
+#n°_postazioni_3{width:3em;}
+#n°_postazioni_4{width:3em;}
+#n°_postazioni_5{width:3em;}
+#n°_postazioni_6{width:3em;}
+#n°_postazioni_7{width:3em;}
+#Denominazione_postazioni_new{width:25em;}
+#Denominazione_postazioni_1{width:25em;}
+#Denominazione_postazioni_2{width:25em;}
+#Denominazione_postazioni_3{width:25em;}
+#Denominazione_postazioni_4{width:25em;}
+#Denominazione_postazioni_5{width:25em;}
+#Denominazione_postazioni_6{width:25em;}
+#Denominazione_postazioni_7{width:25em;}
+#Posti\ di\ lettura_postazioni_new{width:7em;}
+#Posti\ di\ lettura_postazioni_1{width:7em;}
+#Posti\ di\ lettura_postazioni_2{width:7em;}
+#Posti\ di\ lettura_postazioni_3{width:7em;}
+#Posti\ di\ lettura_postazioni_4{width:7em;}
+#Posti\ di\ lettura_postazioni_5{width:7em;}
+#Posti\ di\ lettura_postazioni_6{width:7em;}
+#Posti\ di\ lettura_postazioni_7{width:7em;}
+#Pc\ destinati\ al\ pubblico_postazioni_new{width:7em;}
+#Pc\ destinati\ al\ pubblico_postazioni_1{width:7em;}
+#Pc\ destinati\ al\ pubblico_postazioni_2{width:7em;}
+#Pc\ destinati\ al\ pubblico_postazioni_3{width:7em;}
+#Pc\ destinati\ al\ pubblico_postazioni_4{width:7em;}
+#Pc\ destinati\ al\ pubblico_postazioni_5{width:7em;}
+#Pc\ destinati\ al\ pubblico_postazioni_6{width:7em;}
+#Pc\ destinati\ al\ pubblico_postazioni_7{width:7em;}
+#Pc\ ad\ uso\ esclusivo\ del\ personale_postazioni_new{width:7em;}
+#Pc\ ad\ uso\ esclusivo\ del\ personale_postazioni_1{width:7em;}
+#Pc\ ad\ uso\ esclusivo\ del\ personale_postazioni_2{width:7em;}
+#Pc\ ad\ uso\ esclusivo\ del\ personale_postazioni_3{width:7em;}
+#Pc\ ad\ uso\ esclusivo\ del\ personale_postazioni_4{width:7em;}
+#Pc\ ad\ uso\ esclusivo\ del\ personale_postazioni_5{width:7em;}
+#Pc\ ad\ uso\ esclusivo\ del\ personale_postazioni_6{width:7em;}
+#Pc\ ad\ uso\ esclusivo\ del\ personale_postazioni_7{width:7em;}
+#Altre\ postazioni\ attrezzate_postazioni_new{width:7em;}
+#Altre\ postazioni\ attrezzate_postazioni_1{width:7em;}
+#Altre\ postazioni\ attrezzate_postazioni_2{width:7em;}
+#Altre\ postazioni\ attrezzate_postazioni_3{width:7em;}
+#Altre\ postazioni\ attrezzate_postazioni_4{width:7em;}
+#Altre\ postazioni\ attrezzate_postazioni_5{width:7em;}
+#Altre\ postazioni\ attrezzate_postazioni_6{width:7em;}
+#Altre\ postazioni\ attrezzate_postazioni_7{width:7em;}
+#personale-non-dipendente-non-professionalizzato-studenti-part-time-1{width:5em;}
+#personale-non-dipendente-non-professionalizzato-studenti-part-time-2{width:5em;}
+#personale-non-dipendente-non-professionalizzato-studenti-part-time-3{width:5em;}
+#personale-non-dipendente-non-professionalizzato-studenti-part-time-4{width:5em;}
+#personale-non-dipendente-non-professionalizzato-studenti-part-time-5{width:5em;}
+#personale-non-dipendente-non-professionalizzato-studenti-part-time-6{width:5em;}
+#personale-non-dipendente-non-professionalizzato-studenti-part-time-7{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-altro-personale-1{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-altro-personale-2{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-altro-personale-3{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-altro-personale-4{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-altro-personale-5{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-altro-personale-6{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-altro-personale-7{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-studenti-part-time-1{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-studenti-part-time-2{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-studenti-part-time-3{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-studenti-part-time-4{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-studenti-part-time-5{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-studenti-part-time-6{width:5em;}
+#copy_of_personale-non-dipendente-non-professionalizzato-studenti-part-time-7{width:5em;}
+
+#nome_copy_of_personale-dipendente_new{width:10em;}
+#nome_copy_of_personale-dipendente_1{width:10em;}
+#nome_copy_of_personale-dipendente_2{width:10em;}
+#nome_copy_of_personale-dipendente_3{width:10em;}
+#nome_copy_of_personale-dipendente_4{width:10em;}
+#nome_copy_of_personale-dipendente_5{width:10em;}
+#nome_copy_of_personale-dipendente_6{width:10em;}
+#nome_copy_of_personale-dipendente_7{width:10em;}
+#nome_copy_of_personale-dipendente_8{width:10em;}
+#nome_copy_of_personale-dipendente_9{width:10em;}
+#nome_copy_of_personale-dipendente_10{width:10em;}
+#nome_copy_of_personale-dipendente_11{width:10em;}
+#nome_copy_of_personale-dipendente_12{width:10em;}
+#nome_copy_of_personale-dipendente_13{width:10em;}
+#nome_copy_of_personale-dipendente_14{width:10em;}
+#nome_copy_of_personale-dipendente_15{width:10em;}
+#nome_copy_of_personale-dipendente_16{width:10em;}
+#nome_copy_of_personale-dipendente_17{width:10em;}
+#nome_copy_of_personale-dipendente_18{width:10em;}
+#nome_copy_of_personale-dipendente_19{width:10em;}
+#nome_copy_of_personale-dipendente_20{width:10em;}
+#nome_copy_of_personale-dipendente_21{width:10em;}
+#nome_copy_of_personale-dipendente_21{width:10em;}
+#nome_copy_of_personale-dipendente_23{width:10em;}
+#nome_copy_of_personale-dipendente_24{width:10em;}
+#nome_copy_of_personale-dipendente_25{width:10em;}
+#cognome_copy_of_personale-dipendente_new{width:10em;}
+#cognome_copy_of_personale-dipendente_1{width:10em;}
+#cognome_copy_of_personale-dipendente_2{width:10em;}
+#cognome_copy_of_personale-dipendente_3{width:10em;}
+#cognome_copy_of_personale-dipendente_4{width:10em;}
+#cognome_copy_of_personale-dipendente_5{width:10em;}
+#cognome_copy_of_personale-dipendente_6{width:10em;}
+#cognome_copy_of_personale-dipendente_7{width:10em;}
+#cognome_copy_of_personale-dipendente_8{width:10em;}
+#cognome_copy_of_personale-dipendente_9{width:10em;}
+#cognome_copy_of_personale-dipendente_10{width:10em;}
+#cognome_copy_of_personale-dipendente_11{width:10em;}
+#cognome_copy_of_personale-dipendente_12{width:10em;}
+#cognome_copy_of_personale-dipendente_13{width:10em;}
+#cognome_copy_of_personale-dipendente_14{width:10em;}
+#cognome_copy_of_personale-dipendente_15{width:10em;}
+#cognome_copy_of_personale-dipendente_16{width:10em;}
+#cognome_copy_of_personale-dipendente_17{width:10em;}
+#cognome_copy_of_personale-dipendente_18{width:10em;}
+#cognome_copy_of_personale-dipendente_19{width:10em;}
+#cognome_copy_of_personale-dipendente_20{width:10em;}
+#cognome_copy_of_personale-dipendente_21{width:10em;}
+#cognome_copy_of_personale-dipendente_22{width:10em;}
+#cognome_copy_of_personale-dipendente_23{width:10em;}
+#cognome_copy_of_personale-dipendente_24{width:10em;}
+#cognome_copy_of_personale-dipendente_25{width:10em;}
+#giada_copy_of_personale-dipendente_new{width:7em;}
+#giada_copy_of_personale-dipendente_1{width:7em;}
+#giada_copy_of_personale-dipendente_2{width:7em;}
+#giada_copy_of_personale-dipendente_3{width:7em;}
+#giada_copy_of_personale-dipendente_4{width:7em;}
+#giada_copy_of_personale-dipendente_5{width:7em;}
+#giada_copy_of_personale-dipendente_6{width:7em;}
+#giada_copy_of_personale-dipendente_7{width:7em;}
+#giada_copy_of_personale-dipendente_8{width:7em;}
+#giada_copy_of_personale-dipendente_9{width:7em;}
+#giada_copy_of_personale-dipendente_10{width:7em;}
+#giada_copy_of_personale-dipendente_11{width:7em;}
+#giada_copy_of_personale-dipendente_12{width:7em;}
+#giada_copy_of_personale-dipendente_13{width:7em;}
+#giada_copy_of_personale-dipendente_14{width:7em;}
+#giada_copy_of_personale-dipendente_15{width:7em;}
+#giada_copy_of_personale-dipendente_16{width:7em;}
+#giada_copy_of_personale-dipendente_17{width:7em;}
+#giada_copy_of_personale-dipendente_18{width:7em;}
+#giada_copy_of_personale-dipendente_19{width:7em;}
+#giada_copy_of_personale-dipendente_20{width:7em;}
+#giada_copy_of_personale-dipendente_21{width:7em;}
+#giada_copy_of_personale-dipendente_22{width:7em;}
+#giada_copy_of_personale-dipendente_23{width:7em;}
+#giada_copy_of_personale-dipendente_24{width:7em;}
+#giada_copy_of_personale-dipendente_25{width:7em;}
+#n°\ mesi_copy_of_personale-dipendente_new{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_1{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_2{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_3{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_4{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_5{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_6{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_7{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_8{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_9{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_10{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_11{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_12{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_13{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_14{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_15{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_16{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_17{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_18{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_19{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_20{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_21{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_22{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_23{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_24{width:5em;}
+#n°\ mesi_copy_of_personale-dipendente_25{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_new{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_1{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_2{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_3{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_4{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_5{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_6{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_7{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_8{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_9{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_10{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_11{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_12{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_13{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_14{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_15{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_16{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_17{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_18{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_19{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_20{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_21{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_22{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_23{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_24{width:5em;}
+#perc_att_inform_copy_of_personale-dipendente_25{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_new{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_1{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_2{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_3{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_4{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_5{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_6{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_7{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_8{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_9{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_10{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_11{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_12{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_13{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_14{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_15{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_16{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_17{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_18{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_19{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_20{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_21{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_22{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_23{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_24{width:5em;}
+#perc_serv_utenza_copy_of_personale-dipendente_25{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_new{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_1{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_2{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_3{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_4{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_5{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_6{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_7{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_8{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_9{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_10{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_11{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_12{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_13{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_14{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_15{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_16{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_17{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_18{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_19{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_20{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_21{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_22{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_23{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_24{width:5em;}
+#perc_att_bibliot_copy_of_personale-dipendente_25{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_new{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_1{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_2{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_3{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_4{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_5{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_6{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_7{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_8{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_9{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_10{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_11{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_12{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_13{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_14{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_15{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_16{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_17{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_18{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_19{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_20{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_21{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_22{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_23{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_24{width:5em;}
+#perc_ausil_copy_of_personale-dipendente_25{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_new{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_1{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_2{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_3{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_4{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_5{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_6{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_7{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_8{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_9{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_10{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_11{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_12{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_13{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_14{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_15{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_16{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_17{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_18{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_19{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_20{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_21{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_22{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_23{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_24{width:5em;}
+#perc_ammin_copy_of_personale-dipendente_25{width:5em;}
+#n°_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_new {width:3em;}
+#n°_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_1{width:3em;}
+#n°_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_2{width:3em;}
+#n°_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_3{width:3em;}
+#n°_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_4{width:3em;}
+#n°_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_5{width:3em;}
+#n°_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_6{width:3em;}
+#n°_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_7{width:3em;}
+#Obiettivo_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_new{width:20em;}
+#Obiettivo_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_1{width:20em;}
+#Obiettivo_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_2{width:20em;}
+#Obiettivo_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_3{width:20em;}
+#Obiettivo_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_4{width:20em;}
+#Obiettivo_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_5{width:20em;}
+#Obiettivo_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_6{width:20em;}
+#Obiettivo_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_7{width:20em;}
+#Descrizione_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_new{ height: 7em; width:50em;}
+#Descrizione_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_1{height: 7em; width:50em;}
+#Descrizione_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_2{height: 7em; width:50em;}
+#Descrizione_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_3{height: 7em; width:50em;}
+#Descrizione_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_4{height: 7em; width:50em;}
+#Descrizione_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_5{height: 7em; width:50em;}
+#Descrizione_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_6{height: 7em; width:50em;}
+#Descrizione_quali-sono-i-principali-obiettivi-che-la-biblioteca-si-pone-per-il-2009_7{height: 7em; width:50em;}
+
+
+#servizio_servizi_centralizzati_new{width:15em;}
+#servizio_servizi_centralizzati_1{width:15em;}
+#servizio_servizi_centralizzati_2{width:15em;}
+#servizio_servizi_centralizzati_3{width:15em;}
+#servizio_servizi_centralizzati_4{width:15em;}
+#servizio_servizi_centralizzati_5{width:15em;}
+#servizio_servizi_centralizzati_6{width:15em;}
+#servizio_servizi_centralizzati_7{width:15em;}
+#servizio_servizi_centralizzati_8{width:15em;}
+#relazione_servizi_centralizzati_new{height: 20em; width:45em;}
+#relazione_servizi_centralizzati_1{height: 20em; width:45em;}
+#relazione_servizi_centralizzati_2{height: 20em; width:45em;}
+#relazione_servizi_centralizzati_3{height: 20em; width:45em;}
+#relazione_servizi_centralizzati_4{height: 20em; width:45em;}
+#relazione_servizi_centralizzati_5{height: 20em; width:45em;}
+#relazione_servizi_centralizzati_6{height: 20em; width:45em;}
+#relazione_servizi_centralizzati_7{height: 20em; width:45em;}
+#relazione_servizi_centralizzati_8{height: 20em; width:45em;}
+#obiettivi_servizi_centralizzati_new{height: 20em; width:25em;}
+#obiettivi_servizi_centralizzati_1{height: 20em; width:25em;}
+#obiettivi_servizi_centralizzati_2{height: 20em; width:25em;}
+#obiettivi_servizi_centralizzati_3{height: 20em; width:25em;}
+#obiettivi_servizi_centralizzati_4{height: 20em; width:25em;}
+#obiettivi_servizi_centralizzati_5{height: 20em; width:25em;}
+#obiettivi_servizi_centralizzati_6{height: 20em; width:25em;}
+#obiettivi_servizi_centralizzati_7{height: 20em; width:25em;}
+#obiettivi_servizi_centralizzati_8{height: 20em; width:25em;}
+#n_obiettivi_new{width:3em;}
+#n_obiettivi_1{width:3em;}
+#n_obiettivi_2{width:3em;}
+#n_obiettivi_3{width:3em;}
+#n_obiettivi_4{width:3em;}
+#n_obiettivi_5{width:3em;}
+#n_obiettivi_6{width:3em;}
+#n_obiettivi_7{width:3em;}
+#n_obiettivi_8{width:3em;}
+#obiettivi_obiettivi_new{width:50em;}
+#obiettivi_obiettivi_1{width:50em;}
+#obiettivi_obiettivi_2{width:50em;}
+#obiettivi_obiettivi_3{width:50em;}
+#obiettivi_obiettivi_4{width:50em;}
+#obiettivi_obiettivi_5{width:50em;}
+#obiettivi_obiettivi_6{width:50em;}
+#obiettivi_obiettivi_7{width:50em;}
+#obiettivi_obiettivi_8{width:50em;}
+#n_obiettivi-per-lanno-2008_new{width:3em;}
+#n_obiettivi-per-lanno-2008_1{width:3em;}
+#n_obiettivi-per-lanno-2008_2{width:3em;}
+#n_obiettivi-per-lanno-2008_3{width:3em;}
+#n_obiettivi-per-lanno-2008_4{width:3em;}
+#n_obiettivi-per-lanno-2008_5{width:3em;}
+#n_obiettivi-per-lanno-2008_6{width:3em;}
+#n_obiettivi-per-lanno-2008_7{width:3em;}
+#n_obiettivi-per-lanno-2008_8{width:3em;}
+#obittivo_obiettivi-per-lanno-2008_new{width:25em;}
+#obittivo_obiettivi-per-lanno-2008_1{width:25em;}
+#obittivo_obiettivi-per-lanno-2008_2{width:25em;}
+#obittivo_obiettivi-per-lanno-2008_3{width:25em;}
+#obittivo_obiettivi-per-lanno-2008_4{width:25em;}
+#obittivo_obiettivi-per-lanno-2008_5{width:25em;}
+#obittivo_obiettivi-per-lanno-2008_6{width:25em;}
+#obittivo_obiettivi-per-lanno-2008_7{width:25em;}
+#obittivo_obiettivi-per-lanno-2008_8{width:25em;}
+#stato_obiettivi-per-lanno-2008_new{width:3em;}
+#stato_obiettivi-per-lanno-2008_1{width:3em;}
+#stato_obiettivi-per-lanno-2008_2{width:3em;}
+#stato_obiettivi-per-lanno-2008_3{width:3em;}
+#stato_obiettivi-per-lanno-2008_4{width:3em;}
+#stato_obiettivi-per-lanno-2008_5{width:3em;}
+#stato_obiettivi-per-lanno-2008_6{width:3em;}
+#stato_obiettivi-per-lanno-2008_7{width:3em;}
+#stato_obiettivi-per-lanno-2008_8{width:3em;}
+#descrizione_obiettivi-per-lanno-2008_new{height: 6em; width:50em;}
+#descrizione_obiettivi-per-lanno-2008_1{height: 6em; width:50em;}
+#descrizione_obiettivi-per-lanno-2008_2{height: 6em; width:50em;}
+#descrizione_obiettivi-per-lanno-2008_3{height: 6em; width:50em;}
+#descrizione_obiettivi-per-lanno-2008_4{height: 6em; width:50em;}
+#descrizione_obiettivi-per-lanno-2008_5{height: 6em; width:50em;}
+#descrizione_obiettivi-per-lanno-2008_6{height: 6em; width:50em;}
+#descrizione_obiettivi-per-lanno-2008_7{height: 6em; width:50em;}
+#descrizione_obiettivi-per-lanno-2008_8{height: 6em; width:50em;}
+#nome_personale-coinvolto_new{width:25em;}
+#nome_personale-coinvolto_1{width:25em;}
+#nome_personale-coinvolto_2{width:25em;}
+#nome_personale-coinvolto_3{width:25em;}
+#nome_personale-coinvolto_4{width:25em;}
+#nome_personale-coinvolto_5{width:25em;}
+#nome_personale-coinvolto_6{width:25em;}
+#nome_personale-coinvolto_7{width:25em;}
+#nome_personale-coinvolto_8{width:25em;}
+#cognome_personale-coinvolto_new{width:25em;}
+#cognome_personale-coinvolto_1{width:25em;}
+#cognome_personale-coinvolto_2{width:25em;}
+#cognome_personale-coinvolto_3{width:25em;}
+#cognome_personale-coinvolto_4{width:25em;}
+#cognome_personale-coinvolto_5{width:25em;}
+#cognome_personale-coinvolto_6{width:25em;}
+#cognome_personale-coinvolto_7{width:25em;}
+#cognome_personale-coinvolto_8{width:25em;}
+
+*.section-futura .documentFirstHeading {color:red;}
