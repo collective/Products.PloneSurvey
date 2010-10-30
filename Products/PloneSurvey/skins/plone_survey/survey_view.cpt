@@ -20,9 +20,63 @@
                     captcha_prod string:quintagroup.plonecaptchas;
                     captcha_installed python:qi_tool.isProductInstalled(captcha_prod);
                     isAnon context/@@plone_portal_state/anonymous;
-                    pagetype here/portal_type">
+                    pagetype here/portal_type;
+                    st here/surveywalk_tool;">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <ul style="margin-bottom: 0" id="portal-globalnav"> 
+            <span tal:omit-tag="" tal:condition="python:pagetype=='Survey'  and not(completed)">
+                <li class="plain">
+                    <a href="" tal:attributes="href string:">Inizio</a>
+                </li>
+                <span tal:omit-tag=""
+                      tal:repeat="sub python:here.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)">
+                    <li class="plain"
+                        tal:condition="python:not('nomenu' in sub.Subject())">
+                         <div tal:omit-tag=""
+                               tal:define="validated python:sub.getAnswerFor(member_id) == 'validato'"
+                               tal:on-error="sub/reset">
+                              <a href="" tal:condition="validated"
+                                  tal:attributes="href python:sub.id"
+                                  tal:content="sub/Title">titolo
+                              </a>
+                              <a tal:condition="not:validated" tal:content="sub/Title" />
+                         </div>
+                       </li>
+                   </span>
+               </span>
+                <span tal:omit-tag=""
+                      tal:define="parent_id python:context.aq_inner.getParentNode().getId();
+                                  path python:'/'.join(context.getPhysicalPath()[:-1]);
+                                  parent python:here.portal_catalog(path=path, id=parent_id)[0].getObject()"
+                                  tal:condition="python:pagetype=='Sub Survey'"
+                                  tal:on-error="nothing">
+                <li class="plain">
+                    <a href="" tal:attributes="href string:..">Inizio</a>
+                </li>
+                <span tal:condition="python:pagetype=='Sub Survey' and not(completed)"
+                      tal:repeat="sub python:parent.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)">
+                    <li class="plain"
+                        tal:condition="python:not('nomenu' in sub.Subject())">
+                        <div tal:omit-tag=""
+                             tal:define="validated python:sub.getAnswerFor(member_id) == 'validato'"
+                             tal:on-error="sub/reset">
+                            <a href="" tal:condition="validated"
+                                tal:attributes="href string:../${sub/id}"
+                                tal:content="sub/Title">titolo
+                            </a>
+                            <a tal:condition="not:validated" tal:content="sub/Title" />
+                        </div>
+                    </li>
+                </span>
+            </span>
+            <li>
+                <a tal:condition="python:pagetype=='Survey' and completed" href="" class="plain" tal:attributes="href string:report">Stampa il Report</a>
+                <a tal:condition="python:pagetype=='Sub Survey' and completed" href="" class="plain" tal:attributes="href string:../report">Report</a>
+            </li>
+        </ul>
+        <hr style="margin-top: 0" />
 
         <h1 class="documentFirstHeading"
             tal:content="context/Title" />
@@ -32,7 +86,7 @@
         <div class="documentDescription"
              tal:condition="here/Description"
              tal:content="here/Description" />
-        
+        <hr />
 	<div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div tal:condition= "python:pagetype=='Survey'"
@@ -40,7 +94,7 @@
         <form name="edit_form"
               method="post"
               tal:attributes="action template/id"
-              tal:condition="not:completed">
+              tal:condition="python:not(completed) and here.getId() <>'riepilogo'">
             <input type="hidden" name="form.submitted" value="1" />
             <input type="hidden" name="came_from"
                    tal:attributes="value request/came_from | nothing"
@@ -48,8 +102,8 @@
             <input type="hidden" name="survey_user_id"
                    tal:attributes="value context/getSurveyId" />
             <fieldset>
-                <legend i18n:translate="legend_question_details">Question details</legend>
-
+                <legend tal:condition="python:pagetype <> 'Survey'" i18n:translate="legend_question_details">Question details</legend>
+                <legend tal:condition="python: pagetype == 'Survey'" i18n:translate="legend_question_actions">Azioni</legend>
                 <tal:question repeat="question questions">
                     <div tal:condition="python:question.getBody() and question.getTextLocation() == 1"
                           tal:content="structure question/getBody" />
@@ -58,6 +112,9 @@
                     </tal:condition>
                     <tal:condition condition="python:question.meta_type == 'SurveyDateQuestion'">
                         <div metal:use-macro="here/question_date_macro/macros/question" />
+                    </tal:condition>
+                    <tal:condition condition="python:question.meta_type == 'SurveyGridQuestion'">
+                        <div metal:use-macro="here/question_grid_macro/macros/question" />
                     </tal:condition>
                     <tal:condition condition="python:question.meta_type == 'SurveyMatrix'">
                         <div metal:use-macro="here/question_matrix_macro/macros/question" />
@@ -78,13 +135,25 @@
 
                 <div class="formControls">
                     <input class="context"
-                           tal:condition="python: not isAnon and here.getAllowSave()"
+                           tal:condition="python: not isAnon and here.getAllowSave() and pagetype <> 'Survey'"
                            type="submit"
                            value="Save"
                            name="form.button.save"
                            i18n:attributes="value save_button" />
                     <input class="context"
-                           tal:condition="here/isMultipage"
+                           tal:condition="python:here.isMultipage() and (st.getWalkFor(survey = here.getSurveyRoot().UID(), userid= member_id) <> None) and pagetype <> 'Survey'"
+                           type="submit"
+                           value="Precedente"
+                           name="form.button.getback"
+                           i18n:attributes="value getback_button" />
+                    <input class="context"
+                           tal:condition="python:here.isMultipage() and pagetype == 'Survey'"
+                           type="submit"
+                           value="Next"
+                           name="form.button.submit"
+                           i18n:attributes="value start_page_button" />
+                    <input class="context"
+                           tal:condition="python:here.isMultipage() and pagetype <> 'Survey'"
                            type="submit"
                            value="Next"
                            name="form.button.submit"
@@ -103,13 +172,25 @@
         <form name="edit_form"
               method="post"
               tal:attributes="action template/id"
-              tal:condition="completed">
+              tal:condition="python:completed or here.getId() == 'riepilogo'">
             <input type="hidden" name="form.submitted" value="1" />
             <fieldset>
-                <legend i18n:translate="legend_already_completed">You have already filled in this survey</legend>
-                <div tal:define="questions here/getAllQuestionsInOrder"
+                <legend tal:condition="completed" i18n:translate="legend_already_completed">You have already filled in this survey</legend>
+                <legend tal:condition="python:here.getId() == 'riepilogo' and not(completed)" i18n:translate="legend_summary_completed">Riepilogo dati questionario:</legend>
+                <div tal:define="here_id here/id;
+                                 path python:'/'.join(context.getPhysicalPath());
+                                 qui python:here.portal_catalog(path=path, id=here_id)[0].getObject();
+                                 questions qui/getAllQuestionsInOrder"
                      tal:repeat="question questions">
-                    <div metal:use-macro="here/question_macro/macros/display" />
+                    <tal:condition condition="python:question.meta_type == 'SurveyMatrixQuestion'">
+                        <div metal:use-macro="here/question_matrix_macro/macros/display" />
+                    </tal:condition>
+		    <tal:condition condition="python:question.meta_type <> 'SurveyGridQuestion' and question.meta_type <> 'SurveyMatrixQuestion' ">
+                        <div metal:use-macro="here/question_macro/macros/display" />
+                    </tal:condition>
+                    <tal:condition condition="python:question.meta_type == 'SurveyGridQuestion'">
+                        <div metal:use-macro="here/question_grid_macro/macros/display" />
+                    </tal:condition>
                 </div>
                 <div class="formControls">
                     <input class="context"
@@ -117,7 +198,41 @@
                            value="Reset Survey"
                            name="form.button.reset_survey"
                            i18n:attributes="value reset_survey_button"
-                           tal:condition="python:user.has_permission('PloneSurvey: Reset Own Responses', here)" />
+                           tal:condition="python:user.has_permission('PloneSurvey: Reset Own Responses', here) and completed" />
+                    <div class="formControls" tal:condition="not:completed">
+                    <input class="context"
+                           tal:condition="python: not isAnon and here.getAllowSave()"
+                           type="submit"
+                           value="Save"
+                           name="form.button.save"
+                           tabindex=""
+                           tal:attributes="tabindex tabindex/next"
+                           i18n:attributes="value save_button" />
+                    <input class="context"
+                           tal:condition="python:here.isMultipage() and (st.getWalkFor(survey = here.getSurveyRoot().UID(), userid= member_id) <> None) and pagetype <> 'Survey'"
+                           type="submit"
+                           value="Precedente"
+                           name="form.button.getback"
+                           tabindex=""
+                           tal:attributes="tabindex tabindex/next"
+                           i18n:attributes="value getback_button" />
+                    <input class="context"
+                           tal:condition="here/isMultipage"
+                           type="submit"
+                           value="Submit"
+                           name="form.button.submit"
+                           tabindex=""
+                           tal:attributes="tabindex tabindex/next"
+                           i18n:attributes="value submit_button" />
+                    <input class="context"
+                           tal:condition="not: here/isMultipage"
+                           type="submit"
+                           value="Submit"
+                           name="form.button.submit"
+                           tabindex=""
+                           tal:attributes="tabindex tabindex/next"
+                           i18n:attributes="value submit_button" />
+                    </div>
                 </div>
             </fieldset>
         </form>
