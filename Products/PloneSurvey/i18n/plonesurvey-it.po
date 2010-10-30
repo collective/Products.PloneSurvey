@@ -30,6 +30,11 @@ msgstr " Annulla "
 msgid "submit_page_button"
 msgstr "Successivo"
 
+#: ../skins/plone_survey/survey_view.cpt
+#. <input class="context" i18n:attributes="value start_page_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="here/isMultipage" type="submit" value="Next"/>
+# Original: "Begin"
+msgid "start_page_button"
+msgstr "Inizia!"
 
 #: ../skins/plone_survey/question_matrix_macro.pt
 #. <option class="noborder" i18n:translate="Please select" value="">
@@ -96,7 +101,7 @@ msgstr "Questo canceller&aacute; tutte le risposte dal questionario corrente. Se
 #. </p>
 # Original: "This is an overview of the current survey."
 msgid "desc_survey_overview"
-msgstr "Questa Ë una panoramica del questionario corrente."
+msgstr "Questa è una panoramica del questionario corrente."
 
 
 #: ../skins/plone_survey/survey_view_results.pt
@@ -255,7 +260,7 @@ msgstr "Aggiungi qui una descrizione estesa della domanda, per chiarire alcuni d
 
 # Default: Select if this question is required, meaning participant must give a response.
 msgid "help_required"
-msgstr "Seleziona se questa domanda Ë obbligatoria, nel senso che il partecipante deve dare una risposta."
+msgstr "Seleziona se questa domanda è obbligatoria, nel senso che il partecipante deve dare una risposta."
 
 
 # Default: Enter an email address to receive notifications of survey completions.
@@ -275,12 +280,12 @@ msgstr "Inserisci un numero di colonne per questo campo (larghezza del campo in 
 
 # Default: Enter a number of rows for this field. This value is applicable only in the Text Area input type
 msgid "help_text_rows"
-msgstr "Inserisci un numero di righe per questo campo. Questo valore Ë applicabile solo per immissione di tipo Area di Testo."
+msgstr "Inserisci un numero di righe per questo campo. Questo valore è applicabile solo per immissione di tipo Area di Testo."
 
 
 # Default: This is the message that will be displayed to the user when they complete the survey.
 msgid "help_thankyou"
-msgstr "Questo Ë il messaggio che apparir‡ all'utente quando avr‡ completato il questionario."
+msgstr "Questo è il messaggio che apparirà all'utente quando avrà completato il questionario."
 
 
 # Default: Enter a title.
@@ -295,7 +300,7 @@ msgstr "Seleziona un metodo di validazione per questa domanda."
 
 # Default: Email on each submission
 msgid "label_all_emails"
-msgstr "Invia una mail ogni volta che il questionario Ë completato."
+msgstr "Invia una mail ogni volta che il questionario è completato."
 
 
 # Default: Allow Anonymous
@@ -459,7 +464,7 @@ msgstr "Validazione"
 #. </legend>
 # Original: "You have already filled in this survey"
 msgid "legend_already_completed"
-msgstr "Hai gi‡ compilato questo questionario"
+msgstr "Hai già compilato questo questionario"
 
 
 #: ../skins/plone_survey/survey_view.cpt
@@ -478,6 +483,15 @@ msgstr "Dettagli della domanda"
 # Original: "Reset Users"
 msgid "reset_users"
 msgstr "Ripristina utenti"
+
+
+#: ../skins/plone_survey/survey_view.cpt
+#. <legend i18n:translate="legend_question_actions">
+#.  Question actions
+#. </legend>
+# Original: "Question actions"
+msgid "legend_question_actions"
+msgstr "Clicca qui sotto per cominciare"
 
 
 #: ../skins/plone_survey/respondents_view.cpt
@@ -515,12 +529,12 @@ msgstr "Grazie di aver completato il questionario."
 
 # Default: Survey did not reset correctly
 msgid "text_survey_reset_error"
-msgstr "Il questionario non Ë stato ripristinato correttamente"
+msgstr "Il questionario non è stato ripristinato correttamente"
 
 
 # Default: Survey has been reset
 msgid "text_survey_reset_success"
-msgstr "Il questionario Ë stato ripristinato"
+msgstr "Il questionario è stato ripristinato"
 
 
 # Default: ${users} have been reset
@@ -662,11 +676,11 @@ msgstr "Non completato"
 
 # Default: This is the message that will be displayed to the user when they save the survey, but don't submit it.
 msgid "help_saved_text"
-msgstr "Questo Ë il messaggio che sar‡ visualizzato all'utente quando salva il questionario, ma non lo completa."
+msgstr "Questo è il messaggio che sarà visualizzato all'utente quando salva il questionario, ma non lo completa."
 
 # Default: Allow Save Functionality
 msgid "label_allow_save"
-msgstr "Consenti la funzionalit‡ di salvataggio"
+msgstr "Consenti la funzionalità di salvataggio"
 
 # Default: Allow logged in users to save survey for finishing later.
 msgid "help_allow_save"
