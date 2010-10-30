@@ -1,0 +1,178 @@
+="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonesurvey">
+<body>
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+        tal:define="errors options/state/getErrors;
+                    users here/getAuthenticatedRespondents;
+                    Iterator python:modules['Products.CMFPlone'].IndexIterator;
+                    tabindex python:Iterator();
+                    member_id request/utente | here/getSurveyId;
+                    questions here/getQuestions;
+                    completed python:here.checkCompletedFor(member_id);
+                    pagetype here/portal_type">
+
+<span class="visualNoPrint" tal:repeat="user users">
+ <a href=""
+  tal:attributes="href string:report_annuale?utente=${user/id}"
+  tal:content="user/id"></a> - 
+</span>
+
+
+
+<div style="text-align: center;"><span
+ style="font-weight: bold;">Denominazione biblioteca</span><br>
+<tal:block tal:define="domanda nocall:here/denominazione-della-biblioteca-unita-amministrativa">
+ <div metal:use-macro="here/macro_report/macros/report" />
+</tal:block>
+<br>
+</div>
+<br>
+<table style="text-align: left; width: 647px; height: 212px;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td>Punti di servizio</td>
+      <td><tal:block tal:define="domanda nocall:here/in-quanti-punti-di-servizio-e-articolata-la-biblioteca">
+ <div metal:use-macro="here/macro_report/macros/report" />
+</tal:block></td>
+      <td>Monografie</td>
+      <td><tal:block tal:define="domanda nocall:here/patrimonio/patrimonio-ducumentario-monografie/libri-moderni">
+ <div metal:use-macro="here/macro_report/macros/solo_valore" />
+</tal:block></td>
+      <td>Prestito</td>
+      <td>&nbsp; &nbsp;</td>
+      <td>&nbsp; &nbsp;</td>
+    </tr>
+    <tr>
+      <td>Superficie totale</td>
+      <td><tal:block tal:define="domanda nocall:here/spazi/superfici">
+ <div metal:use-macro="here/macro_report/macros/report" />
+</tal:block></td>
+      <td>libri antichi</td>
+      <td>&nbsp; </td>
+      <td>ILL</td>
+      <td>&nbsp; &nbsp;</td>
+      <td>&nbsp; &nbsp;</td>
+    </tr>
+    <tr>
+      <td>Superficie accessibile</td>
+      <td></td>
+      <td>tesi </td>
+      <td></td>
+      <td>dd</td>
+      <td>&nbsp; &nbsp;</td>
+      <td>&nbsp; &nbsp;</td>
+    </tr>
+    <tr>
+      <td>Posti a sedere</td>
+    <td><tal:block tal:define="domanda nocall:here/spazi/postazioni">
+ <div metal:use-macro="here/macro_report/macros/report" />
+</tal:block></td>
+      <td>annate</td>
+      <td></td>
+      <td>Reference</td>
+      <td>&nbsp; &nbsp; </td>
+      <td>&nbsp; &nbsp; </td>
+    </tr>
+    <tr>
+      <td>Postazioni informatiche/attrezzate</td>
+      <td></td>
+      <td>altro patrimonio documentario</td>
+      <td>&nbsp; </td>
+      <td>Fotocopie</td>
+      <td>&nbsp; &nbsp; </td>
+      <td>&nbsp; &nbsp; </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>abbonamenti a periodici catacei</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>&nbsp; </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold;">In quali
+attivit&agrave; la biblioteca &nbsp;&egrave; stata
+pi&ugrave; impegnata nel 2008?</span><br><tal:block tal:define="domanda nocall:here/relazione-obiettivi/in-quali-attivita-la-biblioteca-e-stata-piu-impegnata-nel-2008">
+ <div metal:use-macro="here/macro_report/macros/report" />
+</tal:block>
+<br>
+<br>
+<br>
+<br>
+<br>
+<span style="font-weight: bold;">Quali sono state le
+principali criticit&agrave; &nbsp;della biblioteca nel corso
+del 2008? Come sono state affrontate <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+In che modo la biblioteca ha contribuito alla realizzazione degli
+obiettivi di polo nel 2008?<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Quali sono i principali obiettivi che la biblioteca propone per il 2009?<br>
+</span>
+<table style="text-align: left; width: 942px; height: 172px;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td>n</td>
+      <td style="width: 20%;">Obiettivo</td>
+      <td>Descrizione</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<span style="font-weight: bold;"><br
+ style="font-weight: bold;">
+</span><br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+    </tal:main-macro>
+</metal:main>
+</body>
+</html>
