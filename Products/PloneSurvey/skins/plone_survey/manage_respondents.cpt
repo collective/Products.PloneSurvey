@@ -38,8 +38,37 @@
             <tal:invited repeat="respondent respondents">
             <tr tal:define="encoded_email python:standard_module.url_quote(respondent['id'])"
                 tal:condition="python:respondent['id'] not in already_responded">
-                <td tal:content="python:respondent['fullname']" />
-                        <td tal:content="python:respondent['emailaddress']" />
+                <td tal:content="python:respondent['fullname']">
+                    <i>Questionario</i>:
+                    <ul>            
+                        <li>
+                            <a tal:attributes="href string:${here/absolute_url}/report_singolo?utente=${encoded_email}">
+                                Visualizza le risposte al questionario per l'utente
+                            </a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href string:${here/absolute_url}/mostra_quest?tipo=html&utente=${encoded_email}">
+                                Visualizza il questionario per l'utente
+                            </a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href string:${here/absolute_url}/mostra_quest?utente=${encoded_email}">
+                                Visualizza il questionario per l'utente (PDF)
+                            </a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href string:${here/absolute_url}/show_user_walk?utente=${encoded_email}">
+                                Visualizza il percorso di risposta dell'utente
+                            </a>
+                        </li>
+                        <li>
+                            <a tal:attributes="href string:${here/absolute_url}/login_form_bridge?email=${encoded_email}&amp;key=${user/key}">
+                                Modifica il questionario (dev'essere riaperto per essere modificabile)
+                            </a>
+                        </li>
+	            </ul>
+		</td>
+                <td tal:content="python:respondent['emailaddress']" />
                 <td>
                     <span tal:condition="respondent/email_sent|nothing"
                           tal:content="python:context.restrictedTraverse('@@plone').toLocalizedTime(respondent['email_sent'],long_format=1)" />
@@ -65,6 +94,11 @@
                                         tal:attributes="href string:${context/absolute_url}/login_form_bridge?email=${encoded_email}&key=${key}">
                                         Complete for User</a>
                                 </li>
+				<li>
+				    <a tal:attributes="href string:${here/absolute_url}/survey_reopen?email=${encoded_email}">
+				        Riapri il questionario per questo utente
+				    </a>
+				</li>
                             </ul>
                 </td>
                 </tr>
