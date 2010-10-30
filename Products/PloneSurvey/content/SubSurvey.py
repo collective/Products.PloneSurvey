@@ -1,5 +1,7 @@
 import string
 from AccessControl import ClassSecurityInfo
+from BTrees.OOBTree import OOBTree
+from persistent.mapping import PersistentMapping
 from zope.interface import classImplements
 
 from Products.Archetypes.atapi import *
@@ -19,6 +21,76 @@ class SubSurvey(ATCTOrderedFolder):
     _at_rename_after_creation = True
     portal_type = 'Sub Survey'
     security = ClassSecurityInfo()
+
+    def __init__(self, oid, **kwargs):
+        self.reset()
+        ATCTOrderedFolder.__init__(self, oid, **kwargs)
+
+    security.declareProtected(permissions.ModifyPortalContent, 'reset')
+    def reset(self):
+        """Remove answers for all users."""
+        self.answers = OOBTree()
+
+    security.declareProtected(permissions.ModifyPortalContent, 'resetForUser')
+    def resetForUser(self, userid):
+        """Remove answer for a single user"""
+        if self.answers.has_key(userid):
+            del self.answers[userid]
+
+    def manage_afterClone(self, item):
+	# elimino il flag sulla validazione
+	self.reset()
+        ATCTOrderedFolder.manage_afterClone(self, item)
+
+    security.declareProtected(permissions.View, 'addAnswer')
+    def addAnswer(self, value, comments=""):
+        """Add an answer and optional comments for a user.
+        This method protects _addAnswer from anonymous users specifying a
+        userid when they vote, and thus apparently voting as another user
+        of their choice.
+        """
+        # Get hold of the parent survey
+        survey = None
+        ob = self
+        while survey is None:
+            ob = ob.aq_inner.aq_parent
+            if ob.meta_type == 'Survey':
+                survey = ob
+            elif getattr(ob, '_isPortalRoot', False):
+                raise Exception("Could not find a parent Survey.")
+        portal_membership = getToolByName(self, 'portal_membership')
+        if portal_membership.isAnonymousUser() and not survey.getAllowAnonymous():
+            raise Unauthorized, ("This survey is not available to anonymous users.")
+        # Use the survey to get hold of the appropriate userid
+        userid = survey.getSurveyId()
+        # Call the real method for storing the answer for this user.
+        return self._addAnswer(userid, value, comments)
+
+    def _addAnswer(self, userid, value, comments=""):
+        """Add an answer and optional comments for a user."""
+        # We don't let users over-write answers that they've already made.
+        # Their first answer must be explicitly 'reset' before another
+        # answer can be supplied.
+        # XXX this causes problem when survey fails validation
+        # will also cause problem with save function
+##        if self.answers.has_key(userid):
+##            # XXX Should this get raised?  If so, a more appropriate
+##            # exception is probably in order.
+##            msg = "User '%s' has already answered this question. Reset the original response to supply a new answer."
+##            raise Exception(msg % userid)
+##        else:
+        self.answers[userid] = PersistentMapping(value=value,
+                                                 comments=comments)
+        if not isinstance(self.answers, (PersistentMapping, OOBTree)):
+            # It must be a standard dictionary from an old install, so
+            # we need to inform the ZODB about the change manually.
+            self.answers._p_changed = 1
+
+    security.declareProtected(permissions.View, 'getAnswerFor')
+    def getAnswerFor(self, userid):
+        """Get a specific user's answer"""
+        answer = self.answers.get(userid, {}).get('value', None)
+        return answer
 
     security.declarePublic('canSetDefaultPage')
     def canSetDefaultPage(self):
@@ -62,7 +134,7 @@ class SubSurvey(ATCTOrderedFolder):
         """Return the questions for the validation field"""
         portal_catalog = getToolByName(self, 'portal_catalog')
         questions = [('', 'None')]
-        path = string.join(self.aq_parent.getPhysicalPath(), '/')
+        path = string.join(self.aq_inner.aq_parent.getPhysicalPath(), '/')
         results = portal_catalog.searchResults(portal_type = ['Survey Select Question',],
                                                path = path)
         for result in results:
@@ -86,6 +158,7 @@ class SubSurvey(ATCTOrderedFolder):
         questions = self.getFolderContents(
             contentFilter={'portal_type':[
                 'Survey Matrix',
+                'Survey Grid Question',
                 'Survey Select Question',
                 'Survey Text Question',
                 'Survey Two Dimensional',
@@ -102,21 +175,45 @@ class SubSurvey(ATCTOrderedFolder):
     def getNextPage(self):
         """Return the next page of the survey"""
         previous_page = True
-        parent = self.aq_parent
+	def log_step(st,userid, step):
+            st.doStep(survey = self.getSurveyRoot().UID(), userid=userid, step=step)
+        st = self.surveywalk_tool
+        parent = self.aq_inner.aq_parent
         pages = parent.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
         for page in pages:
             if previous_page:
                 if page.getId() == self.getId():
                      previous_page = False
             elif page.displaySubSurvey():
+                log_step(st, userid, self.id)
                 return page()
         return self.exitSurvey()
+
+    security.declareProtected(permissions.View, 'getPreviousPage')
+    def getPreviousPage(self):
+        """Return the previous page of the survey"""
+	st = self.surveywalk_tool
+        #parent = self.aq_inner.aq_parent
+	parent = self.getSurveyRoot()
+        userid = self.getSurveyId()
+	walk = st.getWalkFor(survey = parent.UID(), userid = userid)
+	if walk <> None and walk <> []:	
+	   previous = walk[-1]
+	   new_walk = list(walk[:-1])
+	   st.addWalk(survey = parent.UID(), userid = userid, value = new_walk)
+	else:
+	   previous = None
+	   return parent()
+	return parent[previous]()
 
     security.declareProtected(permissions.View, 'displaySubSurvey')
     def displaySubSurvey(self):
         """Determine whether this page should be displayed"""
         parent = self.aq_parent
         userid = parent.getSurveyId()
+        if hasattr(self, 'getNextsub') and  self.getNextsub() is not None:
+            log_step(st, userid, self.id)
+            return parent[self.getNextsub()]()
         required_question = self.getRequiredQuestion()
         if not required_question:
              return True
@@ -131,7 +228,7 @@ class SubSurvey(ATCTOrderedFolder):
                     question = page[required_question]
                     break
         # TODO: this assumes the question actually exists
-        required_answer = self.getRequiredAnswer()
+        required_answer = self.getRequiredAnswer().split('|')
         required_positive = self.getRequiredAnswerYesNo()
         answer = question.getAnswerFor(userid)
         if hasattr(answer, 'lower'):
