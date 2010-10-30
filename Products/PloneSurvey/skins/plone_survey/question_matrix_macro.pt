@@ -31,11 +31,11 @@
             <th class="questionColumn nosort"
                 i18n:translate="label_matrix_question">Question</th>
             <th class="nosort" style="text-transform: none;"
-                tal:condition="python:input_type in ['radio', 'checkbox']"
+                tal:condition="python:input_type in ['radio', 'checkbox', 'text','area']"
                 tal:repeat="option options"
                 tal:content="python:test(same_type(options, ()), option, hasattr(options, 'getValue') and options.getValue(option))"/>
             <th class="nosort" style="text-transform: none;"
-                  tal:condition="python:input_type not in ['radio', 'checkbox']">
+                  tal:condition="python:input_type not in ['radio', 'checkbox', 'text','area']">
                 Select Option
             </th>
         </tr>
@@ -61,7 +61,7 @@
                            tal:attributes="value option;
                                            name string:${qid}-${mqid};
                                            id string:${qid}-${mqid};
-                                           checked python:str(option) == answer;" />
+                                           checked python:str(option) == str(answer);" />
                 </td>
                 <td tal:define="null_value question/getNullValue"
                     tal:condition="python:input_type == 'selectionBox'">
@@ -93,7 +93,37 @@
                                 tal:content="option">option</option>
                     </select>
                 </td>
-                <td tal:condition="python:input_type == 'checkbox'"
+                <td tal:condition="python:input_type == 'text' or input_type == 'area'"
+		    tal:define="risposte python:matrix_question.getAnswerFor(member_id);
+		    		risp python: test(risposte <> None and (same_type(risposte, []) or same_type(risposte, ())), risposte, [risposte for x in range(len(question.getQuestionOptions()))] )"
+
+                    tal:repeat="option question/getQuestionOptions">
+                    <input tal:condition="python:input_type == 'text'" type="text"
+                           class="noborder2"
+                           name="answer"
+                           value="option"
+                           tal:define="numb repeat/option/index;
+			   	       campo python:risp[numb];
+			               answer python:request.get(str(qid) + '-' + str(mqid) + '-' + str(numb), None) or campo"
+                           tal:attributes="value answer;
+                                           name string:${qid}-${mqid};
+                                           id string:${qid}-${mqid}-${repeat/option/number};
+                                           tabindex tabindex/next;"/>
+                    <textarea tal:condition="python:input_type == 'area'"
+                           class="noborder2 autoresize"
+                           name="answer"
+			   onChange="javascript:updateTotal()"
+                           tal:define="numb repeat/option/index;
+                                       campo python:risp[numb];
+                                       answer python:request.get(str(qid) + '-' + str(mqid) + '-' + str(numb), None) or campo"
+                           tal:attributes="value answer;
+                                           name string:${qid}-${mqid};
+                                           id string:${qid}-${mqid}-${repeat/option/number};
+                                           tabindex tabindex/next;
+					   onChange string:javascript:updateTotal()"
+			   tal:content="answer" >valore</textarea>
+                </td>
+                 <td tal:condition="python:input_type == 'checkbox'"
                     tal:repeat="option question/getQuestionOptions">
                     <input type="checkbox"
                            class="noborder"
@@ -116,8 +146,18 @@
     <div tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()"
          tal:omit-tag="">
         <dt>Comment</dt>
-        <dd tal:content="python: question.getCommentsFor(member_id) or 'No Comment'" />
+        <div tal:omit-tag="" tal:condition="python:not(same_type(question.getAnswerFor(member_id), []))">
+            <dd tal:content="python:question.getAnswerFor(member_id)" />
+        </div>
+        <div tal:omit-tag="" tal:condition="python:same_type(question.getAnswerFor(member_id), [])">
+            <dd>
+                <span tal:omit-tag="" tal:repeat="valore python:question.getAnswerFor(member_id)">
+                    <span tal:content="valore" /> <br />
+                </span>
+            </dd>
+        </div>
     </div>
 </dl>
 </body>
 </html>
+
