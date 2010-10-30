@@ -13,10 +13,10 @@
     <input tal:attributes="value here/absolute_url"
            name="came_from"
            type="hidden"/>
-    <input tal:attributes="value request/email"
+    <input tal:attributes="value request/email|nothing"
            name="__ac_name"
            type="hidden"/>
-    <input tal:attributes="value request/key"
+    <input tal:attributes="value request/key|nothing"
            name="__ac_password"
            type="hidden"/>     
     <input type="submit" name="submit" id="login_form_bridge_submit"/>
