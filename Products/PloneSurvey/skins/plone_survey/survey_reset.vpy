@@ -4,6 +4,11 @@ _ = context.translate
 for question in questions:
     question.reset()
 
+#reset of subsurveys data
+subs = context.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
+for sub in subs:
+   sub.reset()
+
 question.aq_parent.setCompletedFor([])
 
 if state.getErrors():

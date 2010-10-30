@@ -2,7 +2,7 @@ form = context.REQUEST.form
 _ = context.translate
 questions = context.getQuestions()
 
-if form.get('form.button.save', ''):
+if form.get('form.button.save', '') or form.get('form.button.getback', ''):
     # skip validation
     for q in questions:
         value = form.get(q.getId(), '')
@@ -14,13 +14,16 @@ if form.get('form.button.save', ''):
         else:
             matrix_questions = q.getQuestions()
             for matrix_q in matrix_questions:
-                value = form.get(q.getId() + '-' + matrix_q.getId(), '')
-                matrix_q.addAnswer(value)
+                # value = form.get(matrix_q.getId(), '')
+	        matrix_qid = str(q.getId()) + '-' + str(matrix_q.getId())
+	        value = form.get(matrix_qid, '')
+		matrix_q.addAnswer(value)
     return state.set(status='success')
 
 for q in questions:
     value = form.get(q.getId(), '')
-    if q.portal_type == 'Survey Matrix':
+    if q.portal_type == 'Survey Matrix' or q.portal_type == 'Survey Grid Question':
+	# the validation of required field is done down
         pass
     elif q.getRequired() and not value and (q.portal_type not in ['Survey Two Dimensional', 'Survey Date Question']):
         error_msg = context.translate(
@@ -37,41 +40,14 @@ for q in questions:
         q.validateAnswer(value, state)
     elif q.portal_type == 'Survey Date Question':
         q.validateAnswer(form, q.getId(), state)
+    elif q.portal_type == 'Survey Grid Question' and q.getRequired():
+        q.validateAnswer(form, state)
     elif q.portal_type == 'Survey Select Question':
         q.validateAnswer(value, comments, state)
     elif q.portal_type not in ('Survey Matrix', 'Survey Two Dimensional'):
         q.addAnswer(value, comments)
     elif q.portal_type in ('Survey Matrix',):
         q.validateAnswer(form, state)
-    elif q.portal_type in ('Survey Matrix', 'Survey Two Dimensional'):
-        matrix_questions = q.getQuestions()
-        qnum = ''
-        for matrix_q in matrix_questions:
-            matrix_qid = str(q.getId()) + '-' + str(matrix_q.getId())
-            value = form.get(matrix_qid, '')
-            try:
-                value = int(value)
-            except TypeError:
-                # most probably we have multiple selects
-                newvalue = []
-                for number in value:
-                    try:
-                        newvalue.append(int(number))
-                    except ValueError:
-                        newvalue.append(number)
-                value = newvalue
-            except ValueError:
-                pass
-            if matrix_q.getRequired() and not value:
-               qnum = qnum + ' ' + str(matrix_q.title_or_id()) + ','
-            matrix_q.addAnswer(value)
-        if qnum != '':
-            qnum = qnum[:-1]
-            error_msg = context.translate(
-                default='Please provide an answer for the question',
-                msgid='please_provide_answer_for',
-                domain='plonesurvey')
-            state.setError(q.getId(), "%s %s" % (error_msg, qnum))
 
 if not state.getErrors():
     if context.getShowCaptcha():
@@ -81,6 +57,16 @@ if not state.getErrors():
 if state.getErrors():
     return state.set(status='failure', portal_status_message=_(msgid='text_correct_errors', domain='plonesurvey', default='Please correct the errors shown'))
 else:
+    if context.portal_type == 'Survey':
+      pass
+    else:
+      if context.portal_type == 'Sub Survey':
+      # qui posso salvare una variabile per indicare che il sub survey e' stato validato
+      # context e' il nostro sub survey appena validato
+      #  state.setError('va', context.id)
+      #  return state.set(status='failure', portal_status_message=_(msgid='text_correct_errors', domain='plonesurvey', default='Please correct the errors shown'))
+       context.addAnswer('validato')
+
     state.set(status='success')
     state.setKwargs({'survey_user_id':form.get('survey_user_id')})
     return state
