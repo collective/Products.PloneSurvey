@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonesurvey">
+<body>
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main"
+        tal:define="errors options/state/getErrors;
+                    users here/getAuthenticatedRespondents;
+                    Iterator python:modules['Products.CMFPlone'].IndexIterator;
+                    tabindex python:Iterator();
+                    member_id request/utente | here/getSurveyId;
+                    questions here/getQuestions;
+                    completed python:here.checkCompletedFor(member_id);
+                    pagetype here/portal_type">
+
+<span tal:repeat="user users">
+ <a href=""
+  tal:attributes="href string:test_report?utente=${user/id}"
+  tal:content="user/id"></a> - 
+</span>
+<h1> La prima domanda </h1>
+<table border="1">
+<tr>
+<td>
+
+<tal:block tal:define="domanda nocall:here/prova-accapo">
+ <div metal:use-macro="here/macro_report/macros/report" />
+</tal:block>
+
+</td>
+<td>
+
+<tal:block tal:define="domanda nocall:here/prova-su-scelta/prova-riuscita">
+ <div metal:use-macro="here/macro_report/macros/solo_valore" />
+</tal:block>
+
+</td>
+</table>
+
+
+    </tal:main-macro>
+</metal:main>
+</body>
+</html>
