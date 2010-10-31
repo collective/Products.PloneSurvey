@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="Products.PloneSurvey.layer" 
+        interface="Products.PloneSurvey.browser.interfaces.IPloneSurveySpecific" />
+</layers>
