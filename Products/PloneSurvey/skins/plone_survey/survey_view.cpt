@@ -28,19 +28,18 @@
         <ul style="margin-bottom: 0" id="portal-globalnav"> 
             <span tal:omit-tag="" tal:condition="python:pagetype=='Survey'  and not(completed)">
                 <li class="plain">
-                    <a href="" tal:attributes="href string:">Inizio</a>
+                    <a i18n:translate="start_survey" tal:attributes="href string:">Start Survey</a>
                 </li>
                 <span tal:omit-tag=""
                       tal:repeat="sub python:here.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)">
                     <li class="plain"
                         tal:condition="python:not('nomenu' in sub.Subject())">
                          <div tal:omit-tag=""
-                               tal:define="validated python:sub.getAnswerFor(member_id) == 'validato'"
-                               tal:on-error="sub/reset">
-                              <a href="" tal:condition="validated"
+                              tal:define="validated python:sub.getAnswerFor(member_id) == 'validato'"
+                              tal:on-error="sub/reset">
+                              <a tal:condition="validated"
                                   tal:attributes="href python:sub.id"
-                                  tal:content="sub/Title">titolo
-                              </a>
+                                  tal:content="sub/Title" />
                               <a tal:condition="not:validated" tal:content="sub/Title" />
                          </div>
                        </li>
@@ -53,7 +52,7 @@
                                   tal:condition="python:pagetype=='Sub Survey'"
                                   tal:on-error="nothing">
                 <li class="plain">
-                    <a href="" tal:attributes="href string:..">Inizio</a>
+                    <a i18n:translate="start_survey" tal:attributes="href string:..">Start Survey</a>
                 </li>
                 <span tal:condition="python:pagetype=='Sub Survey' and not(completed)"
                       tal:repeat="sub python:parent.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)">
@@ -64,16 +63,21 @@
                              tal:on-error="sub/reset">
                             <a href="" tal:condition="validated"
                                 tal:attributes="href string:../${sub/id}"
-                                tal:content="sub/Title">titolo
-                            </a>
+                                tal:content="sub/Title" />
                             <a tal:condition="not:validated" tal:content="sub/Title" />
                         </div>
                     </li>
                 </span>
             </span>
             <li>
-                <a tal:condition="python:pagetype=='Survey' and completed" href="" class="plain" tal:attributes="href string:report">Stampa il Report</a>
-                <a tal:condition="python:pagetype=='Sub Survey' and completed" href="" class="plain" tal:attributes="href string:../report">Report</a>
+                <a class="plain"
+		    tal:condition="python:pagetype=='Survey' and completed"
+                    i18n:translate="print_report"
+                    tal:attributes="href string:report">Print Report</a>
+                <a class="plain"
+		    tal:condition="python:pagetype=='Sub Survey' and completed"
+		    i18n:translate="xxx"
+		    tal:attributes="href string:../report">Report</a>
             </li>
         </ul>
         <hr style="margin-top: 0" />
@@ -103,7 +107,7 @@
                    tal:attributes="value context/getSurveyId" />
             <fieldset>
                 <legend tal:condition="python:pagetype <> 'Survey'" i18n:translate="legend_question_details">Question details</legend>
-                <legend tal:condition="python: pagetype == 'Survey'" i18n:translate="legend_question_actions">Azioni</legend>
+                <legend tal:condition="python: pagetype == 'Survey'" i18n:translate="legend_question_actions">Stocks</legend>
                 <tal:question repeat="question questions">
                     <div tal:condition="python:question.getBody() and question.getTextLocation() == 1"
                           tal:content="structure question/getBody" />
