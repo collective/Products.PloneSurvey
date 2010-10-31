@@ -7,10 +7,8 @@ from zope.i18nmessageid import MessageFactory
 
 import permissions
 
-
 _ = MessageFactory('plonesurvey')
 
-ADD_CONTENT_PERMISSION = permissions.AddPortalContent
 SKINS_DIR = 'skins'
 
 GLOBALS = globals()
