@@ -154,6 +154,18 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         widget=StringWidget(visible=0,),
         ),
 
+    BooleanField('displayInMenu',
+        searchable=0,
+        required=0,
+        widget=BooleanWidget(
+            label="Display In the Navigation Menu",
+            label_msgid="label_display_in_menu",
+            description="""Toggle this on to display this survey page in the survey navigation menu.""",
+            description_msgid="help_display_in_menu",
+            i18n_domain="plonesurvey",
+           ),
+        ),
+
     BooleanField('showCaptcha',
         searchable=0,
         required=0,
@@ -242,6 +254,18 @@ SurveySchema["description"].widget.i18n_domain = "plonesurvey"
 del SurveySchema["relatedItems"]
 
 SubSurveySchema = ATContentTypeSchema.copy() + Schema((
+
+    BooleanField('displayInMenu',
+        searchable=0,
+        required=0,
+        widget=BooleanWidget(
+            label="Display In the Navigation Menu",
+            label_msgid="label_display_in_menu",
+            description="""Toggle this on to display this survey page in the survey navigation menu.""",
+            description_msgid="help_display_in_menu",
+            i18n_domain="plonesurvey",
+           ),
+        ),
 
     StringField('requiredQuestion',
         schemata="Branching",

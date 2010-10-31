@@ -26,14 +26,14 @@
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <ul style="margin-bottom: 0" id="portal-globalnav"> 
-            <span tal:omit-tag="" tal:condition="python:pagetype=='Survey'  and not(completed)">
+            <span tal:omit-tag="" tal:condition="python:pagetype=='Survey' and not(completed)">
                 <li class="plain">
                     <a i18n:translate="start_survey" tal:attributes="href string:">Start Survey</a>
                 </li>
                 <span tal:omit-tag=""
                       tal:repeat="sub python:here.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)">
                     <li class="plain"
-                        tal:condition="python:not('nomenu' in sub.Subject())">
+                        tal:condition="python:context.isMultipage() and context.getDisplayInMenu()">
                          <div tal:omit-tag=""
                               tal:define="validated python:sub.getAnswerFor(member_id) == 'validato'"
                               tal:on-error="sub/reset">
@@ -57,7 +57,7 @@
                 <span tal:condition="python:pagetype=='Sub Survey' and not(completed)"
                       tal:repeat="sub python:parent.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)">
                     <li class="plain"
-                        tal:condition="python:not('nomenu' in sub.Subject())">
+                        tal:condition="python:context.isMultipage() and context.getDisplayInMenu()">
                         <div tal:omit-tag=""
                              tal:define="validated python:sub.getAnswerFor(member_id) == 'validato'"
                              tal:on-error="sub/reset">
