@@ -1,1 +1,0 @@
-utente: <span tal:content="user/getUserName" /> <span tal:content="user/getRoles" />
