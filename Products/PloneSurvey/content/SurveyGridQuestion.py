@@ -416,7 +416,7 @@ class SurveyGridQuestion(BaseQuestion):
          for col in myval:
              res[ col['columnId'] ] = Column( col['columnTitle'], default=col['columnDefault'] )
          self.fgField.widget.columns = res
-	 # inserisco una risposta vuota in modo da avere un input all'inizio
+	 # Add an empty answer to have a non empty widget (maybe can be avoided, to check the DataGridWidget documentation)
          self.addAnswer(self.returnemptyrow());
          self.fgField._p_changed = 1
         except:

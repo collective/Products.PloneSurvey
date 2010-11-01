@@ -107,7 +107,7 @@
                    tal:attributes="value context/getSurveyId" />
             <fieldset>
                 <legend tal:condition="python:pagetype <> 'Survey'" i18n:translate="legend_question_details">Question details</legend>
-                <legend tal:condition="python: pagetype == 'Survey'" i18n:translate="legend_question_actions">Stocks</legend>
+                <legend tal:condition="python: pagetype == 'Survey'" i18n:translate="legend_question_actions">Actions</legend>
                 <tal:question repeat="question questions">
                     <div tal:condition="python:question.getBody() and question.getTextLocation() == 1"
                           tal:content="structure question/getBody" />
@@ -180,7 +180,7 @@
             <input type="hidden" name="form.submitted" value="1" />
             <fieldset>
                 <legend tal:condition="completed" i18n:translate="legend_already_completed">You have already filled in this survey</legend>
-                <legend tal:condition="python:here.getId() == 'riepilogo' and not(completed)" i18n:translate="legend_summary_completed">Riepilogo dati questionario:</legend>
+                <legend tal:condition="python:here.getId() == 'riepilogo' and not(completed)" i18n:translate="legend_summary_completed">Surevy data summary</legend>
                 <div tal:define="here_id here/id;
                                  path python:'/'.join(context.getPhysicalPath());
                                  qui python:here.portal_catalog(path=path, id=here_id)[0].getObject();

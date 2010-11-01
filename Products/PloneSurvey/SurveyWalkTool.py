@@ -10,7 +10,21 @@ from Products.PloneSurvey import permissions
 
 class SurveyWalkTool(UniqueObject, SimpleItem): 
 
-    """ The survey walk tool """ 
+    """ The survey walk tool 
+
+ Register the walk of the user in the Survey, and can enable "go back" to previous step
+
+ Uses UID to keep track of Surveys.
+
+ Examples:
+
+ my_survey = context.my_survey
+ my_survey_uid = my_survey.UID()
+
+ print st.doStep('yuri', my_survey_uid, 'first subsurvey') -> the user do a step to "first subsurvey"
+ st.resetWalks(my_survey_uid) -> reset all walks
+
+""" 
 
     id = 'surveywalk_tool' 
 

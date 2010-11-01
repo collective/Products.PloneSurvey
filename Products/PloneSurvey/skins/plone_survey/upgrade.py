@@ -9,17 +9,10 @@
 ##
 uid =  context.UID()
 
-
+# BBB to convert to an upgrade step
 st = context.surveywalk_tool
 st.registerSurvey(uid)
 
-return 'upgrade fatto'
+return 'upgrade done'
 
-#st.resetWalkForUser(survey='test-stampa-questionario',userid='admin')
-
-# Esempi:
-#
-#st.resetStreetForUser('admin') -> cancella la strada di un utente
-#print st.doStep('yuri','parte prima') -> fa percorrere un passo all'utente
-#st.resetStreet() -> cancella i percorsi di tutti gli utenti
 

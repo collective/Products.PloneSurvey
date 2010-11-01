@@ -39,31 +39,31 @@
             <tr tal:define="encoded_email python:standard_module.url_quote(respondent['id'])"
                 tal:condition="python:respondent['id'] not in already_responded">
                 <td tal:content="python:respondent['fullname']">
-                    <i>Questionario</i>:
+                    <i>survey</i>:
                     <ul>            
                         <li>
                             <a tal:attributes="href string:${here/absolute_url}/report_singolo?utente=${encoded_email}">
-                                Visualizza le risposte al questionario per l'utente
+                                Show answers for this user
                             </a>
                         </li>
                         <li>
-                            <a tal:attributes="href string:${here/absolute_url}/mostra_quest?tipo=html&utente=${encoded_email}">
-                                Visualizza il questionario per l'utente
+                            <a tal:attributes="href string:${here/absolute_url}/mostra_quest?type=html&utente=${encoded_email}">
+				view the user survey
                             </a>
                         </li>
                         <li>
                             <a tal:attributes="href string:${here/absolute_url}/mostra_quest?utente=${encoded_email}">
-                                Visualizza il questionario per l'utente (PDF)
+                                View the user survey (PDF)
                             </a>
                         </li>
                         <li>
                             <a tal:attributes="href string:${here/absolute_url}/show_user_walk?utente=${encoded_email}">
-                                Visualizza il percorso di risposta dell'utente
+                                Show the wolk for the user
                             </a>
                         </li>
                         <li>
                             <a tal:attributes="href string:${here/absolute_url}/login_form_bridge?email=${encoded_email}&amp;key=${user/key}">
-                                Modifica il questionario (dev'essere riaperto per essere modificabile)
+                                Modify the survey (must be reopened to be modified)
                             </a>
                         </li>
 	            </ul>
@@ -96,7 +96,7 @@
                                 </li>
 				<li>
 				    <a tal:attributes="href string:${here/absolute_url}/survey_reopen?email=${encoded_email}">
-				        Riapri il questionario per questo utente
+				        Reopen the survey for this user
 				    </a>
 				</li>
                             </ul>

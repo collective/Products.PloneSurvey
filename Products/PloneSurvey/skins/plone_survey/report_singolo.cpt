@@ -31,7 +31,7 @@
 
 
             <fieldset>
-                <legend>Riepilogo dati sondaggio per :<span tal:replace="member_id" />
+                <legend>Survey data summary for:<span tal:replace="member_id" />
                 </legend>
                 <div tal:define="questions here/getAllQuestionsInOrder"
                      tal:repeat="question questions">

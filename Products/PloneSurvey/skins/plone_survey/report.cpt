@@ -20,9 +20,9 @@
              tal:condition="here/Description"
              tal:content="here/Description" />
 <hr />
-	Ora puoi stampare il questionario. <a href="mostra_quest?tipo=html">Visualizza report per stampa</a> oppure <a href="mostra_quest?tipo=pdf">Scarica pdf del report</a>
+	Now you can print the survey. <a href="mostra_quest?type=html">Show the report to print</a> or <a href="mostra_quest?type=pdf">Download the report in pdf format</a>
 <hr />
-<h2>Qui sotto la lista delle risposte inviate:</h2>
+<h2>Here the answers you submitted:</h2>
 <hr />
         <form name="edit_form"
               method="post"
@@ -31,7 +31,7 @@
             <input type="hidden" name="form.submitted" value="1" />
             <fieldset>
                 <legend tal:condition="completed" i18n:translate="legend_report_completed">Report</legend>
-                <legend tal:condition="python:here.getId() == 'riepilogo' and not(completed)" i18n:translate="legend_summary_completed">Riepilogo dati sondaggio:</legend>
+                <legend tal:condition="python:here.getId() == 'riepilogo' and not(completed)" i18n:translate="legend_summary_completed">Survey data summary:</legend>
                 <div tal:define="questions here/getAllQuestionsInOrder"
                      tal:repeat="question questions">
 

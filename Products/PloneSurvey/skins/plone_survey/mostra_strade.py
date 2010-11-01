@@ -7,21 +7,16 @@
 ##parameters=
 ##title=
 ##
-swt = context.surveywalk_tool
 
+#BBB to rename in show_walks or similar, and convert to a browser view
+
+swt = context.surveywalk_tool
 survey_id = context.getSurveyRoot().UID()
 
-utenti = swt.getAllUsers(survey_id)
+users = swt.getAllUsers(survey_id)
 
-if utenti <> None:
- for utente in utenti:
-  print utente, ':', swt.prettyPrintUserWalk(context.getSurveyRoot().UID(), utente)
+if users <> None:
+ for user in users:
+  print user, ':', swt.prettyPrintUserWalk(context.getSurveyRoot().UID(), user)
 
 return printed
-
-
-# Esempi:
-#
-#st.resetStreetForUser('admin') -> cancella la strada di un utente
-#print st.doStep('yuri','parte prima') -> fa percorrere un passo all'utente
-#st.resetStreet() -> cancella i percorsi di tutti gli utenti

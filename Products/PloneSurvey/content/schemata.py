@@ -321,14 +321,14 @@ if HAS_PYTHON_FIELD is True:
         schemata="Branching",
         searchable=0,
         required=0,
-        default="""utente = context.getSurveyId()
+        default="""user = context.getSurveyId()
 try:
- risposta = context['nome-domanda'].getAnswerFor(utente)
+ answer = context['survey-question-id'].getAnswerFor(user)
 except:
- risposta = None
+ answer = None
 """,
         widget=TextAreaWidget(
-            label="Script per il passaggio successivo",
+            label="Script to find the next step",
             label_msgid="label_nextsub",
             description="""return the result of the script""",
             description_msgid="help_nextsub",

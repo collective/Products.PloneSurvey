@@ -15,6 +15,6 @@ if email in completed:
 context.setCompletedFor(completed)
 
 pu = getToolByName(context, 'plone_utils')
-pu.addPortalMessage("Questionario riaperto per l'utente %s" % email)
+pu.addPortalMessage("survey reopened for user: %s" % email)
 context.REQUEST.RESPONSE.redirect(context.REQUEST.HTTP_REFERER)
 
