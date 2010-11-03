@@ -8,7 +8,7 @@ from persistent.mapping import PersistentMapping
 from persistent.dict import PersistentDict
 from Products.PloneSurvey import permissions
 
-class SurveyWalkTool(UniqueObject, SimpleItem): 
+class PloneSurveyTool(UniqueObject, SimpleItem): 
 
     """ The survey walk tool 
 
@@ -26,9 +26,9 @@ class SurveyWalkTool(UniqueObject, SimpleItem):
 
 """ 
 
-    id = 'surveywalk_tool' 
+    id = 'plone_survey_tool' 
 
-    meta_type= 'SurveyWalkTool' 
+    meta_type= 'PloneSurveyTool' 
 
     plone_tool = 1 
 
@@ -36,6 +36,8 @@ class SurveyWalkTool(UniqueObject, SimpleItem):
         self.resetAll()
 
     security = ClassSecurityInfo()
+
+# all methods below here will be refactored to a generic walk tool
 
     security.declareProtected(permissions.ModifyPortalContent, 'resetAll')
     def resetAll(self):
@@ -136,4 +138,4 @@ class SurveyWalkTool(UniqueObject, SimpleItem):
 	else:
 	 return None
 
-InitializeClass(SurveyWalkTool)
+InitializeClass(PloneSurveyTool)

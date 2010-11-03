@@ -5,11 +5,11 @@
 <body>
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
-        tal:define="users here/getAuthenticatedRespondents;
-                    member_id request/utente | here/getSurveyId;
-		    st here/surveywalk_tool;">
+        tal:define="users context/getAuthenticatedRespondents;
+                    member_id request/utente | context/getSurveyId;
+		    survey_tool context/plone_survey_tool;">
 
-<span tal:content="python:st.prettyPrintUserWalk(userid = member_id, survey =here.getSurveyRoot().UID())" />
+<span tal:content="python:survey_tool.prettyPrintUserWalk(userid=member_id, survey=context.getSurveyRoot().UID())" />
 
     </tal:main-macro>
 </metal:main>

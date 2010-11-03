@@ -107,14 +107,15 @@ class Survey(ATCTOrderedFolder):
             self.manage_delLocalRoles(userids=[current_userid,])
 	# XXX this should be moved somewhere else
 	# add support for walk tracing
-	swt = self.surveywalk_tool
-	swt.registerSurvey(self.UID())
+	survey_tool = getToolByName(self, 'plone_survey_tool')
+	survey_tool.registerSurvey(self.UID())
 
     def manage_afterClone(self, item):
-        st = self.surveywalk_tool
-        if not st.isRegisteredSurvey(self.UID()):
+        # TODO: should be moved to an event handler
+        survey_tool = getToolByName(self, 'plone_survey_tool')
+        if not survey_tool.isRegisteredSurvey(self.UID()):
          #not registered, let's do it!
-         st.registerSurvey(self.UID())
+         survey_tool.registerSurvey(self.UID())
 	# reopen the survey for all
 	self.setCompletedFor([])
         ATCTOrderedFolder.manage_afterClone(self, item)
@@ -527,9 +528,9 @@ class Survey(ATCTOrderedFolder):
         subs = self.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
         for sub in subs:
             sub.resetForUser(userid)
-	swt = self.surveywalk_tool
+	survey_tool = getToolByName(self, 'plone_survey_tool')
 	survey = self.UID()
-	swt.resetWalkForUser(survey, userid)
+	survey_tool.resetWalkForUser(survey, userid)
         try:
             if self.respondents.has_key(userid):
                 del self.respondents[userid]

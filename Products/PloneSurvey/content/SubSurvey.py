@@ -175,9 +175,9 @@ class SubSurvey(ATCTOrderedFolder):
     def getNextPage(self):
         """Return the next page of the survey"""
         previous_page = True
-	def log_step(st,userid, step):
-            st.doStep(survey = self.getSurveyRoot().UID(), userid=userid, step=step)
-        st = self.surveywalk_tool
+	def log_step(survey_tool, userid, step):
+            survey_tool.doStep(survey = self.getSurveyRoot().UID(), userid=userid, step=step)
+        survey_tool = getToolByName(self, 'plone_survey_tool')
         parent = self.aq_inner.aq_parent
         pages = parent.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
         for page in pages:
@@ -185,22 +185,22 @@ class SubSurvey(ATCTOrderedFolder):
                 if page.getId() == self.getId():
                      previous_page = False
             elif page.displaySubSurvey():
-                log_step(st, userid, self.id)
+                log_step(survey_tool, userid, self.id)
                 return page()
         return self.exitSurvey()
 
     security.declareProtected(permissions.View, 'getPreviousPage')
     def getPreviousPage(self):
         """Return the previous page of the survey"""
-	st = self.surveywalk_tool
+	survey_tool = getToolByName(self, 'plone_survey_tool')
         #parent = self.aq_inner.aq_parent
 	parent = self.getSurveyRoot()
         userid = self.getSurveyId()
-	walk = st.getWalkFor(survey = parent.UID(), userid = userid)
+	walk = survey_tool.getWalkFor(survey = parent.UID(), userid = userid)
 	if walk <> None and walk <> []:	
 	   previous = walk[-1]
 	   new_walk = list(walk[:-1])
-	   st.addWalk(survey = parent.UID(), userid = userid, value = new_walk)
+	   survey_tool.addWalk(survey = parent.UID(), userid = userid, value = new_walk)
 	else:
 	   previous = None
 	   return parent()

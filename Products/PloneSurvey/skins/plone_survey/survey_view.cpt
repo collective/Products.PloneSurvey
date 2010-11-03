@@ -12,16 +12,16 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
         tal:define="errors options/state/getErrors;
-                    member_id here/getSurveyId;
-                    questions here/getQuestions;
+                    member_id context/getSurveyId;
+                    questions context/getQuestions;
                     completed python:here.checkCompletedFor(member_id);
-                    show_captcha here/getShowCaptcha|nothing;
-                    qi_tool here/portal_quickinstaller;
+                    show_captcha context/getShowCaptcha|nothing;
+                    qi_tool context/portal_quickinstaller;
                     captcha_prod string:quintagroup.plonecaptchas;
                     captcha_installed python:qi_tool.isProductInstalled(captcha_prod);
                     isAnon context/@@plone_portal_state/anonymous;
-                    pagetype here/portal_type;
-                    st here/surveywalk_tool;">
+                    pagetype context/portal_type;
+                    survey_tool context/plone_survey_tool;">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
@@ -145,7 +145,7 @@
                            name="form.button.save"
                            i18n:attributes="value save_button" />
                     <input class="context"
-                           tal:condition="python:here.isMultipage() and (st.getWalkFor(survey = here.getSurveyRoot().UID(), userid= member_id) <> None) and pagetype <> 'Survey'"
+                           tal:condition="python:context.isMultipage() and (survey_tool.getWalkFor(survey = context.getSurveyRoot().UID(), userid= member_id) <> None) and pagetype <> 'Survey'"
                            type="submit"
                            value="Precedente"
                            name="form.button.getback"
@@ -213,7 +213,7 @@
                            tal:attributes="tabindex tabindex/next"
                            i18n:attributes="value save_button" />
                     <input class="context"
-                           tal:condition="python:here.isMultipage() and (st.getWalkFor(survey = here.getSurveyRoot().UID(), userid= member_id) <> None) and pagetype <> 'Survey'"
+                           tal:condition="python:here.isMultipage() and (survey_tool.getWalkFor(survey=context.getSurveyRoot().UID(), userid= member_id) <> None) and pagetype <> 'Survey'"
                            type="submit"
                            value="Precedente"
                            name="form.button.getback"

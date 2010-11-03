@@ -9,14 +9,15 @@
 ##
 
 #BBB to rename in show_walks or similar, and convert to a browser view
+from Products.CMFCore.utils import getToolByName
 
-swt = context.surveywalk_tool
+survey_tool = getToolByName(self, 'plone_survey_tool')
 survey_id = context.getSurveyRoot().UID()
 
-users = swt.getAllUsers(survey_id)
+users = survey_tool.getAllUsers(survey_id)
 
 if users <> None:
  for user in users:
-  print user, ':', swt.prettyPrintUserWalk(context.getSurveyRoot().UID(), user)
+  print user, ':', survey_tool.prettyPrintUserWalk(context.getSurveyRoot().UID(), user)
 
 return printed

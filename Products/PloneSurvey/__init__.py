@@ -20,7 +20,7 @@ registerDirectory(SKINS_DIR, GLOBALS)
 
 def initialize(context):
     import Products.PloneSurvey.content
-    import Products.PloneSurvey.SurveyWalkTool
+    import Products.PloneSurvey.PloneSurveyTool
 
     ADD_CONTENT_PERMISSIONS = {}
     types = listTypes(PROJECTNAME)
@@ -45,6 +45,6 @@ def initialize(context):
             fti                = ftis,
             ).initialize(context)
 
-    tools = ( SurveyWalkTool.SurveyWalkTool, )
-    ToolInit('Survey Walk Tool', tools=tools, icon='surveywalk.gif',  
+    tools = ( PloneSurveyTool.PloneSurveyTool, )
+    ToolInit('Plone Survey Tool', tools=tools, icon='plonesurveytool.gif',  
                        ).initialize(context)
