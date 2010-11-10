@@ -3,3 +3,4 @@ Interim save function for logged in users
 Add validation options for questions
 Add portlet for multi page surveys
 
+write documentation of new features
