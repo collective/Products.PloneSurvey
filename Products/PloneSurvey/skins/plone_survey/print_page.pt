@@ -1,10 +1,16 @@
-<metal:block use-macro="here/global_defines/macros/defines" />
 <tal:question tal:define="quest options/quest;
-                          member_id request/utente | here/getSurveyId;
-                          Iterator python:modules['Products.CMFPlone'].IndexIterator;
-                          tabindex python:Iterator();
-                          errors python:{}"
-			  tal:condition="python: member_id == here.getSurveyId() or 'Manager' in user.getRoles()"
+                          member_id request/survey_user_id | here/getSurveyId;
+                          errors python:{};
+                          questions context/getQuestions;
+                    	  completed python:here.checkCompletedFor(member_id);
+                    show_captcha context/getShowCaptcha|nothing;
+                    qi_tool context/portal_quickinstaller;
+                    captcha_prod string:quintagroup.plonecaptchas;
+                    captcha_installed python:qi_tool.isProductInstalled(captcha_prod);
+                    isAnon context/@@plone_portal_state/anonymous;
+                    pagetype context/portal_type;
+                    survey_tool context/plone_survey_tool;" 
+		    tal:condition="python: member_id == here.getSurveyId() or 'Manager' in user.getRoles()"
  repeat="question options/questions">
                  <div tal:omit-tag="" tal:condition="python: not('noreport' in question.Subject())">
 

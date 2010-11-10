@@ -6,21 +6,20 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
         tal:define="errors options/state/getErrors;
-                    Iterator python:modules['Products.CMFPlone'].IndexIterator;
-                    tabindex python:Iterator();
-                    member_id here/getSurveyId;
-                    questions here/getQuestions;
+                    member_id context/getSurveyId;
+                    questions context/getQuestions;
                     completed python:here.checkCompletedFor(member_id);
-                    pagetype here/portal_type">
+                    show_captcha context/getShowCaptcha|nothing;
+                    qi_tool context/portal_quickinstaller;
+                    captcha_prod string:quintagroup.plonecaptchas;
+                    captcha_installed python:qi_tool.isProductInstalled(captcha_prod);
+                    isAnon context/@@plone_portal_state/anonymous;
+                    pagetype context/portal_type;
+                    survey_tool context/plone_survey_tool;">
 
-        <div metal:use-macro="here/document_actions/macros/document_actions" />
-        <h1 class="documentFirstHeading"
-            tal:content="object_title" />
-        <div class="documentDescription"
-             tal:condition="here/Description"
-             tal:content="here/Description" />
-<hr />
-	Now you can print the survey. <a href="mostra_quest?type=html">Show the report to print</a> or <a href="mostra_quest?type=pdf">Download the report in pdf format</a>
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+	Now you can print the survey. <a href="mostra_quest?print_type=html">Show the report to print</a> or <a href="mostra_quest?type=pdf">Download the report in pdf format</a>
 <hr />
 <h2>Here the answers you submitted:</h2>
 <hr />
@@ -29,9 +28,14 @@
               tal:attributes="action template/id"
               tal:condition="python:completed">
             <input type="hidden" name="form.submitted" value="1" />
+            <input type="hidden" name="came_from"
+                   tal:attributes="value request/came_from | nothing"
+                   tal:condition="request/came_from | nothing" />
+            <input type="hidden" name="survey_user_id"
+                   tal:attributes="value context/getSurveyId" />
             <fieldset>
                 <legend tal:condition="completed" i18n:translate="legend_report_completed">Report</legend>
-                <legend tal:condition="python:here.getId() == 'riepilogo' and not(completed)" i18n:translate="legend_summary_completed">Survey data summary:</legend>
+                <legend tal:condition="python:here.getId() == 'summary' and not(completed)" i18n:translate="legend_summary_completed">Survey data summary:</legend>
                 <div tal:define="questions here/getAllQuestionsInOrder"
                      tal:repeat="question questions">
 
@@ -54,8 +58,6 @@
                            type="submit"
                            value="Reset Survey"
                            name="form.button.reset_survey"
-                           tabindex=""
-                           tal:attributes="tabindex tabindex/next"
                            i18n:attributes="value reset_survey_button"
                            tal:condition="python:user.has_permission('PloneSurvey: Reset Own Responses', here) and completed" />
                 </div>
