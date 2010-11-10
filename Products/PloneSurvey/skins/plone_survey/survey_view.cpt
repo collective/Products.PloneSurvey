@@ -25,7 +25,7 @@
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-        <ul style="margin-bottom: 0" id="portal-globalnav"> 
+        <ul id="survey-globalnav"> 
             <span tal:omit-tag="" tal:condition="python:pagetype=='Survey' and not(completed)">
                 <li class="plain">
                     <a i18n:translate="start_survey" tal:attributes="href string:">Start Survey</a>
