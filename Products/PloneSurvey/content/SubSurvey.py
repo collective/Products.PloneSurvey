@@ -179,6 +179,7 @@ class SubSurvey(ATCTOrderedFolder):
             survey_tool.doStep(survey = self.getSurveyRoot().UID(), userid=userid, step=step)
         survey_tool = getToolByName(self, 'plone_survey_tool')
         parent = self.aq_inner.aq_parent
+	userid = self.getSurveyId()
         pages = parent.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
         for page in pages:
             if previous_page:
