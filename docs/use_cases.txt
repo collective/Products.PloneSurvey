@@ -1,0 +1,66 @@
+Use Cases for Products.PloneSurvey
+==================================
+
+Kinds of Surveys
+================
+
+Simple Poll
+-----------
+
+Use Case: A single select question that would probably appear as a portlet, open to anonymous to get as much feedback on a specific topic as possible.
+
+Support: Not supported, could be done with some customisation, but an alternative product such as PlonePoPoll would probably be better.
+
+Simple survey
+-------------
+
+Use Case: Single page survey with one or more questions of varying types. Simple feedback survey or an extended poll.
+
+Support: Fully supported
+
+Extended survey
+---------------
+
+Use Case: Survey with multiple pages, potentially with simple branching based on a single response to a single previous question.
+
+Support: Fully supported
+
+Complex Anonymous survey
+------------------------
+
+Use Case: Survey with multiple pages, with complex branching requirements, subsequent pages appear based on multiple answers to a single question, and/or answers to multiple questions.
+
+Support: Fully supported by using the python field to use arbitrary python code to manage the complex branching requirements. This is a potential security risk so the field is protected by a permission to prevent misuse.
+
+User Sources
+============
+
+Anonymous Users
+---------------
+
+Use Case: Allow anonymous users to complete the survey.
+
+Support: Anonymous users can be allowed to complete the survey by selecting allow anonymous. A session cookie is stored to prevent a single anonymous user to respond to the survey multiple times in the same browser session. This allows multiple users using drop in computers to respond to the same survey.
+
+Allowing to respondents to reset their own response is not ideal in this situation, as the anonymous id is easy to discover allowing anonymous users to remove other anonymous users responses.
+
+Portal Users
+------------
+
+Use Case: A survey may need to be completed by all survey users or a subset of portal users.
+
+Support: Fully supported. A customised workflow would be needed to restrict the survey to a subset of portal users.
+
+Directed Users
+--------------
+
+Use Case: A survey may need to have a specific list of users that should complete the survey.
+
+Support: Users can be added singly using the form in the respondents tab, there is an upload method, but no UI element yet, to upload multiple users in a specific format file. Invites can be sent out with the respondent's login details, and reminders can be sent either individually or to all users who have not yet responded.
+
+Confidential Surveys
+--------------------
+
+Use case: Some surveys may be sensitive and no trace of the user should be stored in the system. Survey users can be added as directed users, once added the survey invite will be immediately sent and the user details hashed, so further invites will not be able to be sent.
+
+Support: Not done yet
