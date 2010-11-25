@@ -11,7 +11,7 @@
     <p i18n:translate="desc_reset_survey">
         This will remove all the answers from the current survey. Are you sure?
     </p>
-        <form tal:attributes="action template/id">
+        <form tal:attributes="action string:${context/absolute_url}/${template/id}">
             <fieldset>
                 <legend i18n:translate="survey_reset">Survey Reset</legend>
                 <div class="formControls">
