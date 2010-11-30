@@ -59,7 +59,6 @@ class testSelectQuestion(PloneSurveyTestCase):
 
     def testCantAddSpam(self):
         s1 = getattr(self, 's1')
-        ssq1 = getattr(s1, 'ssq1')
         app = makerequest(self.app)
         app.REQUEST.form['ssq1'] = 'Spam Answer'
         dummy_controller_state = ControllerState(
@@ -174,7 +173,6 @@ class TestSelectValidation(PloneSurveyTestCase):
 
     def testMultipleCheckboxAnswersValidates(self):
         s1 = getattr(self, 's1')
-        ssq1 = getattr(s1, 'ssq1')
         app = makerequest(self.app)
         # add your form variables
         app.REQUEST.form['ssq1'] = ['Yes', 'No']

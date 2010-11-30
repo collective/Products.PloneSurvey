@@ -30,7 +30,6 @@ class testTextValidation(PloneSurveyTestCase):
 
     def testValidateScript(self):
         s1 = getattr(self, 's1')
-        ssq1 = getattr(s1, 'stq1')
         app = makerequest(self.app)
         app.REQUEST.form['stq1'] = 'Text Answer'
         dummy_controller_state = ControllerState(
@@ -139,7 +138,6 @@ class TestEmailValidation(PloneSurveyTestCase):
 
     def testEmailValidationPasses(self):
         s1 = getattr(self, 's1')
-        stq1 = getattr(self.s1, 'stq1')
         app = makerequest(self.app)
         app.REQUEST.form['stq1'] = 'someone@somewhere.com'
         dummy_controller_state = ControllerState(
@@ -155,7 +153,6 @@ class TestEmailValidation(PloneSurveyTestCase):
 
     def testEmailValidationFails(self):
         s1 = getattr(self, 's1')
-        stq1 = getattr(self.s1, 'stq1')
         app = makerequest(self.app)
         app.REQUEST.form['stq1'] = 'Not an email address'
         dummy_controller_state = ControllerState(
