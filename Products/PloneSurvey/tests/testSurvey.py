@@ -1,8 +1,6 @@
 #
 # Test PloneSurvey Survey
 #
-
-import os, sys
 from DateTime import DateTime
 from AccessControl import Unauthorized
 

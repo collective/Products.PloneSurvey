@@ -9,7 +9,6 @@ try:
 except ImportError:
     HAS_PYTHON_FIELD = False
 
-from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import *
 from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
 

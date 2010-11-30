@@ -1,9 +1,7 @@
-import datetime
 import string
 import csv
 import os
 import transaction
-from StringIO import StringIO
 from Products.CMFPlone.utils import safe_unicode
 
 from cStringIO import StringIO
@@ -20,10 +18,9 @@ from Products.Archetypes.atapi import *
 from Products.Archetypes.interfaces import IMultiPageSchema
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
-from Products.ATContentTypes.utils import dt2DT, DT2dt
+from Products.ATContentTypes.utils import DT2dt
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.exceptions import BadRequest
-from Products.CMFPlone import PloneMessageFactory
 
 from Products.PluggableAuthService.PluggableAuthService import addPluggableAuthService
 from Products.PlonePAS.Extensions.Install import *

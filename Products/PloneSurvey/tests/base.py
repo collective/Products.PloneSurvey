@@ -17,7 +17,6 @@ ZopeTestCase.installProduct('PloneSurvey')
 
 # Import PloneTestCase - this registers more products with Zope as a side effect
 from Products.PloneTestCase.PloneTestCase import PloneTestCase
-from Products.PloneTestCase.PloneTestCase import FunctionalTestCase
 from Products.PloneTestCase.PloneTestCase import setupPloneSite
 
 from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE

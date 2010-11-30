@@ -8,7 +8,6 @@ from Testing.makerequest import makerequest
 
 from Products.Archetypes.utils import DisplayList
 from Products.CMFFormController.ControllerState import ControllerState
-from Products.CMFCore.utils import getToolByName
 
 from base import PloneSurveyTestCase
 

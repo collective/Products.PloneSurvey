@@ -2,7 +2,6 @@ from Products.CMFCore.utils import UniqueObject
 from OFS.SimpleItem import SimpleItem 
 from Globals import InitializeClass 
 from AccessControl import ClassSecurityInfo
-from AccessControl import Unauthorized
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
 from persistent.dict import PersistentDict
