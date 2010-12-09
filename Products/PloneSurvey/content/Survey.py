@@ -730,9 +730,16 @@ class Survey(ATCTOrderedFolder):
         data = StringIO()
         sheet = csv.writer(data)
         questions = self.getAllQuestionsInOrder()
-        
-        sheet.writerow(('user',) + tuple(q.Title() for q in questions) + ('completed',))
-        
+        headline = []
+        headline.append('user')
+        for q in questions:
+            title = q.Title()
+            headline.append(title)
+            if q.getCommentType():
+                headline.append('comment_' + title)
+        headline.append('completed')
+        sheet.writerow(headline)
+ 
         for user in self.getRespondents():
             if self.getConfidential():
                 row = ['Anonymous']
@@ -747,11 +754,11 @@ class Survey(ATCTOrderedFolder):
                         #answer = ', '.join(filter(None, answer))
                         pass
                 row.append(answer)
-            
+                comment = question.getCommentsFor(user) or ''
+                if comment and isinstance(comment, str):
+                    row.append(comment)
             row.append(self.checkCompletedFor(user) and 'Completed' or 'Not Completed')
-            
             sheet.writerow(row)
-        
         return data.getvalue()
 
     security.declareProtected(permissions.ModifyPortalContent, 'buildSpreadsheet3')
