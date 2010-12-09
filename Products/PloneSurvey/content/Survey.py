@@ -735,7 +735,7 @@ class Survey(ATCTOrderedFolder):
         for q in questions:
             title = q.Title()
             headline.append(title)
-            if q.getCommentType():
+            if hasattr(q, 'getCommentType') and q.getCommentType():
                 headline.append('comment_' + title)
         headline.append('completed')
         sheet.writerow(headline)
