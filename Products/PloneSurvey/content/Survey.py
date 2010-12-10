@@ -755,7 +755,6 @@ class Survey(ATCTOrderedFolder):
                 row.append(answer)
                 if hasattr(question, 'getCommentType') and question.getCommentType():
                     comment = question.getCommentsFor(user) or ''
-                    print(">>>> comment: %s" % comment)
                     row.append(comment)
             row.append(self.checkCompletedFor(user) and 'Completed' or 'Not Completed')
             sheet.writerow(row)
