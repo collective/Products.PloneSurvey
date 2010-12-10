@@ -751,11 +751,11 @@ class Survey(ATCTOrderedFolder):
                 if answer:
                     if not (isinstance(answer, str) or isinstance(answer, int)):
                         # It's a sequence, filter out empty values
-                        #answer = ', '.join(filter(None, answer))
-                        pass
+                        answer = ', '.join(filter(None, answer))
                 row.append(answer)
-                comment = question.getCommentsFor(user) or ''
-                if comment and isinstance(comment, str):
+                if hasattr(question, 'getCommentType') and question.getCommentType():
+                    comment = question.getCommentsFor(user) or ''
+                    print(">>>> comment: %s" % comment)
                     row.append(comment)
             row.append(self.checkCompletedFor(user) and 'Completed' or 'Not Completed')
             sheet.writerow(row)
