@@ -1,9 +1,7 @@
 from AccessControl import ClassSecurityInfo
 from zope.interface import implements
-from zope.interface import classImplements
 
 from Products.Archetypes.atapi import *
-from Products.Archetypes.interfaces import IMultiPageSchema
 from Products.ATContentTypes.content.base import registerATCT
 
 from Products.PloneSurvey import permissions
@@ -31,17 +29,13 @@ class SurveyDateQuestion(BaseQuestion):
             errors = {}
         showYMD = form.get('showYMD', None)
         showHM = form.get('showHM', None)
-	# Booleans seems not to return 1 or 0, but python True/False
-	is_showYMD_set = (showYMD == True)
-	is_showHM_set = (showHM == True)
-        if not is_showYMD_set and not is_showHM_set:
+        if not int(showYMD) and not int(showHM):
             errors['showYMD'] = u'At least one of these must be selected.'
             errors['showHM'] = u'At least one of these must be selected.'
         startingYear = form.get('startingYear', None)
         try:
             startingYear = int(startingYear)
-        except TypeError:
-	    # int() raises TypeError, not ValueError or we have to put both
+        except ValueError:
             errors['startingYear'] = u'Start year must be an integer.'
         endingYear = form.get('endingYear', None)
         futureYears = form.get('futureYears', None)
@@ -87,5 +81,4 @@ class SurveyDateQuestion(BaseQuestion):
         value = year + '/' + month + '/' + day + ' ' + hour + ':' + minute + ':00 GMT'
         self.addAnswer(value)
 
-classImplements(SurveyDateQuestion, IMultiPageSchema)
 registerATCT(SurveyDateQuestion, PROJECTNAME)

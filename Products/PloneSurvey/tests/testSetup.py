@@ -26,13 +26,8 @@ class TestInstallation(PloneSurveyTestCase):
                           #'Survey 2-Dimensional Question',
                           'Survey Text Question')
 
-    def testToolInstalled(self):
-        tool = getToolByName(self.portal, 'plone_survey_tool')
-        assert tool.id == 'plone_survey_tool', tool.id
-        assert tool.meta_type == 'PloneSurveyTool', tool.meta_type
-
     def testCssInstalled(self):
-        self.failUnless('++resource++Products.PloneSurvey.stylesheets/survey_results.css' in self.css.getResourceIds())
+        self.failUnless('survey_results.css' in self.css.getResourceIds())
 
     def testSkinLayersInstalled(self):
         self.failUnless('plone_survey' in self.portal.portal_skins.objectIds())

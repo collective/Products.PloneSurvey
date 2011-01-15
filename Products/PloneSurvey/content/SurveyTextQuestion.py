@@ -1,9 +1,7 @@
 from AccessControl import ClassSecurityInfo
 from zope.interface import implements
-from zope.interface import classImplements
 
 from Products.Archetypes.atapi import *
-from Products.Archetypes.interfaces import IMultiPageSchema
 from Products.ATContentTypes.content.base import registerATCT
 from Products.validation import validation
 
@@ -48,5 +46,4 @@ class SurveyTextQuestion(BaseQuestion):
         v = validation.validatorFor(validator)
         return v(value)
 
-classImplements(SurveyTextQuestion, IMultiPageSchema)
 registerATCT(SurveyTextQuestion, PROJECTNAME)

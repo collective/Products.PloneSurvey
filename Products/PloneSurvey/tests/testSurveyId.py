@@ -82,6 +82,7 @@ class TestNoCookiesWorks(PloneSurveyTestCase):
 
     def testTwoRequests(self):
         s1 = getattr(self, 's1')
+        survey_id = s1.getSurveyId()
         app = makerequest(self.app)
         app.REQUEST.form['stq1'] = 'An answer'
         dummy_controller_state = ControllerState(

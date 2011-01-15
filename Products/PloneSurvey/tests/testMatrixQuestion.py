@@ -8,6 +8,7 @@ from Testing.makerequest import makerequest
 
 from Products.Archetypes.utils import DisplayList
 from Products.CMFFormController.ControllerState import ControllerState
+from Products.CMFCore.utils import getToolByName
 
 from base import PloneSurveyTestCase
 
@@ -67,6 +68,7 @@ class testMatrixQuestion(PloneSurveyTestCase):
     def testCantAddSpam(self):
         s1 = getattr(self, 's1')
         sm1 = getattr(s1, 'sm1')
+        smq1 = getattr(sm1, 'smq1')
         app = makerequest(self.app)
         app.REQUEST.form['smq1'] = 'Spam Answer'
         dummy_controller_state = ControllerState(
@@ -182,6 +184,7 @@ class testMatrixQuestionValidation(PloneSurveyTestCase):
     def testMultipleCheckboxAnswersValidates(self):
         s1 = getattr(self, 's1')
         sm1 = getattr(s1, 'sm1')
+        smq1 = getattr(sm1, 'smq1')
         app = makerequest(self.app)
         # add your form variables
         app.REQUEST.form['sm1-smq1'] = ['5', '4']
@@ -211,6 +214,7 @@ class testMatrixQuestionValidation(PloneSurveyTestCase):
         s1 = getattr(self, 's1')
         sm1 = getattr(s1, 'sm1')
         sm1.setInputType("multipleSelect")
+        smq1 = getattr(sm1, 'smq1')
         app = makerequest(self.app)
         # add your form variables
         app.REQUEST.form['sm1-smq1'] = ['5', '4']

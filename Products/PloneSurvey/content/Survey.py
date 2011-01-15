@@ -1,26 +1,27 @@
+import datetime
 import string
 import csv
 import os
 import transaction
+from StringIO import StringIO
 from Products.CMFPlone.utils import safe_unicode
 
 from cStringIO import StringIO
 from DateTime import DateTime
 from ZODB.POSException import ConflictError
 from zope.interface import implements
-from zope.interface import classImplements
 from AccessControl import ClassSecurityInfo
 from AccessControl import getSecurityManager
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
 
 from Products.Archetypes.atapi import *
-from Products.Archetypes.interfaces import IMultiPageSchema
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
-from Products.ATContentTypes.utils import DT2dt
+from Products.ATContentTypes.utils import dt2DT, DT2dt
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.exceptions import BadRequest
+from Products.CMFPlone import PloneMessageFactory
 
 from Products.PluggableAuthService.PluggableAuthService import addPluggableAuthService
 from Products.PlonePAS.Extensions.Install import *
@@ -102,25 +103,6 @@ class Survey(ATCTOrderedFolder):
         activatePluginInterfaces(self, 'mutable_properties', out)
         if remove_role:
             self.manage_delLocalRoles(userids=[current_userid,])
-	# XXX this should be moved somewhere else
-	# add support for walk tracing
-	survey_tool = getToolByName(self, 'plone_survey_tool')
-	survey_tool.registerSurvey(self.UID())
-
-    def manage_afterClone(self, item):
-        # TODO: should be moved to an event handler
-        survey_tool = getToolByName(self, 'plone_survey_tool')
-        if not survey_tool.isRegisteredSurvey(self.UID()):
-         #not registered, let's do it!
-         survey_tool.registerSurvey(self.UID())
-	# reopen the survey for all
-	self.setCompletedFor([])
-        ATCTOrderedFolder.manage_afterClone(self, item)
-
-    security.declareProtected(permissions.View, 'getSurveyRoot')
-    def getSurveyRoot(self):
-        """Return me!"""
-        return self
 
     security.declarePublic('canSetDefaultPage')
     def canSetDefaultPage(self):
@@ -144,7 +126,6 @@ class Survey(ATCTOrderedFolder):
         questions = self.getFolderContents(
             contentFilter={'portal_type':[
                 'Survey Date Question',
-                'Survey Grid Question',
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
@@ -160,7 +141,6 @@ class Survey(ATCTOrderedFolder):
         questions = []
         path = string.join(self.getPhysicalPath(), '/')
         results = portal_catalog.searchResults(portal_type = ['Survey Date Question',
-                                                              'Survey Grid Question',
                                                               'Survey Matrix Question',
                                                               'Survey Select Question',
                                                               'Survey Text Question',
@@ -179,7 +159,6 @@ class Survey(ATCTOrderedFolder):
             contentFilter={'portal_type':[
                 'Sub Survey',
                 'Survey Date Question',
-                'Survey Grid Question',
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
@@ -194,7 +173,6 @@ class Survey(ATCTOrderedFolder):
                     contentFilter={'portal_type':[
                         'Survey Matrix',
                         'Survey Date Question',
-                        'Survey Grid Question',
                         'Survey Select Question',
                         'Survey Text Question',
                         'Survey Two Dimensional',
@@ -520,34 +498,12 @@ class Survey(ATCTOrderedFolder):
         questions = self.getAllQuestionsInOrder()
         for question in questions:
             question.resetForUser(userid)
-        #Yuri:reset of values in subsurveys such as if has been validated or where it came from
-	# Then reset the walk
-        subs = self.getFolderContents(contentFilter={'portal_type':'Sub Survey',}, full_objects=True)
-        for sub in subs:
-            sub.resetForUser(userid)
-	survey_tool = getToolByName(self, 'plone_survey_tool')
-	survey = self.UID()
-	survey_tool.resetWalkForUser(survey, userid)
         try:
             if self.respondents.has_key(userid):
                 del self.respondents[userid]
         except AttributeError:
             # TODO old survey instance
             self.reset()
-
-    security.declareProtected(permissions.ModifyPortalContent, 'copyUserAnswers')
-    def copyUserAnswers(self, emailaddress, newemail):
-	""" copy the answers from one user to another """
-        acl_users = self.get_acl_users()
-        olduser = acl_users.getUserById(emailaddress)
-	newuser = acl_users.getUserById(newemail)
-        questions = self.getAllQuestionsInOrder()
-	if (newuser <> None) and (olduser <> None):
-          for question in questions:
-	    if emailaddress in question.answers.keys():
-             question.answers[newemail] = question.answers[emailaddress]
-	else:
-	  pass
 
     security.declareProtected(permissions.View, 'send_email')
     def send_email(self, userid):
@@ -730,16 +686,9 @@ class Survey(ATCTOrderedFolder):
         data = StringIO()
         sheet = csv.writer(data)
         questions = self.getAllQuestionsInOrder()
-        headline = []
-        headline.append('user')
-        for q in questions:
-            title = q.Title()
-            headline.append(title)
-            if hasattr(q, 'getCommentType') and q.getCommentType():
-                headline.append('comment_' + title)
-        headline.append('completed')
-        sheet.writerow(headline)
- 
+        
+        sheet.writerow(('user',) + tuple(q.Title() for q in questions) + ('completed',))
+        
         for user in self.getRespondents():
             if self.getConfidential():
                 row = ['Anonymous']
@@ -753,11 +702,11 @@ class Survey(ATCTOrderedFolder):
                         # It's a sequence, filter out empty values
                         answer = ', '.join(filter(None, answer))
                 row.append(answer)
-                if hasattr(question, 'getCommentType') and question.getCommentType():
-                    comment = question.getCommentsFor(user) or ''
-                    row.append(comment)
+            
             row.append(self.checkCompletedFor(user) and 'Completed' or 'Not Completed')
+            
             sheet.writerow(row)
+        
         return data.getvalue()
 
     security.declareProtected(permissions.ModifyPortalContent, 'buildSpreadsheet3')
@@ -773,7 +722,7 @@ class Survey(ATCTOrderedFolder):
                 answer = ""
                 if question.getInputType() in ['text', 'area']:
                     if question.getAnswerFor(user):
-                        answer = '"' + str(question.getAnswerFor(user)).replace('"',"'") + '"'
+                        answer = '"' + question.getAnswerFor(user).replace('"',"'") + '"'
                     else:
                         answer = ""
                 elif question.getInputType() in ['checkbox', 'multipleSelect']:
@@ -928,5 +877,4 @@ class Survey(ATCTOrderedFolder):
             if int(REQUEST.get('showCaptcha')):
                 errors['showCaptcha'] = 'Product quintagroup.plonecaptchas not installed'
 
-classImplements(Survey, IMultiPageSchema)
 registerATCT(Survey, PROJECTNAME)

@@ -3,12 +3,7 @@ from Products.ATContentTypes.content.schemata import ATContentTypeSchema
 from Products.ATContentTypes.lib.constraintypes import ConstrainTypesMixinSchema
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
-try:
-    from Products.PythonField import PythonField
-    HAS_PYTHON_FIELD = True
-except ImportError:
-    HAS_PYTHON_FIELD = False
-
+from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import *
 from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
 
@@ -153,18 +148,6 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         widget=StringWidget(visible=0,),
         ),
 
-    BooleanField('displayInMenu',
-        searchable=0,
-        required=0,
-        widget=BooleanWidget(
-            label="Display In the Navigation Menu",
-            label_msgid="label_display_in_menu",
-            description="""Toggle this on to display this survey page in the survey navigation menu.""",
-            description_msgid="help_display_in_menu",
-            i18n_domain="plonesurvey",
-           ),
-        ),
-
     BooleanField('showCaptcha',
         searchable=0,
         required=0,
@@ -223,25 +206,6 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
           ),
         ),
 
-    TextField('print_header',
-        searchable = 0,
-        required=0,
-        schemata="Introduction",
-        default_content_type    = 'text/html',
-        default_output_type     = 'text/html',
-        allowable_content_types=('text/plain',
-                                 'text/structured',
-                                 'text/html',
-                                ),
-        widget = RichWidget(description = "Intestazione per la stampa",
-                            label = "Intestazione stampa",
-                            label_msgid = 'label_print_header',
-                            description_msgid = 'help_print_header',
-                            rows = 5,
-                            i18n_domain="plonesurvey",
-                           ),
-        ),
-
 ))
 
 finalizeATCTSchema(SurveySchema, moveDiscussion=False)
@@ -253,18 +217,6 @@ SurveySchema["description"].widget.i18n_domain = "plonesurvey"
 del SurveySchema["relatedItems"]
 
 SubSurveySchema = ATContentTypeSchema.copy() + Schema((
-
-    BooleanField('displayInMenu',
-        searchable=0,
-        required=0,
-        widget=BooleanWidget(
-            label="Display In the Navigation Menu",
-            label_msgid="label_display_in_menu",
-            description="""Toggle this on to display this survey page in the survey navigation menu.""",
-            description_msgid="help_display_in_menu",
-            i18n_domain="plonesurvey",
-           ),
-        ),
 
     StringField('requiredQuestion',
         schemata="Branching",
@@ -312,30 +264,6 @@ SubSurveySchema = ATContentTypeSchema.copy() + Schema((
         ),
 
     ))
-
-if HAS_PYTHON_FIELD is True:
-    SubSurveySchema = SubSurveySchema + Schema((
-
-    PythonField('nextsub',
-        schemata="Branching",
-        searchable=0,
-        required=0,
-        default="""user = context.getSurveyId()
-try:
- answer = context['survey-question-id'].getAnswerFor(user)
-except:
- answer = None
-""",
-        widget=TextAreaWidget(
-            label="Script to find the next step",
-            label_msgid="label_nextsub",
-            description="""return the result of the script""",
-            description_msgid="help_nextsub",
-            i18n_domain="plonesurvey",
-           ),
-       ),
-
-))
 
 finalizeATCTSchema(SubSurveySchema, moveDiscussion=False)
 SubSurveySchema["description"].widget.label = "Survey description"

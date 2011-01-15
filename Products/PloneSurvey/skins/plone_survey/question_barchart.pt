@@ -15,7 +15,7 @@
             <td valign="bottom" width="40"
                 tal:repeat="option options">
                 <img tal:define="index repeat/option/index"
-                     tal:attributes="src python:portal_url + '/++resource++Products.PloneSurvey.images/' + colors[index];
+                     tal:attributes="src python:portal_url + '/' + colors[index];
                                      height python:2 * pct_aggregate_answers[option];
                                      width python:40" />
             </td>

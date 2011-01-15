@@ -22,9 +22,6 @@ def install(self):
         if not hasattr(self, 'results_dimensions'):
             em = self.manage_addProduct['ExternalMethod']
             em.manage_addExternalMethod('results_dimensions', 'results_dimensions', 'PloneSurvey.results_dimensions', 'run')   
-        if not hasattr(self, 'html2pdf'):
-            em = self.manage_addProduct['ExternalMethod']
-            em.manage_addExternalMethod('html2pdf', 'html2pdf', 'PloneSurvey.html2pdf', 'html2pdf')
 
     #self.manage_permission(perms.VIEW_SURVEY_RESULTS_PERMISSION,
     #                             ('Manager', 'Owner'),

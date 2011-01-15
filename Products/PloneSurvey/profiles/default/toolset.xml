@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<tool-setup>
- <required tool_id="plone_survey_tool"
-           class="Products.PloneSurvey.PloneSurveyTool.PloneSurveyTool"/>
-</tool-setup>

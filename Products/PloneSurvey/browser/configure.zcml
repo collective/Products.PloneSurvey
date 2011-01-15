@@ -2,19 +2,5 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:five="http://namespaces.zope.org/five">
 
-<browser:resourceDirectory
-    name="Products.PloneSurvey.images"
-    directory="images"
-    />
-
-<browser:resourceDirectory
-    name="Products.PloneSurvey.javascripts"
-    directory="javascripts"
-    />
-
-<browser:resourceDirectory
-    name="Products.PloneSurvey.stylesheets"
-    directory="stylesheets"
-    />
 
 </configure>

@@ -5,7 +5,7 @@
 <div metal:define-macro="add_respondent">
   <form name="add_authenticated_respondent"
               method="post"
-              tal:attributes="action string:${context/absolute_url}/${template/id}"
+              tal:attributes="action template/id"
               tal:define="errors options/state/getErrors;">
               
     <input type="hidden" name="form.submitted" value="1" />

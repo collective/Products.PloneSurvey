@@ -11,7 +11,7 @@
     <p i18n:translate="XXX">
         This will repair any survey responses that are stored incorrectly. Are you sure?
     </p>
-        <form tal:attributes="action string:${context/absolute_url}/${template/id}">
+        <form tal:attributes="action template/id">
             <fieldset>
                 <legend i18n:translate="XXX">Repair results</legend>
                 <div class="formControls">

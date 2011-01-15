@@ -4,7 +4,6 @@
     <type portal_type="Survey" />
     <type portal_type="Sub Survey" />
     <type portal_type="Survey Date Question" />
-    <type portal_type="Survey Grid Question" />
     <type portal_type="Survey Matrix" />
     <type portal_type="Survey Matrix Question" />
     <type portal_type="Survey Select Question" />

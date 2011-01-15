@@ -1,6 +1,8 @@
 #
 # Test PloneSurvey Survey
 #
+
+import os, sys
 from DateTime import DateTime
 from AccessControl import Unauthorized
 
@@ -219,6 +221,7 @@ class TestAddAnswer(PloneSurveyTestCase):
 
     def testAnonymousCantAddAnswer(self):
         s1 = getattr(self, 's1')
+        stq1 = getattr(self.s1, 'stq1')
         s1.setAllowAnonymous(False)
         self.logout()
         questions = s1.getQuestions()
@@ -236,6 +239,7 @@ class TestAddSelectAnswer(PloneSurveyTestCase):
         self.s1 = getattr(self.folder, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Select Question', 'ssq1')
+        ssq1 = getattr(self.s1, 'ssq1')
 
     def testAddAnswer(self):
         s1 = getattr(self, 's1')

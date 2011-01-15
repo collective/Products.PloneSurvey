@@ -26,7 +26,6 @@ class TestSpreadsheet2(PloneSurveyTestCase):
         self.folder.invokeFactory('Survey', 's1')
         self.s1 = getattr(self.folder, 's1')
         self.s1.invokeFactory('Survey Select Question', 'ssq1')
-        #self.s1.invokeFactory('Survey Select Question', 'ssq2')
 
     def testReturnNothing(self):
         s1 = getattr(self, 's1')
@@ -43,15 +42,6 @@ class TestSpreadsheet2(PloneSurveyTestCase):
         csv_list = self.fixLineEndings(csv_file)
         csv_list = csv_list.split("\n")
         assert "Yes" in csv_list[1], "Answer not in file"
-
-    def testReturnSomethingWithComments(self):
-        s1 = getattr(self, 's1')
-        ssq1 = getattr(s1, 'ssq1')
-        ssq1.addAnswer('Yes', 'i like this!')
-        csv_file = s1.buildSpreadsheet2()
-        csv_list = self.fixLineEndings(csv_file)
-        csv_list = csv_list.split("\n")
-        assert "i like this!" in csv_list[1], "Comment is not in file"
 
     def testUerName(self):
         s1 = getattr(self, 's1')
