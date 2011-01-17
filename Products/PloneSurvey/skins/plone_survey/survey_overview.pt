@@ -63,7 +63,7 @@
                   tal:attributes="action string:${here/absolute_url}/${page/getId}/base_edit">
                 <input class="context"
                        type="submit"
-                       value="Edit Page"
+                       value="Edit Survey"
                        i18n:attributes="value label_overview_edit"
                        />
             </form>
@@ -71,7 +71,7 @@
                   tal:attributes="action string:${here/absolute_url}/${page/getId}/folder_contents">
                 <input class="context"
                        type="submit"
-                       value="Page Contents"
+                       value="Survey Contents"
                        i18n:attributes="value label_overview_contents"
                        />
             </form>

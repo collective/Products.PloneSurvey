@@ -13,7 +13,7 @@
         <div tal:replace="structure provider:plone.abovecontenttitle" /> 
         <h1>
             <span tal:replace="here/Title">Title</span><br />
-            <span i18n:translate="xxx">Users who have not responded yet</span>
+            <span i18n:translate="">Users who have not responded yet</span>
         </h1>
     <div tal:condition="not:respondents">No respondents</div>
         <div tal:condition="not:context/getAllowAnonymous">
@@ -25,14 +25,14 @@
              </div>
         </div>
     <div metal:use-macro="context/respondent_macros/macros/add_respondent" />
-        <h2 i18n:translate="xxx">Invited Respondents</h2>
+        <h2 i18n:translate="">Invited Respondents</h2>
         <table id="sortable"
                class="listing">
         <thead>
-            <th i18n:translate="xxx">Name</th>
-            <th i18n:translate="xxx">Email Address</th>
-            <th i18n:translate="xxx">Email Sent</th>
-            <th i18n:translate="xxx_will_be_refactored">Action</th>
+            <th i18n:translate="">Name</th>
+            <th i18n:translate="">Email Address</th>
+            <th i18n:translate="">Email Sent</th>
+            <th i18n:translate="">Action</th>
         </thead>
             <tbody>
             <tal:invited repeat="respondent respondents">
@@ -77,7 +77,7 @@
                  send survey invite</a> to all respondents who have not been invited yet.
         </div>
         <div>&nbsp;</div>
-        <h2 i18n:translate="xxx">Users who have responded</h2>
+        <h2 i18n:translate="">Users who have responded</h2>
 
         <table id="sortable"
                class="listing">
@@ -88,7 +88,7 @@
                     <th i18n:translate="respondents_ip">IP Address</th>
                     <th i18n:translate="respondents_start">Start</th>
                     <th i18n:translate="respondents_end">End</th>
-                    <th i18n:translate="XXX">Time Taken</th>
+                    <th i18n:translate="respondents_time_taken">Time Taken</th>
                 </tr>
             </thead>
             <tbody>

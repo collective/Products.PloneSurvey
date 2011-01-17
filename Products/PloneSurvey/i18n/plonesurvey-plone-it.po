@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2006-08-10 10:38+0000\n"
+"POT-Creation-Date: 2006-06-27 20:42+0000\n"
 "PO-Revision-Date: 2006-08-10 10:38 +0000\n"
 "Last-Translator: Marco Papi - Comune di Arezzo\n"
 "Language-Team: Marco Papi - Comune di Arezzo\n"
@@ -17,80 +17,114 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-#: ../content/Survey.py
-# Original: Survey
-msgid  "Survey"
-msgstr "Questionario"
-
-#: ../content/SubSurvey.py
-# Original: Sub Survey
-msgid  "Sub Survey"
-msgstr "Questionario secondario"
-
-#: ../content/SurveyQuestion.py
-# Original: Survey Question
-msgid  "Survey Question"
-msgstr "Domanda del questionario"
-
-#: ../content/SurveyLikertQuestion.py
-# Original: Survey Likert Question
-msgid  "Survey Likert Question"
-msgstr "Domanda di Likert"
-
-#: ../content/SurveyMatrix.py
-# Original: Survey Matrix
-msgid  "Survey Matrix"
-msgstr "Matrice del questionario"
-
-#: ../content/SurveySelectQuestion.py
-# Original: Survey Select Question
-msgid  "Survey Select Question"
-msgstr "Domanda di scelta"
-
-#: ../content/SurveyTextQuestion.py
-# Original: Survey Text Question
-msgid "Survey Text Question"
-msgstr "Domanda di testo"
-
-#: ../content/BaseQuestion.py
-# Original: Comment Field
-msgid  "Comment Field"
-msgstr "Campo di commenti"
-
-#: ../content/BaseQuestion.py
-# Original: Introduction
-msgid  "Introduction"
-msgstr "Introduzione"
-
-#: ../content/Survey.py
-# Original: Results
-msgid  "Results"
-msgstr "Risultati"
-
-#: ../content/Survey.py
-# Original: Reset
-msgid  "Reset"
-msgstr "Ripristina"
-
-#: ../content/Survey.py
-# Original: Overview
-msgid  "Overview"
-msgstr "Panoramica"
-
-# THESE WERE ADDED 31.10.2006
-# Default: default
-msgid "default"
-msgstr "Predefinito"
-
-# Default: Branching
+#. Default: Branching
 msgid "Branching"
 msgstr "Diramazione"
 
-# Default: None
+#. Default: Comment Field
+#: ../content/BaseQuestion.py
+msgid "Comment Field"
+msgstr "Campo di commenti"
+
+#. Default: Export
+#: ../content/Survey.py
+msgid "Export"
+msgstr "Esporta"
+
+#. Default: Introduction
+#: ../content/BaseQuestion.py
+msgid "Introduction"
+msgstr "Introduzione"
+
+#. Default: None
 msgid "None"
 msgstr "Nessuno"
 
-# Default: Survey Question
+#. Default: Overview
+#: ../content/Survey.py
+msgid "Overview"
+msgstr "Panoramica"
+
+#. Default: Reset
+#: ../content/Survey.py
+msgid "Reset"
+msgstr "Ripristina"
+
+#. Default: Respondents
+#: ../content/Survey.py
+msgid "Respondents"
+msgstr "Parecipanti"
+
+#. Default: Results
+#: ../content/Survey.py
+msgid "Results"
+msgstr "Risultati"
+
+#. Default: Sub Survey
+#: ../content/SubSurvey.py
+msgid "Sub Survey"
+msgstr "Questionario secondario"
+
+#. Default: Survey
+#: ../content/Survey.py
+msgid "Survey"
+msgstr "Questionario"
+
+#. Default: Survey Date Question
+msgid "Survey Date Question"
+msgstr "Domanda su una data"
+
+#. Default: Survey Likert Question
+#: ../content/SurveyLikertQuestion.py
+msgid "Survey Likert Question"
+msgstr "Domanda di gradimento"
+
+#. Default: Survey Matrix
+#: ../content/SurveyMatrix.py
+msgid "Survey Matrix"
+msgstr "Matrice del questionario"
+
+#. Default: Survey Matrix Question
 msgid "Survey Matrix Question"
+msgstr "Domanda a matrice"
+
+#. Default: Survey Question
+#: ../content/SurveyQuestion.py
+msgid "Survey Question"
 msgstr "Domanda del questionario"
+
+#. Default: Survey Select Question
+#: ../content/SurveySelectQuestion.py
+msgid "Survey Select Question"
+msgstr "Domanda di scelta"
+
+#. Default: Survey Text Question
+#: ../content/SurveyTextQuestion.py
+msgid "Survey Text Question"
+msgstr "Domanda di testo"
+
+# THESE WERE ADDED 31.10.2006
+#. Default: default
+msgid "default"
+msgstr "Predefinito"
+
+#. Default: Branching
+msgid "label_schema_Branching"
+msgstr "Ramificazione"
+
+#. Default: Comment Field
+msgid "label_schema_Comment Field"
+msgstr "Campo commento"
+
+#. Default: Email Invite
+msgid "label_schema_Email Invite"
+msgstr "E-mail di invito"
+
+#. Default: Introduction
+msgid "label_schema_Introduction"
+msgstr "Introduzione"
+
+#. Default: Text Block
+msgid "label_schema_Text Block"
+msgstr "Blocco di testo"
 

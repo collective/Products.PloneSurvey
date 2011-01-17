@@ -1,6 +1,14 @@
 Changelog for Products.PloneSurvey
 ==================================
 
+1.4.2 - Unreleased
+-------------------
+
+  * Is now possible to translate also default values for some questions content type
+    [keul]
+  * The use of i18dude now translated a lot of new entries
+    [keul]
+
 1.4.1 - 2010-10-11
 ----------------------
 

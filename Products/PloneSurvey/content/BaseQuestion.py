@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 from AccessControl import Unauthorized
@@ -9,6 +11,7 @@ from Products.ATContentTypes.content.base import ATCTContent
 from Products.CMFCore.utils import getToolByName
 
 from Products.PloneSurvey import permissions
+from Products.PloneSurvey import PloneSurveyMessageFactory as _
 
 class BaseQuestion(ATCTContent):
     """Base class for survey questions"""
@@ -211,5 +214,17 @@ class BaseQuestion(ATCTContent):
         calling code already use this method as an 'accessor'
         """
         return max([int(w) for w in self.getAnswerOptionsWeights()])
+
+    security.declarePrivate('_get_yes_no_default')
+    def _get_yes_no_default(self):
+        foo = (_(u'Yes'), _(u'No'))
+        translation_service = getToolByName(self,'translation_service')
+        return (translation_service.utranslate(domain='plonesurvey',
+                                             msgid=u'Yes',
+                                             context=self),
+                translation_service.utranslate(domain='plonesurvey',
+                                             msgid=u'No',
+                                             context=self),
+                )
 
 InitializeClass(BaseQuestion)

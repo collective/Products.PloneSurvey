@@ -1,6 +1,7 @@
 #!/bin/sh
-TEMPLATES=`find ../skins -iregex '.*\..?pt'`
 
-i18ndude rebuild-pot --pot plonesurvey.pot --create plonesurvey --merge manual.pot -s  $TEMPLATES
-i18ndude sync -s --pot plonesurvey.pot plonesurvey-??.po
+i18ndude rebuild-pot --pot plonesurvey.pot --create plonesurvey --merge manual.pot ..
+i18ndude sync --pot plonesurvey.pot plonesurvey-??.po
 
+# Updating "plone" domain
+i18ndude sync --pot plonesurvey-plone.pot plonesurvey-plone-??.po

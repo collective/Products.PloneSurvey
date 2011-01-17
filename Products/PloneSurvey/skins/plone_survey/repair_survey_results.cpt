@@ -7,16 +7,16 @@
     <tal:main-macro metal:define-macro="main"
         tal:define="errors python:request.get('errors', {});">
 
-    <h1 i18n:translate="XXX">Repair Survey Results</h1>
-    <p i18n:translate="XXX">
+    <h1 i18n:translate="">Repair Survey Results</h1>
+    <p i18n:translate="repair_survey_text">
         This will repair any survey responses that are stored incorrectly. Are you sure?
     </p>
         <form tal:attributes="action template/id">
             <fieldset>
-                <legend i18n:translate="XXX">Repair results</legend>
+                <legend i18n:translate="">Repair results</legend>
                 <div class="formControls">
                     <input type="submit" name="reset" value="Repair " class="standalone"
-                           i18n:attributes="value XXX"/>
+                           i18n:attributes="value"/>
                 </div>
                 <input type="hidden" name="form.submitted" value="1" />
             </fieldset>

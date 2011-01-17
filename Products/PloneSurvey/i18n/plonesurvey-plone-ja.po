@@ -16,80 +16,114 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-# Default: Survey
-#: ../content/Survey.py
-msgid "Survey"
-msgstr "アンケート"
+#. Default: Branching
+msgid "Branching"
+msgstr "ブランチの作成"
 
-# Default: Sub Survey
-#: ../content/SubSurvey.py
-msgid "Sub Survey"
-msgstr "サブアンケート"
-
-# Default: Survey Question
-#: ../content/SurveyQuestion.py
-msgid "Survey Question"
-msgstr "アンケートの質問"
-
-# Default: Survey Likert Question
-#: ../content/SurveyLikertQuestion.py
-msgid "Survey Likert Question"
-msgstr "リッカート法による質問"
-
-# Default: Survey Matrix
-#: ../content/SurveyMatrix.py
-msgid "Survey Matrix"
-msgstr "マトリックス形式の質問"
-
-# Default: Survey Select Question
-#: ../content/SurveySelectQuestion.py
-msgid "Survey Select Question"
-msgstr "択一式の質問"
-
-# Default: Survey Text Question
-#: ../content/SurveyTextQuestion.py
-msgid "Survey Text Question"
-msgstr "自由回答形式の質問"
-
-# Default: Comment Field
+#. Default: Comment Field
 #: ../content/BaseQuestion.py
 msgid "Comment Field"
 msgstr "コメント欄"
 
-# Default: Introduction
+#. Default: Export
+#: ../content/Survey.py
+msgid "Export"
+msgstr ""
+
+#. Default: Introduction
 #: ../content/BaseQuestion.py
 msgid "Introduction"
 msgstr "導入"
 
-# Default: Results
-#: ../content/Survey.py
-msgid "Results"
-msgstr "結果"
+#. Default: None
+msgid "None"
+msgstr "なし"
 
-# Default: Reset
-#: ../content/Survey.py
-msgid "Reset"
-msgstr "リセット"
-
-# Default: Overview
+#. Default: Overview
 #: ../content/Survey.py
 msgid "Overview"
 msgstr "概要"
 
+#. Default: Reset
+#: ../content/Survey.py
+msgid "Reset"
+msgstr "リセット"
+
+#. Default: Respondents
+#: ../content/Survey.py
+msgid "Respondents"
+msgstr ""
+
+#. Default: Results
+#: ../content/Survey.py
+msgid "Results"
+msgstr "結果"
+
+#. Default: Sub Survey
+#: ../content/SubSurvey.py
+msgid "Sub Survey"
+msgstr "サブアンケート"
+
+#. Default: Survey
+#: ../content/Survey.py
+msgid "Survey"
+msgstr "アンケート"
+
+#. Default: Survey Date Question
+msgid "Survey Date Question"
+msgstr ""
+
+#. Default: Survey Likert Question
+#: ../content/SurveyLikertQuestion.py
+msgid "Survey Likert Question"
+msgstr "リッカート法による質問"
+
+#. Default: Survey Matrix
+#: ../content/SurveyMatrix.py
+msgid "Survey Matrix"
+msgstr "マトリックス形式の質問"
+
+#. Default: Survey Matrix Question
+msgid "Survey Matrix Question"
+msgstr "マトリックス形式の質問"
+
+#. Default: Survey Question
+#: ../content/SurveyQuestion.py
+msgid "Survey Question"
+msgstr "アンケートの質問"
+
+#. Default: Survey Select Question
+#: ../content/SurveySelectQuestion.py
+msgid "Survey Select Question"
+msgstr "択一式の質問"
+
+#. Default: Survey Text Question
+#: ../content/SurveyTextQuestion.py
+msgid "Survey Text Question"
+msgstr "自由回答形式の質問"
+
 # THESE WERE ADDED 31.10.2006
-# Default: default
+#. Default: default
 msgid "default"
 msgstr "基本情報"
 
-# Default: Branching
-msgid "Branching"
-msgstr "ブランチの作成"
+#. Default: Branching
+msgid "label_schema_Branching"
+msgstr ""
 
-# Default: None
-msgid "None"
-msgstr "なし"
+#. Default: Comment Field
+msgid "label_schema_Comment Field"
+msgstr ""
 
-# Default: Survey Matrix Question
-msgid "Survey Matrix Question"
-msgstr "マトリックス形式の質問"
+#. Default: Email Invite
+msgid "label_schema_Email Invite"
+msgstr ""
+
+#. Default: Introduction
+msgid "label_schema_Introduction"
+msgstr ""
+
+#. Default: Text Block
+msgid "label_schema_Text Block"
+msgstr ""
 

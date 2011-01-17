@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2006-06-27 20:42+0000\n"
+"POT-Creation-Date: 2011-01-17 17:27+0000\n"
 "PO-Revision-Date: 2006-06-27 22:42+0100\n"
 "Last-Translator: Radim Novotny <r.novotny@elektrika.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,518 +17,837 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plonesurvey\n"
 
-#: ../skins/plone_survey/survey_reset_form.cpt
-#. <input class="standalone" i18n:attributes="value label_reset" name="reset" type="submit" value=" Reset "/>
-# Original: " Reset "
-msgid " Reset "
-msgstr " Vymazat "
+#. Default: "A little Useful"
+#: ../config.py:97
+msgid "A little Useful"
+msgstr ""
 
+#: ../skins/plone_survey/manage_respondents.cpt:35
+msgid "Action"
+msgstr ""
 
-#: ../skins/plone_survey/survey_view.cpt
-#. <input class="context" i18n:attributes="value submit_page_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="here/isMultipage" type="submit" value="Next"/>
-# Original: "Next"
-msgid "Next"
-msgstr "Další"
+#. Default: "Agree"
+#: ../config.py:102
+msgid "Agree"
+msgstr ""
 
+#. Default: "Agree Strongly"
+#: ../config.py:101
+msgid "Agree Strongly"
+msgstr ""
 
-#: ../skins/plone_survey/question_matrix_macro.pt
+#: ../skins/plone_survey/html_spreadsheet.pt:20
+msgid "Completed"
+msgstr ""
+
+#. Default: "Disagree"
+#: ../config.py:104
+msgid "Disagree"
+msgstr ""
+
+#. Default: "Disagree Strongly"
+#: ../config.py:105
+msgid "Disagree Strongly"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:33
+msgid "Email Address"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:34
+msgid "Email Sent"
+msgstr ""
+
+#. Default: "Good"
+#: ../config.py:88
+msgid "Good"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:28
+msgid "Invited Respondents"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:32
+msgid "Name"
+msgstr ""
+
+#. Default: "Neutral"
+#: ../config.py:103
+msgid "Neutral"
+msgstr ""
+
+#: ../content/BaseQuestion.py:220
+msgid "No"
+msgstr ""
+
+#. Default: "Not Useful"
+#: ../config.py:98
+msgid "Not Useful"
+msgstr ""
+
+#. Default: "OK Only"
+#: ../config.py:89
+msgid "OK Only"
+msgstr ""
+
 #. <option class="noborder" i18n:translate="Please select" value="">
-#.  -- Please, select --
+#. -- Please, select --
 #. </option>
-# Original: "-- Please, select --"
+#. Default: "-- Please, select --"
+#: ../skins/plone_survey/question_matrix_macro.pt:72
+#: ../skins/plone_survey/question_select_macro.pt:48
 msgid "Please select"
 msgstr "-- prosím vyberte --"
 
+#. Default: "Poor"
+#: ../config.py:90
+msgid "Poor"
+msgstr ""
 
-#: ../skins/plone_survey/question_macro.pt
-#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired" title="Required">
-#.  (Required)
-#. </span>
-#: ../skins/plone_survey/question_matrix_macro.pt
-#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired|nothing" title="Required">
-#.  (Required)
-#. </span>
-# Original: "(Required)"
-msgid "label_required_in_parentheses"
-msgstr "(Vyžadováno)"
+#. Default: "Quite Useful"
+#: ../config.py:96
+msgid "Quite Useful"
+msgstr ""
 
+#. Default: "Repair"
+#: ../skins/plone_survey/repair_survey_results.cpt:18
+msgid "Repair "
+msgstr ""
 
-#: ../skins/plone_survey/respondents_view.cpt
-#. <input class="context" i18n:attributes="value reset_button" name="submit" tal:attributes="tabindex tabindex/next" type="submit" value="Reset"/>
-# Original: "Reset"
-msgid "Reset"
-msgstr "Vymazat"
+#: ../skins/plone_survey/repair_survey_results.cpt:10
+msgid "Repair Survey Results"
+msgstr ""
 
+#: ../skins/plone_survey/repair_survey_results.cpt:16
+msgid "Repair results"
+msgstr ""
 
-#: ../skins/plone_survey/survey_view.cpt
-#. <input class="context" i18n:attributes="value reset_survey_button" name="form.button.reset_survey" tabindex="" tal:attributes="tabindex tabindex/next" type="submit" value="Reset Survey"/>
-# Original: "Reset Survey"
-msgid "Reset Survey"
-msgstr "Vymazat odpovědi"
+#. Default: "Useful"
+#: ../config.py:95
+msgid "Useful"
+msgstr ""
 
+#: ../skins/plone_survey/manage_respondents.cpt:16
+msgid "Users who have not responded yet"
+msgstr ""
 
-#: ../skins/plone_survey/survey_view.cpt
-#. <input class="context" i18n:attributes="value save_button" name="form.button.save" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="nothing" type="submit" value="Save"/>
-# Original: "Save"
-msgid "Save"
-msgstr "Uložit"
+#: ../skins/plone_survey/manage_respondents.cpt:80
+msgid "Users who have responded"
+msgstr ""
 
+#. Default: "Very Good"
+#: ../config.py:87
+msgid "Very Good"
+msgstr ""
 
-#: ../skins/plone_survey/survey_view.cpt
-#. <input class="context" i18n:attributes="value submit_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="not: here/isMultipage" type="submit" value="Submit"/>
-# Original: "Submit"
-msgid "Submit"
-msgstr "Odeslat"
+#. Default: "Very Poor"
+#: ../config.py:91
+msgid "Very Poor"
+msgstr ""
 
+#. Default: "Very Useful"
+#: ../config.py:94
+msgid "Very Useful"
+msgstr ""
 
-#: ../skins/plone_survey/survey_reset_form.cpt
+#: ../content/BaseQuestion.py:220
+msgid "Yes"
+msgstr ""
+
+#. Default: "Respondent created"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:44
+msgid "authenticated_respondent_created"
+msgstr ""
+
+#. Default: "Create Respondent"
+#: ../skins/plone_survey/respondent_macros.pt:83
+msgid "create_respondent_button"
+msgstr ""
+
 #. <p i18n:translate="desc_reset_survey">
-#.         This will remove all the answers from the current survey. Are you sure?
+#. This will remove all the answers from the current survey. Are you sure?
 #. </p>
-# Original: "This will remove all the answers from the current survey. Are you sure?"
+#. Default: "This will remove all the answers from the current survey. Are you sure?"
+#: ../skins/plone_survey/survey_reset_form.cpt:11
 msgid "desc_reset_survey"
 msgstr "Vymažete všechny odpovědi z dotazníku.Opravdu to chcete?"
 
+#. Default: "This is an overview of the current survey: ${title}"
+#: ../skins/plone_survey/survey_overview.pt:36
+msgid "desc_survey_overview"
+msgstr ""
 
-#: ../skins/plone_survey/survey_view_results.pt
 #. <a i18n:translate="detailed_spreadsheet" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">
-#.                                 detailed spreadsheet
+#. detailed spreadsheet
 #. </a>
-# Original: "detailed spreadsheet"
+#. Default: "detailed spreadsheet"
+#: ../skins/plone_survey/survey_barchart.pt:50
 msgid "detailed_spreadsheet"
 msgstr "podrobnosti"
 
-
-#: ../skins/plone_survey/survey_view_results.pt
 #. <span i18n:translate="download_detail_selected">
-#.  download detailed spreadsheet (selection numbers only)
+#. download detailed spreadsheet (selection numbers only)
 #. </span>
-# Original: "download detailed spreadsheet (selection numbers only)"
+#. Default: "download detailed spreadsheet (selection numbers only)"
+#: ../skins/plone_survey/survey_view_results.pt:52
 msgid "download_detail_selected"
 msgstr "stáhnout podrobný rozpis (pouze vybrané položky)"
 
-
-#: ../skins/plone_survey/survey_view_results.pt
 #. <span i18n:translate="download_detail_spreadsheet">
-#.  download detailed spreadsheet
+#. download detailed spreadsheet
 #. </span>
-# Original: "download detailed spreadsheet"
+#. Default: "download detailed spreadsheet"
+#: ../skins/plone_survey/survey_view_results.pt:47
 msgid "download_detail_spreadsheet"
 msgstr "stáhnout podrobný rozpis"
 
+#. Default: "download spreadsheet for select questions"
+#: ../skins/plone_survey/survey_view_results.pt:56
+msgid "download_select_spreadsheet"
+msgstr ""
 
-#: ../skins/plone_survey/survey_view_results.pt
-#. <span i18n:translate="download_summary_spreadsheet">
-#.  download summary spreadsheet
-#. </span>
-# Original: "download summary spreadsheet"
-msgid "download_summary_spreadsheet"
-msgstr "stáhnout souhrnný rozpis"
+#. Default: "download spreadsheet for select questions with answers as booleans"
+#: ../skins/plone_survey/survey_view_results.pt:60
+msgid "download_selectasboolean_spreadsheet"
+msgstr ""
 
-
-#: ../skins/plone_survey/survey_view_results.pt
 #. <h3 i18n:translate="heading_comments">
-#.  Comments
+#. Comments
 #. </h3>
-# Original: "Comments"
+#. Default: "Comments"
+#: ../skins/plone_survey/survey_barchart.pt:66
 msgid "heading_comments"
 msgstr "Komentáře"
 
-
-#: ../skins/plone_survey/comments_view.pt
 #. <h4 i18n:translate="heading_comments_for">
-#.  All comments for
-#.  ${objective}
-#.  ${title}
+#. All comments for
+#. ${objective}
+#. ${title}
 #. </h4>
-# Original: "All comments for ${objective} ${title}"
+#. Default: "All comments for ${objective} ${title}"
+#: ../skins/plone_survey/comments_view.pt:22
 msgid "heading_comments_for"
 msgstr "Všechny komentáře pro ${objective} ${title}"
 
-
-#: ../skins/plone_survey/survey_reset_form.cpt
 #. <h1 i18n:translate="heading_reset_survey">
-#.  Reset Survey
+#. Reset Survey
 #. </h1>
-# Original: "Reset Survey"
+#. Default: "Reset Survey"
+#: ../skins/plone_survey/survey_reset_form.cpt:10
 msgid "heading_reset_survey"
 msgstr "Vymazat odpovědi"
 
-
-#: ../skins/plone_survey/survey_view_results.pt
 #. <h1 i18n:translate="heading_results">
-#.  Results for survey
-#.  ${title}
+#. Results for survey
+#. ${title}
 #. </h1>
-# Original: "Results for survey ${title}"
+#. Default: "Results for survey ${title}"
+#: ../skins/plone_survey/survey_barchart.pt:14
+#: ../skins/plone_survey/survey_view_results.pt:14
 msgid "heading_results"
 msgstr "Výsledky pro dotazník ${title}"
 
-
-#: ../skins/plone_survey/portlet_questions.pt
 #. <h5 i18n:translate="heading_survey_contents">
-#.  Survey Contents
+#. Survey Contents
 #. </h5>
-# Original: "Survey Contents"
+#. Default: "Survey Contents"
+#: ../skins/plone_survey/portlet_questions.pt:16
 msgid "heading_survey_contents"
 msgstr "Obsah dotazníku"
 
+#. Default: "Survey Overview"
+#: ../skins/plone_survey/survey_overview.pt:15
+msgid "heading_survey_overview"
+msgstr ""
 
-#: ../skins/plone_survey/survey_view_results.pt
 #. <h2 i18n:translate="heading_totals_for">
-#.  Totals for
-#.  ${enablingObjective}
-#.  ${title}
-#.  :
+#. Totals for
+#. ${enablingObjective}
+#. ${title}
+#. :
 #. </h2>
-# Original: "Totals for ${enablingObjective} ${title} :"
+#. Default: "Totals for ${title}:"
+#: ../skins/plone_survey/survey_barchart.pt:21
+#, fuzzy
 msgid "heading_totals_for"
 msgstr "Celkový přehled pro ${enablingObjective} ${title} :"
 
-
-# Default: Enter the options you want to be available to the user here.
-# Default: Enter the options you want to be available to the user here. Press enter to seperate the options.
+#. Default: Enter the options you want to be available to the user here. Press enter to seperate the options.
+#. 
+#, fuzzy
 msgid "help_answer_options"
 msgstr "Zadejte seznam odpovědí, které mají být nabídnuty uživateli"
 
-
-# Default: The comment label.
+#. Default: The comment label.
+#. 
 msgid "help_comment_label"
 msgstr "Poznámka"
 
-
-# Default: Add a short description of the survey here.
+#. Default: Add a short description of the survey here.
+#. 
 msgid "help_description"
 msgstr "Zadejte krátký popis dotazníku"
 
-
-# Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
+#. Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
+#. 
 msgid "help_exit_url"
 msgstr "Zadejte URL, kam bude uživatel přesměrován po dokončení dotazníku. Použijte buď \"http://cil.presmerovani.cz/stranka\" nebo jen /stranka/na/tomto/portale\"."
 
-
-# Default: Please select what type of input you would like to use for this question.
+#. Default: Please select what type of input you would like to use for this question.
+#. 
 msgid "help_input_type"
 msgstr "Vyberte, jaký typ položky se má pro tuto otázku použít."
 
-
-# Default: Select what type of comment box you would like.
+#. Default: Select what type of comment box you would like.
+#. 
 msgid "help_label_comment_type"
 msgstr "Vyberte, jaký typ pole komentáře má být použit."
 
-
-# Default: The conditional question determines whether to display this Sub Survey.
-# Default: The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally.
+#. Default: The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally.
+#. 
+#, fuzzy
 msgid "help_previous_question"
 msgstr "Podmínka určuje, kdy se má zobrazit pod-dotazník."
 
-
-# Default: Enter a required answer to the conditional question above to determine
-# Default: Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed.
+#. Default: Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed.
+#. 
+#, fuzzy
 msgid "help_previous_question_answer"
 msgstr "Zadejte prosím požadovanou odpověď pro výše vybranou otázku."
 
-
-# Default: Check this box if the required answer should be selected for this Sub Survey to be displayed.
+#. Default: Check this box if the required answer should be selected for this Sub Survey to be displayed.
+#. 
 msgid "help_previous_question_answer_yes_no"
 msgstr "Zaškrtněte toto políčko, pokud požadovaná odpověď má být uživatelem vybrána (aby mohl pokračovat pod-dotazníkem)."
 
-
-# Default: Add a long description of the question here, to clarify any details.
+#. Default: Add a long description of the question here, to clarify any details.
+#. 
 msgid "help_question_description"
 msgstr "Zadejte podrobný popis otázky"
 
-
-# Default: Select if this question is required, meaning participant must give a response.
+#. Default: Select if this question is required, meaning participant must give a response.
+#. 
 msgid "help_required"
 msgstr "Je tato otázka povinná (uživatel si musí vybrat jednu z odpovědí nebo vložit nějaký text)."
 
-
-# Default: Enter an email address to receive notifications of survey completions.
+#. Default: Enter an email address to receive notifications of survey completions.
+#. 
 msgid "help_survey_notification_email"
 msgstr "Zadejte emailovou adresu na kterou se mají zasílat informace o nově  vyplněném dotazníku."
 
-
-# Default: Select a method to receive notification emails.
+#. Default: Select a method to receive notification emails.
+#. 
 msgid "help_survey_notification_method"
 msgstr "Vyberte metodu pro příjem notifikačních zpráv."
 
-
-# Default: Enter a number of columns for this field (width of the field in the characters)
+#. Default: Enter a number of columns for this field (width of the field in the characters)
+#. 
 msgid "help_text_cols"
 msgstr "Zadejte šířku sloupce tohoto pole (šířka je udávána v počtu znaků)."
 
-
-# Default: Enter a number of rows for this field. This value is applicable only in the Text Area input type
+#. Default: Enter a number of rows for this field. This value is applicable only in the Text Area input type
+#. 
 msgid "help_text_rows"
 msgstr "Zadejte výšku tohoto pole (výška je udávána v počtu řádků a má význam pouze u typu pole Text Area)"
 
-
-# Default: This is the message that will be displayed to the
-# Default: This is the message that will be displayed to the user when they complete the survey.
+#. Default: This is the message that will be displayed to the user when they complete the survey.
+#. 
+#, fuzzy
 msgid "help_thankyou"
 msgstr "Zde zadejte zprávu, která se zobrazí uživateli jakmile dokončí dotazník"
 
-
-# Default: Enter a title.
+#. Default: Enter a title.
+#. 
 msgid "help_title"
 msgstr "Zadejte nadpis."
 
-
-# Default: Select a validation for this question
+#. Default: Select a validation for this question
+#. 
 msgid "help_validation"
 msgstr "Zadejte validátor pro tuto otázku."
 
-
-# Default: Email on each submission
+#. Default: "Email on each submission"
+#: ../config.py:36
+#, fuzzy
 msgid "label_all_emails"
 msgstr "Email při každé odpovědi na dotazník"
 
-
-# Default: Allow Anonymous
+#. Default: Allow Anonymous
+#. 
 msgid "label_allow_anonymous"
 msgstr "Povolit dotazník anonymům"
 
-
-# Default: Answer options
+#. Default: Answer options
+#. 
 msgid "label_answer_options"
 msgstr "Odpovědi"
 
+#. Default: "Appears above question"
+#: ../config.py:62
+msgid "label_appears_above_question"
+msgstr ""
 
-# Default: Check Boxes
+#. Default: "Appears after answer"
+#: ../config.py:64
+msgid "label_appears_after_answer"
+msgstr ""
+
+#. Default: "Appears between question and answer"
+#: ../config.py:63
+msgid "label_appears_between_question_and_answer"
+msgstr ""
+
+#. Default: "Check Boxes"
+#: ../config.py:48
+#, fuzzy
 msgid "label_check_boxes"
 msgstr "Zatrhávací políčka"
 
-
-# Default: Comment label
+#. Default: Comment label
+#. 
 msgid "label_comment_label"
 msgstr "Poznámka"
 
-
-# Default: Comment Type
+#. Default: Comment Type
+#. 
 msgid "label_comment_type"
 msgstr "Typ poznámky"
 
-
-# Default: Survey description
+#. Default: Survey description
+#. 
 msgid "label_description"
 msgstr "Popis dotazníku"
 
+#. Default: "Does not appear"
+#: ../config.py:61
+msgid "label_does_not_appear"
+msgstr ""
 
-# Default: Exit URL
+#. Default: "Email Address"
+#: ../skins/plone_survey/respondent_macros.pt:42
+msgid "label_email_address"
+msgstr ""
+
+#. Default: Exit URL
+#. 
 msgid "label_exit_url"
 msgstr "Přesměrování"
 
+#. Default: "Name"
+#: ../skins/plone_survey/respondent_macros.pt:20
+msgid "label_fullname"
+msgstr ""
 
-# Default: Input Type
+#. Default: Input Type
+#. 
 msgid "label_input_type"
 msgstr "Typ otázky"
 
+#. Default: "Question"
+#: ../skins/plone_survey/question_matrix_macro.pt:31
+msgid "label_matrix_question"
+msgstr ""
 
-# Default: Add survey status to the survey title (open, closed)?
+#. Default: Add survey status to the survey title (open, closed)?
+#. 
 msgid "label_modify_title"
 msgstr "Připojit k nadpisu dotaznku popis jeho aktuálního stavu (povolen, nepovolen)?"
 
-
-# Default: Multiple Selection Box
+#. Default: "Multiple Selection Box"
+#: ../config.py:47
+#, fuzzy
 msgid "label_multiple_selection_box"
 msgstr "Vícenasobný výběr "
 
+#. Default: "None"
+#: ../config.py:68
+msgid "label_no_comment_field"
+msgstr ""
 
-# Default: No emails
+#. Default: "No emails"
+#: ../config.py:35
+#, fuzzy
 msgid "label_no_emails"
 msgstr "Nezasílat emaily"
 
+#. Default: "No users have completed the survey yet."
+#: ../skins/plone_survey/respondents_view.cpt:77
+msgid "label_no_users_yet"
+msgstr ""
 
-# Default: Conditional Question
+#. Default: "Add Page"
+#: ../skins/plone_survey/survey_overview.pt:109
+msgid "label_overview_add_page"
+msgstr ""
+
+#. Default: "Add Question"
+#: ../skins/plone_survey/survey_overview.pt:49
+msgid "label_overview_add_question"
+msgstr ""
+
+#. Default: "Branching:"
+#: ../skins/plone_survey/survey_overview.pt:80
+msgid "label_overview_branching"
+msgstr ""
+
+#. Default: "Survey Contents"
+#: ../skins/plone_survey/survey_overview.pt:27
+msgid "label_overview_contents"
+msgstr ""
+
+#. Default: "Edit Survey"
+#: ../skins/plone_survey/survey_overview.pt:19
+msgid "label_overview_edit"
+msgstr ""
+
+#. Default: "There are no questions on this page."
+#: ../skins/plone_survey/survey_overview.pt:93
+msgid "label_overview_no_question"
+msgstr ""
+
+#. Default: Conditional Question
+#. 
 msgid "label_previous_question"
 msgstr "Rozhodná otázka"
 
-
-# Default: Required Answer
+#. Default: Required Answer
+#. 
 msgid "label_previous_question_answer"
 msgstr "Vyžadována odpověď"
 
-
-# Default: Use Required Answer?
+#. Default: Use Required Answer?
+#. 
 msgid "label_previous_question_answer_yes_no"
 msgstr "Použít vyžadovanou odpověď?"
 
-
-# Default: Description
+#. Default: Description
+#. 
 msgid "label_question_description"
 msgstr "Popis"
 
-
-# Default: Radio Buttons
+#. Default: "Radio Buttons"
+#: ../config.py:45
+#, fuzzy
 msgid "label_radio_buttons"
 msgstr "Výběr jedné z možností"
 
-
-# Default: Required
+#. Default: Required
+#. 
 msgid "label_required"
 msgstr "Vyžadováno"
 
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired" title="Required">
+#. (Required)
+#. </span>
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired|nothing" title="Required">
+#. Default: "(Required)"
+#: ../skins/plone_survey/question_date_macro.pt:20
+#: ../skins/plone_survey/question_macro.pt:13
+#: ../skins/plone_survey/question_matrix_macro.pt:51
+msgid "label_required_in_parentheses"
+msgstr "(Vyžadováno)"
 
-# Default: 'Saved' message test
+#. Default: "Reset"
+#: ../skins/plone_survey/survey_reset_form.cpt:18
+msgid "label_reset"
+msgstr ""
+
+#. Default: 'Saved' message test
+#. 
 msgid "label_saved_text"
 msgstr "Uložený text"
 
-
-# Default: Selection Box
+#. Default: "Selection Box"
+#: ../config.py:46
+#, fuzzy
 msgid "label_selection_box"
 msgstr "Výběr jedné z možností pomocí rozbalovacího menu"
 
-
-# Default: Closed
+#. Default: "Closed"
+#: ../config.py:31
+#, fuzzy
 msgid "label_survey_closed"
 msgstr "Uzavřen"
 
-
-# Default: Survey Notification Email Address
+#. Default: Survey Notification Email Address
+#. 
 msgid "label_survey_notification_email"
 msgstr "Notifikační email adresa"
 
-
-# Default: Survey Notification Method
+#. Default: Survey Notification Method
+#. 
 msgid "label_survey_notification_method"
 msgstr "Způsob notifikace"
 
-
-# Default: Open
+#. Default: "Open"
+#: ../config.py:30
+#, fuzzy
 msgid "label_survey_open"
 msgstr "Otevřen"
 
-
-# Default: Survey currently
+#. Default: Survey currently
+#. 
 msgid "label_survey_status"
 msgstr "Dotazník je:"
 
-
-# Default: Text Area
+#. Default: "Text Area"
+#: ../config.py:41
+#, fuzzy
 msgid "label_text_area"
 msgstr "Textová oblast (více textu) "
 
-
-# Default: Cols (width in characters)
+#. Default: Cols (width in characters)
+#. 
 msgid "label_text_cols"
 msgstr "Šířka (počet znaků)"
 
-
-# Default: Text Field
+#. Default: "Text Field"
+#: ../config.py:40
+#, fuzzy
 msgid "label_text_field"
 msgstr "Textové pole (řádek textu)"
 
-
-# Default: Rows (number of lines)
+#. Default: Rows (number of lines)
+#. 
 msgid "label_text_rows"
 msgstr "Výška (počet řádek)"
 
-
-# Default: 'Thank you' message text
+#. Default: 'Thank you' message text
+#. 
 msgid "label_thank"
 msgstr "Závěrečný (děkovný) text"
 
-
-# Default: Title
+#. Default: Title
+#. 
 msgid "label_title"
 msgstr "Nadpis"
 
+#. Default: "This question had a date input type, for results use the"
+#: ../skins/plone_survey/survey_barchart.pt:56
+msgid "label_use_detailed_for_date"
+msgstr ""
 
-# Default: Validation
+#. Default: "This question had a text input type, for results use the"
+#: ../skins/plone_survey/survey_barchart.pt:49
+msgid "label_use_detailed_for_text"
+msgstr ""
+
+#. Default: "Use the options below"
+#: ../config.py:79
+msgid "label_use_options_below"
+msgstr ""
+
+#. Default: Validation
+#. 
 msgid "label_validation"
 msgstr "Validace"
 
-
-#: ../skins/plone_survey/survey_view.cpt
 #. <legend i18n:translate="legend_already_completed">
-#.  You have already filled in this survey
+#. You have already filled in this survey
 #. </legend>
-# Original: "You have already filled in this survey"
+#. Default: "You have already filled in this survey"
+#: ../skins/plone_survey/survey_view.cpt:109
 msgid "legend_already_completed"
 msgstr "Tento dotazník již byl zodpovězen."
 
-
-#: ../skins/plone_survey/survey_view.cpt
 #. <legend i18n:translate="legend_question_details">
-#.  Question details
+#. Question details
 #. </legend>
-# Original: "Question details"
+#. Default: "Question details"
+#: ../skins/plone_survey/survey_view.cpt:51
 msgid "legend_question_details"
 msgstr "Otázky dotazníku"
 
+#. Default: "(\"Agree Strongly\", \"Agree\", \"Neutral\", \"Disagree\", \"Disagree Strongly\")"
+#: ../config.py:82
+msgid "list_agree_disagree"
+msgstr ""
 
-#: ../skins/plone_survey/respondents_view.cpt
+#. Default: "(\"Very Good\", \"Good\", \"OK Only\", \"Poor\", \"Very Poor\")"
+#: ../config.py:80
+msgid "list_good_poor"
+msgstr ""
+
+#. Default: "(\"Very Useful\", \"Useful\", \"Quite Useful\", \"A little Useful\", \"Not Useful\")"
+#: ../config.py:81
+msgid "list_useful_notuseful"
+msgstr ""
+
+#. Default: "New Authenticated Respondent"
+#: ../skins/plone_survey/respondent_macros.pt:13
+msgid "new_authenticated_respondent"
+msgstr ""
+
+#. Default: "Comment:"
+#: ../skins/plone_survey/survey_overview_macro.pt:36
+msgid "overview_comment"
+msgstr ""
+
+#. Default: "Edit Question"
+#: ../skins/plone_survey/survey_overview_macro.pt:20
+msgid "overview_editquestion"
+msgstr ""
+
+#. Default: "This will repair any survey responses that are stored incorrectly. Are you sure?"
+#: ../skins/plone_survey/repair_survey_results.cpt:11
+msgid "repair_survey_text"
+msgstr ""
+
+#. Default: "Reset"
+#: ../skins/plone_survey/respondents_view.cpt:70
+msgid "reset_button"
+msgstr ""
+
+#. Default: "Reset Survey"
+#: ../skins/plone_survey/survey_view.cpt:115
+msgid "reset_survey_button"
+msgstr ""
+
 #. <legend i18n:translate="reset_users">
-#.  Reset Users
+#. Reset Users
 #. </legend>
-# Original: "Reset Users"
+#. Default: "Reset Users"
+#: ../skins/plone_survey/respondents_view.cpt:31
 msgid "reset_users"
 msgstr "Vymazat seznam uživatelů"
 
+#. Default: "End"
+#: ../skins/plone_survey/manage_respondents.cpt:90
+#: ../skins/plone_survey/respondents_view.cpt:42
+msgid "respondents_end"
+msgstr ""
 
-#: ../skins/plone_survey/respondents_view.cpt
 #. <span i18n:translate="respondents_for_survey">
-#.  Respondents for survey
+#. Respondents for survey
 #. </span>
-# Original: "Respondents for survey"
+#. Default: "Respondents for survey"
+#: ../skins/plone_survey/respondents_view.cpt:14
 msgid "respondents_for_survey"
 msgstr "Uživatelé, kteří dotazník zodpověděli."
 
+#. Default: "IP Address"
+#: ../skins/plone_survey/manage_respondents.cpt:88
+#: ../skins/plone_survey/respondents_view.cpt:40
+msgid "respondents_ip"
+msgstr ""
 
-#: ../skins/plone_survey/survey_reset_form.cpt
+#. Default: "Start"
+#: ../skins/plone_survey/manage_respondents.cpt:89
+#: ../skins/plone_survey/respondents_view.cpt:41
+msgid "respondents_start"
+msgstr ""
+
+#. Default: "Time Taken"
+#: ../skins/plone_survey/manage_respondents.cpt:91
+#: ../skins/plone_survey/respondents_view.cpt:43
+msgid "respondents_time_taken"
+msgstr ""
+
+#. Default: "User Id"
+#: ../skins/plone_survey/manage_respondents.cpt:87
+#: ../skins/plone_survey/respondents_view.cpt:39
+msgid "respondents_userid"
+msgstr ""
+
+#. Default: "Save"
+#: ../skins/plone_survey/survey_view.cpt:80
+msgid "save_button"
+msgstr ""
+
+#. Default: "Submit"
+#: ../skins/plone_survey/survey_view.cpt:92
+msgid "submit_button"
+msgstr ""
+
+#. Default: "Next"
+#: ../skins/plone_survey/survey_view.cpt:86
+msgid "submit_page_button"
+msgstr ""
+
 #. <legend i18n:translate="survey_reset">
-#.  Survey Reset
+#. Survey Reset
 #. </legend>
-# Original: "Survey Reset"
+#. Default: "Survey Reset"
+#: ../skins/plone_survey/survey_reset_form.cpt:16
 msgid "survey_reset"
 msgstr "Vymazaní všech odpovědí"
 
-
-# Default: Please correct the errors shown
+#. Default: "Please correct the errors"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:40
+#: ../skins/plone_survey/validate_reset_survey.vpy:8
+#: ../skins/plone_survey/validate_survey.vpy:82
+#, fuzzy
 msgid "text_correct_errors"
 msgstr "Opravte prosím vyznačené chyby"
 
-
-# Default: You have saved the survey. Don't forget to come back and finish it.
+#. Default: You have saved the survey. Don't forget to come back and finish it.
+#. 
 msgid "text_default_saved_message"
-msgstr "Vaše odpovědi byly uloženy\nNezapomeňte se brzy vrátit a dotazník dokončit. Děkujeme."
+msgstr ""
+"Vaše odpovědi byly uloženy\n"
+"Nezapomeňte se brzy vrátit a dotazník dokončit. Děkujeme."
 
-
-# Default: Thank you for completing the survey.
+#. Default: Thank you for completing the survey.
+#. 
 msgid "text_default_thank_you"
 msgstr "Děkujeme za vyplnění dotazníku."
 
-
-# Default: Survey did not reset correctly
+#. Default: "Survey did not reset correctly"
+#: ../skins/plone_survey/respondents_reset.vpy:17
+#: ../skins/plone_survey/survey_reset.vpy:10
+#, fuzzy
 msgid "text_survey_reset_error"
 msgstr "Nepodařilo se vynulovat dotazník"
 
-
-# Default: Survey has been reset
+#. Default: "Survey has been reset"
+#: ../skins/plone_survey/survey_reset.vpy:12
+#, fuzzy
 msgid "text_survey_reset_success"
 msgstr "Dotazník byl úspěšně vynulován"
 
-
-# Default: ${users} have been reset
+#. Default: "${users} have been reset"
+#: ../skins/plone_survey/respondents_reset.vpy:19
+#, fuzzy
 msgid "text_survey_users_reset_error"
 msgstr "${users} bylo vymazáno."
 
+#. Default: "Required"
+#: ../skins/plone_survey/respondent_macros.pt:23
+msgid "title_required"
+msgstr ""
 
-#: ../skins/plone_survey/survey_view_results.pt
+#: ../skins/plone_survey/html_spreadsheet.pt:13
+msgid "user"
+msgstr ""
+
 #. <a i18n:translate="view_comments_in_full" tal:attributes="href string:${here/absolute_url}/comments_view">
-#.  view comments in full...
+#. view comments in full...
 #. </a>
-# Original: "view comments in full..."
+#. Default: "view comments in full..."
+#: ../skins/plone_survey/survey_barchart.pt:76
 msgid "view_comments_in_full"
 msgstr "zobrazit kompletní odpovědi"
 
+#. Default: "view results as a barchart of dimensions versus score"
+#: ../skins/plone_survey/survey_view_results.pt:30
+msgid "view_dimensions"
+msgstr ""
 
-#: ../skins/plone_survey/survey_view_results.pt
+#. Default: "view results as a barchart of questions versus score"
+#: ../skins/plone_survey/survey_view_results.pt:36
+msgid "view_questions"
+msgstr ""
+
 #. <a i18n:translate="view_respondents" tal:attributes="href string:${here/absolute_url}/respondents_view">
-#.                     view respondents
+#. view respondents
 #. </a>
-# Original: "view respondents"
+#. Default: "view respondents"
+#: ../skins/plone_survey/survey_view_results.pt:24
 msgid "view_respondents"
 msgstr "zobrazit uživatele, kteří vyplnili dotazník"
+
+#. Default: "View survey results in a barchart"
+#: ../skins/plone_survey/survey_view_results.pt:18
+msgid "view_results_barchart"
+msgstr ""
 

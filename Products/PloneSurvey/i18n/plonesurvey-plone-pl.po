@@ -2,9 +2,9 @@
 # Polish translations files for PloneSurvey 1.1.0
 # Piotr Furman <piotr.furman@webservice.pl>, 2006.
 msgid ""
-msgstr "" ""
-"Project-Id-Version: Plone Survey 1.1.0\n"
-"POT-Creation-Date: 2006-10-27 12:00+0000\n"
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2006-06-27 20:42+0000\n"
 "PO-Revision-Date: 2006-10-27 12:00 +0000\n"
 "Last-Translator: Piotr Furman <piotr.furman@webservice.pl>\n"
 "Language-Team: webservice.pl <piotr.furman@webservice.pl>\n"
@@ -16,105 +16,117 @@ msgstr "" ""
 "Language-Name: Polish\n"
 "Preferred-Encodings: utf-8 latin2\n"
 "Domain: plone\n"
+"" "Project-Id-Version: Plone Survey 1.1.0\n"
 
-# Default: Survey
-#: ../content/Survey.py
-msgid "Survey"
-msgstr "Ankieta"
+#. Default: Branching
+msgid "Branching"
+msgstr "Rozgałęzianie"
 
-# Default: Sub Survey
-#: ../content/SubSurvey.py
-msgid "Sub Survey"
-msgstr "Ankieta Zagnieżdżona"
-
-# Default: Survey Question
-#: ../content/SurveyQuestion.py
-msgid "Survey Question"
-msgstr "Pytanie"
-
-# Default: Survey Likert Question
-#: ../content/SurveyLikertQuestion.py
-msgid "Survey Likert Question"
-msgstr "Pytanie o Preferencje"
-
-# Default: Survey Matrix
-#: ../content/SurveyMatrix.py
-msgid "Survey Matrix"
-msgstr "Tablica Pytań"
-
-# Default: Survey Select Question
-#: ../content/SurveySelectQuestion.py
-msgid "Survey Select Question"
-msgstr "Pytanie z Listą Odpowiedzi"
-
-# Default: Survey Text Question
-#: ../content/SurveyTextQuestion.py
-msgid "Survey Text Question"
-msgstr "Pytanie z Polem Tekstowym"
-
-# Default: Survey Date Question
-#: ../content/SurveyDateQuestion.py
-msgid "Survey Date Question"
-msgstr "Pytanie z Datą"
-
-# Default: Comment Field
+#. Default: Comment Field
 #: ../content/BaseQuestion.py
 msgid "Comment Field"
 msgstr "Pole Komentarza"
 
-# Default: Introduction
+#. Default: Export
+#: ../content/Survey.py
+msgid "Export"
+msgstr ""
+
+#. Default: Introduction
 #: ../content/BaseQuestion.py
 msgid "Introduction"
 msgstr "Wprowadzenie"
 
-# Default: Results
-#: ../content/Survey.py
-msgid "Results"
-msgstr "Wyniki"
+#. Default: None
+msgid "None"
+msgstr "Brak"
 
-# Default: Reset
-#: ../content/Survey.py
-msgid "Reset"
-msgstr "Reset"
-
-# Default: Overview
+#. Default: Overview
 #: ../content/Survey.py
 msgid "Overview"
 msgstr "Przegląd"
 
-# THESE WERE ADDED 31.10.2006
-# Default: default
-msgid "default"
-msgstr "Podstawowe"
+#. Default: Reset
+#: ../content/Survey.py
+msgid "Reset"
+msgstr "Reset"
 
-# Default: Branching
-msgid "Branching"
-msgstr "Rozgałęzianie"
+#. Default: Respondents
+#: ../content/Survey.py
+msgid "Respondents"
+msgstr ""
 
-# Default: None
-msgid "None"
-msgstr "Brak"
+#. Default: Results
+#: ../content/Survey.py
+msgid "Results"
+msgstr "Wyniki"
 
-# Default: Survey Question
+#. Default: Sub Survey
+#: ../content/SubSurvey.py
+msgid "Sub Survey"
+msgstr "Ankieta Zagnieżdżona"
+
+#. Default: Survey
+#: ../content/Survey.py
+msgid "Survey"
+msgstr "Ankieta"
+
+#. Default: Survey Date Question
+msgid "Survey Date Question"
+msgstr "Pytanie z Datą"
+
+#. Default: Survey Likert Question
+#: ../content/SurveyLikertQuestion.py
+msgid "Survey Likert Question"
+msgstr "Pytanie o Preferencje"
+
+#. Default: Survey Matrix
+#: ../content/SurveyMatrix.py
+msgid "Survey Matrix"
+msgstr "Tablica Pytań"
+
+#. Default: Survey Matrix Question
+#, fuzzy
 msgid "Survey Matrix Question"
 msgstr "Pytanie w Tablicy"
 
-# Default: Introduction
-msgid "label_schema_Introduction"
-msgstr "Wprowadzenie"
+#. Default: Survey Question
+#: ../content/SurveyQuestion.py
+msgid "Survey Question"
+msgstr "Pytanie"
 
-# Default: Email Invite
-msgid "label_schema_Email Invite"
-msgstr "Zaproszenie e-mailowe"
+#. Default: Survey Select Question
+#: ../content/SurveySelectQuestion.py
+msgid "Survey Select Question"
+msgstr "Pytanie z Listą Odpowiedzi"
 
-# Default: Branching
+#. Default: Survey Text Question
+#: ../content/SurveyTextQuestion.py
+msgid "Survey Text Question"
+msgstr "Pytanie z Polem Tekstowym"
+
+# THESE WERE ADDED 31.10.2006
+#. Default: default
+msgid "default"
+msgstr "Podstawowe"
+
+#. Default: Branching
 msgid "label_schema_Branching"
 msgstr "Rozgałęzienia"
 
-# Default: Text Block
+#. Default: Comment Field
+msgid "label_schema_Comment Field"
+msgstr "Pole komentarza"
+
+#. Default: Email Invite
+msgid "label_schema_Email Invite"
+msgstr "Zaproszenie e-mailowe"
+
+#. Default: Introduction
+msgid "label_schema_Introduction"
+msgstr "Wprowadzenie"
+
+#. Default: Text Block
 msgid "label_schema_Text Block"
 msgstr "Blok tekstowy"
 
-# Default: Comment Field
-msgid "label_schema_Comment Field"
-msgstr "Pole komentarza"

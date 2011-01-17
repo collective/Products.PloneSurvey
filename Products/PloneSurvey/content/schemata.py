@@ -555,7 +555,7 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
     LinesField('answerOptions',
         searchable=0,
         required=0,
-        default=("Yes", "No"),
+        default_method="_get_yes_no_default",
         widget=LinesWidget(
             label="Answer options",
             label_msgid="label_answer_options",

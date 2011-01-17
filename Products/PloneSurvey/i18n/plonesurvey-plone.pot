@@ -77,6 +77,16 @@ msgstr ""
 msgid "Overview"
 msgstr ""
 
+#: ../content/Survey.py
+# Default: Respondents
+msgid "Respondents"
+msgstr ""
+
+#: ../content/Survey.py
+# Default: Export
+msgid "Export"
+msgstr ""
+
 # THESE WERE ADDED 31.10.2006
 
 # Default: default

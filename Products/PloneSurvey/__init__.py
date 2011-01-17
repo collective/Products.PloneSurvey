@@ -7,14 +7,12 @@ from Products.CMFCore.DirectoryView import registerDirectory
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.GenericSetup import EXTENSION, profile_registry
 
-#import isodatevalidator
-
-from config import SKINS_DIR, GLOBALS, PROJECTNAME
-from config import ADD_CONTENT_PERMISSION
-
 # Import "PloneSurveyMessageFactory as _" to create messages in plonesurvey domain
 from zope.i18nmessageid import MessageFactory
 PloneSurveyMessageFactory = MessageFactory('plonesurvey')
+
+from config import SKINS_DIR, GLOBALS, PROJECTNAME
+from config import ADD_CONTENT_PERMISSION
 
 registerDirectory(SKINS_DIR, GLOBALS)
 

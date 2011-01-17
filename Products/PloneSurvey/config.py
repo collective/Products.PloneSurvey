@@ -7,8 +7,7 @@ from zope.i18nmessageid import MessageFactory
 
 import permissions
 
-
-_ = MessageFactory('plonesurvey')
+from Products.PloneSurvey import PloneSurveyMessageFactory as _
 
 ADD_CONTENT_PERMISSION = permissions.AddPortalContent
 SKINS_DIR = 'skins'

@@ -40,7 +40,7 @@
                         <th i18n:translate="respondents_ip">IP Address</th>
                         <th i18n:translate="respondents_start">Start</th>
                         <th i18n:translate="respondents_end">End</th>
-                        <th i18n:translate="XXX">Time Taken</th>
+                        <th i18n:translate="respondents_time_taken">Time Taken</th>
                     </tr>
                 </thead>
                 <tbody>

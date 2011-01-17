@@ -17,80 +17,114 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-# Default: Survey
-#: ../content/Survey.py
-msgid "Survey"
-msgstr "Inkesta"
-
-# Default: Sub Survey
-#: ../content/SubSurvey.py
-msgid "Sub Survey"
-msgstr "Azpi inkesta"
-
-# Default: Survey Question
-#: ../content/SurveyQuestion.py
-msgid "Survey Question"
-msgstr "Galdera"
-
-# Default: Survey Likert Question
-#: ../content/SurveyLikertQuestion.py
-msgid "Survey Likert Question"
+#. Default: Branching
+msgid "Branching"
 msgstr ""
 
-# Default: Survey Matrix
-#: ../content/SurveyMatrix.py
-msgid "Survey Matrix"
-msgstr ""
-
-# Default: Survey Select Question
-#: ../content/SurveySelectQuestion.py
-msgid "Survey Select Question"
-msgstr "Erantzuna aukeratzeko galdera"
-
-# Default: Survey Text Question
-#: ../content/SurveyTextQuestion.py
-msgid "Survey Text Question"
-msgstr "Testua sartzeko galdera"
-
-# Default: Comment Field
+#. Default: Comment Field
 #: ../content/BaseQuestion.py
 msgid "Comment Field"
 msgstr "Iruzkin eremua"
 
-# Default: Introduction
+#. Default: Export
+#: ../content/Survey.py
+msgid "Export"
+msgstr ""
+
+#. Default: Introduction
 #: ../content/BaseQuestion.py
 msgid "Introduction"
 msgstr "Sarrera"
 
-# Default: Results
-#: ../content/Survey.py
-msgid "Results"
-msgstr "Emaitzak"
+#. Default: None
+msgid "None"
+msgstr "Bat ere ez"
 
-# Default: Reset
-#: ../content/Survey.py
-msgid "Reset"
-msgstr "Berrezarri"
-
-# Default: Overview
+#. Default: Overview
 #: ../content/Survey.py
 msgid "Overview"
 msgstr ""
 
+#. Default: Reset
+#: ../content/Survey.py
+msgid "Reset"
+msgstr "Berrezarri"
+
+#. Default: Respondents
+#: ../content/Survey.py
+msgid "Respondents"
+msgstr ""
+
+#. Default: Results
+#: ../content/Survey.py
+msgid "Results"
+msgstr "Emaitzak"
+
+#. Default: Sub Survey
+#: ../content/SubSurvey.py
+msgid "Sub Survey"
+msgstr "Azpi inkesta"
+
+#. Default: Survey
+#: ../content/Survey.py
+msgid "Survey"
+msgstr "Inkesta"
+
+#. Default: Survey Date Question
+msgid "Survey Date Question"
+msgstr ""
+
+#. Default: Survey Likert Question
+#: ../content/SurveyLikertQuestion.py
+msgid "Survey Likert Question"
+msgstr ""
+
+#. Default: Survey Matrix
+#: ../content/SurveyMatrix.py
+msgid "Survey Matrix"
+msgstr ""
+
+#. Default: Survey Matrix Question
+msgid "Survey Matrix Question"
+msgstr ""
+
+#. Default: Survey Question
+#: ../content/SurveyQuestion.py
+msgid "Survey Question"
+msgstr "Galdera"
+
+#. Default: Survey Select Question
+#: ../content/SurveySelectQuestion.py
+msgid "Survey Select Question"
+msgstr "Erantzuna aukeratzeko galdera"
+
+#. Default: Survey Text Question
+#: ../content/SurveyTextQuestion.py
+msgid "Survey Text Question"
+msgstr "Testua sartzeko galdera"
+
 # THESE WERE ADDED 31.10.2006
-# Default: default
+#. Default: default
 msgid "default"
 msgstr ""
 
-# Default: Branching
-msgid "Branching"
+#. Default: Branching
+msgid "label_schema_Branching"
 msgstr ""
 
-# Default: None
-msgid "None"
-msgstr "Bat ere ez"
+#. Default: Comment Field
+msgid "label_schema_Comment Field"
+msgstr ""
 
-# Default: Survey Matrix Question
-msgid "Survey Matrix Question"
+#. Default: Email Invite
+msgid "label_schema_Email Invite"
+msgstr ""
+
+#. Default: Introduction
+msgid "label_schema_Introduction"
+msgstr ""
+
+#. Default: Text Block
+msgid "label_schema_Text Block"
 msgstr ""
 
