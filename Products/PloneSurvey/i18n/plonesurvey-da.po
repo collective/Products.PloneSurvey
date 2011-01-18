@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2011-01-17 17:27+0000\n"
+"POT-Creation-Date: 2011-01-18 08:36+0000\n"
 "PO-Revision-Date: 2008-08-14 11:17+0100\n"
 "Last-Translator: jakob Bruun <jakob@headnet.dk>\n"
 "Language-Team: EIfEL Team <marc.van.coillie@eife-l.org>\n"
@@ -284,19 +284,31 @@ msgstr "Skriv de mulige svar her. Brug enter til at seperere svarmulighederne"
 msgid "help_comment_label"
 msgstr "Kommentar."
 
+#. Default: "Prevent respondents usernames from appearing in results"
+#: ../content/schemata.py:90
+msgid "help_confidential"
+msgstr ""
+
 #. Default: Add a short description of the survey here.
 #. 
 msgid "help_description"
 msgstr "En kort beskrivelse af surveyet her."
 
-#. Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
 #. 
+#. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
+#: ../content/schemata.py:77
+#, fuzzy
 msgid "help_exit_url"
 msgstr "Dette er den URL, som brugeren vil blive henvist til n�r han har afsluttet surveyet. Brug \"http://site.to.go.to/page\" eller \"route/to/page\" hvis siden ligger p� dette site."
 
 #. Default: Please select what type of input you would like to use for this question.
 #. 
 msgid "help_input_type"
+msgstr ""
+
+#. Default: "Enter an introduction for the survey."
+#: ../content/schemata.py:27
+msgid "help_introduction"
 msgstr ""
 
 #. Default: Select what type of comment box you would like.
@@ -329,6 +341,11 @@ msgstr ""
 msgid "help_required"
 msgstr ""
 
+#. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
+#: ../content/schemata.py:66
+msgid "help_saved_text"
+msgstr ""
+
 #. Default: Enter an email address to receive notifications of survey completions.
 #. 
 msgid "help_survey_notification_email"
@@ -349,8 +366,9 @@ msgstr ""
 msgid "help_text_rows"
 msgstr ""
 
-#. Default: This is the message that will be displayed to the user when they complete the survey.
 #. 
+#. Default: "This is the message that will be displayed to the user when they complete the survey."
+#: ../content/schemata.py:53
 msgid "help_thankyou"
 msgstr ""
 
@@ -409,6 +427,11 @@ msgstr ""
 msgid "label_comment_type"
 msgstr ""
 
+#. Default: "Confidential"
+#: ../content/schemata.py:89
+msgid "label_confidential"
+msgstr ""
+
 #. Default: Survey description
 #. 
 msgid "label_description"
@@ -424,8 +447,9 @@ msgstr ""
 msgid "label_email_address"
 msgstr ""
 
-#. Default: Exit URL
 #. 
+#. Default: "Exit URL"
+#: ../content/schemata.py:76
 msgid "label_exit_url"
 msgstr ""
 
@@ -438,6 +462,11 @@ msgstr ""
 #. 
 msgid "label_input_type"
 msgstr "Inputtype"
+
+#. Default: "Introduction"
+#: ../content/schemata.py:25
+msgid "label_introduction"
+msgstr ""
 
 #. Default: "Question"
 #: ../skins/plone_survey/question_matrix_macro.pt:31
@@ -555,8 +584,9 @@ msgstr "(P�kr�vet)"
 msgid "label_reset"
 msgstr "Annuller"
 
-#. Default: 'Saved' message test
 #. 
+#. Default: "'Saved' message text"
+#: ../content/schemata.py:64
 msgid "label_saved_text"
 msgstr ""
 
@@ -614,8 +644,10 @@ msgstr "Tekstfelt"
 msgid "label_text_rows"
 msgstr "R�kker (antal linjer)"
 
-#. Default: 'Thank you' message text
 #. 
+#. Default: "'Thank you' message text"
+#: ../content/schemata.py:51
+#, fuzzy
 msgid "label_thank"
 msgstr "Tak"
 

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PloneSurvey 1.2.0\n"
-"POT-Creation-Date: 2011-01-17 17:27+0000\n"
+"POT-Creation-Date: 2011-01-18 08:36+0000\n"
 "PO-Revision-Date: 2008-12-15 16:17+0100\n"
 "Last-Translator: Pilar Marinas Luis <pilar.marinas@upcnet.es>\n"
 "Language-Team: \n"
@@ -299,13 +299,20 @@ msgstr "Introdueixi aquí les opcions disponibles per a l'usuari. Col·loqui una
 msgid "help_comment_label"
 msgstr "L'etiqueta del comentari"
 
+#. Default: "Prevent respondents usernames from appearing in results"
+#: ../content/schemata.py:90
+msgid "help_confidential"
+msgstr ""
+
 #. Default: Add a short description of the survey here.
 #. 
 msgid "help_description"
 msgstr "Agregui una breu descripció del qüestionari aquí."
 
-#. Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
 #. 
+#. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
+#: ../content/schemata.py:77
+#, fuzzy
 msgid "help_exit_url"
 msgstr "Aquesta és la URL a la que es redirigirà a l'usuari quan finalitzi el qüestionari. Utilitzar \" http://site.to.go.to/page\" o \" route/to/page\" per aquest portal"
 
@@ -313,6 +320,11 @@ msgstr "Aquesta és la URL a la que es redirigirà a l'usuari quan finalitzi el 
 #. 
 msgid "help_input_type"
 msgstr "Seleccioni el tipus d'entrada que utilitzarà per a aquesta pregunta."
+
+#. Default: "Enter an introduction for the survey."
+#: ../content/schemata.py:27
+msgid "help_introduction"
+msgstr ""
 
 #. Default: Select what type of comment box you would like.
 #. 
@@ -344,6 +356,11 @@ msgstr "Agregui una descripció de la pregunta aquí, per a aclarir qualsevol de
 msgid "help_required"
 msgstr "Seleccioni si la pregunta ha de ser resposta de forma obligatòria."
 
+#. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
+#: ../content/schemata.py:66
+msgid "help_saved_text"
+msgstr ""
+
 #. Default: Enter an email address to receive notifications of survey completions.
 #. 
 msgid "help_survey_notification_email"
@@ -364,8 +381,10 @@ msgstr "Introduexi un nombre de columnes per a aquest camp (ample del camp en ca
 msgid "help_text_rows"
 msgstr "Introdueixi el nombre de files per a aquest camp. Aquest valor és aplicable únicament en el tipus 'pregunta de text'"
 
-#. Default: This is the message that will be displayed to the user when they complete the survey.
 #. 
+#. Default: "This is the message that will be displayed to the user when they complete the survey."
+#: ../content/schemata.py:53
+#, fuzzy
 msgid "help_thankyou"
 msgstr "Aquest és el missatge que serà mostrat a l'usuari quan completi el qüestionari."
 
@@ -426,6 +445,11 @@ msgstr "Etiquetes de comentari"
 msgid "label_comment_type"
 msgstr "Tipus de comentari"
 
+#. Default: "Confidential"
+#: ../content/schemata.py:89
+msgid "label_confidential"
+msgstr ""
+
 #. Default: Survey description
 #. 
 msgid "label_description"
@@ -441,8 +465,10 @@ msgstr ""
 msgid "label_email_address"
 msgstr ""
 
-#. Default: Exit URL
 #. 
+#. Default: "Exit URL"
+#: ../content/schemata.py:76
+#, fuzzy
 msgid "label_exit_url"
 msgstr "URL de sortida"
 
@@ -455,6 +481,11 @@ msgstr ""
 #. 
 msgid "label_input_type"
 msgstr "Tipus d'entrada"
+
+#. Default: "Introduction"
+#: ../content/schemata.py:25
+msgid "label_introduction"
+msgstr ""
 
 #. Default: "Question"
 #: ../skins/plone_survey/question_matrix_macro.pt:31
@@ -575,8 +606,10 @@ msgstr "Requerit"
 msgid "label_reset"
 msgstr "Buidar"
 
-#. Default: 'Saved' message test
 #. 
+#. Default: "'Saved' message text"
+#: ../content/schemata.py:64
+#, fuzzy
 msgid "label_saved_text"
 msgstr "Missatge de guardat"
 
@@ -635,8 +668,10 @@ msgstr "Camp de text"
 msgid "label_text_rows"
 msgstr "Files (nombre de línies)"
 
-#. Default: 'Thank you' message text
 #. 
+#. Default: "'Thank you' message text"
+#: ../content/schemata.py:51
+#, fuzzy
 msgid "label_thank"
 msgstr "Missatge d'agraïment"
 

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-17 17:27+0000\n"
+"POT-Creation-Date: 2011-01-18 08:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -242,19 +242,29 @@ msgstr ""
 msgid "help_comment_label"
 msgstr ""
 
+#. Default: "Prevent respondents usernames from appearing in results"
+#: ../content/schemata.py:90
+msgid "help_confidential"
+msgstr ""
+
 #. 
 #. Default: Add a short description of the survey here.
 msgid "help_description"
 msgstr ""
 
-#. 
-#. Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
+#. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
+#: ../content/schemata.py:77
 msgid "help_exit_url"
 msgstr ""
 
 #. 
 #. Default: Please select what type of input you would like to use for this question.
 msgid "help_input_type"
+msgstr ""
+
+#. Default: "Enter an introduction for the survey."
+#: ../content/schemata.py:27
+msgid "help_introduction"
 msgstr ""
 
 #. 
@@ -287,6 +297,11 @@ msgstr ""
 msgid "help_required"
 msgstr ""
 
+#. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
+#: ../content/schemata.py:66
+msgid "help_saved_text"
+msgstr ""
+
 #. 
 #. Default: Enter an email address to receive notifications of survey completions.
 msgid "help_survey_notification_email"
@@ -307,8 +322,8 @@ msgstr ""
 msgid "help_text_rows"
 msgstr ""
 
-#. 
-#. Default: This is the message that will be displayed to the user when they complete the survey.
+#. Default: "This is the message that will be displayed to the user when they complete the survey."
+#: ../content/schemata.py:53
 msgid "help_thankyou"
 msgstr ""
 
@@ -367,6 +382,11 @@ msgstr ""
 msgid "label_comment_type"
 msgstr ""
 
+#. Default: "Confidential"
+#: ../content/schemata.py:89
+msgid "label_confidential"
+msgstr ""
+
 #. 
 #. Default: Survey description
 msgid "label_description"
@@ -382,8 +402,8 @@ msgstr ""
 msgid "label_email_address"
 msgstr ""
 
-#. 
-#. Default: Exit URL
+#. Default: "Exit URL"
+#: ../content/schemata.py:76
 msgid "label_exit_url"
 msgstr ""
 
@@ -395,6 +415,11 @@ msgstr ""
 #. 
 #. Default: Input Type
 msgid "label_input_type"
+msgstr ""
+
+#. Default: "Introduction"
+#: ../content/schemata.py:25
+msgid "label_introduction"
 msgstr ""
 
 #. Default: "Question"
@@ -499,8 +524,8 @@ msgstr ""
 msgid "label_reset"
 msgstr ""
 
-#. 
-#. Default: 'Saved' message test
+#. Default: "'Saved' message text"
+#: ../content/schemata.py:64
 msgid "label_saved_text"
 msgstr ""
 
@@ -554,8 +579,8 @@ msgstr ""
 msgid "label_text_rows"
 msgstr ""
 
-#. 
-#. Default: 'Thank you' message text
+#. Default: "'Thank you' message text"
+#: ../content/schemata.py:51
 msgid "label_thank"
 msgstr ""
 

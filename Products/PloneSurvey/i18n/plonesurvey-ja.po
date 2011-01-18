@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-17 17:27+0000\n"
+"POT-Creation-Date: 2011-01-18 08:36+0000\n"
 "PO-Revision-Date: 2007-06-13 17:55+0900\n"
 "Last-Translator: TAKAGI Masahiro <matakagi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -299,13 +299,20 @@ msgstr "回答として使用する選択肢を入力します。各選択肢は
 msgid "help_comment_label"
 msgstr "コメントラベル。"
 
+#. Default: "Prevent respondents usernames from appearing in results"
+#: ../content/schemata.py:90
+msgid "help_confidential"
+msgstr ""
+
 #. Default: Add a short description of the survey here.
 #. 
 msgid "help_description"
 msgstr "このアンケートについての簡単な説明を追加します。"
 
-#. Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
 #. 
+#. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
+#: ../content/schemata.py:77
+#, fuzzy
 msgid "help_exit_url"
 msgstr "回答者が回答を終えた後で、この URL に移動します。\"http://site.to.go.to/page\" あるいはこの Plone サイト内に移動するなら \"route/to/page\" 形式になります。"
 
@@ -313,6 +320,11 @@ msgstr "回答者が回答を終えた後で、この URL に移動します。\
 #. 
 msgid "help_input_type"
 msgstr "この設問で使用する入力形式を選択します。"
+
+#. Default: "Enter an introduction for the survey."
+#: ../content/schemata.py:27
+msgid "help_introduction"
+msgstr ""
 
 #. Default: Select what type of comment box you would like.
 #. 
@@ -344,6 +356,11 @@ msgstr "この設問に関する説明文を追加します。"
 msgid "help_required"
 msgstr "この設問が必須（何らかの回答が必要）である場合に選択します。"
 
+#. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
+#: ../content/schemata.py:66
+msgid "help_saved_text"
+msgstr ""
+
 #. Default: Enter an email address to receive notifications of survey completions.
 #. 
 msgid "help_survey_notification_email"
@@ -364,8 +381,10 @@ msgstr "このフィールドのカラム数（一行に入力できる文字数
 msgid "help_text_rows"
 msgstr "入力欄の行数を指定します。これは、テキストエリア形式の入力欄でのみ有効です。"
 
-#. Default: This is the message that will be displayed to the user when they complete the survey.
 #. 
+#. Default: "This is the message that will be displayed to the user when they complete the survey."
+#: ../content/schemata.py:53
+#, fuzzy
 msgid "help_thankyou"
 msgstr "これは、ユーザが回答を終えたときに表示されるメッセージです。"
 
@@ -426,6 +445,11 @@ msgstr "コメントラベル"
 msgid "label_comment_type"
 msgstr "コメントの形式"
 
+#. Default: "Confidential"
+#: ../content/schemata.py:89
+msgid "label_confidential"
+msgstr ""
+
 #. Default: Survey description
 #. 
 msgid "label_description"
@@ -441,8 +465,10 @@ msgstr ""
 msgid "label_email_address"
 msgstr ""
 
-#. Default: Exit URL
 #. 
+#. Default: "Exit URL"
+#: ../content/schemata.py:76
+#, fuzzy
 msgid "label_exit_url"
 msgstr "終了後に移動する URL"
 
@@ -455,6 +481,11 @@ msgstr ""
 #. 
 msgid "label_input_type"
 msgstr "入力の形式"
+
+#. Default: "Introduction"
+#: ../content/schemata.py:25
+msgid "label_introduction"
+msgstr ""
 
 #. Default: "Question"
 #: ../skins/plone_survey/question_matrix_macro.pt:31
@@ -575,8 +606,10 @@ msgstr "(必須)"
 msgid "label_reset"
 msgstr " 初期化 "
 
-#. Default: 'Saved' message test
 #. 
+#. Default: "'Saved' message text"
+#: ../content/schemata.py:64
+#, fuzzy
 msgid "label_saved_text"
 msgstr "保存時のメッセージ"
 
@@ -635,8 +668,10 @@ msgstr "テキストフィールド"
 msgid "label_text_rows"
 msgstr "行数"
 
-#. Default: 'Thank you' message text
 #. 
+#. Default: "'Thank you' message text"
+#: ../content/schemata.py:51
+#, fuzzy
 msgid "label_thank"
 msgstr "「回答ありがとう」メッセージの内容"
 

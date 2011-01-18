@@ -28,11 +28,6 @@ msgid "label_text_rows"
 msgstr ""
 
 #.
-# Default: This is the message that will be displayed to the user when they complete the survey.
-msgid "help_thankyou"
-msgstr ""
-
-#.
 # Default: Survey currently
 msgid "label_survey_status"
 msgstr ""
@@ -68,11 +63,6 @@ msgid "label_description"
 msgstr ""
 
 #.
-# Default: Exit URL
-msgid "label_exit_url"
-msgstr ""
-
-#.
 # Default: Enter the options you want to be available to the user here. Press enter to seperate the options.
 msgid "help_answer_options"
 msgstr ""
@@ -90,11 +80,6 @@ msgstr ""
 #.
 # Default: Enter an email address to receive notifications of survey completions.
 msgid "help_survey_notification_email"
-msgstr ""
-
-#.
-# Default: 'Thank you' message text
-msgid "label_thank"
 msgstr ""
 
 #.
@@ -170,16 +155,6 @@ msgstr ""
 #.
 # Default: Title
 msgid "label_title"
-msgstr ""
-
-#.
-# Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
-msgid "help_exit_url"
-msgstr ""
-
-#.
-# Default: 'Saved' message test
-msgid "label_saved_text"
 msgstr ""
 
 #.

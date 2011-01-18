@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.PloneSurvey 1.4.2\n"
-"POT-Creation-Date: 2011-01-17 17:27+0000\n"
+"POT-Creation-Date: 2011-01-18 08:36+0000\n"
 "PO-Revision-Date: 2011-01-14 09:57+0000\n"
 "Last-Translator: luca.fabbri <luca.fabbri at redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.net>\n"
@@ -247,20 +247,33 @@ msgstr "Immetti qui le opzioni da rendere disponibili all'utente. Premi invio pe
 msgid "help_comment_label"
 msgstr "Etichetta del commento."
 
+#. Default: "Prevent respondents usernames from appearing in results"
+#: ../content/schemata.py:90
+msgid "help_confidential"
+msgstr "Evita che o username dei partecipanti compaia nei risultati"
+
 #. Default: Add a short description of the survey here.
 #. 
 msgid "help_description"
 msgstr "Aggiungi qui una breve descrizione del questionario."
 
-#. Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
 #. 
+#. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
+#: ../content/schemata.py:77
 msgid "help_exit_url"
-msgstr "Questo &egrave; l'URL verso il quale l'utente sar&agrave; indirizzato al completamento del questionario. Usa 'http://sito.al.quale.andare/pagina' o 'percorso/della/pagina' per un collegamento interno al portale."
+msgstr "" 
+"Questo &egrave; l'URL verso il quale l'utente sarà indirizzato al completamento del questionario.\n"
+"Usa \"http://sito.al.quale.andare/pagina\" o \"percorso/della/pagina\" per un collegamento interno al portale."
 
 #. Default: Please select what type of input you would like to use for this question.
 #. 
 msgid "help_input_type"
 msgstr "Prego, seleziona il tipo d'immissione che preferisci utilizzare per questa domanda."
+
+#. Default: "Enter an introduction for the survey."
+#: ../content/schemata.py:27
+msgid "help_introduction"
+msgstr "Inserisci una introduzione al questionario."
 
 #. Default: Select what type of comment box you would like.
 #. 
@@ -292,6 +305,11 @@ msgstr "Aggiungi qui una descrizione estesa della domanda, per chiarire alcuni d
 msgid "help_required"
 msgstr "Seleziona se questa domanda è obbligatoria, inteso che il partecipante deve dare una risposta."
 
+#. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
+#: ../content/schemata.py:66
+msgid "help_saved_text"
+msgstr "Questo è il messaggio che verrà visualizzato agli utenti che salveranno il sondaggio ma non lo invieranno."
+
 #. Default: Enter an email address to receive notifications of survey completions.
 #. 
 msgid "help_survey_notification_email"
@@ -310,10 +328,11 @@ msgstr "Inserisci un numero di colonne per questo campo (larghezza del campo in 
 #. Default: Enter a number of rows for this field. This value is applicable only in the Text Area input type
 #. 
 msgid "help_text_rows"
-msgstr "Inserisci un numero di righe per questo campo. Questo valore Ã¨ applicabile solo per immissione di tipo Area di Testo."
+msgstr "Inserisci un numero di righe per questo campo. Questo valore è applicabile solo per immissione di tipo Area di Testo."
 
-#. Default: This is the message that will be displayed to the user when they complete the survey.
 #. 
+#. Default: "This is the message that will be displayed to the user when they complete the survey."
+#: ../content/schemata.py:53
 msgid "help_thankyou"
 msgstr "Questo è il messaggio che apparirà all'utente quando avrà completato il questionario."
 
@@ -372,6 +391,11 @@ msgstr "Etichetta del commento"
 msgid "label_comment_type"
 msgstr "Tipo di commento"
 
+#. Default: "Confidential"
+#: ../content/schemata.py:89
+msgid "label_confidential"
+msgstr "Confidenziale"
+
 #. Default: Survey description
 #. 
 msgid "label_description"
@@ -387,8 +411,9 @@ msgstr "Non comparire"
 msgid "label_email_address"
 msgstr "Indirizzo e-mail"
 
-#. Default: Exit URL
 #. 
+#. Default: "Exit URL"
+#: ../content/schemata.py:76
 msgid "label_exit_url"
 msgstr "URL d'uscita"
 
@@ -401,6 +426,11 @@ msgstr "Nome"
 #. 
 msgid "label_input_type"
 msgstr "Tipo di immissione"
+
+#. Default: "Introduction"
+#: ../content/schemata.py:25
+msgid "label_introduction"
+msgstr "Introduzione"
 
 #. Default: "Question"
 #: ../skins/plone_survey/question_matrix_macro.pt:31
@@ -502,12 +532,13 @@ msgstr "(Obbligatorio)"
 #. Default: "Reset"
 #: ../skins/plone_survey/survey_reset_form.cpt:18
 msgid "label_reset"
-msgstr " Annulla "
+msgstr "Ripristina "
 
-#. Default: 'Saved' message test
 #. 
+#. Default: "'Saved' message text"
+#: ../content/schemata.py:64
 msgid "label_saved_text"
-msgstr "Messaggio di test 'Salvato'"
+msgstr "Messaggio di testo 'Salvato'"
 
 #. Default: "Selection Box"
 #: ../config.py:46
@@ -559,8 +590,9 @@ msgstr "Campo di testo"
 msgid "label_text_rows"
 msgstr "Righe (numero di linee)"
 
-#. Default: 'Thank you' message text
 #. 
+#. Default: "'Thank you' message text"
+#: ../content/schemata.py:51
 msgid "label_thank"
 msgstr "Messaggio di testo 'Grazie'"
 

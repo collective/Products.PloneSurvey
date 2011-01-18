@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-17 17:27+0000\n"
+"POT-Creation-Date: 2011-01-18 08:36+0000\n"
 "PO-Revision-Date: 2006-10-27 12:00 +0000\n"
 "Last-Translator: Piotr Furman <piotr.furman@webservice.pl>\n"
 "Language-Team: webservice.pl <piotr.furman@webservice.pl>\n"
@@ -311,13 +311,20 @@ msgstr "Wpisz możliwe odpowiedzi, po jednej w linii."
 msgid "help_comment_label"
 msgstr "Nagłówek komentarza."
 
+#. Default: "Prevent respondents usernames from appearing in results"
+#: ../content/schemata.py:90
+msgid "help_confidential"
+msgstr ""
+
 #. Default: Add a short description of the survey here.
 #. 
 msgid "help_description"
 msgstr "Dodaj krótki opis ankiety."
 
-#. Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
 #. 
+#. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
+#: ../content/schemata.py:77
+#, fuzzy
 msgid "help_exit_url"
 msgstr "To jest adres, pod który zostanie przekierowany użytkownik po wypełnineiu ankiety. Dla stron wewnątrz tego portalu użyj ścieżki względnej, np. 'ścieżka/do/podstrony'"
 
@@ -325,6 +332,11 @@ msgstr "To jest adres, pod który zostanie przekierowany użytkownik po wypełni
 #. 
 msgid "help_input_type"
 msgstr "Wybierz typ pól dla tego pytania."
+
+#. Default: "Enter an introduction for the survey."
+#: ../content/schemata.py:27
+msgid "help_introduction"
+msgstr ""
 
 #. Default: Select what type of comment box you would like.
 #. 
@@ -356,6 +368,11 @@ msgstr "Dodaj dłuższy opis pytania, wyjaśniający wszelkie niejasności."
 msgid "help_required"
 msgstr "Zaznacz jeśli to pytanie jest wymagane, tzn. jeśli użytkownik musi udzielić na nie odpowiedzi."
 
+#. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
+#: ../content/schemata.py:66
+msgid "help_saved_text"
+msgstr ""
+
 #. Default: Enter an email address to receive notifications of survey completions.
 #. 
 msgid "help_survey_notification_email"
@@ -376,8 +393,10 @@ msgstr "Wpisz liczbę kolumn tego pola (szerokość w znakach)"
 msgid "help_text_rows"
 msgstr "Wpisz liczbę wierszy tego pola. Ta wartość jest brana pod uwagę tylko jeśli został wybrany Obszar Tekstowy."
 
-#. Default: This is the message that will be displayed to the user when they complete the survey.
 #. 
+#. Default: "This is the message that will be displayed to the user when they complete the survey."
+#: ../content/schemata.py:53
+#, fuzzy
 msgid "help_thankyou"
 msgstr "Ta wiadomość zostanie wyświetlona użytkownikowi po wypełnieniu ankiety."
 
@@ -441,6 +460,11 @@ msgstr "Nagłówek komentarza"
 msgid "label_comment_type"
 msgstr "Typ komentarza"
 
+#. Default: "Confidential"
+#: ../content/schemata.py:89
+msgid "label_confidential"
+msgstr ""
+
 #. Default: Survey description
 #. 
 msgid "label_description"
@@ -457,8 +481,10 @@ msgstr "Niewidoczny"
 msgid "label_email_address"
 msgstr ""
 
-#. Default: Exit URL
 #. 
+#. Default: "Exit URL"
+#: ../content/schemata.py:76
+#, fuzzy
 msgid "label_exit_url"
 msgstr "Adres URL po zakończeniu."
 
@@ -471,6 +497,11 @@ msgstr ""
 #. 
 msgid "label_input_type"
 msgstr "Typ pola"
+
+#. Default: "Introduction"
+#: ../content/schemata.py:25
+msgid "label_introduction"
+msgstr ""
 
 #. Default: "Question"
 #: ../skins/plone_survey/question_matrix_macro.pt:31
@@ -593,8 +624,10 @@ msgstr "(Wymagane)"
 msgid "label_reset"
 msgstr "Resetuj"
 
-#. Default: 'Saved' message test
 #. 
+#. Default: "'Saved' message text"
+#: ../content/schemata.py:64
+#, fuzzy
 msgid "label_saved_text"
 msgstr "Tekst wiadomości 'Zapisano'"
 
@@ -653,8 +686,10 @@ msgstr "Pole tekstowe"
 msgid "label_text_rows"
 msgstr "Wiersze (liczba linii)"
 
-#. Default: 'Thank you' message text
 #. 
+#. Default: "'Thank you' message text"
+#: ../content/schemata.py:51
+#, fuzzy
 msgid "label_thank"
 msgstr "Tekst wiadomości 'Dziękujemy'"
 

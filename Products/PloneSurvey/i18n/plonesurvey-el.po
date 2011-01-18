@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PloneSurvey\n"
-"POT-Creation-Date: 2011-01-17 17:27+0000\n"
+"POT-Creation-Date: 2011-01-18 08:36+0000\n"
 "PO-Revision-Date: 2007-03-02 13:00+0000\n"
 "Last-Translator: Nikos Viorres <nviorres@aegean.gr>\n"
 "Language-Team: Greek <>\n"
@@ -300,13 +300,20 @@ msgstr "Εισάγετε τις επιλογές που θέλετε να είν
 msgid "help_comment_label"
 msgstr "Η ετικέτα του σχολίου"
 
+#. Default: "Prevent respondents usernames from appearing in results"
+#: ../content/schemata.py:90
+msgid "help_confidential"
+msgstr ""
+
 #. Default: Add a short description of the survey here.
 #. 
 msgid "help_description"
 msgstr "Προσθέστε μία σύντομη περιγραφή του ερωτηματολογίου"
 
-#. Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
 #. 
+#. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
+#: ../content/schemata.py:77
+#, fuzzy
 msgid "help_exit_url"
 msgstr "Αυτός είναι ο υπερσύνδεσμος (URL) στον οποίο θα μεταφερθεί ο χρήστης μετά την ολοκληρωση του ερωτηματολογίου. Χρησιμοποιήστε http://site.to.go.to/page για εξωτερικό σύνδεσμο ή route/to/page για σύνδεσμο εσωτερικό του πόρταλ"
 
@@ -314,6 +321,11 @@ msgstr "Αυτός είναι ο υπερσύνδεσμος (URL) στον οπ�
 #. 
 msgid "help_input_type"
 msgstr "Παρακαλώ επιλέξτε τι είδους είσοδο επιθυμείτε για αυτή την ερώτηση"
+
+#. Default: "Enter an introduction for the survey."
+#: ../content/schemata.py:27
+msgid "help_introduction"
+msgstr ""
 
 #. Default: Select what type of comment box you would like.
 #. 
@@ -345,6 +357,11 @@ msgstr "Προσθέστε μία λεπτομερής περιγραφή της
 msgid "help_required"
 msgstr "Επιλέξτε αν η ερώτηση θα είναι υποχρεωτική"
 
+#. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
+#: ../content/schemata.py:66
+msgid "help_saved_text"
+msgstr ""
+
 #. Default: Enter an email address to receive notifications of survey completions.
 #. 
 msgid "help_survey_notification_email"
@@ -365,8 +382,10 @@ msgstr "Εισάγετε τον αριθμό των στηλών για αυτό
 msgid "help_text_rows"
 msgstr "Εισάγετε τον αριθμό των σειρών για αυτό το πεδίο. Αυτή η τιμή έχει εφαρμογή μόνο στο πεδίο εισόδο Περιοχή Κειμένου"
 
-#. Default: This is the message that will be displayed to the user when they complete the survey.
 #. 
+#. Default: "This is the message that will be displayed to the user when they complete the survey."
+#: ../content/schemata.py:53
+#, fuzzy
 msgid "help_thankyou"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στους χρήστες μετά την ολοκλήρωση του ερωτηαμτολογίου"
 
@@ -427,6 +446,11 @@ msgstr "Ετικέτα Σχολίου"
 msgid "label_comment_type"
 msgstr "Τύπος Σχολίου"
 
+#. Default: "Confidential"
+#: ../content/schemata.py:89
+msgid "label_confidential"
+msgstr ""
+
 #. Default: Survey description
 #. 
 msgid "label_description"
@@ -442,8 +466,10 @@ msgstr ""
 msgid "label_email_address"
 msgstr ""
 
-#. Default: Exit URL
 #. 
+#. Default: "Exit URL"
+#: ../content/schemata.py:76
+#, fuzzy
 msgid "label_exit_url"
 msgstr "URL εξόδου"
 
@@ -456,6 +482,11 @@ msgstr ""
 #. 
 msgid "label_input_type"
 msgstr "Τύπος Εισόδου"
+
+#. Default: "Introduction"
+#: ../content/schemata.py:25
+msgid "label_introduction"
+msgstr ""
 
 #. Default: "Question"
 #: ../skins/plone_survey/question_matrix_macro.pt:31
@@ -575,8 +606,10 @@ msgstr "Υποχρεωτικό"
 msgid "label_reset"
 msgstr "Επαναφορά"
 
-#. Default: 'Saved' message test
 #. 
+#. Default: "'Saved' message text"
+#: ../content/schemata.py:64
+#, fuzzy
 msgid "label_saved_text"
 msgstr "Το κείμενο του 'μηνύματος αποθήκευσης ερωτηματολογίου'"
 
@@ -635,8 +668,10 @@ msgstr ""
 msgid "label_text_rows"
 msgstr "Σειρές (αριθμός)"
 
-#. Default: 'Thank you' message text
 #. 
+#. Default: "'Thank you' message text"
+#: ../content/schemata.py:51
+#, fuzzy
 msgid "label_thank"
 msgstr "Ευχαρηστήριο μήνυμα"
 

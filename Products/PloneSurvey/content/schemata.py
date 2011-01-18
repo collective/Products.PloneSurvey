@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
+
 from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
 from Products.ATContentTypes.lib.constraintypes import ConstrainTypesMixinSchema
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
+from Products.PloneSurvey import PloneSurveyMessageFactory as _
 from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import *
 from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
@@ -19,12 +22,11 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
                                  'text/structured',
                                  'text/html',
                                 ),
-        widget = RichWidget(description = "Enter an introduction for the survey.",
-                            label = "Introduction",
-                            label_msgid = 'label_introduction',
-                            description_msgid = 'help_introduction',
+        widget = RichWidget(label = _('label_introduction',
+                                      default=u"Introduction"),
+                            description = _('help_introduction',
+                                            default=u"Enter an introduction for the survey."),
                             rows = 5,
-                            i18n_domain="plonesurvey",
                            ),
         ),
 
@@ -46,12 +48,11 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         searchable=0,
         default_method="translateThankYouMessage",
         widget=TextAreaWidget(
-            label="'Thank you' message text",
-            label_msgid="label_thank",
-            description="""This is the message that will be displayed to the
-                           user when they complete the survey.""",
-            description_msgid="help_thankyou",
-            i18n_domain="plonesurvey",
+            label=_("label_thank",
+                    default="'Thank you' message text"),
+            description=_('help_thankyou',
+                          default=u"This is the message that will be displayed to the "
+                                  u"user when they complete the survey."),
            ),
         ),
 
@@ -60,12 +61,11 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         searchable=0,
         default_method="translateSavedMessage",
         widget=TextAreaWidget(
-            label="'Saved' message test",
-            label_msgid="label_saved_text",
-            description="""This is the message that will be displayed to the user
-                           when they save the survey, but don't submit it.""",
-            description_msgid="help_saved_text",
-            i18n_domain="plonesurvey",
+            label=_('label_saved_text',
+                    default="'Saved' message text"),
+            description=_('help_saved_text',
+                          default=u"This is the message that will be displayed to the user "
+                                  u"when they save the survey, but don't submit it."),
            ),
         ),
 
@@ -73,12 +73,12 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         required=0,
         searchable=0,
         widget=StringWidget(
-            label="Exit URL",
-            label_msgid="label_exit_url",
-            description="""This is the URL that the user will be directed to on completion of the survey.
-                           Use "http://site.to.go.to/page" or "route/to/page" for this portal""",
-            description_msgid="help_exit_url",
-            i18n_domain="plonesurvey",
+            label=_("label_exit_url", default=u"Exit URL"),
+            description=_("help_exit_url",
+                          default=u'This is the URL that the user will be directed to on '
+                                  u'completion of the survey.\n'
+                                  u'Use "http://site.to.go.to/page" or "route/to/page" '
+                                  u'for this portal'),
           ),
         ),
 
@@ -86,11 +86,9 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         searchable=0,
         required=0,
         widget=BooleanWidget(
-            label="Confidential",
-            label_msgid="label_confidential",
-            description="""Prevent respondents usernames from appearing in results""",
-            description_msgid="help_confidential",
-            i18n_domain="plonesurvey",
+            label=_(u"label_confidential", default=u"Confidential"),
+            description=_("help_confidential",
+                          default=u"Prevent respondents usernames from appearing in results"),
           ),
         ),
 

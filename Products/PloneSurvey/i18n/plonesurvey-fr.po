@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2011-01-17 17:27+0000\n"
+"POT-Creation-Date: 2011-01-18 08:36+0000\n"
 "PO-Revision-Date: 2009-01-19 10:49+0100\n"
 "Last-Translator: Matthias Broquet a.k.a tiazma <mbroquet@atreal.net>\n"
 "Language-Team: EIfEL Team <marc.van.coillie@eife-l.org>\n"
@@ -292,13 +292,20 @@ msgstr "Entrez les options que vous voulez rendre accessibles aux utilisateurs i
 msgid "help_comment_label"
 msgstr "Étiquette du commentaire."
 
+#. Default: "Prevent respondents usernames from appearing in results"
+#: ../content/schemata.py:90
+msgid "help_confidential"
+msgstr ""
+
 #. Default: Add a short description of the survey here.
 #. 
 msgid "help_description"
 msgstr "Ajouter une courte description du questionnaire ici."
 
-#. Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
 #. 
+#. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
+#: ../content/schemata.py:77
+#, fuzzy
 msgid "help_exit_url"
 msgstr "Ceci est l'URL vers laquelle l'utilisateur sera redirigé apres avoir soumis le questionnaire. Utilisez \"http://site.ou.aller/page\" ou \"chemin/vers/page\" pour un lien interne au portail."
 
@@ -306,6 +313,11 @@ msgstr "Ceci est l'URL vers laquelle l'utilisateur sera redirigé apres avoir so
 #. 
 msgid "help_input_type"
 msgstr "Veuillez sélectionner le type d'entrée que vous désirez utiliser pour cette question."
+
+#. Default: "Enter an introduction for the survey."
+#: ../content/schemata.py:27
+msgid "help_introduction"
+msgstr ""
 
 #. Default: Select what type of comment box you would like.
 #. 
@@ -337,6 +349,11 @@ msgstr "Ajouter une longue description à la question ici, pour clarifier certai
 msgid "help_required"
 msgstr "Sélectionnez si cette question est obligatoire, signifiant que l'utilisateur doit fournir une réponse."
 
+#. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
+#: ../content/schemata.py:66
+msgid "help_saved_text"
+msgstr ""
+
 #. Default: Enter an email address to receive notifications of survey completions.
 #. 
 msgid "help_survey_notification_email"
@@ -357,8 +374,10 @@ msgstr "Entrez un nombre de colonnes pour ce champ (largeur du champ en caractè
 msgid "help_text_rows"
 msgstr "Entrez un nombre de lignes pour ce champ. Cette valeur est applicable uniquement pour une entrée de type 'zone de texte'."
 
-#. Default: This is the message that will be displayed to the user when they complete the survey.
 #. 
+#. Default: "This is the message that will be displayed to the user when they complete the survey."
+#: ../content/schemata.py:53
+#, fuzzy
 msgid "help_thankyou"
 msgstr "Ceci est le message qui sera affiché à l'utilisateur une fois qu'il aura complété le questionnaire."
 
@@ -419,6 +438,11 @@ msgstr "Étiquette du commentaire"
 msgid "label_comment_type"
 msgstr "Type de commentaire"
 
+#. Default: "Confidential"
+#: ../content/schemata.py:89
+msgid "label_confidential"
+msgstr ""
+
 #. Default: Survey description
 #. 
 msgid "label_description"
@@ -434,8 +458,10 @@ msgstr ""
 msgid "label_email_address"
 msgstr ""
 
-#. Default: Exit URL
 #. 
+#. Default: "Exit URL"
+#: ../content/schemata.py:76
+#, fuzzy
 msgid "label_exit_url"
 msgstr "URL d'abandon"
 
@@ -448,6 +474,11 @@ msgstr ""
 #. 
 msgid "label_input_type"
 msgstr "Type d'entrée"
+
+#. Default: "Introduction"
+#: ../content/schemata.py:25
+msgid "label_introduction"
+msgstr ""
 
 #. Default: "Question"
 #: ../skins/plone_survey/question_matrix_macro.pt:31
@@ -569,8 +600,10 @@ msgstr "Obligatoire"
 msgid "label_reset"
 msgstr "Réinitialiser "
 
-#. Default: 'Saved' message test
 #. 
+#. Default: "'Saved' message text"
+#: ../content/schemata.py:64
+#, fuzzy
 msgid "label_saved_text"
 msgstr "Enregistré"
 
@@ -629,8 +662,10 @@ msgstr "Champ de texte"
 msgid "label_text_rows"
 msgstr "Lignes (nombre de lignes)"
 
-#. Default: 'Thank you' message text
 #. 
+#. Default: "'Thank you' message text"
+#: ../content/schemata.py:51
+#, fuzzy
 msgid "label_thank"
 msgstr "Merci"
 
