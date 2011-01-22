@@ -234,6 +234,6 @@ class BaseQuestion(ATCTContent):
         return translation_service.utranslate(domain='plonesurvey',
                                               msgid=u'commentLabelDefault',
                                               default=u'Comment - mandatory if "no"',
-                                              context=self),
+                                              context=self)
 
 InitializeClass(BaseQuestion)
