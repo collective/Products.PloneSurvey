@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-18 08:36+0000\n"
+"POT-Creation-Date: 2011-01-22 18:34+0000\n"
 "PO-Revision-Date: 2006-06-27 22:42+0100\n"
 "Last-Translator: Radim Novotny <r.novotny@elektrika.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,38 @@ msgstr ""
 #. Default: "A little Useful"
 #: ../config.py:97
 msgid "A little Useful"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Matrix.xml
+msgid "A matrix of questions within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Survey_Date_Question.xml
+msgid "A question for date/time within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Survey_Matrix_Question.xml
+msgid "A question in a matrix within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Survey_Select_Question.xml
+msgid "A question with select vocab within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Sub_Survey.xml
+msgid "A sub page within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Survey_Text_Question.xml
+msgid "A textual question within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Survey_2-Dimensional_Question.xml
+msgid "A two-dimensional question with a weighted vocab within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Survey_Two_Dimensional.xml
+msgid "A two-dimensional question within a survey."
 msgstr ""
 
 #: ../skins/plone_survey/manage_respondents.cpt:35
@@ -122,6 +154,42 @@ msgstr ""
 msgid "Repair results"
 msgstr ""
 
+#: ../profiles/default/types/Sub_Survey.xml
+msgid "Sub Survey"
+msgstr ""
+
+#: ../profiles/default/types/Survey.xml
+msgid "Survey"
+msgstr ""
+
+#: ../profiles/default/types/Survey_2-Dimensional_Question.xml
+msgid "Survey 2-Dimensional Question"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Date_Question.xml
+msgid "Survey Date Question"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Matrix.xml
+msgid "Survey Matrix"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Matrix_Question.xml
+msgid "Survey Matrix Question"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Select_Question.xml
+msgid "Survey Select Question"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Text_Question.xml
+msgid "Survey Text Question"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Two_Dimensional.xml
+msgid "Survey Two Dimensional"
+msgstr ""
+
 #. Default: "Useful"
 #: ../config.py:95
 msgid "Useful"
@@ -154,9 +222,18 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
+#: ../profiles/default/types/Survey.xml
+msgid "You can add questions to surveys."
+msgstr ""
+
 #. Default: "Respondent created"
-#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:44
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:46
 msgid "authenticated_respondent_created"
+msgstr ""
+
+#. Default: "Comment - mandatory if \"no\""
+#: ../content/BaseQuestion.py:232
+msgid "commentLabelDefault"
 msgstr ""
 
 #. Default: "Create Respondent"
@@ -209,6 +286,10 @@ msgstr ""
 #. Default: "download spreadsheet for select questions with answers as booleans"
 #: ../skins/plone_survey/survey_view_results.pt:60
 msgid "download_selectasboolean_spreadsheet"
+msgstr ""
+
+#: ../content/Survey.py:885
+msgid "emailInviteDefault"
 msgstr ""
 
 #. <h3 i18n:translate="heading_comments">
@@ -272,115 +353,192 @@ msgstr ""
 msgid "heading_totals_for"
 msgstr "Celkový přehled pro ${enablingObjective} ${title} :"
 
-#. Default: Enter the options you want to be available to the user here. Press enter to seperate the options.
+#. Default: "Anonymous user will be able to fill the survey"
+#: ../content/schemata.py:99
+msgid "help_allow_anonymous"
+msgstr ""
+
+#. Default: "Allow logged in users to save survey for finishing later."
+#: ../content/schemata.py:109
+msgid "help_allow_save"
+msgstr ""
+
 #. 
+#. Default: "Enter the options you want to be available to the user here. Press enter to seperate the options."
+#: ../content/schemata.py:498
 #, fuzzy
 msgid "help_answer_options"
 msgstr "Zadejte seznam odpovědí, které mají být nabídnuty uživateli"
 
-#. Default: The comment label.
 #. 
+#. Default: "The comment label."
+#: ../content/schemata.py:288
+#, fuzzy
 msgid "help_comment_label"
 msgstr "Poznámka"
 
 #. Default: "Prevent respondents usernames from appearing in results"
-#: ../content/schemata.py:90
+#: ../content/schemata.py:89
 msgid "help_confidential"
 msgstr ""
 
-#. Default: Add a short description of the survey here.
 #. 
+#. Default: "Add a short description of the survey here."
+#: ../content/schemata.py:200
+#, fuzzy
 msgid "help_description"
 msgstr "Zadejte krátký popis dotazníku"
 
+#. Default: "An email invite will be sent to loaded respondents, use '**Name**' for the respondents name, and '**Survey**' for the title of the survey as a link to the survey."
+#: ../content/schemata.py:164
+msgid "help_email_invite"
+msgstr ""
+
 #. 
 #. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
-#: ../content/schemata.py:77
+#: ../content/schemata.py:76
 #, fuzzy
 msgid "help_exit_url"
 msgstr "Zadejte URL, kam bude uživatel přesměrován po dokončení dotazníku. Použijte buď \"http://cil.presmerovani.cz/stranka\" nebo jen /stranka/na/tomto/portale\"."
 
-#. Default: Please select what type of input you would like to use for this question.
 #. 
+#. Default: "Please select what type of input you would like to use for this question."
+#: ../content/schemata.py:407
+#, fuzzy
 msgid "help_input_type"
 msgstr "Vyberte, jaký typ položky se má pro tuto otázku použít."
 
 #. Default: "Enter an introduction for the survey."
-#: ../content/schemata.py:27
+#: ../content/schemata.py:26
 msgid "help_introduction"
 msgstr ""
 
-#. Default: Select what type of comment box you would like.
+#. Default: "Enter person's email address that the survey invite email is from."
+#: ../content/schemata.py:190
+msgid "help_invite_from_email"
+msgstr ""
+
+#. Default: "Enter person's name that the survey invite email is from."
+#: ../content/schemata.py:179
+msgid "help_invite_from_name"
+msgstr ""
+
 #. 
+#. Default: "Select what type of comment box you would like."
+#: ../content/schemata.py:275
+#, fuzzy
 msgid "help_label_comment_type"
 msgstr "Vyberte, jaký typ pole komentáře má být použit."
 
-#. Default: The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally.
+#. Default: "Select a Likert scale to use for options, or use the box below."
+#: ../content/schemata.py:476
+msgid "help_likertoptions"
+msgstr ""
+
+#. Default: "Enter the maximum number of characters a user can enter for this question"
+#: ../content/schemata.py:419
+msgid "help_maxlength"
+msgstr ""
+
+#. Default: "Leave this blank to make the question required, or enter a value for no response, eg Not applicable"
+#: ../content/schemata.py:591
+msgid "help_nullvalue"
+msgstr ""
+
+#. Default: "Leave this blank to make the question required, or enter a value for no response, eg Not applicable. If this is a multiple select or checkbox field, enter some random text, which will not appear in the survey, to make this question not required."
+#: ../content/schemata.py:509
+msgid "help_nullvalue_select"
+msgstr ""
+
 #. 
+#. Default: "The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally."
+#: ../content/schemata.py:214
 #, fuzzy
 msgid "help_previous_question"
 msgstr "Podmínka určuje, kdy se má zobrazit pod-dotazník."
 
-#. Default: Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed.
 #. 
+#. Default: "Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed."
+#: ../content/schemata.py:227
 #, fuzzy
 msgid "help_previous_question_answer"
 msgstr "Zadejte prosím požadovanou odpověď pro výše vybranou otázku."
 
-#. Default: Check this box if the required answer should be selected for this Sub Survey to be displayed.
 #. 
+#. Default: "Check this box if the required answer should be selected for this Sub Survey to be displayed."
+#: ../content/schemata.py:240
+#, fuzzy
 msgid "help_previous_question_answer_yes_no"
 msgstr "Zaškrtněte toto políčko, pokud požadovaná odpověď má být uživatelem vybrána (aby mohl pokračovat pod-dotazníkem)."
 
-#. Default: Add a long description of the question here, to clarify any details.
 #. 
+#. Default: "Add a long description of the question here, to clarify any details."
+#: ../content/schemata.py:341
+#, fuzzy
 msgid "help_question_description"
 msgstr "Zadejte podrobný popis otázky"
 
-#. Default: Select if this question is required, meaning participant must give a response.
 #. 
+#. Default: "Select if this question is required, meaning participant must give a response."
+#: ../content/schemata.py:262
+#, fuzzy
 msgid "help_required"
 msgstr "Je tato otázka povinná (uživatel si musí vybrat jednu z odpovědí nebo vložit nějaký text)."
 
+#. Default: "Display the likert options in reverse order, bad to good."
+#: ../content/schemata.py:487
+msgid "help_reverselikert"
+msgstr ""
+
 #. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
-#: ../content/schemata.py:66
+#: ../content/schemata.py:65
 msgid "help_saved_text"
 msgstr ""
 
-#. Default: Enter an email address to receive notifications of survey completions.
 #. 
+#. Default: "Enter an email address to receive notifications of survey completions."
+#: ../content/schemata.py:120
+#, fuzzy
 msgid "help_survey_notification_email"
 msgstr "Zadejte emailovou adresu na kterou se mají zasílat informace o nově  vyplněném dotazníku."
 
-#. Default: Select a method to receive notification emails.
 #. 
+#. Default: "Select a method to receive notification emails."
+#: ../content/schemata.py:131
+#, fuzzy
 msgid "help_survey_notification_method"
 msgstr "Vyberte metodu pro příjem notifikačních zpráv."
 
-#. Default: Enter a number of columns for this field (width of the field in the characters)
 #. 
+#. Default: "Enter a number of columns for this field (width of the field in the characters)"
+#: ../content/schemata.py:431
+#, fuzzy
 msgid "help_text_cols"
 msgstr "Zadejte šířku sloupce tohoto pole (šířka je udávána v počtu znaků)."
 
-#. Default: Enter a number of rows for this field. This value is applicable only in the Text Area input type
 #. 
+#. Default: "Enter a number of rows for this field. This value is applicable only in the Text Area input type"
+#: ../content/schemata.py:443
+#, fuzzy
 msgid "help_text_rows"
 msgstr "Zadejte výšku tohoto pole (výška je udávána v počtu řádků a má význam pouze u typu pole Text Area)"
 
+#. Default: "Select where the text block above should appear."
+#: ../content/schemata.py:316
+msgid "help_textlocation"
+msgstr ""
+
 #. 
 #. Default: "This is the message that will be displayed to the user when they complete the survey."
-#: ../content/schemata.py:53
+#: ../content/schemata.py:52
 #, fuzzy
 msgid "help_thankyou"
 msgstr "Zde zadejte zprávu, která se zobrazí uživateli jakmile dokončí dotazník"
 
-#. Default: Enter a title.
 #. 
-msgid "help_title"
-msgstr "Zadejte nadpis."
-
-#. Default: Select a validation for this question
-#. 
+#. Default: "Select a validation for this question"
+#: ../content/schemata.py:456
+#, fuzzy
 msgid "help_validation"
 msgstr "Zadejte validátor pro tuto otázku."
 
@@ -390,13 +548,22 @@ msgstr "Zadejte validátor pro tuto otázku."
 msgid "label_all_emails"
 msgstr "Email při každé odpovědi na dotazník"
 
-#. Default: Allow Anonymous
 #. 
+#. Default: "Allow Anonymous"
+#: ../content/schemata.py:98
+#, fuzzy
 msgid "label_allow_anonymous"
 msgstr "Povolit dotazník anonymům"
 
-#. Default: Answer options
+#. Default: "Allow Save Functionality"
+#: ../content/schemata.py:108
+msgid "label_allow_save"
+msgstr ""
+
 #. 
+#. Default: "Answer options"
+#: ../content/schemata.py:497
+#, fuzzy
 msgid "label_answer_options"
 msgstr "Odpovědi"
 
@@ -421,23 +588,29 @@ msgstr ""
 msgid "label_check_boxes"
 msgstr "Zatrhávací políčka"
 
-#. Default: Comment label
 #. 
+#. Default: "Comment label"
+#: ../content/schemata.py:287
+#, fuzzy
 msgid "label_comment_label"
 msgstr "Poznámka"
 
-#. Default: Comment Type
 #. 
+#. Default: "Comment Type"
+#: ../content/schemata.py:274
+#, fuzzy
 msgid "label_comment_type"
 msgstr "Typ poznámky"
 
 #. Default: "Confidential"
-#: ../content/schemata.py:89
+#: ../content/schemata.py:88
 msgid "label_confidential"
 msgstr ""
 
-#. Default: Survey description
 #. 
+#. Default: "Survey description"
+#: ../content/schemata.py:199
+#, fuzzy
 msgid "label_description"
 msgstr "Popis dotazníku"
 
@@ -451,9 +624,19 @@ msgstr ""
 msgid "label_email_address"
 msgstr ""
 
+#. Default: "Email Invite"
+#: ../content/schemata.py:163
+msgid "label_email_invite"
+msgstr ""
+
+#. Default: "Ending Year"
+#: ../content/schemata.py:378
+msgid "label_endingyear"
+msgstr ""
+
 #. 
 #. Default: "Exit URL"
-#: ../content/schemata.py:76
+#: ../content/schemata.py:75
 #, fuzzy
 msgid "label_exit_url"
 msgstr "Přesměrování"
@@ -463,14 +646,36 @@ msgstr "Přesměrování"
 msgid "label_fullname"
 msgstr ""
 
-#. Default: Input Type
+#. Default: "Future Years"
+#: ../content/schemata.py:387
+msgid "label_futureyears"
+msgstr ""
+
 #. 
+#. Default: "Input Type"
+#: ../content/schemata.py:406
+#, fuzzy
 msgid "label_input_type"
 msgstr "Typ otázky"
 
 #. Default: "Introduction"
-#: ../content/schemata.py:25
+#: ../content/schemata.py:24
 msgid "label_introduction"
+msgstr ""
+
+#. Default: "Email Invite From"
+#: ../content/schemata.py:189
+msgid "label_invite_from_email"
+msgstr ""
+
+#. Default: "Person Invite From"
+#: ../content/schemata.py:178
+msgid "label_invite_from_name"
+msgstr ""
+
+#. Default: "Likert Options"
+#: ../content/schemata.py:475
+msgid "label_likertoptions"
 msgstr ""
 
 #. Default: "Question"
@@ -478,10 +683,10 @@ msgstr ""
 msgid "label_matrix_question"
 msgstr ""
 
-#. Default: Add survey status to the survey title (open, closed)?
-#. 
-msgid "label_modify_title"
-msgstr "Připojit k nadpisu dotaznku popis jeho aktuálního stavu (povolen, nepovolen)?"
+#. Default: "Maximum length of characters"
+#: ../content/schemata.py:418
+msgid "label_maxlength"
+msgstr ""
 
 #. Default: "Multiple Selection Box"
 #: ../config.py:47
@@ -503,6 +708,11 @@ msgstr "Nezasílat emaily"
 #. Default: "No users have completed the survey yet."
 #: ../skins/plone_survey/respondents_view.cpt:77
 msgid "label_no_users_yet"
+msgstr ""
+
+#. Default: "Null Value"
+#: ../content/schemata.py:508
+msgid "label_nullvalue"
 msgstr ""
 
 #. Default: "Add Page"
@@ -535,23 +745,31 @@ msgstr ""
 msgid "label_overview_no_question"
 msgstr ""
 
-#. Default: Conditional Question
 #. 
+#. Default: "Conditional Question"
+#: ../content/schemata.py:213
+#, fuzzy
 msgid "label_previous_question"
 msgstr "Rozhodná otázka"
 
-#. Default: Required Answer
 #. 
+#. Default: "Required Answer"
+#: ../content/schemata.py:226
+#, fuzzy
 msgid "label_previous_question_answer"
 msgstr "Vyžadována odpověď"
 
-#. Default: Use Required Answer?
 #. 
+#. Default: "Use Required Answer?"
+#: ../content/schemata.py:239
+#, fuzzy
 msgid "label_previous_question_answer_yes_no"
 msgstr "Použít vyžadovanou odpověď?"
 
-#. Default: Description
 #. 
+#. Default: "Description"
+#: ../content/schemata.py:340
+#, fuzzy
 msgid "label_question_description"
 msgstr "Popis"
 
@@ -561,8 +779,10 @@ msgstr "Popis"
 msgid "label_radio_buttons"
 msgstr "Výběr jedné z možností"
 
-#. Default: Required
 #. 
+#. Default: "Required"
+#: ../content/schemata.py:261
+#, fuzzy
 msgid "label_required"
 msgstr "Vyžadováno"
 
@@ -582,9 +802,14 @@ msgstr "(Vyžadováno)"
 msgid "label_reset"
 msgstr ""
 
+#. Default: "Reverse Likert Scale"
+#: ../content/schemata.py:486
+msgid "label_reverselikert"
+msgstr ""
+
 #. 
 #. Default: "'Saved' message text"
-#: ../content/schemata.py:64
+#: ../content/schemata.py:63
 #, fuzzy
 msgid "label_saved_text"
 msgstr "Uložený text"
@@ -595,19 +820,43 @@ msgstr "Uložený text"
 msgid "label_selection_box"
 msgstr "Výběr jedné z možností pomocí rozbalovacího menu"
 
+#. Default: "Show Captcha"
+#: ../content/schemata.py:147
+msgid "label_show_captcha"
+msgstr ""
+
+#. Default: "Show hours and minutes"
+#: ../content/schemata.py:360
+msgid "label_showhm"
+msgstr ""
+
+#. Default: "Show date"
+#: ../content/schemata.py:351
+msgid "label_showymd"
+msgstr ""
+
+#. Default: "Starting Year"
+#: ../content/schemata.py:369
+msgid "label_startingyear"
+msgstr ""
+
 #. Default: "Closed"
 #: ../config.py:31
 #, fuzzy
 msgid "label_survey_closed"
 msgstr "Uzavřen"
 
-#. Default: Survey Notification Email Address
 #. 
+#. Default: "Survey Notification Email Address"
+#: ../content/schemata.py:118
+#, fuzzy
 msgid "label_survey_notification_email"
 msgstr "Notifikační email adresa"
 
-#. Default: Survey Notification Method
 #. 
+#. Default: "Survey Notification Method"
+#: ../content/schemata.py:130
+#, fuzzy
 msgid "label_survey_notification_method"
 msgstr "Způsob notifikace"
 
@@ -617,19 +866,16 @@ msgstr "Způsob notifikace"
 msgid "label_survey_open"
 msgstr "Otevřen"
 
-#. Default: Survey currently
-#. 
-msgid "label_survey_status"
-msgstr "Dotazník je:"
-
 #. Default: "Text Area"
 #: ../config.py:41
 #, fuzzy
 msgid "label_text_area"
 msgstr "Textová oblast (více textu) "
 
-#. Default: Cols (width in characters)
 #. 
+#. Default: "Cols (width in characters)"
+#: ../content/schemata.py:430
+#, fuzzy
 msgid "label_text_cols"
 msgstr "Šířka (počet znaků)"
 
@@ -639,22 +885,29 @@ msgstr "Šířka (počet znaků)"
 msgid "label_text_field"
 msgstr "Textové pole (řádek textu)"
 
-#. Default: Rows (number of lines)
 #. 
+#. Default: "Rows (number of lines)"
+#: ../content/schemata.py:442
+#, fuzzy
 msgid "label_text_rows"
 msgstr "Výška (počet řádek)"
 
+#. Default: "Text Block"
+#: ../content/schemata.py:303
+msgid "label_textblockbody"
+msgstr ""
+
+#. Default: "Location of Text Block"
+#: ../content/schemata.py:315
+msgid "label_textlocation"
+msgstr ""
+
 #. 
 #. Default: "'Thank you' message text"
-#: ../content/schemata.py:51
+#: ../content/schemata.py:50
 #, fuzzy
 msgid "label_thank"
 msgstr "Závěrečný (děkovný) text"
-
-#. Default: Title
-#. 
-msgid "label_title"
-msgstr "Nadpis"
 
 #. Default: "This question had a date input type, for results use the"
 #: ../skins/plone_survey/survey_barchart.pt:56
@@ -671,8 +924,10 @@ msgstr ""
 msgid "label_use_options_below"
 msgstr ""
 
-#. Default: Validation
 #. 
+#. Default: "Validation"
+#: ../content/schemata.py:455
+#, fuzzy
 msgid "label_validation"
 msgstr "Validace"
 
@@ -806,25 +1061,13 @@ msgstr ""
 msgid "survey_reset"
 msgstr "Vymazaní všech odpovědí"
 
-#. Default: "Please correct the errors"
+#. Default: "Please correct the errors shown"
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:40
 #: ../skins/plone_survey/validate_reset_survey.vpy:8
 #: ../skins/plone_survey/validate_survey.vpy:82
 #, fuzzy
 msgid "text_correct_errors"
 msgstr "Opravte prosím vyznačené chyby"
-
-#. Default: You have saved the survey. Don't forget to come back and finish it.
-#. 
-msgid "text_default_saved_message"
-msgstr ""
-"Vaše odpovědi byly uloženy\n"
-"Nezapomeňte se brzy vrátit a dotazník dokončit. Děkujeme."
-
-#. Default: Thank you for completing the survey.
-#. 
-msgid "text_default_thank_you"
-msgstr "Děkujeme za vyplnění dotazníku."
 
 #. Default: "Survey did not reset correctly"
 #: ../skins/plone_survey/respondents_reset.vpy:17

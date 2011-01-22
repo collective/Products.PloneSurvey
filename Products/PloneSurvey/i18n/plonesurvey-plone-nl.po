@@ -57,49 +57,6 @@ msgstr ""
 msgid "Results"
 msgstr "Resultaten"
 
-#. Default: Sub Survey
-#: ../content/SubSurvey.py
-msgid "Sub Survey"
-msgstr "Sub Enquete"
-
-#. Default: Survey
-#: ../content/Survey.py
-msgid "Survey"
-msgstr "Enquete"
-
-#. Default: Survey Date Question
-msgid "Survey Date Question"
-msgstr ""
-
-#. Default: Survey Likert Question
-#: ../content/SurveyLikertQuestion.py
-msgid "Survey Likert Question"
-msgstr "Enquete Stellig Vraag"
-
-#. Default: Survey Matrix
-#: ../content/SurveyMatrix.py
-msgid "Survey Matrix"
-msgstr "Enquete Matrix"
-
-#. Default: Survey Matrix Question
-msgid "Survey Matrix Question"
-msgstr "Enquête matrixvraag"
-
-#. Default: Survey Question
-#: ../content/SurveyQuestion.py
-msgid "Survey Question"
-msgstr "Enquete Vraag"
-
-#. Default: Survey Select Question
-#: ../content/SurveySelectQuestion.py
-msgid "Survey Select Question"
-msgstr "Selecteer Enquete vraag"
-
-#. Default: Survey Text Question
-#: ../content/SurveyTextQuestion.py
-msgid "Survey Text Question"
-msgstr "Enquête tekstuele vraag"
-
 # THESE WERE ADDED 31.10.2006
 #. Default: default
 msgid "default"

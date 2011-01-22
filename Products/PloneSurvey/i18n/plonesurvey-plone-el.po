@@ -61,49 +61,6 @@ msgstr ""
 msgid "Results"
 msgstr "Αποτελέσματα"
 
-#. Default: Sub Survey
-#: ../content/SubSurvey.py
-msgid "Sub Survey"
-msgstr "Υπο-ερωτηματολόγιο"
-
-#. Default: Survey
-#: ../content/Survey.py
-msgid "Survey"
-msgstr "Ερωτηματολόγιο"
-
-#. Default: Survey Date Question
-msgid "Survey Date Question"
-msgstr ""
-
-#. Default: Survey Likert Question
-#: ../content/SurveyLikertQuestion.py
-msgid "Survey Likert Question"
-msgstr "Ερώτηση Likert"
-
-#. Default: Survey Matrix
-#: ../content/SurveyMatrix.py
-msgid "Survey Matrix"
-msgstr "Πίνακας Ερωτήσεων"
-
-#. Default: Survey Matrix Question
-msgid "Survey Matrix Question"
-msgstr "Ερώτηση Πίνακα"
-
-#. Default: Survey Question
-#: ../content/SurveyQuestion.py
-msgid "Survey Question"
-msgstr "Ερώτηση"
-
-#. Default: Survey Select Question
-#: ../content/SurveySelectQuestion.py
-msgid "Survey Select Question"
-msgstr "Ερώτηση Επιλογής"
-
-#. Default: Survey Text Question
-#: ../content/SurveyTextQuestion.py
-msgid "Survey Text Question"
-msgstr "Ερώτηση Κειμένου"
-
 # THESE WERE ADDED 31.10.2006
 #. Default: default
 msgid "default"

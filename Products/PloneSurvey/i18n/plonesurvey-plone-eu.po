@@ -60,49 +60,6 @@ msgstr ""
 msgid "Results"
 msgstr "Emaitzak"
 
-#. Default: Sub Survey
-#: ../content/SubSurvey.py
-msgid "Sub Survey"
-msgstr "Azpi inkesta"
-
-#. Default: Survey
-#: ../content/Survey.py
-msgid "Survey"
-msgstr "Inkesta"
-
-#. Default: Survey Date Question
-msgid "Survey Date Question"
-msgstr ""
-
-#. Default: Survey Likert Question
-#: ../content/SurveyLikertQuestion.py
-msgid "Survey Likert Question"
-msgstr ""
-
-#. Default: Survey Matrix
-#: ../content/SurveyMatrix.py
-msgid "Survey Matrix"
-msgstr ""
-
-#. Default: Survey Matrix Question
-msgid "Survey Matrix Question"
-msgstr ""
-
-#. Default: Survey Question
-#: ../content/SurveyQuestion.py
-msgid "Survey Question"
-msgstr "Galdera"
-
-#. Default: Survey Select Question
-#: ../content/SurveySelectQuestion.py
-msgid "Survey Select Question"
-msgstr "Erantzuna aukeratzeko galdera"
-
-#. Default: Survey Text Question
-#: ../content/SurveyTextQuestion.py
-msgid "Survey Text Question"
-msgstr "Testua sartzeko galdera"
-
 # THESE WERE ADDED 31.10.2006
 #. Default: default
 msgid "default"

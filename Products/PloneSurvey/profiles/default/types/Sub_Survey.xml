@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <object name="Sub Survey"
    meta_type="Factory-based Type Information with dynamic views"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Sub Survey</property>
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="plonesurvey">
+ <property name="title" i18n:translate="">Sub Survey</property>
  <property
-    name="description">A sub page within a survey.</property>
+    name="description" i18n:translate="">A sub page within a survey.</property>
  <property name="content_icon">icon_plonesurvey_small.gif</property>
  <property name="content_meta_type">SubSurvey</property>
  <property name="product">PloneSurvey</property>

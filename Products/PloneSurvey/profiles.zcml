@@ -7,7 +7,7 @@
       name="default"
       title="Plone Survey"
       directory="profiles/default"
-      description="Extension profile for default Plone Survey setup."
+      description="A survey product for Plone."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 

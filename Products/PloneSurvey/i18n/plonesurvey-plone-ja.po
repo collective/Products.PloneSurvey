@@ -59,49 +59,6 @@ msgstr ""
 msgid "Results"
 msgstr "結果"
 
-#. Default: Sub Survey
-#: ../content/SubSurvey.py
-msgid "Sub Survey"
-msgstr "サブアンケート"
-
-#. Default: Survey
-#: ../content/Survey.py
-msgid "Survey"
-msgstr "アンケート"
-
-#. Default: Survey Date Question
-msgid "Survey Date Question"
-msgstr ""
-
-#. Default: Survey Likert Question
-#: ../content/SurveyLikertQuestion.py
-msgid "Survey Likert Question"
-msgstr "リッカート法による質問"
-
-#. Default: Survey Matrix
-#: ../content/SurveyMatrix.py
-msgid "Survey Matrix"
-msgstr "マトリックス形式の質問"
-
-#. Default: Survey Matrix Question
-msgid "Survey Matrix Question"
-msgstr "マトリックス形式の質問"
-
-#. Default: Survey Question
-#: ../content/SurveyQuestion.py
-msgid "Survey Question"
-msgstr "アンケートの質問"
-
-#. Default: Survey Select Question
-#: ../content/SurveySelectQuestion.py
-msgid "Survey Select Question"
-msgstr "択一式の質問"
-
-#. Default: Survey Text Question
-#: ../content/SurveyTextQuestion.py
-msgid "Survey Text Question"
-msgstr "自由回答形式の質問"
-
 # THESE WERE ADDED 31.10.2006
 #. Default: default
 msgid "default"

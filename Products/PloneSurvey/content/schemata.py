@@ -8,7 +8,6 @@ from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
 from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import *
-from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
 
 SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
     
@@ -96,9 +95,9 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         searchable=0,
         required=0,
         widget=BooleanWidget(
-            label="Allow Anonymous",
-            label_msgid="label_allow_anonymous",
-            i18n_domain="plonesurvey",
+            label=_('label_allow_anonymous', default=u"Allow Anonymous"),
+            description=_('help_allow_anonymous',
+                          default=u"Anonymous user will be able to fill the survey"),
           ),
         ),
 
@@ -106,11 +105,9 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         searchable=0,
         required=0,
         widget=BooleanWidget(
-            label="Allow Save Functionality",
-            label_msgid="label_allow_save",
-            description="Allow logged in users to save survey for finishing later.",
-            description_msgid="help_allow_save",
-            i18n_domain="plonesurvey",
+            label=_("label_allow_save", default=u"Allow Save Functionality"),
+            description=_("help_allow_save",
+                          default=u"Allow logged in users to save survey for finishing later."),
           ),
         ),
 
@@ -118,11 +115,10 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         required=0,
         searchable=0,
         widget=StringWidget(
-            label="Survey Notification Email Address",
-            label_msgid="label_survey_notification_email",
-            description="Enter an email address to receive notifications of survey completions.",
-            description_msgid="help_survey_notification_email",
-            i18n_domain="plonesurvey",
+            label=_("label_survey_notification_email",
+                    default=u"Survey Notification Email Address"),
+            description=_("help_survey_notification_email",
+                          default=u"Enter an email address to receive notifications of survey completions."),
           ),
         ),
 
@@ -131,11 +127,9 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         searchable=0,
         vocabulary=NOTIFICATION_METHOD,
         widget=SelectionWidget(
-            label="Survey Notification Method",
-            label_msgid="label_survey_notification_method",
-            description="Select a method to receive notification emails.",
-            description_msgid="help_survey_notification_method",
-            i18n_domain="plonesurvey",
+            label=_("label_survey_notification_method", default=u"Survey Notification Method"),
+            description=_("help_survey_notification_method",
+                          default=u"Select a method to receive notification emails."),
            ),
         ),
 
@@ -150,9 +144,7 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         searchable=0,
         required=0,
         widget=BooleanWidget(
-            label="Show Captcha",
-            label_msgid="label_show_captcha",
-            i18n_domain="plonesurvey",
+            label=_("label_show_captcha", default=u"Show Captcha"),
           ),
         ),
 
@@ -160,22 +152,22 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         searchable = 1,
         required = 0,
         schemata = "Email Invite",
-        default = DEFAULT_SURVEY_INVITE,
+        default_method = "_get_emailInvite_default",
         default_content_type    = 'text/html',
         default_output_type     = 'text/html',
         allowable_content_types=('text/plain',
                                  'text/structured',
                                  'text/html',
                                 ),
-        widget = RichWidget(description = """An email invite will be sent to loaded respondents,
-                                             use '**Name**' for the respondents name,
-                                             and '**Survey**' for the title of the survey as a link to the survey.""",
-                            label = "Email Invite",
-                            label_msgid = 'label_email_invite',
-                            description_msgid = 'help_email_invite',
-                            rows = 5,
-                            i18n_domain = "plonesurvey",
-                           ),
+        widget = RichWidget(
+            label = _('label_email_invite', default=u"Email Invite"),
+            description = _('help_email_invite',
+                            default=u"An email invite will be sent to loaded respondents, "
+                                    u"use '**Name**' for the respondents name, "
+                                    u"and '**Survey**' for the title of the survey as a link "
+                                    u"to the survey.",
+                                    )
+            ),
     ),
 
     StringField('inviteFromName',
@@ -183,11 +175,9 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         required=0,
         searchable=0,
         widget=StringWidget(
-            label="Person Invite From",
-            label_msgid="label_invite_from_name",
-            description="Enter person's name that the survey invite email is from.",
-            description_msgid="help_invite_from_name",
-            i18n_domain="plonesurvey",
+            label=_("label_invite_from_name", default=u"Person Invite From"),
+            description=_("help_invite_from_name",
+                          default=u"Enter person's name that the survey invite email is from."),
           ),
         ),
 
@@ -196,22 +186,19 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
         required=0,
         searchable=0,
         widget=StringWidget(
-            label="Email Invite From",
-            label_msgid="label_invite_from_email",
-            description="Enter person's email address that the survey invite email is from.",
-            description_msgid="help_invite_from_email",
-            i18n_domain="plonesurvey",
+            label=_("label_invite_from_email", default=u"Email Invite From"),
+            description=_("help_invite_from_email",
+                          default=u"Enter person's email address that the survey invite "
+                                  u"email is from."),
           ),
         ),
 
 ))
 
 finalizeATCTSchema(SurveySchema, moveDiscussion=False)
-SurveySchema["description"].widget.label = "Survey description"
-SurveySchema["description"].widget.label_msgid = "label_description"
-SurveySchema["description"].widget.description = "Add a short description of the survey here."
-SurveySchema["description"].widget.description_msgid = "help_description"
-SurveySchema["description"].widget.i18n_domain = "plonesurvey"
+SurveySchema["description"].widget.label = _("label_description", default=u"Survey description")
+SurveySchema["description"].widget.description = _("help_description",
+                                                   default=u"Add a short description of the survey here.")
 del SurveySchema["relatedItems"]
 
 SubSurveySchema = ATContentTypeSchema.copy() + Schema((
@@ -223,12 +210,10 @@ SubSurveySchema = ATContentTypeSchema.copy() + Schema((
         vocabulary='getValidationQuestions',
         widget=SelectionWidget(
             format="radio",
-            label="Conditional Question",
-            label_msgid="label_previous_question",
-            description="""The conditional question determines whether to display this Sub Survey.
-            Select 'None' to display the Sub Survey unconditionally.""",
-            description_msgid="help_previous_question",
-            i18n_domain="plonesurvey",
+            label=_("label_previous_question", default=u"Conditional Question"),
+            description=_("help_previous_question",
+                          default=u"The conditional question determines whether to display this "
+                                  u"Sub Survey. Select 'None' to display the Sub Survey unconditionally."),
            ),
         ),
 
@@ -238,12 +223,10 @@ SubSurveySchema = ATContentTypeSchema.copy() + Schema((
         required=0,
         vocabulary='getQuestions',
         widget=StringWidget(
-            label="Required Answer",
-            label_msgid="label_previous_question_answer",
-            description="""Enter a required answer to the conditional question above to determine
-            whether this Sub Survey is displayed.""",
-            description_msgid="help_previous_question_answer",
-            i18n_domain="plonesurvey",
+            label=_("label_previous_question_answer", default=u"Required Answer"),
+            description=_("help_previous_question_answer",
+                          default=u"Enter a required answer to the conditional question above to determine "
+                                  u"whether this Sub Survey is displayed."),
           ),
         ),
 
@@ -253,22 +236,19 @@ SubSurveySchema = ATContentTypeSchema.copy() + Schema((
         required=0,
         default=1,
         widget=BooleanWidget(
-            label="Use Required Answer?",
-            label_msgid="label_previous_question_answer_yes_no",
-            description="Check this box if the required answer should be selected for this Sub Survey to be displayed.",
-            description_msgid="help_previous_question_answer_yes_no",
-            i18n_domain="plonesurvey",
+            label=_("label_previous_question_answer_yes_no", default=u"Use Required Answer?"),
+            description=_("help_previous_question_answer_yes_no",
+                          default=u"Check this box if the required answer should be selected for "
+                                  u"this Sub Survey to be displayed."),
           ),
         ),
 
     ))
 
 finalizeATCTSchema(SubSurveySchema, moveDiscussion=False)
-SubSurveySchema["description"].widget.label = "Survey description"
-SubSurveySchema["description"].widget.label_msgid = "label_description"
-SubSurveySchema["description"].widget.description = "Add a short description of the survey here."
-SubSurveySchema["description"].widget.description_msgid = "help_description"
-SubSurveySchema["description"].widget.i18n_domain = "plonesurvey"
+SubSurveySchema["description"].widget.label = _("label_description", default=u"Survey description")
+SubSurveySchema["description"].widget.description = _("help_description",
+                                                      default=u"Add a short description of the survey here.")
 del SubSurveySchema["relatedItems"]
 
 BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
@@ -278,11 +258,10 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
         required=0,
         default=1,
         widget=BooleanWidget(
-            label="Required",
-            label_msgid="label_required",
-            description="Select if this question is required, meaning participant must give a response.",
-            description_msgid="help_required",
-            i18n_domain="plonesurvey",
+            label=_("label_required", default=u"Required"),
+            description=_("help_required",
+                          default=u"Select if this question is required, meaning participant must "
+                                  u"give a response."),
            ),
         ),
 
@@ -292,12 +271,10 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
         required=0,
         vocabulary=COMMENT_TYPE,
         widget=SelectionWidget(
-            label="Comment Type",
-            label_msgid="label_comment_type",
-            description="Select what type of comment box you would like.",
-            description_msgid="help_label_comment_type",
+            label=_("label_comment_type", default=u"Comment Type"),
+            description=_("help_label_comment_type",
+                          default=u"Select what type of comment box you would like."),
             format="select",
-            i18n_domain="plonesurvey",
           )
         ),
 
@@ -305,13 +282,10 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
         schemata="Comment Field",
         searchable=0,
         required=0,
-        default="Comment - mandatory if \"no\"",
+        default_method="_get_commentLabel_default",
         widget=StringWidget(
-            label="Comment label",
-            label_msgid="label_comment_label",
-            description="The comment label.",
-            description_msgid="help_comment_label",
-            i18n_domain="plonesurvey",
+            label=_("label_comment_label", default=u"Comment label"),
+            description=_("help_comment_label", default="The comment label."),
           )
         ),
 
@@ -326,9 +300,7 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
                                  'text/html',
                                  'text/plain',),
         widget=RichWidget(
-            label="Text Block",
-            label_msgid="label_textblockbody",
-            i18n_domain="plonesurvey",
+            label=_("label_textblockbody", default=u"Text Block"),
            ),
         ),
 
@@ -340,11 +312,9 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
         vocabulary=TEXT_LOCATION,
         widget=SelectionWidget(
             format="radio",
-            label="Location of Text Block",
-            label_msgid="label_textlocation",
-            description="Select where the text block above should appear.",
-            description_msgid="help_textlocation",
-            i18n_domain="plonesurvey",
+            label=_("label_textlocation", default=u"Location of Text Block"),
+            description=_("help_textlocation",
+                          default=u"Select where the text block above should appear."),
            ),
         ),
 
@@ -367,11 +337,9 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
     ))
 
 BaseQuestionSchema["title"].widget.label = "Question"
-BaseQuestionSchema["description"].widget.label = "Description"
-BaseQuestionSchema["description"].widget.label_msgid = "label_question_description"
-BaseQuestionSchema["description"].widget.description = "Add a long description of the question here, to clarify any details."
-BaseQuestionSchema["description"].widget.description_msgid = "help_question_description"
-BaseQuestionSchema["description"].widget.i18n_domain = "plonesurvey"
+BaseQuestionSchema["description"].widget.label = _("label_question_description", default=u"Description")
+BaseQuestionSchema["description"].widget.description = _("help_question_description",
+                                                         default=u"Add a long description of the question here, to clarify any details.")
 
 SurveyDateQuestionSchema = BaseQuestionSchema.copy() + Schema((
 
@@ -380,11 +348,7 @@ SurveyDateQuestionSchema = BaseQuestionSchema.copy() + Schema((
         searchable=0,
         required=0,
         widget=BooleanWidget(
-            label="Show date",
-            label_msgid="label_showymd",
-            description="",
-            description_msgid="help_showymd",
-            i18n_domain="plonesurvey",
+            label=_("label_showymd", default=u"Show date"),
         ),
     ),
 
@@ -393,11 +357,7 @@ SurveyDateQuestionSchema = BaseQuestionSchema.copy() + Schema((
         searchable=0,
         required=0,
         widget=BooleanWidget(
-            label="Show hours and minutes",
-            label_msgid="label_showhm",
-            description="",
-            description_msgid="help_showhmd",
-            i18n_domain="plonesurvey",
+            label=_("label_showhm", default=u"Show hours and minutes"),
         ),
     ),
 
@@ -406,11 +366,7 @@ SurveyDateQuestionSchema = BaseQuestionSchema.copy() + Schema((
         searchable=0,
         required=0,
         widget=IntegerWidget(
-            label="Starting Year",
-            label_msgid="label_startingyear",
-            description="",
-            description_msgid="help_startingyear",
-            i18n_domain="plonesurvey",
+            label=_("label_startingyear", default=u"Starting Year"),
         ),
     ),
 
@@ -419,11 +375,7 @@ SurveyDateQuestionSchema = BaseQuestionSchema.copy() + Schema((
         searchable=0,
         required=0,
         widget=IntegerWidget(
-            label="Ending Year",
-            label_msgid="label_endingyear",
-            description="",
-            description_msgid="help_endingyear",
-            i18n_domain="plonesurvey",
+            label=_("label_endingyear", default=u"Ending Year"),
         ),
     ),
 
@@ -432,11 +384,7 @@ SurveyDateQuestionSchema = BaseQuestionSchema.copy() + Schema((
         searchable=0,
         required=0,
         widget=IntegerWidget(
-            label="Future Years",
-            label_msgid="label_futureyears",
-            description="",
-            description_msgid="help_futureyears",
-            i18n_domain="plonesurvey",
+            label=_("label_futureyears", default=u"Future Years"),
         ),
     ),
 
@@ -455,11 +403,10 @@ SurveyTextQuestionSchema = BaseQuestionSchema.copy() + Schema((
         vocabulary=TEXT_INPUT_TYPE,
         default='text',
         widget=SelectionWidget(
-            label="Input Type",
-            label_msgid="label_input_type",
-            description="Please select what type of input you would like to use for this question.",
-            description_msgid="help_input_type",
-            i18n_domain="plonesurvey",
+            label=_("label_input_type", default=u"Input Type"),
+            description=_("help_input_type",
+                          default=u"Please select what type of input you would "
+                                  u"like to use for this question."),
            ),
         ),
 
@@ -468,11 +415,10 @@ SurveyTextQuestionSchema = BaseQuestionSchema.copy() + Schema((
         required=0,
         default=4000,
         widget=StringWidget(
-            label="Maximum length of characters",
-            label_msgid="label_maxlength",
-            description="Enter the maximum number of characters a user can enter for this question",
-            description_msgid="help_maxlength",
-            i18n_domain="plonesurvey",
+            label=_("label_maxlength", default=u"Maximum length of characters"),
+            description=_("help_maxlength",
+                          default=u"Enter the maximum number of characters a user can enter "
+                                  u"for this question"),
              ),
         ),
 
@@ -481,11 +427,10 @@ SurveyTextQuestionSchema = BaseQuestionSchema.copy() + Schema((
         required=0,
         default=20,
         widget=StringWidget(
-            label="Cols (width in characters)",
-            label_msgid="label_text_cols",
-            description="Enter a number of columns for this field (width of the field in the characters)",
-            description_msgid="help_text_cols",
-            i18n_domain="plonesurvey",
+            label=_("label_text_cols", default="Cols (width in characters)"),
+            description=_("help_text_cols",
+                          default=u"Enter a number of columns for this field "
+                                  u"(width of the field in the characters)"),
              ),
         ),
 
@@ -494,11 +439,10 @@ SurveyTextQuestionSchema = BaseQuestionSchema.copy() + Schema((
         required=0,
         default=6,
         widget=StringWidget(
-            label="Rows (number of lines)",
-            label_msgid="label_text_rows",
-            description="Enter a number of rows for this field. This value is applicable only in the Text Area input type",
-            description_msgid="help_text_rows",
-            i18n_domain="plonesurvey",
+            label=_("label_text_rows", default=u"Rows (number of lines)"),
+            description=_("help_text_rows",
+                          default=u"Enter a number of rows for this field. "
+                                  u"This value is applicable only in the Text Area input type"),
            ),
         ),
 
@@ -508,11 +452,9 @@ SurveyTextQuestionSchema = BaseQuestionSchema.copy() + Schema((
         default = 'None',
         vocabulary='getValidators',
         widget=SelectionWidget(
-            label="Validation",
-            label_msgid="label_validation",
-            description="Select a validation for this question",
-            description_msgid="help_validation",
-            i18n_domain="plonesurvey",
+            label=_(u"label_validation", default=u"Validation"),
+            description=_("help_validation",
+                          default=u"Select a validation for this question"),
           ),
         ),
 
@@ -530,11 +472,10 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
         required=0,
         vocabulary=LIKERT_OPTIONS,
         widget=SelectionWidget(
-            label="Likert Options",
-            label_msgid="label_likertoptions",
-            description="Select a Likert scale to use for options, or use the box below.",
-            description_msgid="help_likertoptions",
-            i18n_domain="plonesurvey",
+            label=_("label_likertoptions", default=u"Likert Options"),
+            description=_("help_likertoptions",
+                          default=u"Select a Likert scale to use for options, "
+                                  u"or use the box below."),
            ),
         ),
 
@@ -542,11 +483,9 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
         searchable=0,
         required=0,
         widget=BooleanWidget(
-            label="Reverse Likert Scale",
-            label_msgid="label_reverselikert",
-            description="""Display the likert options in reverse order, bad to good.""",
-            description_msgid="help_reverselikert",
-            i18n_domain="plonesurvey",
+            label=_("label_reverselikert", default=u"Reverse Likert Scale"),
+            description=_("help_reverselikert",
+                          default=u"Display the likert options in reverse order, bad to good."),
           ),
         ),
 
@@ -555,12 +494,10 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
         required=0,
         default_method="_get_yes_no_default",
         widget=LinesWidget(
-            label="Answer options",
-            label_msgid="label_answer_options",
-            description="""Enter the options you want to be available to the user here.
-                           Press enter to seperate the options.""",
-            description_msgid="help_answer_options",
-            i18n_domain="plonesurvey",
+            label=_('label_answer_options', default=u"Answer options"),
+            description=_("help_answer_options",
+                          default=u"Enter the options you want to be available to the user here. "
+                                  u"Press enter to seperate the options."),
            ),
         ),
 
@@ -568,15 +505,13 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
         searchable=0,
         required=0,
         widget=StringWidget(
-            label="Null Value",
-            label_msgid="label_nullvalue",
-            description="""Leave this blank to make the question required, or
-                           enter a value for no response, eg Not applicable.
-                           If this is a multiple select or checkbox field,
-                           enter some random text, which will not appear in the survey,
-                           to make this question not required.""",
-            description_msgid="help_nullvalue",
-            i18n_domain="plonesurvey",
+            label=_("label_nullvalue", default=u"Null Value"),
+            description=_("help_nullvalue_select",
+                          default=u"Leave this blank to make the question required, or "
+                                  u"enter a value for no response, eg Not applicable. "
+                                  u"If this is a multiple select or checkbox field, "
+                                  u"enter some random text, which will not appear in the survey, "
+                                  u"to make this question not required."),
            ),
         ),
 
@@ -599,11 +534,10 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
         required=0,
         vocabulary=SELECT_INPUT_TYPE,
         widget=SelectionWidget(
-            label="Input Type",
-            label_msgid="label_input_type",
-            description="Please select what type of input you would like to use for this question.",
-            description_msgid="help_input_type",
-            i18n_domain="plonesurvey",
+            label=_("label_input_type", default="Input Type"),
+            description=_("help_input_type",
+                          default=u"Please select what type of input you would like to use "
+                                  u"for this question."),
            ),
         ),
 
@@ -620,11 +554,10 @@ SurveyMatrixSchema = BaseQuestionSchema.copy() + Schema((
         required=0,
         vocabulary=LIKERT_OPTIONS,
         widget=SelectionWidget(
-            label="Likert Options",
-            label_msgid="label_likertoptions",
-            description="Select a Likert scale to use for options, or use the box below.",
-            description_msgid="help_likertoptions",
-            i18n_domain="plonesurvey",
+            label=_("label_likertoptions", default=u"Likert Options"),
+            description=_("help_likertoptions",
+                          default=u"Select a Likert scale to use for options, "
+                                  u"or use the box below."),
            ),
         ),
 
@@ -632,25 +565,21 @@ SurveyMatrixSchema = BaseQuestionSchema.copy() + Schema((
         searchable=0,
         required=0,
         widget=BooleanWidget(
-            label="Reverse Likert Scale",
-            label_msgid="label_reverselikert",
-            description="""Display the likert options in reverse order, bad to good.""",
-            description_msgid="help_reverselikert",
-            i18n_domain="plonesurvey",
+            label=_("label_reverselikert", default=u"Reverse Likert Scale"),
+            description=_("help_reverselikert",
+                          default=u"Display the likert options in reverse order, bad to good."),
           ),
         ),
 
     LinesField('answerOptions',
         searchable=0,
         required=1,
-        default=("Yes", "No"),
+        default_method="_get_yes_no_default",
         widget=LinesWidget(
-            label="Answer options",
-            label_msgid="label_answer_options",
-            description="""Enter the options you want to be available to the user here.
-                           Press enter to seperate the options.""",
-            description_msgid="help_answer_options",
-            i18n_domain="plonesurvey",
+            label=_("label_answer_options", default=u"Answer options"),
+            description=_("help_answer_options",
+                          default=u"Enter the options you want to be available to the user here. "
+                                  u"Press enter to seperate the options."),
            ),
         ),
 
@@ -658,12 +587,10 @@ SurveyMatrixSchema = BaseQuestionSchema.copy() + Schema((
         searchable=0,
         required=0,
         widget=StringWidget(
-            label="Null Value",
-            label_msgid="label_nullvalue",
-            description="""Leave this blank to make the question required, or
-                           enter a value for no response, eg Not applicable""",
-            description_msgid="help_nullvalue",
-            i18n_domain="plonesurvey",
+            label=_("label_nullvalue", default=u"Null Value"),
+            description=_("help_nullvalue",
+                          default=u"Leave this blank to make the question required, or "
+                                  u"enter a value for no response, eg Not applicable"),
            ),
         ),
 
@@ -686,11 +613,10 @@ SurveyMatrixSchema = BaseQuestionSchema.copy() + Schema((
         required=0,
         vocabulary=SELECT_INPUT_TYPE,
         widget=SelectionWidget(
-            label="Input Type",
-            label_msgid="label_input_type",
-            description="Please select what type of input you would like to use for this question.",
-            description_msgid="help_input_type",
-            i18n_domain="plonesurvey",
+            label=_("label_input_type", default=u"Input Type"),
+            description=_("help_input_type",
+                          default=u"Please select what type of input you would like to use for "
+                                  u"this question."),
            ),
         ),
 
@@ -717,11 +643,10 @@ SurveyTwoDimensionalSchema = BaseQuestionSchema.copy() + Schema((
         vocabulary=TWO_D_INPUT_TYPE,
         default='radio',
         widget=SelectionWidget(
-            label="Input Type",
-            label_msgid="label_input_type",
-            description="Please select what type of input you would like to use for this question.",
-            description_msgid="help_input_type",
-            i18n_domain="plonesurvey",
+            label=_("label_input_type", default=u"Input Type"),
+            description=_("help_input_type",
+                          default=u"Please select what type of input you would like to use for "
+                                  u"this question."),
            ),
         ),
 
@@ -735,14 +660,12 @@ SurveyTwoDimensionalQuestionSchema = BaseQuestionSchema.copy() + Schema((
     LinesField('answerOptions',
         searchable=0,
         required=0,
-        default=("Yes", "No"),
+        default="_get_yes_no_default",
         widget=LinesWidget(
-            label="Answer options",
-            label_msgid="label_answer_options",
-            description="""Enter the options you want to be available to the user here.
-                           Press enter to seperate the options.""",
-            description_msgid="help_answer_options",
-            i18n_domain="plonesurvey",
+            label=_("label_answer_options", default=u"Answer options"),
+            description=_("help_answer_options",
+                          default=u"Enter the options you want to be available to the user here. "
+                                  u"Press enter to seperate the options."),
            ),
         ),
 

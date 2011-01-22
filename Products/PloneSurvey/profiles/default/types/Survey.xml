@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <object name="Survey"
    meta_type="Factory-based Type Information with dynamic views"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Survey</property>
- <property
-    name="description">You can add questions to surveys.</property>
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="plonesurvey">
+ <property name="title" i18n:translate="">Survey</property>
+ <property name="description"
+           i18n:translate="">You can add questions to surveys.</property>
  <property name="content_icon">icon_plonesurvey_small.gif</property>
  <property name="content_meta_type">Survey</property>
  <property name="product">PloneSurvey</property>

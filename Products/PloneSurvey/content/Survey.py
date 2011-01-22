@@ -26,10 +26,12 @@ from Products.CMFPlone import PloneMessageFactory
 from Products.PluggableAuthService.PluggableAuthService import addPluggableAuthService
 from Products.PlonePAS.Extensions.Install import *
 
+from Products.PloneSurvey import PloneSurveyMessageFactory as _
 from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.config import BARCHART_COLORS
 from Products.PloneSurvey.interfaces import ISurvey
+from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
 
 from schemata import SurveySchema
 
@@ -536,7 +538,8 @@ class Survey(ATCTOrderedFolder):
     def translateSavedMessage(self):
         """ """
         return self.translate(msgid="text_default_saved_message",
-                              default="You have saved the survey.\nDon't forget to come back and finish it.",
+                              default=u"You have saved the survey.\n "
+                                      u"Don't forget to come back and finish it.",
                               domain="plonesurvey")
 
     security.declareProtected(permissions.ModifyPortalContent, 'deleteAuthenticatedRespondent')
@@ -876,5 +879,14 @@ class Survey(ATCTOrderedFolder):
         if not product_installed and REQUEST.get('showCaptcha', 0):
             if int(REQUEST.get('showCaptcha')):
                 errors['showCaptcha'] = 'Product quintagroup.plonecaptchas not installed'
+
+    security.declarePrivate('_get_emailInvite_default')
+    def _get_emailInvite_default(self):
+        foo = _('emailInviteDefault', default=DEFAULT_SURVEY_INVITE)
+        translation_service = getToolByName(self,'translation_service')
+        return translation_service.utranslate(domain='plonesurvey',
+                                              msgid='emailInviteDefault',
+                                              default=DEFAULT_SURVEY_INVITE,
+                                              context=self)
 
 registerATCT(Survey, PROJECTNAME)

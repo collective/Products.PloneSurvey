@@ -17,41 +17,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-#: ../content/Survey.py
-# Default: Survey
-msgid "Survey"
-msgstr ""
-
-#: ../content/SubSurvey.py
-# Default: Sub Survey
-msgid "Sub Survey"
-msgstr ""
-
-#: ../content/SurveyQuestion.py
-# Default: Survey Question
-msgid "Survey Question"
-msgstr ""
-
-#: ../content/SurveyLikertQuestion.py
-# Default: Survey Likert Question
-msgid "Survey Likert Question"
-msgstr ""
-
-#: ../content/SurveyMatrix.py
-# Default: Survey Matrix
-msgid "Survey Matrix"
-msgstr ""
-
-#: ../content/SurveySelectQuestion.py
-# Default: Survey Select Question
-msgid "Survey Select Question"
-msgstr ""
-
-#: ../content/SurveyTextQuestion.py
-# Default: Survey Text Question
-msgid "Survey Text Question"
-msgstr ""
-
 #: ../content/BaseQuestion.py
 # Default: Comment Field
 msgid "Comment Field"
@@ -87,8 +52,6 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
-# THESE WERE ADDED 31.10.2006
-
 # Default: default
 msgid "default"
 msgstr ""
@@ -99,14 +62,6 @@ msgstr ""
 
 # Default: None
 msgid "None"
-msgstr ""
-
-# Default: Survey Matrix Question
-msgid "Survey Matrix Question"
-msgstr ""
-
-# Default: Survey Date Question
-msgid "Survey Date Question"
 msgstr ""
 
 # Default: Introduction

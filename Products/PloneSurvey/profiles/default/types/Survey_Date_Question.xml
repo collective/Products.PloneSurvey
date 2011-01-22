@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <object name="Survey Date Question"
    meta_type="Factory-based Type Information with dynamic views"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title">Survey Date Question</property>
- <property
-    name="description">A question for date/time within a survey.</property>
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="plonesurvey">
+ <property name="title" i18n:translate="">Survey Date Question</property>
+ <property name="description"
+           i18n:translate="">A question for date/time within a survey.</property>
  <property name="content_icon">icon_plonesurvey_small.gif</property>
  <property name="content_meta_type">SurveyDateQuestion</property>
  <property name="product">PloneSurvey</property>

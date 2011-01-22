@@ -60,49 +60,6 @@ msgstr "Parecipanti"
 msgid "Results"
 msgstr "Risultati"
 
-#. Default: Sub Survey
-#: ../content/SubSurvey.py
-msgid "Sub Survey"
-msgstr "Questionario secondario"
-
-#. Default: Survey
-#: ../content/Survey.py
-msgid "Survey"
-msgstr "Questionario"
-
-#. Default: Survey Date Question
-msgid "Survey Date Question"
-msgstr "Domanda su una data"
-
-#. Default: Survey Likert Question
-#: ../content/SurveyLikertQuestion.py
-msgid "Survey Likert Question"
-msgstr "Domanda di gradimento"
-
-#. Default: Survey Matrix
-#: ../content/SurveyMatrix.py
-msgid "Survey Matrix"
-msgstr "Matrice del questionario"
-
-#. Default: Survey Matrix Question
-msgid "Survey Matrix Question"
-msgstr "Domanda a matrice"
-
-#. Default: Survey Question
-#: ../content/SurveyQuestion.py
-msgid "Survey Question"
-msgstr "Domanda del questionario"
-
-#. Default: Survey Select Question
-#: ../content/SurveySelectQuestion.py
-msgid "Survey Select Question"
-msgstr "Domanda di scelta"
-
-#. Default: Survey Text Question
-#: ../content/SurveyTextQuestion.py
-msgid "Survey Text Question"
-msgstr "Domanda di testo"
-
 # THESE WERE ADDED 31.10.2006
 #. Default: default
 msgid "default"
@@ -110,7 +67,7 @@ msgstr "Predefinito"
 
 #. Default: Branching
 msgid "label_schema_Branching"
-msgstr "Ramificazione"
+msgstr "Diramazione"
 
 #. Default: Comment Field
 msgid "label_schema_Comment Field"
