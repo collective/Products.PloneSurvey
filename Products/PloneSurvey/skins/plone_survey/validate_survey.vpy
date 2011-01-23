@@ -23,9 +23,8 @@ for q in questions:
     if q.portal_type == 'Survey Matrix':
         pass
     elif q.getRequired() and not value and (q.portal_type not in ['Survey Two Dimensional', 'Survey Date Question']):
-        error_msg = context.translate(
-            default=q.pretty_title_or_id() + ': Please provide an answer for this question',
-            msgid='please_provide_answer',
+        error_msg = _(msgid='please_provide_answer',
+            default=u'Please provide an answer for this question',
             domain='plonesurvey')
         state.setError(q.getId(), error_msg)
     if value and hasattr(q, 'getValidation') and q.getValidation() != 'None':
@@ -67,9 +66,8 @@ for q in questions:
             matrix_q.addAnswer(value)
         if qnum != '':
             qnum = qnum[:-1]
-            error_msg = context.translate(
-                default='Please provide an answer for the question',
-                msgid='please_provide_answer_for',
+            error_msg = _(msgid='please_provide_answer',
+                default=u'Please provide an answer for this question',
                 domain='plonesurvey')
             state.setError(q.getId(), "%s %s" % (error_msg, qnum))
 

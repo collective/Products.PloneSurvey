@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.PloneSurvey 1.4.2\n"
-"POT-Creation-Date: 2011-01-22 18:34+0000\n"
+"POT-Creation-Date: 2011-01-23 16:41+0000\n"
 "PO-Revision-Date: 2011-01-14 09:57+0000\n"
 "Last-Translator: luca.fabbri <luca.fabbri at redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.net>\n"
@@ -226,7 +226,7 @@ msgid "You can add questions to surveys."
 msgstr "Puoi aggiungere domane al questionario."
 
 #. Default: "Respondent created"
-#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:46
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:41
 msgid "authenticated_respondent_created"
 msgstr "Partecipanete creato"
 
@@ -284,6 +284,16 @@ msgstr ""
 "<p>Egregio **Name**,</p>\n"
 "<p>La preghiamo di completare il **Survey**</p>\n"
 "<p>Grazie</p>"
+
+#. Default: "The email address is already in use"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:29
+msgid "email_address_in_use"
+msgstr "Questo indirizzo e-mail è giò in uso"
+
+#. Default: "The email address is invalid"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:22
+msgid "email_address_invalid"
+msgstr "L'indirizzo e-mail non è valido"
 
 #. Default: "Comments"
 #: ../skins/plone_survey/survey_barchart.pt:66
@@ -894,6 +904,21 @@ msgstr "Commento:"
 msgid "overview_editquestion"
 msgstr "Modifica domanda"
 
+#. Default: "Please provide an answer for this question"
+#: ../skins/plone_survey/validate_survey.vpy:26
+msgid "please_provide_answer"
+msgstr "Prego, fornisci una risposta a questa domanda."
+
+#. Default: "Please provide an email address"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:14
+msgid "please_provide_email_address"
+msgstr "Prego, fornisci un indirizzo e-mail"
+
+#. Default: "Please provide a name"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:8
+msgid "please_provide_fullname"
+msgstr "Prego fornisci un nome"
+
 #. Default: "This will repair any survey responses that are stored incorrectly. Are you sure?"
 #: ../skins/plone_survey/repair_survey_results.cpt:11
 msgid "repair_survey_text"
@@ -970,9 +995,9 @@ msgid "survey_reset"
 msgstr "Ripristina questionario"
 
 #. Default: "Please correct the errors shown"
-#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:40
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:35
 #: ../skins/plone_survey/validate_reset_survey.vpy:8
-#: ../skins/plone_survey/validate_survey.vpy:82
+#: ../skins/plone_survey/validate_survey.vpy:80
 msgid "text_correct_errors"
 msgstr "Prego, correggi gli errori evidenziati"
 

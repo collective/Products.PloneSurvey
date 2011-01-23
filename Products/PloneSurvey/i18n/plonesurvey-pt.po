@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-22 18:34+0000\n"
+"POT-Creation-Date: 2011-01-23 16:41+0000\n"
 "PO-Revision-Date: 2006-08-09 18:26 +0000\n"
 "Last-Translator: Ricardo Alves <rsa@eurotux.com>\n"
 "Language-Team: Eurotux Development Team <udp@eurotux.com>\n"
@@ -240,7 +240,7 @@ msgid "You can add questions to surveys."
 msgstr ""
 
 #. Default: "Respondent created"
-#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:46
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:41
 msgid "authenticated_respondent_created"
 msgstr ""
 
@@ -307,6 +307,16 @@ msgstr ""
 
 #: ../content/Survey.py:885
 msgid "emailInviteDefault"
+msgstr ""
+
+#. Default: "The email address is already in use"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:29
+msgid "email_address_in_use"
+msgstr ""
+
+#. Default: "The email address is invalid"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:22
+msgid "email_address_invalid"
 msgstr ""
 
 #. <h3 i18n:translate="heading_comments">
@@ -1000,6 +1010,21 @@ msgstr ""
 msgid "overview_editquestion"
 msgstr ""
 
+#. Default: "Please provide an answer for this question"
+#: ../skins/plone_survey/validate_survey.vpy:26
+msgid "please_provide_answer"
+msgstr ""
+
+#. Default: "Please provide an email address"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:14
+msgid "please_provide_email_address"
+msgstr ""
+
+#. Default: "Please provide a name"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:8
+msgid "please_provide_fullname"
+msgstr ""
+
 #. Default: "This will repair any survey responses that are stored incorrectly. Are you sure?"
 #: ../skins/plone_survey/repair_survey_results.cpt:11
 msgid "repair_survey_text"
@@ -1090,9 +1115,9 @@ msgid "survey_reset"
 msgstr "Reiniciar o questionário"
 
 #. Default: "Please correct the errors shown"
-#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:40
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:35
 #: ../skins/plone_survey/validate_reset_survey.vpy:8
-#: ../skins/plone_survey/validate_survey.vpy:82
+#: ../skins/plone_survey/validate_survey.vpy:80
 #, fuzzy
 msgid "text_correct_errors"
 msgstr "Por favor corrija os erros indicados"
