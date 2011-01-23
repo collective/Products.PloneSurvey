@@ -6,7 +6,9 @@ Changelog for Products.PloneSurvey
 
   * Is now possible to translate also default values for some questions content type
     [keul]
-  * The use of i18dude now translated a lot of new entries
+  * The use of i18dude now translate a lot of new entries, not translable before
+    [keul]
+  * Many "plone" msgid moved to a more correct "plonesurvey" domain
     [keul]
 
 1.4.1 - 2010-10-11
