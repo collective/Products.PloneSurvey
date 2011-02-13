@@ -24,7 +24,6 @@ setup(name='Products.PloneSurvey',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'Products.DataGridField<1.8dev'
           # -*- Extra requirements: -*-
       ],
       entry_points="""
