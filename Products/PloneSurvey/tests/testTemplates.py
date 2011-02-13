@@ -60,10 +60,24 @@ class TestSurveyViewWithMultipleMatrix(PloneSurveyTestCase):
         result = s1.survey_view(REQUEST=Request())
         self.assertEqual(result.find('Error Type') >= 0, False)
 
+class TestAnonSurveyView(PloneSurveyTestCase):
+    """Ensure anonoymous can see the survey"""
+
+    def afterSetUp(self):
+        self.createAnonSurvey()
+
+    def testSurveyView(self):
+        """Ensure survey view works"""
+        self.logout()
+        s1 = getattr(self.folder, 's1')
+        result = s1.survey_view(REQUEST=Request())
+        self.assertEqual(result.find('Error Type') >= 0, False)
+
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
     suite.addTest(makeSuite(TestTemplatesWork))
     suite.addTest(makeSuite(TestSubSurveyView))
+    suite.addTest(makeSuite(TestSurveyViewWithMultipleMatrix))
     suite.addTest(makeSuite(TestSurveyViewWithMultipleMatrix))
     return suite

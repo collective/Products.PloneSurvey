@@ -16,9 +16,7 @@
                     questions here/getQuestions;
                     completed python:here.checkCompletedFor(member_id);
                     show_captcha here/getShowCaptcha|nothing;
-                    qi_tool here/portal_quickinstaller;
-                    captcha_prod string:quintagroup.plonecaptchas;
-                    captcha_installed python:qi_tool.isProductInstalled(captcha_prod);
+                    captcha_installed context/isCaptchaInstalled;
                     isAnon context/@@plone_portal_state/anonymous;
                     pagetype here/portal_type">
 

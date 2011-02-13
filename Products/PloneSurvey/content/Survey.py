@@ -880,6 +880,12 @@ class Survey(ATCTOrderedFolder):
             if int(REQUEST.get('showCaptcha')):
                 errors['showCaptcha'] = 'Product quintagroup.plonecaptchas not installed'
 
+    security.declareProtected(permissions.View, 'isCaptchaInstalled')
+    def isCaptchaInstalled(self):
+        """ checks captcha """
+        product_installed = self.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas')
+        return product_installed
+
     security.declarePrivate('_get_emailInvite_default')
     def _get_emailInvite_default(self):
         foo = _('emailInviteDefault', default=DEFAULT_SURVEY_INVITE)
