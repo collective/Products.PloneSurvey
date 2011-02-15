@@ -2,5 +2,13 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:five="http://namespaces.zope.org/five">
 
+    <!-- Folder factories -->
+    <browser:page
+        for="..interfaces.ISurvey"
+        name="folder_factories"
+        class="plone.app.content.browser.folderfactories.FolderFactoriesView"
+        template="folderfactories.pt"
+        permission="cmf.AddPortalContent"
+        />
 
 </configure>

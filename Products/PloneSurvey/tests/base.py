@@ -13,7 +13,6 @@ from Products.CMFCore.utils import getToolByName
 
 # Let Zope know about the two products we require above-and-beyond a basic
 # Plone install (PloneTestCase takes care of these).
-ZopeTestCase.installProduct('DataGridField')
 ZopeTestCase.installProduct('PloneSurvey')
 
 # Import PloneTestCase - this registers more products with Zope as a side effect
