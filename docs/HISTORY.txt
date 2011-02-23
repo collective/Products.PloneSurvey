@@ -1,12 +1,15 @@
 Changelog for Products.PloneSurvey
 ==================================
 
+1.4.3 - Unreleased
+-------------------
+
 1.4.2 - 2011-02-23
 -------------------
 
   * Patch from Gaudenz Steinlin for Sendmail issue in Plone4
     [Michael Davis]
-* Is now possible to translate also default values for some questions content type
+  * Is now possible to translate also default values for some questions content type
     [keul]
   * The use of i18dude now translate a lot of new entries, not translable before
     [keul]
