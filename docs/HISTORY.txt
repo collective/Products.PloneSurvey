@@ -16,7 +16,7 @@ Changelog for Products.PloneSurvey
   * Many "plone" msgid moved to a more correct "plonesurvey" domain
     [keul]
   * Added internal "*folder_factories*" view to see Plone Survey subtypes translated
-    (see also #11520) [keul]
+    (see also `#11520`__) [keul]
 
 __ http://dev.plone.org/plone/ticket/11520
 
