@@ -6,12 +6,12 @@ msgstr ""
 "Last-Translator: Martijn Schenk <martijn.schenk@fourdigits.nl>\n"
 "Language-Team: EIfEL Team <marc.van.coillie@eife-l.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: nl\n"
 "Language-Name: Dutch\n"
-"Preferred-Encodings: utf-8 latin1\n"
+"Preferred-Encodings: utf-8\n"
 "Domain: plonesurvey\n"
 
 #. Default: "A little Useful"
@@ -57,13 +57,11 @@ msgstr ""
 
 #. Default: "Agree"
 #: ../config.py:102
-#, fuzzy
 msgid "Agree"
 msgstr "Mee eens"
 
 #. Default: "Agree Strongly"
 #: ../config.py:101
-#, fuzzy
 msgid "Agree Strongly"
 msgstr "Zeker mee eens"
 
@@ -74,13 +72,11 @@ msgstr "Voltooid"
 
 #. Default: "Disagree"
 #: ../config.py:104
-#, fuzzy
 msgid "Disagree"
 msgstr "Niet mee eens"
 
 #. Default: "Disagree Strongly"
 #: ../config.py:105
-#, fuzzy
 msgid "Disagree Strongly"
 msgstr "Zeker niet mee eens"
 
@@ -107,7 +103,6 @@ msgstr ""
 
 #. Default: "Neutral"
 #: ../config.py:103
-#, fuzzy
 msgid "Neutral"
 msgstr "Neutraal"
 
@@ -255,16 +250,15 @@ msgstr ""
 #. </p>
 #: ../skins/plone_survey/survey_reset_form.cpt:11
 msgid "desc_reset_survey"
-msgstr "Dit verwijdert alle antwoorden van de huidige enqu�te. Weet u het zeker?"
+msgstr "Dit verwijdert alle antwoorden van de huidige enquête. Weet u het zeker?"
 
 #. <p i18n:translate="desc_survey_overview">
 #. This is an overview of the current survey.
 #. </p>
 #. Default: "This is an overview of the current survey: ${title}"
 #: ../skins/plone_survey/survey_overview.pt:36
-#, fuzzy
 msgid "desc_survey_overview"
-msgstr "Dit is een overzicht van de huidige enqu�te."
+msgstr "Dit is een overzicht van de huidige enquête."
 
 #. Default: "detailed spreadsheet"
 #. <a i18n:translate="detailed_spreadsheet" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">
@@ -338,7 +332,7 @@ msgstr "Al het commentaar voor ${objective} ${title}"
 #. </h1>
 #: ../skins/plone_survey/survey_reset_form.cpt:10
 msgid "heading_reset_survey"
-msgstr "Reset de enqu�te"
+msgstr "Reset de enquête"
 
 #. Default: "Results for survey ${title}"
 #. <h1 i18n:translate="heading_results">
@@ -348,7 +342,7 @@ msgstr "Reset de enqu�te"
 #: ../skins/plone_survey/survey_barchart.pt:14
 #: ../skins/plone_survey/survey_view_results.pt:14
 msgid "heading_results"
-msgstr "Resultaten voor enqu�te ${title}"
+msgstr "Resultaten voor enquête ${title}"
 
 #. Default: "Survey Contents"
 #. <h5 i18n:translate="heading_survey_contents">
@@ -356,7 +350,7 @@ msgstr "Resultaten voor enqu�te ${title}"
 #. </h5>
 #: ../skins/plone_survey/portlet_questions.pt:16
 msgid "heading_survey_contents"
-msgstr "Enqu�te-inhoud"
+msgstr "Enquête-inhoud"
 
 #. Default: "Survey Overview"
 #. <h1 i18n:translate="heading_survey_overview">
@@ -364,7 +358,7 @@ msgstr "Enqu�te-inhoud"
 #. </h1>
 #: ../skins/plone_survey/survey_overview.pt:15
 msgid "heading_survey_overview"
-msgstr "Enqu�te overzicht"
+msgstr "Enquête overzicht"
 
 # <h2 i18n:translate="heading_totals_for">Totals for
 # <span tal:replace="question/Title"
@@ -389,14 +383,12 @@ msgstr ""
 #. 
 #. Default: "Enter the options you want to be available to the user here. Press enter to seperate the options."
 #: ../content/schemata.py:498
-#, fuzzy
 msgid "help_answer_options"
-msgstr "Voer de opties in die u hier aan de ge�nqu�teerde beschikbaar wil stellen. Druk op enter om de opties te scheiden."
+msgstr "Voer de opties in die u hier aan de geënquêteerde beschikbaar wil stellen. Druk op enter om de opties te scheiden."
 
 #. 
 #. Default: "The comment label."
 #: ../content/schemata.py:288
-#, fuzzy
 msgid "help_comment_label"
 msgstr "Het commentaallabel."
 
@@ -408,9 +400,8 @@ msgstr ""
 #. 
 #. Default: "Add a short description of the survey here."
 #: ../content/schemata.py:200
-#, fuzzy
 msgid "help_description"
-msgstr "Voer hier een korte beschrijving van de enqu�te in."
+msgstr "Voer hier een korte beschrijving van de enquête in."
 
 #. Default: "An email invite will be sent to loaded respondents, use '**Name**' for the respondents name, and '**Survey**' for the title of the survey as a link to the survey."
 #: ../content/schemata.py:164
@@ -420,14 +411,12 @@ msgstr ""
 #. 
 #. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
 #: ../content/schemata.py:76
-#, fuzzy
 msgid "help_exit_url"
-msgstr "Dit is de URL waarnaar de gebruiker doorverwezen zal worden na het invullen van de enqu�te. gebruik \"http://site.waar.naar.toe.te.gaan/pagina\" of \"route/naar/pagina\" voor een interne link binnen de huidige site."
+msgstr "Dit is de URL waarnaar de gebruiker doorverwezen zal worden na het invullen van de enquête. gebruik \"http://site.waar.naar.toe.te.gaan/pagina\" of \"route/naar/pagina\" voor een interne link binnen de huidige site."
 
 #. 
 #. Default: "Please select what type of input you would like to use for this question."
 #: ../content/schemata.py:407
-#, fuzzy
 msgid "help_input_type"
 msgstr "Selecteer het type invoer dat u voor deze vraag wil gebruiken."
 
@@ -449,7 +438,6 @@ msgstr ""
 #. 
 #. Default: "Select what type of comment box you would like."
 #: ../content/schemata.py:275
-#, fuzzy
 msgid "help_label_comment_type"
 msgstr "Selecteer het type commentaarbox dat u wil gebruiken."
 
@@ -476,37 +464,32 @@ msgstr ""
 #. 
 #. Default: "The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally."
 #: ../content/schemata.py:214
-#, fuzzy
 msgid "help_previous_question"
-msgstr "Een conditionele vraag bepaalt of er een subenqu�te moet worden getoond. Selecteer 'Geen' om de subenqu�te altijd weer te geven."
+msgstr "Een conditionele vraag bepaalt of er een subenquête moet worden getoond. Selecteer 'Geen' om de subenquête altijd weer te geven."
 
 #. 
 #. Default: "Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed."
 #: ../content/schemata.py:227
-#, fuzzy
 msgid "help_previous_question_answer"
-msgstr "Vul een verplicht antwoord in voor de conditionele vraag hierboven om te bepalen of de subenqu�te moet worden getoond."
+msgstr "Vul een verplicht antwoord in voor de conditionele vraag hierboven om te bepalen of de subenquête moet worden getoond."
 
 #. 
 #. Default: "Check this box if the required answer should be selected for this Sub Survey to be displayed."
 #: ../content/schemata.py:240
-#, fuzzy
 msgid "help_previous_question_answer_yes_no"
-msgstr "Vink deze box aan als het verplichte antwoord geselecteerd moet worden om de subenqu�te te tonen."
+msgstr "Vink deze box aan als het verplichte antwoord geselecteerd moet worden om de subenquête te tonen."
 
 #. 
 #. Default: "Add a long description of the question here, to clarify any details."
 #: ../content/schemata.py:341
-#, fuzzy
 msgid "help_question_description"
 msgstr "Voer een lange beschrijving in voor deze vraag om de details uit te leggen."
 
 #. 
 #. Default: "Select if this question is required, meaning participant must give a response."
 #: ../content/schemata.py:262
-#, fuzzy
 msgid "help_required"
-msgstr "Selecteer of deze vraag verplicht is, dit betekend dat de ge�nqu�teerde een antwoord moet geven."
+msgstr "Selecteer of deze vraag verplicht is, dit betekend dat de geënquêteerde een antwoord moet geven."
 
 #. Default: "Display the likert options in reverse order, bad to good."
 #: ../content/schemata.py:487
@@ -521,28 +504,24 @@ msgstr ""
 #. 
 #. Default: "Enter an email address to receive notifications of survey completions."
 #: ../content/schemata.py:120
-#, fuzzy
 msgid "help_survey_notification_email"
-msgstr "Voer een emailadres in om notificaties van voltooide enqu�tes te ontvangen."
+msgstr "Voer een emailadres in om notificaties van voltooide enquêtes te ontvangen."
 
 #. 
 #. Default: "Select a method to receive notification emails."
 #: ../content/schemata.py:131
-#, fuzzy
 msgid "help_survey_notification_method"
 msgstr "Selecteer een methode om emailnotificaties te ontvangen."
 
 #. 
 #. Default: "Enter a number of columns for this field (width of the field in the characters)"
 #: ../content/schemata.py:431
-#, fuzzy
 msgid "help_text_cols"
 msgstr "Voer een aantal kolommen in voor dit veld (de breedte van het veld in karakters)"
 
 #. 
 #. Default: "Enter a number of rows for this field. This value is applicable only in the Text Area input type"
 #: ../content/schemata.py:443
-#, fuzzy
 msgid "help_text_rows"
 msgstr "Voer een aantal rijen in voor dit veld. Deze waarde is alleen van toepassing op textbox-invoertype."
 
@@ -554,27 +533,23 @@ msgstr ""
 #. 
 #. Default: "This is the message that will be displayed to the user when they complete the survey."
 #: ../content/schemata.py:52
-#, fuzzy
 msgid "help_thankyou"
-msgstr "Dit is het bericht dat aan de ge�nqu�teerde getoond zal worden als de enqu�te is voltooit."
+msgstr "Dit is het bericht dat aan de geënquêteerde getoond zal worden als de enquête is voltooit."
 
 #. 
 #. Default: "Select a validation for this question"
 #: ../content/schemata.py:456
-#, fuzzy
 msgid "help_validation"
 msgstr "Selecteer een validatie voor deze vraag"
 
 #. Default: "Email on each submission"
 #: ../config.py:36
-#, fuzzy
 msgid "label_all_emails"
 msgstr "Email elke inzending"
 
 #. 
 #. Default: "Allow Anonymous"
 #: ../content/schemata.py:98
-#, fuzzy
 msgid "label_allow_anonymous"
 msgstr "Sta anoniem toe"
 
@@ -586,7 +561,6 @@ msgstr ""
 #. 
 #. Default: "Answer options"
 #: ../content/schemata.py:497
-#, fuzzy
 msgid "label_answer_options"
 msgstr "Antwoordmogelijkheden"
 
@@ -607,21 +581,18 @@ msgstr ""
 
 #. Default: "Check Boxes"
 #: ../config.py:48
-#, fuzzy
 msgid "label_check_boxes"
 msgstr "Aanvinkboxen"
 
 #. 
 #. Default: "Comment label"
 #: ../content/schemata.py:287
-#, fuzzy
 msgid "label_comment_label"
 msgstr "Commentaarlabel"
 
 #. 
 #. Default: "Comment Type"
 #: ../content/schemata.py:274
-#, fuzzy
 msgid "label_comment_type"
 msgstr "Commentaartype"
 
@@ -633,9 +604,8 @@ msgstr ""
 #. 
 #. Default: "Survey description"
 #: ../content/schemata.py:199
-#, fuzzy
 msgid "label_description"
-msgstr "Enqu�te beschrijving"
+msgstr "Enquête beschrijving"
 
 #. Default: "Does not appear"
 #: ../config.py:61
@@ -660,7 +630,6 @@ msgstr ""
 #. 
 #. Default: "Exit URL"
 #: ../content/schemata.py:75
-#, fuzzy
 msgid "label_exit_url"
 msgstr "Eind URL"
 
@@ -677,7 +646,6 @@ msgstr ""
 #. 
 #. Default: "Input Type"
 #: ../content/schemata.py:406
-#, fuzzy
 msgid "label_input_type"
 msgstr "Inputtype"
 
@@ -703,7 +671,6 @@ msgstr ""
 
 #. Default: "Question"
 #: ../skins/plone_survey/question_matrix_macro.pt:31
-#, fuzzy
 msgid "label_matrix_question"
 msgstr "Vraag"
 
@@ -714,7 +681,6 @@ msgstr ""
 
 #. Default: "Multiple Selection Box"
 #: ../config.py:47
-#, fuzzy
 msgid "label_multiple_selection_box"
 msgstr "Meervoudige selectiebox"
 
@@ -725,15 +691,13 @@ msgstr "Geen commentaar"
 
 #. Default: "No emails"
 #: ../config.py:35
-#, fuzzy
 msgid "label_no_emails"
 msgstr "Geen email"
 
 #. Default: "No users have completed the survey yet."
 #: ../skins/plone_survey/respondents_view.cpt:77
-#, fuzzy
 msgid "label_no_users_yet"
-msgstr "Er zijn ge�nqu�teerden die op dit moment de enqu�te heben voltooit."
+msgstr "Er zijn geënquêteerden die op dit moment de enquête heben voltooit."
 
 #. Default: "Null Value"
 #: ../content/schemata.py:508
@@ -742,78 +706,66 @@ msgstr ""
 
 #. Default: "Add Page"
 #: ../skins/plone_survey/survey_overview.pt:109
-#, fuzzy
 msgid "label_overview_add_page"
 msgstr "Voeg pagina toe"
 
 #. Default: "Add Question"
 #: ../skins/plone_survey/survey_overview.pt:49
-#, fuzzy
 msgid "label_overview_add_question"
 msgstr "Voeg vraag toe"
 
 #. Default: "Branching:"
 #: ../skins/plone_survey/survey_overview.pt:80
-#, fuzzy
 msgid "label_overview_branching"
 msgstr "aftakking"
 
 #. Default: "Survey Contents"
 #: ../skins/plone_survey/survey_overview.pt:27
-#, fuzzy
 msgid "label_overview_contents"
 msgstr "inhoud"
 
 #. Default: "Edit Survey"
 #: ../skins/plone_survey/survey_overview.pt:19
-#, fuzzy
 msgid "label_overview_edit"
 msgstr "bewerk"
 
 #. Default: "There are no questions on this page."
 #: ../skins/plone_survey/survey_overview.pt:93
-#, fuzzy
 msgid "label_overview_no_question"
 msgstr "Er zijn geen vragen op deze pagina."
 
 #. 
 #. Default: "Conditional Question"
 #: ../content/schemata.py:213
-#, fuzzy
 msgid "label_previous_question"
 msgstr "Conditionele vraag"
 
 #. 
 #. Default: "Required Answer"
 #: ../content/schemata.py:226
-#, fuzzy
 msgid "label_previous_question_answer"
 msgstr "Verplicht antwoord"
 
 #. 
 #. Default: "Use Required Answer?"
 #: ../content/schemata.py:239
-#, fuzzy
 msgid "label_previous_question_answer_yes_no"
 msgstr "Gebruik verplicht antwoord?"
 
 #. 
 #. Default: "Description"
 #: ../content/schemata.py:340
-#, fuzzy
 msgid "label_question_description"
 msgstr "Beschrijving"
 
 #. Default: "Radio Buttons"
 #: ../config.py:45
-#, fuzzy
 msgid "label_radio_buttons"
 msgstr "Radioknoppen"
 
 #. 
 #. Default: "Required"
 #: ../content/schemata.py:261
-#, fuzzy
 msgid "label_required"
 msgstr "Verplicht"
 
@@ -825,14 +777,12 @@ msgstr "Verplicht"
 #: ../skins/plone_survey/question_date_macro.pt:20
 #: ../skins/plone_survey/question_macro.pt:13
 #: ../skins/plone_survey/question_matrix_macro.pt:51
-#, fuzzy
 msgid "label_required_in_parentheses"
 msgstr "Verplicht"
 
 #. <input class="standalone" i18n:attributes="value label_reset" name="reset" type="submit" value=" Reset "/>
 #. Default: "Reset"
 #: ../skins/plone_survey/survey_reset_form.cpt:18
-#, fuzzy
 msgid "label_reset"
 msgstr "Annuleren"
 
@@ -844,13 +794,11 @@ msgstr ""
 #. 
 #. Default: "'Saved' message text"
 #: ../content/schemata.py:63
-#, fuzzy
 msgid "label_saved_text"
 msgstr "De ingevoerde tekst is opgeslagen"
 
 #. Default: "Selection Box"
 #: ../config.py:46
-#, fuzzy
 msgid "label_selection_box"
 msgstr "Selectieveld"
 
@@ -876,53 +824,45 @@ msgstr ""
 
 #. Default: "Closed"
 #: ../config.py:31
-#, fuzzy
 msgid "label_survey_closed"
 msgstr "Sluit"
 
 #. 
 #. Default: "Survey Notification Email Address"
 #: ../content/schemata.py:118
-#, fuzzy
 msgid "label_survey_notification_email"
-msgstr "Enqu�te notificatie-emailadres"
+msgstr "Enquête notificatie-emailadres"
 
 #. 
 #. Default: "Survey Notification Method"
 #: ../content/schemata.py:130
-#, fuzzy
 msgid "label_survey_notification_method"
 msgstr "Notificatiemethode"
 
 #. Default: "Open"
 #: ../config.py:30
-#, fuzzy
 msgid "label_survey_open"
 msgstr "Open"
 
 #. Default: "Text Area"
 #: ../config.py:41
-#, fuzzy
 msgid "label_text_area"
 msgstr "Tekstbox"
 
 #. 
 #. Default: "Cols (width in characters)"
 #: ../content/schemata.py:430
-#, fuzzy
 msgid "label_text_cols"
 msgstr "Kolommen (breedte in karakters)"
 
 #. Default: "Text Field"
 #: ../config.py:40
-#, fuzzy
 msgid "label_text_field"
 msgstr "Tekstveld"
 
 #. 
 #. Default: "Rows (number of lines)"
 #: ../content/schemata.py:442
-#, fuzzy
 msgid "label_text_rows"
 msgstr "Rijen (aantal regels)"
 
@@ -939,7 +879,6 @@ msgstr ""
 #. 
 #. Default: "'Thank you' message text"
 #: ../content/schemata.py:50
-#, fuzzy
 msgid "label_thank"
 msgstr "Dank u"
 
@@ -952,7 +891,6 @@ msgstr ""
 # input type, for results use the </span>
 #. Default: "This question had a text input type, for results use the"
 #: ../skins/plone_survey/survey_barchart.pt:49
-#, fuzzy
 msgid "label_use_detailed_for_text"
 msgstr "Deze vraag heeft een tekst invoerveld. Voor resultaten kies </span>"
 
@@ -964,7 +902,6 @@ msgstr ""
 #. 
 #. Default: "Validation"
 #: ../content/schemata.py:455
-#, fuzzy
 msgid "label_validation"
 msgstr "Validatie"
 
@@ -974,7 +911,7 @@ msgstr "Validatie"
 #. </legend>
 #: ../skins/plone_survey/survey_view.cpt:109
 msgid "legend_already_completed"
-msgstr "U heeft deze enqu�te reeds ingevuld."
+msgstr "U heeft deze enquête reeds ingevuld."
 
 #. Default: "Question details"
 #. <legend i18n:translate="legend_question_details">
@@ -982,7 +919,7 @@ msgstr "U heeft deze enqu�te reeds ingevuld."
 #. </legend>
 #: ../skins/plone_survey/survey_view.cpt:51
 msgid "legend_question_details"
-msgstr "Details van de enqu�te"
+msgstr "Details van de enquête"
 
 #. Default: "(\"Agree Strongly\", \"Agree\", \"Neutral\", \"Disagree\", \"Disagree Strongly\")"
 #: ../config.py:82
@@ -1044,7 +981,7 @@ msgstr "Reset"
 #. <input class="context" i18n:attributes="value reset_survey_button" name="form.button.reset_survey" tabindex="" tal:attributes="tabindex tabindex/next" type="submit" value="Reset Survey"/>
 #: ../skins/plone_survey/survey_view.cpt:115
 msgid "reset_survey_button"
-msgstr "Reset de enqu�te"
+msgstr "Reset de enquête"
 
 #. Default: "Reset Users"
 #. <legend i18n:translate="reset_users">
@@ -1052,7 +989,7 @@ msgstr "Reset de enqu�te"
 #. </legend>
 #: ../skins/plone_survey/respondents_view.cpt:31
 msgid "reset_users"
-msgstr "Reset ge�nqu�teerden"
+msgstr "Reset geënquêteerden"
 
 #. Default: "End"
 #: ../skins/plone_survey/manage_respondents.cpt:90
@@ -1066,7 +1003,7 @@ msgstr ""
 #. </span>
 #: ../skins/plone_survey/respondents_view.cpt:14
 msgid "respondents_for_survey"
-msgstr "Ge�nqu�teerden"
+msgstr "Geënquêteerden"
 
 #. Default: "IP Address"
 #: ../skins/plone_survey/manage_respondents.cpt:88
@@ -1116,32 +1053,28 @@ msgstr "Volgende"
 #. </legend>
 #: ../skins/plone_survey/survey_reset_form.cpt:16
 msgid "survey_reset"
-msgstr "Enqu�te reset"
+msgstr "Enquête reset"
 
 #. Default: "Please correct the errors shown"
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:35
 #: ../skins/plone_survey/validate_reset_survey.vpy:8
 #: ../skins/plone_survey/validate_survey.vpy:80
-#, fuzzy
 msgid "text_correct_errors"
 msgstr "Corrigeer de aangegeven fouten."
 
 #. Default: "Survey did not reset correctly"
 #: ../skins/plone_survey/respondents_reset.vpy:17
 #: ../skins/plone_survey/survey_reset.vpy:10
-#, fuzzy
 msgid "text_survey_reset_error"
-msgstr "Enqu�te is niet goed gereset."
+msgstr "Enquête is niet goed gereset."
 
 #. Default: "Survey has been reset"
 #: ../skins/plone_survey/survey_reset.vpy:12
-#, fuzzy
 msgid "text_survey_reset_success"
-msgstr "Enqu�te is gereset"
+msgstr "Enquête is gereset"
 
 #. Default: "${users} have been reset"
 #: ../skins/plone_survey/respondents_reset.vpy:19
-#, fuzzy
 msgid "text_survey_users_reset_error"
 msgstr "${users} zijn gereset"
 
@@ -1179,7 +1112,7 @@ msgstr ""
 #. </a>
 #: ../skins/plone_survey/survey_view_results.pt:24
 msgid "view_respondents"
-msgstr "Bekijk ge�nqu�teerden."
+msgstr "Bekijk geënquêteerden."
 
 #. Default: "View survey results in a barchart"
 #: ../skins/plone_survey/survey_view_results.pt:18
