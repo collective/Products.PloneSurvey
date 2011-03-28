@@ -30,8 +30,8 @@
         <div class="documentDescription"
              tal:condition="here/Description"
              tal:content="here/Description" />
-        
-	<div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div tal:condition= "python:pagetype=='Survey'"
              tal:content="structure here/getBody"/> 
@@ -46,7 +46,7 @@
             <input type="hidden" name="survey_user_id"
                    tal:attributes="value context/getSurveyId" />
             <fieldset>
-                <legend i18n:translate="legend_question_details">Question details</legend>
+                <legend class="legendQuestionDetails" i18n:translate="legend_question_details">Question details</legend>
 
                 <tal:question repeat="question questions">
                     <div tal:condition="python:question.getBody() and question.getTextLocation() == 1"
