@@ -26,7 +26,7 @@ msgstr "Reactie veld"
 #. Default: Export
 #: ../content/Survey.py
 msgid "Export"
-msgstr ""
+msgstr "Export"
 
 #. Default: Introduction
 #: ../content/BaseQuestion.py
@@ -50,7 +50,7 @@ msgstr "Herstel"
 #. Default: Respondents
 #: ../content/Survey.py
 msgid "Respondents"
-msgstr ""
+msgstr "Respondenten"
 
 #. Default: Results
 #: ../content/Survey.py
@@ -64,21 +64,21 @@ msgstr "standaard"
 
 #. Default: Branching
 msgid "label_schema_Branching"
-msgstr ""
+msgstr "Aftakking"
 
 #. Default: Comment Field
 msgid "label_schema_Comment Field"
-msgstr ""
+msgstr "Commentaar Veld"
 
 #. Default: Email Invite
 msgid "label_schema_Email Invite"
-msgstr ""
+msgstr "Email Uitnodiging"
 
 #. Default: Introduction
 msgid "label_schema_Introduction"
-msgstr ""
+msgstr "Introductie"
 
 #. Default: Text Block
 msgid "label_schema_Text Block"
-msgstr ""
+msgstr "Tekst Blok"
 
