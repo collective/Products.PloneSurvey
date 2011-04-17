@@ -8,8 +8,11 @@
     </permission>
     <permission name="PloneSurvey: View Survey Results"
                 acquire="True">
+      <role name="Contributor"/>
+      <role name="Editor"/>
       <role name="Manager"/>
       <role name="Owner"/>
+      <role name="Reviewer"/>
     </permission>
   </permissions>
 </rolemap>
