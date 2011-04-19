@@ -2,11 +2,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PloneSurvey 1.3.0\n"
 "POT-Creation-Date: 2006-06-27 20:42+0000\n"
-"PO-Revision-Date: 2009-01-19 10:47+0100\n"
-"Last-Translator: Matthias Broquet a.k.a tiazma <mbroquet@atreal.net>\n"
+"PO-Revision-Date: 2011-04-19 18:10+0100\n"
+"Last-Translator: Jonathan Riboux <plone@quadra-informatique.fr>\n"
 "Language-Team: Marc Van Coillie <marc.van.coillie@eife-l.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: fr\n"
@@ -15,71 +16,56 @@ msgstr ""
 "Domain: plone\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#. Default: Branching
-msgid "Branching"
-msgstr "Branchement"
-
-#. Default: Comment Field
 #: ../content/BaseQuestion.py
 msgid "Comment Field"
 msgstr "Champ commentaire"
 
-#. Default: Export
-#: ../content/Survey.py
-msgid "Export"
-msgstr ""
-
-#. Default: Introduction
 #: ../content/BaseQuestion.py
 msgid "Introduction"
 msgstr "Introduction"
 
-#. Default: None
-msgid "None"
-msgstr "Aucun"
-
-#. Default: Overview
-#: ../content/Survey.py
-msgid "Overview"
-msgstr "Vue sommaire"
-
-#. Default: Reset
-#: ../content/Survey.py
-msgid "Reset"
-msgstr "Réinitialiser"
-
-#. Default: Respondents
-#: ../content/Survey.py
-msgid "Respondents"
-msgstr ""
-
-#. Default: Results
 #: ../content/Survey.py
 msgid "Results"
 msgstr "Résultats"
 
+#: ../content/Survey.py
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: ../content/Survey.py
+msgid "Overview"
+msgstr "Vue sommaire"
+
+#: ../content/Survey.py
+msgid "Respondents"
+msgstr "Participants"
+
+#: ../content/Survey.py
+msgid "Export"
+msgstr "Exporter"
+
 # THESE WERE ADDED 31.10.2006
-#. Default: default
 msgid "default"
 msgstr "defaut"
 
-#. Default: Branching
-msgid "label_schema_Branching"
-msgstr ""
+msgid "Branching"
+msgstr "Ramification"
 
-#. Default: Comment Field
-msgid "label_schema_Comment Field"
-msgstr ""
+msgid "None"
+msgstr "Aucun"
 
-#. Default: Email Invite
-msgid "label_schema_Email Invite"
-msgstr ""
-
-#. Default: Introduction
 msgid "label_schema_Introduction"
-msgstr ""
+msgstr "Introduction"
 
-#. Default: Text Block
+msgid "label_schema_Email Invite"
+msgstr "Email d'invitation"
+
+msgid "label_schema_Branching"
+msgstr "Ramification"
+
 msgid "label_schema_Text Block"
-msgstr ""
+msgstr "Bloc de texte"
+
+msgid "label_schema_Comment Field"
+msgstr "Champ commentaire"
 
