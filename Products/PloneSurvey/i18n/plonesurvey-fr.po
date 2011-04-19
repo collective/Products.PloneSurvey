@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2011-01-23 16:41+0000\n"
-"PO-Revision-Date: 2011-04-19 18:15+0100\n"
+"PO-Revision-Date: 2011-04-19 18:30+0100\n"
 "Last-Translator: Jonathan Riboux <plone@quadra-informatique.fr>\n"
 "Language-Team: EIfEL Team <marc.van.coillie@eife-l.org>\n"
 "MIME-Version: 1.0\n"
@@ -639,7 +639,7 @@ msgstr "Adresse email"
 #. Default: "Email Invite"
 #: ../content/schemata.py:163
 msgid "label_email_invite"
-msgstr "Adresse email de l'invitation"
+msgstr "Invitation par email"
 
 #. Default: "Ending Year"
 #: ../content/schemata.py:378
@@ -678,12 +678,12 @@ msgstr "Introduction"
 #. Default: "Email Invite From"
 #: ../content/schemata.py:189
 msgid "label_invite_from_email"
-msgstr "Formulaire d'invitation par email"
+msgstr "Adresse email"
 
 #. Default: "Person Invite From"
 #: ../content/schemata.py:178
 msgid "label_invite_from_name"
-msgstr "Formulaire d'invitation"
+msgstr "Nom"
 
 #. Default: "Likert Options"
 #: ../content/schemata.py:475
