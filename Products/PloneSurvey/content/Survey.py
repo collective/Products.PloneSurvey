@@ -720,7 +720,10 @@ class Survey(ATCTOrderedFolder):
         questions = self.get_all_questions_in_order_filtered(ignore_meta_types=['SurveyTwoDimensional','SurveyMatrix'])
         sheet.writerow(('user',) + tuple(q.Title() for q in questions) + ('completed',))
         for user in self.getRespondents():
-            row = [self.getRespondentFullName(user) or 'Anonymous']
+            if self.getConfidential():
+                row = ['Anonymous']
+            else:
+                row = [self.getRespondentFullName(user) or user]
             for question in questions:
                 answer = ""
                 if question.getInputType() in ['text', 'area']:
