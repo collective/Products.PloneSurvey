@@ -393,7 +393,7 @@ class Survey(ATCTOrderedFolder):
             users[user] = 1
         return users.keys()
 
-    security.declareProtected(permissions.ModifyPortalContent, 'getRespondentDetails')
+    security.declareProtected(permissions.ViewSurveyResults, 'getRespondentDetails')
     def getRespondentDetails(self, respondent):
         """Return details of a respondent"""
         try:
@@ -443,7 +443,7 @@ class Survey(ATCTOrderedFolder):
                 users[user] = 1
         return users.keys()
 
-    security.declareProtected(permissions.ModifyPortalContent, 'getRespondentFullName')
+    security.declareProtected(permissions.ViewSurveyResults, 'getRespondentFullName')
     def getRespondentFullName(self, userid):
         """get user. used by results spreadsheets to show fullname"""
         portal_membership = getToolByName(self, 'portal_membership')
@@ -455,7 +455,7 @@ class Survey(ATCTOrderedFolder):
             return full_name
         return member.id
 
-    security.declareProtected(permissions.ModifyPortalContent, 'getRespondents')
+    security.declareProtected(permissions.ViewSurveyResults, 'getRespondents')
     def getAnswersByUser(self, userid):
         """Return a set of answers by user id"""
         questions = self.getAllQuestionsInOrder()
@@ -683,7 +683,7 @@ class Survey(ATCTOrderedFolder):
         url = "%s.csv" % id
         return url
 
-    security.declareProtected(permissions.ModifyPortalContent, 'buildSpreadsheet2')
+    security.declareProtected(permissions.ViewSurveyResults, 'buildSpreadsheet2')
     def buildSpreadsheet2(self):
         """Build spreadsheet 2."""
         data = StringIO()
@@ -712,7 +712,7 @@ class Survey(ATCTOrderedFolder):
         
         return data.getvalue()
 
-    security.declareProtected(permissions.ModifyPortalContent, 'buildSpreadsheet3')
+    security.declareProtected(permissions.ViewSurveyResults, 'buildSpreadsheet3')
     def buildSpreadsheet3(self):
         """Build spreadsheet 3."""
         data = StringIO()
@@ -782,7 +782,7 @@ class Survey(ATCTOrderedFolder):
                     sheet.writerow(row)
         return data.getvalue()
 
-    security.declareProtected(permissions.ModifyPortalContent, 'buildSelectSpreadsheet')
+    security.declareProtected(permissions.ViewSurveyResults, 'buildSelectSpreadsheet')
     def buildSelectSpreadsheet(self, boolean=False):
         """Build the select spreadsheet."""
         data = StringIO()
