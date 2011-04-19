@@ -104,3 +104,46 @@ class PloneSurveyTestCase(PloneTestCase):
         elif txt.count('\r'): # Mac
             txt = txt.replace('\r', '\n')
         return txt
+
+class BaseFunctionalTestCase(FunctionalTestCase):
+    """ This is a base class for functional test cases for PloneSurvey.
+    """
+
+    def checkIsUnauthorized(self, url):
+        """
+        Check whether URL gives Unauthorized response.
+        """
+    
+        import urllib2
+    
+        # Disable redirect on security error
+        self.portal.acl_users.credentials_cookie_auth.login_path = ""
+    
+        # Unfuse exception tracking for debugging
+        # as set up in afterSetUp()
+        self.browser.handleErrors = True
+    
+        def raising(self, info):
+            pass
+        self.portal.error_log._ignored_exceptions = ("Unauthorized")
+        from Products.SiteErrorLog.SiteErrorLog import SiteErrorLog
+        SiteErrorLog.raising = raising
+    
+        try:
+            self.browser.open(url)
+            raise AssertionError("No Unauthorized risen:" + url)
+        except urllib2.HTTPError,  e:
+            # Mechanize, the engine under testbrowser
+            # uses urlllib2 and will raise this exception
+            self.assertEqual(e.code, 401, "Got HTTP response code:" + str(e.code))
+
+    def createAnonSurvey(self):
+        """Create an open survey"""
+        self.folder.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.folder, 's1')
+        self.s1.setAllowAnonymous(True)
+        self.workflow = getToolByName(self.portal, 'portal_workflow')
+        self.setRoles(('Reviewer',))
+        self.workflow.doActionFor(self.s1,'publish')
+        self.setRoles(('Member',))
+        self.s1.setEmailInvite(DEFAULT_SURVEY_INVITE)
