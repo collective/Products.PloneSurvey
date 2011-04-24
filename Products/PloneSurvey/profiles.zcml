@@ -10,5 +10,21 @@
       description="A survey product for Plone."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+  <genericsetup:importStep
+    name="PloneSurvey_various"
+    title="Import various Plone Survey settings"
+    description="Various Plone Survey issues."
+    handler="Products.PloneSurvey.setuphandlers.importVarious">
+  </genericsetup:importStep>
+
+  <genericsetup:upgradeStep
+    title="Register surveys with Survey Tool"
+    description="Surveys need to be registered with the Survey Tool to enable the walk functionality"
+    source="*"
+    destination="1.4.2"
+    handler="Products.PloneSurvey.setuphandlers.registerWithSurveyTool"
+    sortkey="1"
+    profile="Products.PloneSurvey:default"
+    />
 
 </configure>
