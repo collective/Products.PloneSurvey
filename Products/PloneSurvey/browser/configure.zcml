@@ -11,4 +11,22 @@
         permission="cmf.AddPortalContent"
         />
 
+    <browser:resourceDirectory
+	name="Products.PloneSurvey.images"
+	directory="images"
+	layer=".interfaces.IThemeSpecific"
+	/>
+
+    <browser:resourceDirectory
+	name="Products.PloneSurvey.javascripts"
+	directory="javascripts"
+	layer=".interfaces.IThemeSpecific"
+	/>
+
+    <browser:resourceDirectory
+	name="Products.PloneSurvey.stylesheets"
+	directory="stylesheets"
+	layer=".interfaces.IThemeSpecific"
+	/>
+
 </configure>
