@@ -10,6 +10,7 @@
       description="A survey product for Plone."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
   <genericsetup:importStep
     name="PloneSurvey_various"
     title="Import various Plone Survey settings"

@@ -2,6 +2,6 @@
 <object name="portal_css" meta_type="Stylesheets Registry">
  <stylesheet title="Plone Survey Results" cacheable="True" compression="safe" cookable="True"
     enabled="1" expression="python:object.portal_type == 'Survey' and object.template.id == 'survey_barchart'"
-    id="survey_results.css" media="all" rel="stylesheet"
+    id="++resource++Products.PloneSurvey.images/survey_results.css" media="all" rel="stylesheet"
     rendering="import"/>
 </object>
