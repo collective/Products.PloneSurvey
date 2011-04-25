@@ -29,13 +29,17 @@ class SurveyDateQuestion(BaseQuestion):
             errors = {}
         showYMD = form.get('showYMD', None)
         showHM = form.get('showHM', None)
-        if not int(showYMD) and not int(showHM):
+        # Booleans seems not to return 1 or 0, but python True/False
+        is_showYMD_set = (showYMD == True)
+        is_showHM_set = (showHM == True)
+        if not is_showYMD_set and not is_showHM_set:
             errors['showYMD'] = u'At least one of these must be selected.'
             errors['showHM'] = u'At least one of these must be selected.'
         startingYear = form.get('startingYear', None)
         try:
             startingYear = int(startingYear)
-        except ValueError:
+        except TypeError:
+            # int() raises TypeError, not ValueError or we have to put both
             errors['startingYear'] = u'Start year must be an integer.'
         endingYear = form.get('endingYear', None)
         futureYears = form.get('futureYears', None)
