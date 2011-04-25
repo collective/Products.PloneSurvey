@@ -3,7 +3,6 @@ import string
 import csv
 import os
 import transaction
-from StringIO import StringIO
 from Products.CMFPlone.utils import safe_unicode
 
 from cStringIO import StringIO
@@ -32,6 +31,12 @@ from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.config import BARCHART_COLORS
 from Products.PloneSurvey.interfaces import ISurvey
 from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
+
+try:
+    import ho.pisa as pisa
+    HAS_PISA = True
+except ImportError:
+    HAS_PISA = False
 
 from schemata import SurveySchema
 
@@ -897,5 +902,18 @@ class Survey(ATCTOrderedFolder):
                                               msgid='emailInviteDefault',
                                               default=DEFAULT_SURVEY_INVITE,
                                               context=self)
+
+    def asPdf(self, html="<html>test</html>"):
+        """Download the survey as a pdf"""
+        filename = self.getId() + '.pdf'
+        pdf = pisa.CreatePDF(
+            StringIO(html),
+            file(filename, "wb"))
+        if not pdf.err:
+            pdf.dest.close()
+            self.REQUEST.RESPONSE.setHeader('Content-type','application/pdf')
+            self.REQUEST.RESPONSE.setHeader('Content-disposition','inline; filename="%s"' % (filename))
+            temp_file = open('temp.pdf', 'r')
+            return temp_file.read()
 
 registerATCT(Survey, PROJECTNAME)
