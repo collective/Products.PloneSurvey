@@ -9,6 +9,7 @@ from Products.CMFCore.permissions import ManagePortal
 
 from config import PROJECTNAME
 
+addSurvey = '%s: Add Survey' % PROJECTNAME
 # N.B. Use of this permission is hard-coded in survey_view skin template!
 ResetOwnResponses = '%s: Reset Own Responses' % PROJECTNAME
 ViewSurveyResults = '%s: View Survey Results' % PROJECTNAME

@@ -9,7 +9,6 @@ import permissions
 
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
 
-ADD_CONTENT_PERMISSION = permissions.AddPortalContent
 SKINS_DIR = 'skins'
 
 GLOBALS = globals()
