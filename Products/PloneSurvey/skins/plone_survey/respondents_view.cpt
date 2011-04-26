@@ -14,12 +14,18 @@
             <span i18n:translate="respondents_for_survey">Respondents for survey</span>
         </h1>
         <div tal:condition="not:context/getAllowAnonymous">
-             <div tal:define="already_responded context/getRespondents;
-                              respondents python:context.get_acl_users().getUserNames()">
-                 Responses: <span tal:replace="python:len(already_responded)" />/<span tal:replace="python:len(respondents)" />
-                 - <span tal:condition="respondents"
-                         tal:replace="python:round(float(len(already_responded))/float(len(respondents))*100, 2)" />%
-             </div>
+            <div tal:define="already_responded context/getRespondents;
+                             respondents python:context.get_acl_users().getUserNames()">
+                Responses: <span tal:replace="python:len(already_responded)" />/<span tal:replace="python:len(respondents)" />
+                - <span tal:condition="respondents"
+                        tal:replace="python:round(float(len(already_responded))/float(len(respondents))*100, 2)" />%
+            </div>
+        </div>
+
+        <div tal:condition="context/getAllowAnonymous">
+            <div>
+                Responses: <span tal:replace="python:len(users)" />
+            </div>
         </div>
 
         <form name="reset_users_form"

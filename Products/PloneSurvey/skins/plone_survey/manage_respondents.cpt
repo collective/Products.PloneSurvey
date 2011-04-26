@@ -15,7 +15,7 @@
             <span tal:replace="here/Title">Title</span><br />
             <span i18n:translate="">Users who have not responded yet</span>
         </h1>
-    <div tal:condition="not:respondents">No respondents</div>
+        <div tal:condition="not:respondents">No respondents</div>
         <div tal:condition="not:context/getAllowAnonymous">
              <div tal:define="already_responded context/getRespondents;
                               respondents python:context.get_acl_users().getUserNames()">
@@ -24,7 +24,13 @@
                          tal:replace="python:round(float(len(already_responded))/float(len(respondents))*100, 2)" />%
              </div>
         </div>
-    <div metal:use-macro="context/respondent_macros/macros/add_respondent" />
+        <div tal:condition="context/getAllowAnonymous">
+            <div>
+                Responses: <span tal:replace="python:len(already_responded)" />
+            </div>
+        </div>
+
+        <div metal:use-macro="context/respondent_macros/macros/add_respondent" />
         <h2 i18n:translate="">Invited Respondents</h2>
         <table id="sortable"
                class="listing">
