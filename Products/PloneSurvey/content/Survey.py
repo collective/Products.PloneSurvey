@@ -3,6 +3,7 @@ import string
 import csv
 import os
 import transaction
+import urllib
 from Products.CMFPlone.utils import safe_unicode
 
 from cStringIO import StringIO
@@ -905,6 +906,10 @@ class Survey(ATCTOrderedFolder):
 
     def asPdf(self, html="<html>test</html>"):
         """Download the survey as a pdf"""
+        page = urllib.urlopen(self.absolute_url())
+        html = page.read()
+        html = html.strip()
+        page.close()
         filename = self.getId() + '.pdf'
         pdf = pisa.CreatePDF(
             StringIO(html),
