@@ -8,6 +8,7 @@
                        num_options python: len(options);
                        pct_aggregate_answers question/getPercentageAnswers;
                        pct_answers question/getPercentages;
+                       number_respondents question/getNumberOfRespondents;
                        colors python:question.getSurveyColors(num_options)"
            tal:condition="python:question.getInputType() not in ('text', 'area')">
     <table style="border: solid gray 1px;">
@@ -33,6 +34,11 @@
         <tr>
             <td tal:repeat="option options"
                 tal:content="python:totals[option]">
+            </td>
+        </tr>
+        <tr>
+            <td tal:repeat="option options"
+                tal:content="python:str(100*totals[option]/number_respondents) + '%'">
             </td>
         </tr>
         <tr>
