@@ -35,17 +35,19 @@
         <table id="sortable"
                class="listing">
         <thead>
+          <tr>
             <th i18n:translate="">Name</th>
             <th i18n:translate="">Email Address</th>
             <th i18n:translate="">Email Sent</th>
             <th i18n:translate="">Action</th>
+          </tr>
         </thead>
             <tbody>
             <tal:invited repeat="respondent respondents">
             <tr tal:define="encoded_email python:standard_module.url_quote(respondent['id'])"
                 tal:condition="python:respondent['id'] not in already_responded">
                 <td tal:content="python:respondent['fullname']" />
-                        <td tal:content="python:respondent['emailaddress']" />
+                <td tal:content="python:respondent['emailaddress']" />
                 <td>
                     <span tal:condition="respondent/email_sent|nothing"
                           tal:content="python:context.restrictedTraverse('@@plone').toLocalizedTime(respondent['email_sent'],long_format=1)" />
