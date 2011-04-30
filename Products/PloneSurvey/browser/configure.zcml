@@ -2,6 +2,9 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:five="http://namespaces.zope.org/five">
 
+	   
+    <include package=".viewlets" />
+
     <!-- Folder factories -->
     <browser:page
         for="..interfaces.ISurvey"

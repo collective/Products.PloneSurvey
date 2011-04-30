@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonesurvey">
+<body>
+
+<metal:main fill-slot="main">
+    
+    <div metal:use-macro="here/document_actions/macros/document_actions">
+        Document actions (print, rss etc)
+    </div>
+    
+    <h1 class="documentFirstHeading" tal:content="view/name" />
+
+    <metal:listing use-macro="here/folder_listing/macros/listing" />
+    
+    <div class="visualClear"><!----></div>
+    
+</metal:main>
+
+</body>
+</html>
