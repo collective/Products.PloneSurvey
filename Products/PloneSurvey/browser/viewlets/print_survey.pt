@@ -1,22 +1,21 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      lang="en"
-      metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plonesurvey">
-<body>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE document SYSTEM "http://www.reportlab.com/docs/rml.dtd">
+<document filename="survey.pdf"
+          xmlns:tal="http://xml.zope.org/namespaces/tal"
+          xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="plonesurvey">
 
-<metal:main fill-slot="main">
-    
-    <div metal:use-macro="here/document_actions/macros/document_actions">
-        Document actions (print, rss etc)
-    </div>
-    
-    <h1 class="documentFirstHeading" tal:content="view/name" />
 
-    <metal:listing use-macro="here/folder_listing/macros/listing" />
-    
-    <div class="visualClear"><!----></div>
-    
-</metal:main>
+    <template pageSize="A4" author="admin" title="Title">
+        <pageTemplate id="main">
+           <frame id="first" x1="72" y1="70" width="451" height="600"/>
+       </pageTemplate>
+    </template>
 
-</body>
-</html>
+    <story>
+
+        <h1 tal:content="view/name">Title</h1>
+
+    </story>
+
+</document>
