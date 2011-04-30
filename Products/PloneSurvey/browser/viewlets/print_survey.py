@@ -12,3 +12,6 @@ class PrintSurveyView(BrowserView):
 
     def name(self):
         return self.context.Title()
+
+    def getAllQuestionsInOrder(self):
+        return self.context.getAllQuestionsInOrder(include_sub_survey=True)
