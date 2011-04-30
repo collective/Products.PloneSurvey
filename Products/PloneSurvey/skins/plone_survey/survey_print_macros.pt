@@ -5,7 +5,20 @@
           xmlns:i18n="http://xml.zope.org/namespaces/i18n"
           i18n:domain="plonesurvey">
 
-<div metal:define-macro="select">
-The select question
+<div metal:define-macro="select"
+    tal:omit-tag="">
+    <h2>
+        <span tal:replace="question/Title" />
+        <span tal:condition="question/getRequired"
+            i18n:translate="label_required_in_parentheses"
+            tal:omit-tag="">(Required)</span>
+    </h2>
+    <para tal:content="question/Description" />
+    <para tal:condition="python:question.getBody() and question.getTextLocation() == 2"
+         tal:content="structure question/getBody" />
+    <tal:radio tal:repeat="option question/getQuestionOptions">
+        <para i18n:translate=""
+            tal:content="option" />
+    </tal:radio>
 </div>
 </document>

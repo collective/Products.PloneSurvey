@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE document SYSTEM "http://www.reportlab.com/docs/rml.dtd">
 <document filename="survey.pdf"
           xmlns:tal="http://xml.zope.org/namespaces/tal"
@@ -15,9 +16,8 @@
 
         <h1 tal:content="view/name">Title</h1>
         <tal:repeat repeat="question questions">
-            <h2 tal:content="question/Title" />
 
-            <div metal:use-macro="context/survey_print_macros/macros/select" />
+            <para metal:use-macro="context/survey_print_macros/macros/select" />
         </tal:repeat>
 
     </story>
