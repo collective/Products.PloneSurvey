@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename="survey.pdf"
-          xmlns:tal="http://xml.zope.org/namespaces/tal"
-          xmlns:metal="http://xml.zope.org/namespaces/metal"
-          xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-          i18n:domain="plonesurvey">
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plonesurvey">
 
 <div metal:define-macro="select"
     tal:omit-tag="">
@@ -15,10 +15,23 @@
     </h2>
     <para tal:content="question/Description" />
     <para tal:condition="python:question.getBody() and question.getTextLocation() == 2"
-         tal:content="structure question/getBody" />
-    <tal:radio tal:repeat="option question/getQuestionOptions">
-        <para i18n:translate=""
-            tal:content="option" />
-    </tal:radio>
+        tal:content="structure question/getBody" />
+    <blockTable rowHeights="2cm, 2cm" colWidths="3cm, 3cm">
+        <tr tal:repeat="option question/getQuestionOptions">
+            <td>
+                <para tal:replace="option" />
+            </td>
+            <td>
+                <illustration height="0.5cm" width="0.5cm">
+                    <lines>
+                        0   0   0   0.5cm 
+                        0   0.5cm 0.5cm 0.5cm 
+                        0.5cm 0.5cm 0.5cm 0 
+                        0.5cm 0   0   0 
+                    </lines>
+                </illustration>
+            </td>
+        </tr>
+    </blockTable>
 </div>
 </document>
