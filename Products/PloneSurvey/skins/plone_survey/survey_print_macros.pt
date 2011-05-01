@@ -16,11 +16,8 @@
     <para tal:content="question/Description" />
     <para tal:condition="python:question.getBody() and question.getTextLocation() == 2"
         tal:content="structure question/getBody" />
-    <blockTable rowHeights="2cm, 2cm" colWidths="3cm, 3cm">
+    <blockTable rowHeights="1cm, 1cm" colWidths="1cm, 3cm" alignment="left">
         <tr tal:repeat="option question/getQuestionOptions">
-            <td>
-                <para tal:replace="option" />
-            </td>
             <td>
                 <illustration height="0.5cm" width="0.5cm">
                     <lines>
@@ -30,6 +27,9 @@
                         0.5cm 0   0   0 
                     </lines>
                 </illustration>
+            </td>
+            <td>
+                <para tal:content="option" />
             </td>
         </tr>
     </blockTable>

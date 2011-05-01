@@ -14,12 +14,11 @@
 
     <story tal:define="questions view/getAllQuestionsInOrder">
 
-        <h1 tal:content="view/name">Title</h1>
+        <title tal:content="view/name" />
         <tal:repeat repeat="question questions">
 
             <para metal:use-macro="context/survey_print_macros/macros/select" />
         </tal:repeat>
-
     </story>
 
 </document>
