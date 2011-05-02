@@ -5,6 +5,28 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="plonesurvey">
 
+<div metal:define-macro="text"
+    tal:omit-tag="">
+    <h2>
+        <span tal:replace="question/Title" />
+        <span tal:condition="question/getRequired"
+            i18n:translate="label_required_in_parentheses"
+            tal:omit-tag="">(Required)</span>
+    </h2>
+    <para tal:content="question/Description" />
+    <para tal:condition="python:question.getBody() and question.getTextLocation() == 2"
+        tal:content="structure question/getBody" />
+    <spacer length="1cm" />
+    <illustration height="2cm" width="10cm">
+        <lines>
+            0   0   0   2cm 
+            0   2cm 10cm 2cm 
+            10cm 2cm 10cm 0 
+            10cm 0   0   0 
+        </lines>
+    </illustration>
+</div>
+
 <div metal:define-macro="select"
     tal:omit-tag="">
     <h2>
