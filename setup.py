@@ -25,6 +25,7 @@ setup(name='Products.PloneSurvey',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'z3c.rml',
       ],
       entry_points="""
       # -*- Entry points: -*-
