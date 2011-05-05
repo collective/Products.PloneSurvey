@@ -20,11 +20,21 @@
 
   <genericsetup:upgradeStep
     title="Register surveys with Survey Tool"
-    description="Surveys need to be registered with the Survey Tool to enable the walk functionality"
+    description="Nothing to do the survey tool has been removed"
     source="*"
     destination="1.4.2"
-    handler="Products.PloneSurvey.setuphandlers.registerWithSurveyTool"
+    handler="Products.PloneSurvey.setuphandlers.nullStep"
     sortkey="1"
+    profile="Products.PloneSurvey:default"
+    />
+
+  <genericsetup:upgradeStep
+    title="Fix report tab permissions"
+    description="Surveys need to be registered with the Survey Tool to enable the walk functionality"
+    source="1.4.2"
+    destination="1.4.3"
+    handler="Products.PloneSurvey.setuphandlers.upgrade_to_1_4_3"
+    sortkey="2"
     profile="Products.PloneSurvey:default"
     />
 

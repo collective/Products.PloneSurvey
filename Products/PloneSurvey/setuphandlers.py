@@ -3,6 +3,9 @@ import logging
 from StringIO import StringIO
 from Products.CMFCore.utils import getToolByName
 
+LOGGER_ID = 'Products.PloneSurvey'
+PROFILE_ID = 'profile-Products.PloneSurvey:default'
+
 def importVarious(context):
     """
     Import various settings."""
@@ -12,19 +15,16 @@ def importVarious(context):
     site = context.getSite()
     out = StringIO()
 
-def registerWithSurveyTool(portal, logger=None):
-    """Register all of the existing surveys with the survey tool"""
-    return
+def nullStep(context, logger=None):
+    """Null step"""
+    pass
+
+def upgrade_to_1_4_3(context, logger=None):
+    """Method to upgrade the profile to version 2.
+    """
     if logger is None:
         # Called as upgrade step: define our own logger.
-        logger = logging.getLogger('Products.PloneSurvey')
+        logger = logging.getLogger(LOGGER_ID)
+
     setup = getToolByName(context, 'portal_setup')
-    setup.runImportStepFromProfile('Products.PloneSurvey:default', 'toolset')
-    survey_tool = getToolByName(portal, 'plone_survey_tool')
-    catalog = getToolByName(portal, 'portal_catalog')
-    results = catalog.searchResults(portal_type='Survey')
-    for result in results:
-        survey = result.getObjecy()
-        survey_uid = survey.UID()
-        survey_tool.registerSurvey(survey_uid)
-    logger.info("%s surveys added to the survey tool." % len(results))
+    setup.runImportStepFromProfile(PROFILE_ID, 'typeinfo')
