@@ -1,8 +1,15 @@
 Changelog for Products.PloneSurvey
 ==================================
 
+1.4.4 - 2011-05-09
+------------------
+
+  * Add a MANIFEST.in file to fix the 1.4.3 release bug
+    [encolpe]
+
+
 1.4.3 - 2011-05-05
--------------------
+------------------
 
   * Fix z3c.rml dependency
     [encolpe]
