@@ -29,8 +29,8 @@ class testPostValidate(PloneSurveyTestCase):
         self.s1.invokeFactory('Survey Date Question', 'sdq1')
         self.app = makerequest(self.app)
         self.app.REQUEST.form['title'] = 'Date Question Title'
-        self.app.REQUEST.form['showYMD'] = '1'
-        self.app.REQUEST.form['showHM'] = '1'
+        self.app.REQUEST.form['showYMD'] = True
+        self.app.REQUEST.form['showHM'] = True
         self.app.REQUEST.form['startingYear'] = '1970'
         self.app.REQUEST.form['endingYear'] = '2001'
         self.app.REQUEST.form['futureYears'] = ''
@@ -78,8 +78,8 @@ class testPostValidate(PloneSurveyTestCase):
     def testQuestionField(self):
         """Test validation fails if ymd and hm both unselected"""
         sdq1 = getattr(self.s1, 'sdq1')
-        self.app.REQUEST.form['showYMD'] = '0'
-        self.app.REQUEST.form['showHM'] = '0'
+        self.app.REQUEST.form['showYMD'] = False
+        self.app.REQUEST.form['showHM'] = False
         app = self.app
         dummy_controller_state = ControllerState(
                                     id='base_edit',
@@ -184,10 +184,3 @@ class testDateQuestion(PloneSurveyTestCase):
             if question.portal_type == 'Survey Date Question':
                 assert question.getAnswerFor(userid) == now_value, "Answer not saved correctly: %s" % question.getAnswerFor(userid)
 
-def test_suite():
-    from unittest import TestSuite, makeSuite
-    suite = TestSuite()
-    suite.addTest(makeSuite(testAddDateQuestion))
-    suite.addTest(makeSuite(testPostValidate))
-    suite.addTest(makeSuite(testDateQuestion))
-    return suite

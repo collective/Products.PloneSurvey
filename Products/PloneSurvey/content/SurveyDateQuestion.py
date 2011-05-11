@@ -38,7 +38,7 @@ class SurveyDateQuestion(BaseQuestion):
         startingYear = form.get('startingYear', None)
         try:
             startingYear = int(startingYear)
-        except TypeError:
+        except (TypeError, ValueError):
             # int() raises TypeError, not ValueError or we have to put both
             errors['startingYear'] = u'Start year must be an integer.'
         endingYear = form.get('endingYear', None)
