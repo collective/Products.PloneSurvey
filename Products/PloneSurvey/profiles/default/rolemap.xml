@@ -6,6 +6,7 @@
       <role name="Contributor"/>
       <role name="Editor"/>
       <role name="Manager"/>
+      <role name="Owner"/>
     </permission>
     <permission name="PloneSurvey: Reset Own Responses"
                 acquire="True">
