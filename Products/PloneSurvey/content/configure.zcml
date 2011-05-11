@@ -18,6 +18,22 @@
   <five:deprecatedManageAddDelete
       class=".SurveyTextQuestion.SurveyTextQuestion" />
 
+  <five:implements
+    class="Products.PloneSurvey.content.Survey.Survey"
+    interface="Products.Archetypes.interfaces.IMultiPageSchema" />
+
+  <five:implements
+    class="Products.PloneSurvey.content.SurveyDateQuestion.SurveyDateQuestion"
+    interface="Products.Archetypes.interfaces.IMultiPageSchema" />
+
+  <five:implements
+    class="Products.PloneSurvey.content.SurveySelectQuestion.SurveySelectQuestion"
+    interface="Products.Archetypes.interfaces.IMultiPageSchema" />
+
+  <five:implements
+    class="Products.PloneSurvey.content.SurveyMatrix.SurveyMatrix"
+    interface="Products.Archetypes.interfaces.IMultiPageSchema" />
+
   <subscriber
     for="Products.PloneSurvey.content.Survey.Survey
          zope.app.container.interfaces.IObjectAddedEvent"
