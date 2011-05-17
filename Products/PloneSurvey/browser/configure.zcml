@@ -2,6 +2,8 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:five="http://namespaces.zope.org/five">
 
+    <!-- included for CMF Permissions -->
+    <include package="Products.CMFCore"/>
 	   
     <include package=".viewlets" />
 

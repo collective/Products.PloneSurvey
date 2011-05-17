@@ -3,6 +3,8 @@ Changelog for Products.PloneSurvey
 
 1.4.5 - Unreleased
 ------------------
+  * Include Products.CMFCore permissions.zcml for Plone 4.1 compatibility
+    [gaudenzius]
 
 1.4.4 - 2011-05-09
 ------------------
