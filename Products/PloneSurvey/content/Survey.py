@@ -674,7 +674,16 @@ class Survey(ATCTOrderedFolder):
             self.createLocalPas()
         return self.acl_users
 
-    security.declareProtected(permissions.View, 'buildSpreadsheetUrl')
+    security.declareProtected(permissions.ViewSurveyResults, 'setCsvHeaders')
+    def setCsvHeaders(self):
+        """Set the CSV headers"""
+        REQUEST = self.REQUEST
+        file = self.buildSpreadsheetUrl()
+        REQUEST.RESPONSE.setHeader('Content-Type','text/x-comma-separated-values; charset=utf-8')
+        REQUEST.RESPONSE.setHeader('Content-disposition','attachment; filename=%s' % file)
+        return REQUEST
+
+    security.declareProtected(permissions.ViewSurveyResults, 'buildSpreadsheetUrl')
     def buildSpreadsheetUrl(self):
         """Create a filename for the spreadsheets"""
         date = DateTime().strftime("%Y-%m-%d")
@@ -682,6 +691,12 @@ class Survey(ATCTOrderedFolder):
         id = "%s-%s" % (id, date)
         url = "%s.csv" % id
         return url
+
+    security.declareProtected(permissions.ViewSurveyResults, 'spreadsheet2')
+    def spreadsheet2(self):
+        """Return spreadsheet 2"""
+        self.setCsvHeaders()
+        return self.buildSpreadsheet2()
 
     security.declareProtected(permissions.ViewSurveyResults, 'buildSpreadsheet2')
     def buildSpreadsheet2(self):
@@ -711,6 +726,12 @@ class Survey(ATCTOrderedFolder):
             sheet.writerow(row)
         
         return data.getvalue()
+
+    security.declareProtected(permissions.ViewSurveyResults, 'spreadsheet3')
+    def spreadsheet3(self):
+        """Return spreadsheet 3"""
+        self.setCsvHeaders()
+        return self.buildSpreadsheet3()
 
     security.declareProtected(permissions.ViewSurveyResults, 'buildSpreadsheet3')
     def buildSpreadsheet3(self):
@@ -762,6 +783,12 @@ class Survey(ATCTOrderedFolder):
             sheet.writerow(row)
         return data.getvalue()
 
+    security.declareProtected(permissions.ViewSurveyResults, 'summary_spreadsheet')
+    def summary_spreadsheet(self):
+        """Return summary spreadsheet"""
+        self.setCsvHeaders()
+        return self.buildSummarySpreadsheet()
+
     security.declareProtected(permissions.ModifyPortalContent, 'buildSummarySpreadsheet')
     def buildSummarySpreadsheet(self):
         """Build the summary spreadsheet."""
@@ -784,6 +811,16 @@ class Survey(ATCTOrderedFolder):
                     row.append(percentage_options[option])
                     sheet.writerow(row)
         return data.getvalue()
+
+    security.declareProtected(permissions.ViewSurveyResults, 'spreadsheet_select')
+    def spreadsheet_select(self):
+        """Return spreadsheet select"""
+        self.setCsvHeaders()
+        try:
+            answers = self.REQUEST.form['answers']
+        except KeyError:
+            return self.buildSelectSpreadsheet()
+        return self.buildSelectSpreadsheet(boolean=True)
 
     security.declareProtected(permissions.ViewSurveyResults, 'buildSelectSpreadsheet')
     def buildSelectSpreadsheet(self, boolean=False):
