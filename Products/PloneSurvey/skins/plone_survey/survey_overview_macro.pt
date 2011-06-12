@@ -28,8 +28,13 @@
     <ul>
         <li tal:content="question/portal_type" />
         <li tal:content="question/getInputType" />
-        <li tal:condition="python:hasattr(question, 'getQuestionOptions') and len(question.getQuestionOptions()) > 0"
-            tal:content="question/getQuestionOptions" />
+        <li tal:condition="python:hasattr(question, 'getQuestionOptions') and len(question.getQuestionOptions()) > 0">
+            <dl>
+	        <dt>Answer Options</dt>
+                <dd tal:repeat="option question/getQuestionOptions"
+		    tal:content="option" />
+            </dl>
+        </li>
         <li tal:condition="python:hasattr(question, 'getValidation') and question.getValidation() != 'None'"
             tal:content="question/getValidation" />
         <li tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()">

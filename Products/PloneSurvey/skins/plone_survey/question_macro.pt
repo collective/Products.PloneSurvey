@@ -45,13 +45,21 @@
     </div>
 
 </div>
-<dl metal:define-macro="display">
+<dl metal:define-macro="display"
+    tal:define="answer python:question.getAnswerFor(member_id)">
     <dt tal:content="question/Title" />
-    <dd tal:content="python: question.getAnswerFor(member_id)" />
+    <dd tal:condition="python:hasattr(answer, 'lower')"
+        tal:content="answer" />
+    <dd tal:condition="python:not hasattr(answer, 'lower')">
+        <ul>
+	    <li tal:repeat="answer_string answer"
+	        tal:content="answer_string" />
+	</ul>
+    </dd>
     <div tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()"
          tal:omit-tag="">
         <dt>Comment</dt>
-        <dd tal:content="python: question.getCommentsFor(member_id) or 'No Comment'" />
+        <dd tal:content="python:question.getCommentsFor(member_id) or 'No Comment'" />
     </div>
 </dl>
 </body>

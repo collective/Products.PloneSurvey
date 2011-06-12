@@ -23,8 +23,16 @@
                 <td tal:content="user" />
                 <span tal:repeat="question questions"
                       tal:omit-tag="">
-                    <td i18n:translate="" tal:content="python:question.getAnswerFor(user)" />
-                    <td i18n:translate="" tal:content="python:question.getCommentsFor(user)"
+                    <td tal:define="answer python:question.getAnswerFor(user)">
+		        <span tal:condition="python:hasattr(answer, 'lower')"
+		              tal:content="answer" />
+		        <span tal:condition="python:not hasattr(answer, 'lower')"
+		              tal:repeat="answer_string answer">
+		            <span tal:content="answer_string" />
+		            <br />
+		        </span>
+		    </td>
+                    <td tal:content="python:question.getCommentsFor(user)"
                         tal:condition="question/getCommentType | nothing" />
                 </span>
                 <td i18n:translate="" tal:content="python:test(here.checkCompletedFor(user), 'Completed', 'Not Completed')" />
