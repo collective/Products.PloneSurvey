@@ -7,6 +7,15 @@
     <style type="text/css" media="all"
            tal:content="string:@import url($portal_url/jscalendar/calendar-system.css);" />
 </metal:block>
+<metal:block metal:fill-slot="javascript_head_slot"
+    tal:condition="context/hasDateQuestion">
+    <script type="text/javascript" charset="iso-8859-1"
+            tal:attributes="src string:$portal_url/jscalendar/calendar_stripped.js">
+    </script>
+    <script type="text/javascript" charset="iso-8859-1"
+            tal:attributes="src string:$portal_url/jscalendar/calendar-en.js">
+    </script>
+</metal:block>
 </head>
 <body>
 <metal:main fill-slot="main">

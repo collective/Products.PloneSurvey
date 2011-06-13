@@ -83,12 +83,21 @@ class SubSurvey(ATCTOrderedFolder):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(
             contentFilter={'portal_type':[
+                'Survey Date Question',
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
                 'Survey Two Dimensional',
                 ]}, full_objects=True)
         return questions
+
+    security.declareProtected(permissions.View, 'hasDateQuestion')
+    def hasDateQuestion(self):
+        """Return true if there is a date question in this part of the survey to import the js"""
+        objects = self.getFolderContents(contentFilter={'portal_type':'Survey Date Question'})
+        if objects:
+            return True
+        return False
 
     security.declareProtected(permissions.View, 'checkCompleted')
     def checkCompleted(self):

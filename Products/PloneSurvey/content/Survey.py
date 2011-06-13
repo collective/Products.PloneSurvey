@@ -252,6 +252,14 @@ class Survey(ATCTOrderedFolder):
                 questions.append(object)
         return questions
 
+    security.declareProtected(permissions.View, 'hasDateQuestion')
+    def hasDateQuestion(self):
+        """Return true if there is a date question in this part of the survey to import the js"""
+        objects = self.getFolderContents(contentFilter={'portal_type':'Survey Date Question'})
+        if objects:
+            return True
+        return False
+
     security.declareProtected(permissions.View, 'getNextPage')
     def getNextPage(self):
         """Return the next page of the survey"""
