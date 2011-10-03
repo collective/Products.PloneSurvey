@@ -21,7 +21,7 @@ class importerRespondentsView(BrowserView):
             return self.index()
 
         oExcel = excel()
-        oExcel.delimiter = ';'
+        oExcel.delimiter = ','
         result = [x for x in reader(source, dialect=oExcel)]
 
         for x in result:
