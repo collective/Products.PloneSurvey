@@ -2,14 +2,19 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       i18n:domain="plonesurvey">
 <body>
+
 <div metal:define-macro="add_respondent">
+
+  <a href="@@import_respondents"
+     i18n:translate="import_respondents">Import respondents</a>
+
   <form name="add_authenticated_respondent"
               method="post"
               tal:attributes="action template/id"
               tal:define="errors options/state/getErrors;">
-              
+
     <input type="hidden" name="form.submitted" value="1" />
-    <fieldset>    
+    <fieldset>
       <legend i18n:translate="new_authenticated_respondent">New Authenticated Respondent</legend>
 
       <div class="field"
@@ -23,7 +28,7 @@
         <span class="fieldRequired" title="Required"
               i18n:attributes="title title_required;"
               i18n:translate="label_required_in_parentheses">(Required)</span>
-      
+
         <div tal:content="error">Validation error output</div>
 
         <input type="text"
@@ -45,7 +50,7 @@
         <span class="fieldRequired" title="Required"
               i18n:attributes="title title_required;"
               i18n:translate="label_required_in_parentheses">(Required)</span>
-      
+
         <div tal:content="error">Validation error output</div>
 
         <input type="text"
@@ -68,7 +73,7 @@
         <span class="fieldRequired" title="Required"
               i18n:attributes="title title_required;"
               i18n:translate="label_required_in_parentheses">(Required)</span>
-      
+
         <div tal:content="error">Validation error output</div>
 
         <input type="text"
@@ -91,4 +96,3 @@
 </div>
 </body>
 </html>
-

@@ -94,7 +94,7 @@ class Survey(ATCTOrderedFolder):
         except TypeError:
             # BBB needed for Plone 3.3.5
             setupPlugins(self, out)
-        
+
         # Recreate mutable_properties but specify fields
         uf = self.acl_users
         pas = uf.manage_addProduct['PluggableAuthService']
@@ -306,9 +306,9 @@ class Survey(ATCTOrderedFolder):
         if user is not None:
             portal_registration = getToolByName(self, 'portal_registration')
             pw = portal_registration.generatePassword()
-            
+
             self.acl_users.userFolderEditUser(userid, pw, user.getRoles(), user.getDomains(), key=pw)
-            
+
             # Set key
             props = acl_users.mutable_properties.getPropertiesForUser(user)
             props = BasicPropertySheet(props)
@@ -712,9 +712,9 @@ class Survey(ATCTOrderedFolder):
         data = StringIO()
         sheet = csv.writer(data)
         questions = self.getAllQuestionsInOrder()
-        
+
         sheet.writerow(('user',) + tuple(q.Title() for q in questions) + ('completed',))
-        
+
         for user in self.getRespondents():
             if self.getConfidential():
                 row = ['Anonymous']
@@ -728,11 +728,11 @@ class Survey(ATCTOrderedFolder):
                         # It's a sequence, filter out empty values
                         answer = ', '.join(filter(None, answer))
                 row.append(answer)
-            
+
             row.append(self.checkCompletedFor(user) and 'Completed' or 'Not Completed')
-            
+
             sheet.writerow(row)
-        
+
         return data.getvalue()
 
     security.declareProtected(permissions.ViewSurveyResults, 'spreadsheet3')

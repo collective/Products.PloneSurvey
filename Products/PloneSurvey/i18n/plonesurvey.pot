@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-23 16:41+0000\n"
+"POT-Creation-Date: 2011-10-03 13:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Domain: plonesurvey\n"
 
 #. Default: "A little Useful"
-#: ../config.py:97
+#: ../config.py:96
 msgid "A little Useful"
 msgstr ""
 
@@ -54,17 +54,17 @@ msgstr ""
 msgid "A two-dimensional question within a survey."
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:35
+#: ../skins/plone_survey/manage_respondents.cpt:42
 msgid "Action"
 msgstr ""
 
 #. Default: "Agree"
-#: ../config.py:102
+#: ../config.py:101
 msgid "Agree"
 msgstr ""
 
 #. Default: "Agree Strongly"
-#: ../config.py:101
+#: ../config.py:100
 msgid "Agree Strongly"
 msgstr ""
 
@@ -73,38 +73,42 @@ msgid "Completed"
 msgstr ""
 
 #. Default: "Disagree"
-#: ../config.py:104
+#: ../config.py:103
 msgid "Disagree"
 msgstr ""
 
 #. Default: "Disagree Strongly"
-#: ../config.py:105
+#: ../config.py:104
 msgid "Disagree Strongly"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:33
+#: ../browser/importer.py:33
+msgid "Done importing respondents"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:40
 msgid "Email Address"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:34
+#: ../skins/plone_survey/manage_respondents.cpt:41
 msgid "Email Sent"
 msgstr ""
 
 #. Default: "Good"
-#: ../config.py:88
+#: ../config.py:87
 msgid "Good"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:28
+#: ../skins/plone_survey/manage_respondents.cpt:34
 msgid "Invited Respondents"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:32
+#: ../skins/plone_survey/manage_respondents.cpt:39
 msgid "Name"
 msgstr ""
 
 #. Default: "Neutral"
-#: ../config.py:103
+#: ../config.py:102
 msgid "Neutral"
 msgstr ""
 
@@ -112,13 +116,17 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+#: ../browser/importer.py:20
+msgid "No source file given"
+msgstr ""
+
 #. Default: "Not Useful"
-#: ../config.py:98
+#: ../config.py:97
 msgid "Not Useful"
 msgstr ""
 
 #. Default: "OK Only"
-#: ../config.py:89
+#: ../config.py:88
 msgid "OK Only"
 msgstr ""
 
@@ -129,12 +137,12 @@ msgid "Please select"
 msgstr ""
 
 #. Default: "Poor"
-#: ../config.py:90
+#: ../config.py:89
 msgid "Poor"
 msgstr ""
 
 #. Default: "Quite Useful"
-#: ../config.py:96
+#: ../config.py:95
 msgid "Quite Useful"
 msgstr ""
 
@@ -188,7 +196,7 @@ msgid "Survey Two Dimensional"
 msgstr ""
 
 #. Default: "Useful"
-#: ../config.py:95
+#: ../config.py:94
 msgid "Useful"
 msgstr ""
 
@@ -196,22 +204,22 @@ msgstr ""
 msgid "Users who have not responded yet"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:80
+#: ../skins/plone_survey/manage_respondents.cpt:88
 msgid "Users who have responded"
 msgstr ""
 
 #. Default: "Very Good"
-#: ../config.py:87
+#: ../config.py:86
 msgid "Very Good"
 msgstr ""
 
 #. Default: "Very Poor"
-#: ../config.py:91
+#: ../config.py:90
 msgid "Very Poor"
 msgstr ""
 
 #. Default: "Very Useful"
-#: ../config.py:94
+#: ../config.py:93
 msgid "Very Useful"
 msgstr ""
 
@@ -234,7 +242,7 @@ msgid "commentLabelDefault"
 msgstr ""
 
 #. Default: "Create Respondent"
-#: ../skins/plone_survey/respondent_macros.pt:83
+#: ../skins/plone_survey/respondent_macros.pt:88
 msgid "create_respondent_button"
 msgstr ""
 
@@ -273,7 +281,7 @@ msgstr ""
 msgid "download_selectasboolean_spreadsheet"
 msgstr ""
 
-#: ../content/Survey.py:885
+#: ../content/Survey.py:939
 msgid "emailInviteDefault"
 msgstr ""
 
@@ -478,8 +486,18 @@ msgstr ""
 msgid "help_validation"
 msgstr ""
 
+#. Default: "Import respondents"
+#: ../skins/plone_survey/respondent_macros.pt:8
+msgid "import_respondents"
+msgstr ""
+
+#. Default: "Import respondents from CSV source"
+#: ../browser/templates/import_respondents.pt:29
+msgid "import_respondents_from_source"
+msgstr ""
+
 #. Default: "Email on each submission"
-#: ../config.py:36
+#: ../config.py:35
 msgid "label_all_emails"
 msgstr ""
 
@@ -499,22 +517,22 @@ msgid "label_answer_options"
 msgstr ""
 
 #. Default: "Appears above question"
-#: ../config.py:62
+#: ../config.py:61
 msgid "label_appears_above_question"
 msgstr ""
 
 #. Default: "Appears after answer"
-#: ../config.py:64
+#: ../config.py:63
 msgid "label_appears_after_answer"
 msgstr ""
 
 #. Default: "Appears between question and answer"
-#: ../config.py:63
+#: ../config.py:62
 msgid "label_appears_between_question_and_answer"
 msgstr ""
 
 #. Default: "Check Boxes"
-#: ../config.py:48
+#: ../config.py:47
 msgid "label_check_boxes"
 msgstr ""
 
@@ -539,12 +557,12 @@ msgid "label_description"
 msgstr ""
 
 #. Default: "Does not appear"
-#: ../config.py:61
+#: ../config.py:60
 msgid "label_does_not_appear"
 msgstr ""
 
 #. Default: "Email Address"
-#: ../skins/plone_survey/respondent_macros.pt:42
+#: ../skins/plone_survey/respondent_macros.pt:47
 msgid "label_email_address"
 msgstr ""
 
@@ -564,7 +582,7 @@ msgid "label_exit_url"
 msgstr ""
 
 #. Default: "Name"
-#: ../skins/plone_survey/respondent_macros.pt:20
+#: ../skins/plone_survey/respondent_macros.pt:25
 msgid "label_fullname"
 msgstr ""
 
@@ -609,22 +627,22 @@ msgid "label_maxlength"
 msgstr ""
 
 #. Default: "Multiple Selection Box"
-#: ../config.py:47
+#: ../config.py:46
 msgid "label_multiple_selection_box"
 msgstr ""
 
 #. Default: "None"
-#: ../config.py:68
+#: ../config.py:67
 msgid "label_no_comment_field"
 msgstr ""
 
 #. Default: "No emails"
-#: ../config.py:35
+#: ../config.py:34
 msgid "label_no_emails"
 msgstr ""
 
 #. Default: "No users have completed the survey yet."
-#: ../skins/plone_survey/respondents_view.cpt:77
+#: ../skins/plone_survey/respondents_view.cpt:83
 msgid "label_no_users_yet"
 msgstr ""
 
@@ -684,7 +702,7 @@ msgid "label_question_description"
 msgstr ""
 
 #. Default: "Radio Buttons"
-#: ../config.py:45
+#: ../config.py:44
 msgid "label_radio_buttons"
 msgstr ""
 
@@ -694,7 +712,7 @@ msgid "label_required"
 msgstr ""
 
 #. Default: "(Required)"
-#: ../skins/plone_survey/question_date_macro.pt:20
+#: ../skins/plone_survey/question_date_macro.pt:14
 #: ../skins/plone_survey/question_macro.pt:13
 #: ../skins/plone_survey/question_matrix_macro.pt:51
 msgid "label_required_in_parentheses"
@@ -716,7 +734,7 @@ msgid "label_saved_text"
 msgstr ""
 
 #. Default: "Selection Box"
-#: ../config.py:46
+#: ../config.py:45
 msgid "label_selection_box"
 msgstr ""
 
@@ -741,7 +759,7 @@ msgid "label_startingyear"
 msgstr ""
 
 #. Default: "Closed"
-#: ../config.py:31
+#: ../config.py:30
 msgid "label_survey_closed"
 msgstr ""
 
@@ -756,12 +774,12 @@ msgid "label_survey_notification_method"
 msgstr ""
 
 #. Default: "Open"
-#: ../config.py:30
+#: ../config.py:29
 msgid "label_survey_open"
 msgstr ""
 
 #. Default: "Text Area"
-#: ../config.py:41
+#: ../config.py:40
 msgid "label_text_area"
 msgstr ""
 
@@ -771,7 +789,7 @@ msgid "label_text_cols"
 msgstr ""
 
 #. Default: "Text Field"
-#: ../config.py:40
+#: ../config.py:39
 msgid "label_text_field"
 msgstr ""
 
@@ -806,7 +824,7 @@ msgid "label_use_detailed_for_text"
 msgstr ""
 
 #. Default: "Use the options below"
-#: ../config.py:79
+#: ../config.py:78
 msgid "label_use_options_below"
 msgstr ""
 
@@ -816,37 +834,37 @@ msgid "label_validation"
 msgstr ""
 
 #. Default: "You have already filled in this survey"
-#: ../skins/plone_survey/survey_view.cpt:109
+#: ../skins/plone_survey/survey_view.cpt:116
 msgid "legend_already_completed"
 msgstr ""
 
 #. Default: "Question details"
-#: ../skins/plone_survey/survey_view.cpt:51
+#: ../skins/plone_survey/survey_view.cpt:58
 msgid "legend_question_details"
 msgstr ""
 
 #. Default: "(\"Agree Strongly\", \"Agree\", \"Neutral\", \"Disagree\", \"Disagree Strongly\")"
-#: ../config.py:82
+#: ../config.py:81
 msgid "list_agree_disagree"
 msgstr ""
 
 #. Default: "(\"Very Good\", \"Good\", \"OK Only\", \"Poor\", \"Very Poor\")"
-#: ../config.py:80
+#: ../config.py:79
 msgid "list_good_poor"
 msgstr ""
 
 #. Default: "(\"Very Useful\", \"Useful\", \"Quite Useful\", \"A little Useful\", \"Not Useful\")"
-#: ../config.py:81
+#: ../config.py:80
 msgid "list_useful_notuseful"
 msgstr ""
 
 #. Default: "New Authenticated Respondent"
-#: ../skins/plone_survey/respondent_macros.pt:13
+#: ../skins/plone_survey/respondent_macros.pt:18
 msgid "new_authenticated_respondent"
 msgstr ""
 
 #. Default: "Comment:"
-#: ../skins/plone_survey/survey_overview_macro.pt:36
+#: ../skins/plone_survey/survey_overview_macro.pt:41
 msgid "overview_comment"
 msgstr ""
 
@@ -876,23 +894,23 @@ msgid "repair_survey_text"
 msgstr ""
 
 #. Default: "Reset"
-#: ../skins/plone_survey/respondents_view.cpt:70
+#: ../skins/plone_survey/respondents_view.cpt:76
 msgid "reset_button"
 msgstr ""
 
 #. Default: "Reset Survey"
-#: ../skins/plone_survey/survey_view.cpt:115
+#: ../skins/plone_survey/survey_view.cpt:122
 msgid "reset_survey_button"
 msgstr ""
 
 #. Default: "Reset Users"
-#: ../skins/plone_survey/respondents_view.cpt:31
+#: ../skins/plone_survey/respondents_view.cpt:37
 msgid "reset_users"
 msgstr ""
 
 #. Default: "End"
-#: ../skins/plone_survey/manage_respondents.cpt:90
-#: ../skins/plone_survey/respondents_view.cpt:42
+#: ../skins/plone_survey/manage_respondents.cpt:98
+#: ../skins/plone_survey/respondents_view.cpt:48
 msgid "respondents_end"
 msgstr ""
 
@@ -902,41 +920,41 @@ msgid "respondents_for_survey"
 msgstr ""
 
 #. Default: "IP Address"
-#: ../skins/plone_survey/manage_respondents.cpt:88
-#: ../skins/plone_survey/respondents_view.cpt:40
+#: ../skins/plone_survey/manage_respondents.cpt:96
+#: ../skins/plone_survey/respondents_view.cpt:46
 msgid "respondents_ip"
 msgstr ""
 
 #. Default: "Start"
-#: ../skins/plone_survey/manage_respondents.cpt:89
-#: ../skins/plone_survey/respondents_view.cpt:41
+#: ../skins/plone_survey/manage_respondents.cpt:97
+#: ../skins/plone_survey/respondents_view.cpt:47
 msgid "respondents_start"
 msgstr ""
 
 #. Default: "Time Taken"
-#: ../skins/plone_survey/manage_respondents.cpt:91
-#: ../skins/plone_survey/respondents_view.cpt:43
+#: ../skins/plone_survey/manage_respondents.cpt:99
+#: ../skins/plone_survey/respondents_view.cpt:49
 msgid "respondents_time_taken"
 msgstr ""
 
 #. Default: "User Id"
-#: ../skins/plone_survey/manage_respondents.cpt:87
-#: ../skins/plone_survey/respondents_view.cpt:39
+#: ../skins/plone_survey/manage_respondents.cpt:95
+#: ../skins/plone_survey/respondents_view.cpt:45
 msgid "respondents_userid"
 msgstr ""
 
 #. Default: "Save"
-#: ../skins/plone_survey/survey_view.cpt:80
+#: ../skins/plone_survey/survey_view.cpt:87
 msgid "save_button"
 msgstr ""
 
 #. Default: "Submit"
-#: ../skins/plone_survey/survey_view.cpt:92
+#: ../skins/plone_survey/survey_view.cpt:99
 msgid "submit_button"
 msgstr ""
 
 #. Default: "Next"
-#: ../skins/plone_survey/survey_view.cpt:86
+#: ../skins/plone_survey/survey_view.cpt:93
 msgid "submit_page_button"
 msgstr ""
 
@@ -969,7 +987,7 @@ msgid "text_survey_users_reset_error"
 msgstr ""
 
 #. Default: "Required"
-#: ../skins/plone_survey/respondent_macros.pt:23
+#: ../skins/plone_survey/respondent_macros.pt:28
 msgid "title_required"
 msgstr ""
 

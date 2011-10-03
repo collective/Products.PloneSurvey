@@ -4,7 +4,7 @@
 
     <!-- included for CMF Permissions -->
     <include package="Products.CMFCore"/>
-	   
+
     <include package=".viewlets" />
 
     <!-- Folder factories -->
@@ -17,18 +17,26 @@
         />
 
     <browser:resourceDirectory
-	name="Products.PloneSurvey.images"
-	directory="images"
-	/>
+    name="Products.PloneSurvey.images"
+    directory="images"
+    />
 
     <browser:resourceDirectory
-	name="Products.PloneSurvey.javascripts"
-	directory="javascripts"
-	/>
+    name="Products.PloneSurvey.javascripts"
+    directory="javascripts"
+    />
 
     <browser:resourceDirectory
-	name="Products.PloneSurvey.stylesheets"
-	directory="stylesheets"
-	/>
+    name="Products.PloneSurvey.stylesheets"
+    directory="stylesheets"
+    />
+
+    <browser:page
+       for="..interfaces.ISurvey"
+       name="import_respondents"
+       class="Products.PloneSurvey.browser.importer.importerRespondentsView"
+       template="templates/import_respondents.pt"
+       permission="cmf.AddPortalContent"
+    />
 
 </configure>
