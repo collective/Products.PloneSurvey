@@ -6,12 +6,14 @@ Changelog for Products.PloneSurvey
   * Include Products.CMFCore permissions.zcml for Plone 4.1 compatibility
     [gaudenzius]
 
+  * Fixed italian translation
+    [keul]
+
 1.4.4 - 2011-05-09
 ------------------
 
   * Add a MANIFEST.in file to fix the 1.4.3 release bug
     [encolpe]
-
 
 1.4.3 - 2011-05-05
 ------------------

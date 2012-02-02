@@ -83,7 +83,7 @@ msgstr "Disaccordo completo"
 
 #: ../browser/importer.py:33
 msgid "Done importing respondents"
-msgstr ""
+msgstr "Importazione partecipanti terminata"
 
 #: ../skins/plone_survey/manage_respondents.cpt:40
 msgid "Email Address"
@@ -117,7 +117,7 @@ msgstr ""
 
 #: ../browser/importer.py:20
 msgid "No source file given"
-msgstr ""
+msgstr "Nessun file sorgente fornito"
 
 #. Default: "Not Useful"
 #: ../config.py:97
@@ -519,12 +519,12 @@ msgstr "Seleziona un metodo di validazione per questa domanda."
 #. Default: "Import respondents"
 #: ../skins/plone_survey/respondent_macros.pt:8
 msgid "import_respondents"
-msgstr ""
+msgstr "Importazione partecipanti"
 
 #. Default: "Import respondents from CSV source"
 #: ../browser/templates/import_respondents.pt:29
 msgid "import_respondents_from_source"
-msgstr ""
+msgstr "Importa partecipanti da sorgente CSV"
 
 #. Default: "Email on each submission"
 #: ../config.py:35
