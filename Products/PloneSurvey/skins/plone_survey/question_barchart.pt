@@ -37,9 +37,12 @@
             </td>
         </tr>
         <tr>
-            <td tal:repeat="option options"
-                tal:content="python:str(100*totals[option]/number_respondents) + '%'">
-            </td>
+            <tal:block tal:condition="python:number_respondents != 0">
+                <td tal:repeat="option options"
+                    tal:content="python:str(100*totals[option]/number_respondents) + '%'">
+                </td>
+            </tal:block>
+
         </tr>
         <tr>
             <td tal:repeat="option options"
