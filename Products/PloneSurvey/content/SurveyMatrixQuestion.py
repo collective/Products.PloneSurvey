@@ -39,7 +39,7 @@ class SurveyMatrixQuestion(BaseQuestion):
             value = newvalue
         except ValueError:
             pass
-        if self.getRequired() and not value:
+        if self.getRequired() and not value and not value == 0:
            return 1
         self.addAnswer(value)
 
