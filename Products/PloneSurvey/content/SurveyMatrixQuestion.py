@@ -65,7 +65,7 @@ class SurveyMatrixQuestion(BaseQuestion):
                 if isinstance(answer['value'],
                               str) or isinstance(answer['value'], int):
                     try:
-                        aggregate_answers[answer['value']] += 1
+                        aggregate_answers[str(answer['value'])] += 1
                     except KeyError:
                         aggregate_answers[answer['value']] = 1
                 else:
