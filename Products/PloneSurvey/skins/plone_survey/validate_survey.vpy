@@ -61,7 +61,7 @@ for q in questions:
                 value = newvalue
             except ValueError:
                 pass
-            if matrix_q.getRequired() and not value:
+            if matrix_q.getRequired() and not value and not value == 0:
                qnum = qnum + ' ' + str(matrix_q.title_or_id()) + ','
             matrix_q.addAnswer(value)
         if qnum != '':
@@ -75,7 +75,7 @@ if not state.getErrors():
     if context.getShowCaptcha():
         if context.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas'):
             context.captcha_validator()
-    
+
 if state.getErrors():
     return state.set(status='failure', portal_status_message=_(msgid='text_correct_errors',
                                                                default=u'Please correct the errors shown',
