@@ -43,7 +43,7 @@
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div tal:condition= "python:pagetype=='Survey'"
-             tal:content="structure here/getBody"/> 
+             tal:content="structure here/getBody"/>
         <form name="edit_form"
               method="post"
               tal:attributes="action template/id"
@@ -128,7 +128,7 @@
                 </div>
             </fieldset>
         </form>
-        
+
 	<div tal:replace="structure provider:plone.belowcontentbody" />
     </tal:main-macro>
 </metal:main>

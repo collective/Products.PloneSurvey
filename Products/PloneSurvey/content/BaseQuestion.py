@@ -85,6 +85,8 @@ class BaseQuestion(ATCTContent):
         if self.getInputType() in ['multipleSelect', 'checkbox']:
             if type(answer) == 'NoneType':
                 return []
+        if self.getInputType() in ['radio']:
+            return str(answer)
         return answer
 
     security.declareProtected(permissions.View, 'getCommentsFor')
@@ -106,11 +108,11 @@ class BaseQuestion(ATCTContent):
     security.declareProtected(permissions.View, 'getAnswerOptionsWeights')
     def getAnswerOptionsWeights(self):
         """
-        The accessor ensures that the number of answerOptionsWeights matches 
-        the number of answerOptions. This accessor will be redundant when 
+        The accessor ensures that the number of answerOptionsWeights matches
+        the number of answerOptions. This accessor will be redundant when
         answer options become objects.
         """
-        # Sanitize weights 
+        # Sanitize weights
         weights = []
         fld = self.getField('answerOptionsWeights')
         if fld is not None:
@@ -120,10 +122,10 @@ class BaseQuestion(ATCTContent):
                     weights.append(i)
                 except:
                     weights.append(0)
-                
+
         target_len = len(self.getAnswerOptions())
         len_weights = len(weights)
-        
+
         if len_weights > target_len:
             return weights[:target_len]
         elif len_weights < target_len:
@@ -143,7 +145,7 @@ class BaseQuestion(ATCTContent):
 
         if len(value) != target_len:
             return "Please enter %s integer values" % target_len
-        
+
         for v in value:
             try:
                 i = int(v)
@@ -154,7 +156,7 @@ class BaseQuestion(ATCTContent):
     def getAnswerOptionsAsObjects(self):
         """
         Assemble answerOptions and answerOptionsWeights into a list
-        of objects. When answers become objects we can adjust this 
+        of objects. When answers become objects we can adjust this
         method and leave calling code intact.
         """
         if not hasattr(self, 'getAnswerOptions'):
@@ -162,35 +164,35 @@ class BaseQuestion(ATCTContent):
 
         class AnswerOptionHelper(BaseObject):
             def __init__(self, answeroption, weight, parent):
-                self.answeroption = answeroption                
+                self.answeroption = answeroption
                 self.weight = weight
                 self.parent = parent
-            
+
             def __call__(self):
                 return self.answeroption
 
             def getWeight(self):
                 return self.weight
-        
+
             def aq_parent(self):
                 return self.parent
-                
+
         ret = []
         n = 0
         weights = self.getAnswerOptionsWeights()
         for ao in self.getAnswerOptions():
-            # Index and conversion errors should not be present thanks to 
+            # Index and conversion errors should not be present thanks to
             # validators.
             ob = AnswerOptionHelper(ao, int(weights[n]), self)
             ret.append(ob)
-            n += 1 
-            
+            n += 1
+
         return ret
-        
+
     security.declareProtected(permissions.View, 'getNumberOfRespondents')
     def getNumberOfRespondents(self):
         return len(self.answers.keys())
-        
+
     security.declareProtected(permissions.View, 'getWeightFor')
     def getWeightFor(self, answerOption):
         return self.getAnswerOptionsWeights()[list(self.getAnswerOptions()).index(answerOption)]
@@ -201,16 +203,16 @@ class BaseQuestion(ATCTContent):
         parent = self.aq_parent
         while parent and (parent.portal_type != 'Survey'):
             parent = parent.aq_parent
-        
+
         if parent.portal_type == 'Survey':
             return parent.getDimensions()
-            
+
         return []
 
     security.declareProtected(permissions.View, 'getMaxWeight')
     def getMaxWeight(self):
         """
-        If in future we want max weight to be user settable then 
+        If in future we want max weight to be user settable then
         calling code already use this method as an 'accessor'
         """
         return max([int(w) for w in self.getAnswerOptionsWeights()])

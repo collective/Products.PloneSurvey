@@ -15,17 +15,17 @@ class SurveyTwoDimensionalQuestion(BaseQuestion):
     _at_rename_after_creation = True
 
     security = ClassSecurityInfo()
-    
+
     security.declareProtected(permissions.View, 'getRequired')
     def getRequired(self):
         """Use parent's value"""
         return self.aq_parent.getRequired()
-        
+
     security.declareProtected(permissions.View, 'getInputType')
     def getInputType(self):
         """Use parent's value"""
         return self.aq_parent.getInputType()
-        
+
     security.declareProtected(permissions.View, 'getDimensions')
     def getDimensions(self):
         """Use parent's value"""
@@ -47,7 +47,7 @@ class SurveyTwoDimensionalQuestion(BaseQuestion):
         for option in options:
             aggregate_answers[option] = 0
         for k, answer in self.answers.items():
-            if answer['value']:
+            if answer['value'] or answer['value'] >= 0:
                 if isinstance(answer['value'], str):
                     try:
                         aggregate_answers[answer['value']] += 1
