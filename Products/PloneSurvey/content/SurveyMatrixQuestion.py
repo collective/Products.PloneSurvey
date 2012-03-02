@@ -61,13 +61,13 @@ class SurveyMatrixQuestion(BaseQuestion):
         for option in options:
             aggregate_answers[option] = 0
         for k, answer in self.answers.items():
-            if answer['value']:
+            if answer['value'] or answer['value'] >= 0:
                 if isinstance(answer['value'],
                               str) or isinstance(answer['value'], int):
                     try:
                         aggregate_answers[str(answer['value'])] += 1
                     except KeyError:
-                        aggregate_answers[answer['value']] = 1
+                        aggregate_answers[str(answer['value'])] = 1
                 else:
                     for value in answer['value']:
                         try:
