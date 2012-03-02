@@ -802,7 +802,7 @@ msgstr "Verplicht"
 #. Default: "Reset"
 #: ../skins/plone_survey/survey_reset_form.cpt:18
 msgid "label_reset"
-msgstr "Annuleren"
+msgstr "Legen"
 
 #. Default: "Reverse Likert Scale"
 #: ../content/schemata.py:486
@@ -1137,4 +1137,3 @@ msgstr "Bekijk geënquêteerden."
 #: ../skins/plone_survey/survey_view_results.pt:18
 msgid "view_results_barchart"
 msgstr "Bekijk enquête resultaten in een staafdiagram"
-
