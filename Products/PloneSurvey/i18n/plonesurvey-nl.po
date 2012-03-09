@@ -1137,3 +1137,14 @@ msgstr "Bekijk geënquêteerden."
 #: ../skins/plone_survey/survey_view_results.pt:18
 msgid "view_results_barchart"
 msgstr "Bekijk enquête resultaten in een staafdiagram"
+
+msgid "answer-too-long"
+msgstr "Bericht te lang, maximaal aantal karakters: "
+
+# Default: Please provide an answer for the question
+msgid "please_provide_answer_for"
+msgstr "Geef een antwoord op de vraag"
+
+# Default: Please provide an answer for this question
+msgid "please_provide_answer"
+msgstr "Geef een antwoord op de vraag"

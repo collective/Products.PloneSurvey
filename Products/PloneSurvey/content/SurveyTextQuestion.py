@@ -14,6 +14,11 @@ from Products.PloneSurvey.interfaces import ISurveyTextQuestion
 
 from schemata import SurveyTextQuestionSchema
 
+#from zope.i18nmessageid import MessageFactory
+from zope.i18n import translate
+from Products.PloneSurvey import PloneSurveyMessageFactory as _
+
+
 class SurveyTextQuestion(BaseQuestion):
     """A textual question within a survey"""
     schema = SurveyTextQuestionSchema
@@ -28,7 +33,14 @@ class SurveyTextQuestion(BaseQuestion):
     def validateAnswer(self, value, state):
         """Validate the question"""
         if len(value) > self.getMaxLength():
-            state.setError(self.getId(), "Answer too long, must be less than %s characters" % self.getMaxLength())
+
+            answertoolong = self.translate(
+                default='Answer too long, must have less characters than: ',
+                msgid='answer-too-long',
+                domain='plonesurvey')
+            
+            state.setError(self.getId(), answertoolong + \
+                           str(self.getMaxLength()))
         else:
             self.addAnswer(value)
 
