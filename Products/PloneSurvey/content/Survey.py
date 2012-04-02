@@ -710,7 +710,7 @@ class Survey(ATCTOrderedFolder):
     def buildSpreadsheet2(self):
         """Build spreadsheet 2."""
         data = StringIO()
-        sheet = csv.writer(data)
+        sheet = csv.writer(data, quoting=csv.QUOTE_ALL)
         questions = self.getAllQuestionsInOrder()
 
         sheet.writerow(('user',) + tuple(q.Title() for q in questions) + ('completed',))
