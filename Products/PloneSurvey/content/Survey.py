@@ -683,21 +683,21 @@ class Survey(ATCTOrderedFolder):
         return self.acl_users
 
     security.declareProtected(permissions.ViewSurveyResults, 'setCsvHeaders')
-    def setCsvHeaders(self):
+    def setCsvHeaders(self, filetype='csv'):
         """Set the CSV headers"""
         REQUEST = self.REQUEST
-        file = self.buildSpreadsheetUrl()
+        file = self.buildSpreadsheetUrl(filetype=filetype)
         REQUEST.RESPONSE.setHeader('Content-Type','text/x-comma-separated-values; charset=utf-8')
         REQUEST.RESPONSE.setHeader('Content-disposition','attachment; filename=%s' % file)
         return REQUEST
 
     security.declareProtected(permissions.ViewSurveyResults, 'buildSpreadsheetUrl')
-    def buildSpreadsheetUrl(self):
+    def buildSpreadsheetUrl(self, filetype='csv'):
         """Create a filename for the spreadsheets"""
         date = DateTime().strftime("%Y-%m-%d")
         id = self.getId()
         id = "%s-%s" % (id, date)
-        url = "%s.csv" % id
+        url = "%s.%s" % (id, filetype)
         return url
 
     security.declareProtected(permissions.ViewSurveyResults, 'spreadsheet2')
@@ -706,11 +706,21 @@ class Survey(ATCTOrderedFolder):
         self.setCsvHeaders()
         return self.buildSpreadsheet2()
 
+    security.declareProtected(permissions.ViewSurveyResults, 'spreadsheet2_tab')
+    def spreadsheet2_tab(self):
+        """Return spreadsheet 2 tab"""
+        self.setCsvHeaders(filetype='tsv')
+        dialect = csv.excel_tab
+        return self.buildSpreadsheet2(dialect)
+
     security.declareProtected(permissions.ViewSurveyResults, 'buildSpreadsheet2')
-    def buildSpreadsheet2(self):
-        """Build spreadsheet 2."""
+    def buildSpreadsheet2(self, dialect=csv.excel):
+        """Build spreadsheet 2.
+            excel_tab
+            excel
+        """
         data = StringIO()
-        sheet = csv.writer(data, quoting=csv.QUOTE_ALL)
+        sheet = csv.writer(data, dialect=dialect, quoting=csv.QUOTE_ALL)
         questions = self.getAllQuestionsInOrder()
 
         sheet.writerow(('user',) + tuple(q.Title() for q in questions) + ('completed',))
@@ -727,7 +737,7 @@ class Survey(ATCTOrderedFolder):
                     if not (isinstance(answer, str) or isinstance(answer, int)):
                         # It's a sequence, filter out empty values
                         answer = ', '.join(filter(None, answer))
-                row.append(answer)
+                row.append(answer.replace('"',"'").replace('\r\n', ' '))
 
             row.append(self.checkCompletedFor(user) and 'Completed' or 'Not Completed')
 

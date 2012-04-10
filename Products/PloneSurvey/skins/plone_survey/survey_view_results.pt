@@ -9,7 +9,7 @@
         tal:define="questions here/getAllQuestionsInOrder"
 	tal:condition="python:user.has_permission('PloneSurvey: View Survey Results',here)">
 
-        <div tal:replace="structure provider:plone.abovecontenttitle" /> 
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
         <h1 i18n:translate="heading_results">Results for survey
             <span i18n:name="title" tal:replace="here/Title" />
         </h1>
@@ -17,7 +17,7 @@
             <li>
                 <a i18n:translate="view_results_barchart"
                    tal:attributes="href string:${here/absolute_url}/survey_barchart">
-                    View survey results in a barchart 
+                    View survey results in a barchart
                 </a>
             </li>
             <li>
@@ -46,6 +46,7 @@
             <li>
                 <span i18n:translate="download_detail_spreadsheet">download detailed spreadsheet</span>
                 (<a href="#" tal:attributes="href string:${here/absolute_url}/spreadsheet2">csv</a>)
+				(<a href="#" tal:attributes="href string:${here/absolute_url}/spreadsheet2_tab">tsv</a>)
                 (<a href="#" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">html</a>)
             </li>
             <li>
