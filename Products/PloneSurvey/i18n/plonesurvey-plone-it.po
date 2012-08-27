@@ -53,7 +53,7 @@ msgstr "Ripristina"
 #. Default: Respondents
 #: ../content/Survey.py
 msgid "Respondents"
-msgstr "Parecipanti"
+msgstr "Partecipanti"
 
 #. Default: Results
 #: ../content/Survey.py
