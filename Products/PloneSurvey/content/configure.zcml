@@ -1,7 +1,9 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    xmlns:five="http://namespaces.zope.org/five">
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+>
 
   <five:deprecatedManageAddDelete
       class=".Survey.Survey" />
@@ -34,27 +36,64 @@
     class="Products.PloneSurvey.content.SurveyMatrix.SurveyMatrix"
     interface="Products.Archetypes.interfaces.IMultiPageSchema" />
 
+  <!-- interfaces moved to zope.container since Plone4.3 /-->
   <subscriber
+    zcml:condition="have plone-43"
+    for="Products.PloneSurvey.content.Survey.Survey
+         zope.container.interfaces.IObjectAddedEvent"
+    handler="Products.PloneSurvey.content.events.createSurveyEventHandler" />
+
+  <subscriber
+    zcml:condition="have plone-43"
+    for="Products.PloneSurvey.content.SurveyDateQuestion.SurveyDateQuestion
+         zope.container.interfaces.IObjectAddedEvent"
+    handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
+
+  <subscriber
+    zcml:condition="have plone-43"
+    for="Products.PloneSurvey.content.SurveyMatrixQuestion.SurveyMatrixQuestion
+         zope.container.interfaces.IObjectAddedEvent"
+    handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
+
+  <subscriber
+    zcml:condition="have plone-43"
+    for="Products.PloneSurvey.content.SurveySelectQuestion.SurveySelectQuestion
+         zope.container.interfaces.IObjectAddedEvent"
+    handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
+
+  <subscriber
+    zcml:condition="have plone-43"
+    for="Products.PloneSurvey.content.SurveyTextQuestion.SurveyTextQuestion
+         zope.container.interfaces.IObjectAddedEvent"
+    handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
+  
+  <!-- Plone <4.3 compatibility /-->
+  <subscriber
+    zcml:condition="not-have plone-43"
     for="Products.PloneSurvey.content.Survey.Survey
          zope.app.container.interfaces.IObjectAddedEvent"
     handler="Products.PloneSurvey.content.events.createSurveyEventHandler" />
 
   <subscriber
+    zcml:condition="not-have plone-43"
     for="Products.PloneSurvey.content.SurveyDateQuestion.SurveyDateQuestion
          zope.app.container.interfaces.IObjectAddedEvent"
     handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
 
   <subscriber
+    zcml:condition="not-have plone-43"
     for="Products.PloneSurvey.content.SurveyMatrixQuestion.SurveyMatrixQuestion
          zope.app.container.interfaces.IObjectAddedEvent"
     handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
 
   <subscriber
+    zcml:condition="not-have plone-43"
     for="Products.PloneSurvey.content.SurveySelectQuestion.SurveySelectQuestion
          zope.app.container.interfaces.IObjectAddedEvent"
     handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
 
   <subscriber
+    zcml:condition="not-have plone-43"
     for="Products.PloneSurvey.content.SurveyTextQuestion.SurveyTextQuestion
          zope.app.container.interfaces.IObjectAddedEvent"
     handler="Products.PloneSurvey.content.events.createQuestionEventHandler" />
