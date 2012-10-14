@@ -1,4 +1,4 @@
-PROJECTNAME = "PloneSurvey"
+PROJECTNAME = "Products.PloneSurvey"
 
 from Products.Archetypes.utils import DisplayList
 from Products.Archetypes.utils import IntDisplayList
