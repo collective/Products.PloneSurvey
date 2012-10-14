@@ -1,0 +1,20 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:i18n="http://namespaces.zope.org/i18n"
+           i18n_domain="plonesurvey">
+
+  <permission
+      id="Products.PloneSurvey.addSurvey"
+      title="PloneSurvey: Add Survey"
+      />
+
+  <permission
+      id="Products.PloneSurvey.ResetOwnResponses"
+      title="PloneSurvey: Reset Own Responses"
+      />
+
+  <permission
+      id="Products.PloneSurvey.ViewSurveyResults"
+      title="PloneSurvey: View Survey Results"
+      />
+ 
+</configure>
