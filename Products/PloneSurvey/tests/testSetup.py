@@ -1,21 +1,17 @@
-#
-# Test PloneSurvey initialisation and set-up
-#
+import unittest2 as unittest
+
+from plone.app.testing import TEST_USER_ID, setRoles
 from Products.CMFCore.utils import getToolByName
 
 from Products.PloneSurvey import permissions
-from base import PloneSurveyTestCase
+from base import INTEGRATION_TESTING
 
-class TestInstallation(PloneSurveyTestCase):
+class TestInstallation(unittest.TestCase):
     """Ensure product is properly installed"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.css        = self.portal.portal_css
-        self.types      = self.portal.portal_types
-        self.factory    = self.portal.portal_factory
-        self.workflow   = self.portal.portal_workflow
-        self.properties = self.portal.portal_properties
-
+    def setUp(self):
+        self.portal = self.layer['portal']
         self.metaTypes = ('Survey',
                           'Sub Survey',
                           'Survey Date Question',
@@ -27,38 +23,38 @@ class TestInstallation(PloneSurveyTestCase):
                           'Survey Text Question')
 
     def testCssInstalled(self):
-        self.failUnless('++resource++Products.PloneSurvey.stylesheets/survey_results.css' in self.css.getResourceIds())
+        self.failUnless('++resource++Products.PloneSurvey.stylesheets/survey_results.css' in self.portal.portal_css.getResourceIds())
 
     def testSkinLayersInstalled(self):
         self.failUnless('plone_survey' in self.portal.portal_skins.objectIds())
         self.failUnless('plone_survey_images' in self.portal.portal_skins.objectIds())
 
     def testPortalFactorySetup(self):
-        self.failUnless('Survey' in self.factory.getFactoryTypes())
+        self.failUnless('Survey' in self.portal.portal_factory.getFactoryTypes())
 
     def testTypesInstalled(self):
         for t in self.metaTypes:
-            self.failUnless(t in self.types.objectIds())
+            self.failUnless(t in self.portal.portal_types.objectIds())
 
     def testTypesIdCorrect(self):
         """Ensure portal type id is correct for each type"""
         for t in self.metaTypes:
-            assert t == self.types.getTypeInfo(t).id, t
+            assert t == self.portal.portal_types.getTypeInfo(t).id, t
 
     def testPortalTypesCorrect(self):
         """Ensure portal type is correct for each type"""
         for t in self.metaTypes:
-            assert t == self.types.getTypeInfo(t).Title(), t
+            assert t == self.portal.portal_types.getTypeInfo(t).Title(), t
 
     def testMetaTypesCorrect(self):
         """Ensure meta type is correct for each type"""
         for t in self.metaTypes:
-            assert t.replace(' ', '') == self.types.getTypeInfo(t).content_meta_type, t
+            assert t.replace(' ', '') == self.portal.portal_types.getTypeInfo(t).content_meta_type, t
 
     def testMetaTypesNotToList(self):
         for t in self.metaTypes:
             if t not in ['Survey', 'Sub Survey']:
-                self.failUnless(t in self.properties.navtree_properties.metaTypesNotToList)
+                self.failUnless(t in self.portal.portal_properties.navtree_properties.metaTypesNotToList)
 
     def testPermissions(self):
         """
@@ -73,10 +69,12 @@ class TestInstallation(PloneSurveyTestCase):
             if role['name'] == 'Owner':
                 self.failUnless(role['selected'])
 
-class TestTypeProperties(PloneSurveyTestCase):
+class TestTypeProperties(unittest.TestCase):
     """Test properties of the types are correct"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
+    def setUp(self):
+        self.portal = self.layer['portal']
         self.types = self.portal.portal_types
         self.archetype_tool = self.portal.archetype_tool
 
@@ -84,26 +82,30 @@ class TestTypeProperties(PloneSurveyTestCase):
         type_info = self.types.getTypeInfo('Sub Survey')
         assert type_info.Title() == 'Sub Survey'
         assert type_info.Metatype() == 'SubSurvey'
-        self.folder.invokeFactory('Survey', 's1')
-        self.folder.s1.invokeFactory('Sub Survey', 'ss1')
-        ss1 = getattr(self.folder.s1, 'ss1')
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.portal.s1.invokeFactory('Sub Survey', 'ss1')
+        ss1 = getattr(self.portal.s1, 'ss1')
         assert ss1.meta_type == 'SubSurvey'
         assert ss1.portal_type == 'Sub Survey'
-        archetype_info = self.archetype_tool.lookupType('PloneSurvey', 'SubSurvey')
+        archetype_info = self.archetype_tool.lookupType('Products.PloneSurvey', 'SubSurvey')
         assert archetype_info['portal_type'] == 'Sub Survey'
         assert archetype_info['meta_type'] == 'SubSurvey'
         assert archetype_info['name'] == 'SubSurvey'
         assert archetype_info['identifier'] == 'Subsurvey'
 
-class TestContentCreation(PloneSurveyTestCase):
+class TestContentCreation(unittest.TestCase):
     """Ensure content types can be created and edited"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
 
     def testCreateSurvey(self):
-        self.failUnless('s1' in self.folder.objectIds())
+        self.failUnless('s1' in self.portal.objectIds())
 
     def testEditSurvey(self):
         self.s1.setTitle('A title')
@@ -179,12 +181,15 @@ class TestContentCreation(PloneSurveyTestCase):
         self.assertEqual(stq1.Description(), 'Question description')
         self.assertEqual(stq1.getRequired(), True)
 
-class TestTypeActions(PloneSurveyTestCase):
+class TestTypeActions(unittest.TestCase):
     """Test the conditions on the type actions"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
 
     def testSharingTab(self):
         s1 = getattr(self, 's1')
@@ -208,24 +213,17 @@ class TestTypeActions(PloneSurveyTestCase):
                 sharing_tab_available = True
         assert sharing_tab_available, "Sharing tab not available"
 
-class TestAclUsers(PloneSurveyTestCase):
+class TestAclUsers(unittest.TestCase):
     """Test acl_users is created"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
 
     def testAclUsersCreated(self):
         s1 = getattr(self, 's1')
         s1.at_post_create_script()
         assert 'acl_users' in s1.objectIds(), "acl_users not created"
-
-def test_suite():
-    from unittest import TestSuite, makeSuite
-    suite = TestSuite()
-    suite.addTest(makeSuite(TestInstallation))
-    suite.addTest(makeSuite(TestTypeProperties))
-    suite.addTest(makeSuite(TestContentCreation))
-    suite.addTest(makeSuite(TestTypeActions))
-    suite.addTest(makeSuite(TestAclUsers))
-    return suite

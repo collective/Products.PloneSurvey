@@ -1,9 +1,9 @@
-#
-# Test PloneSurvey interfaces
-#
+import unittest2 as unittest
+
 from zope.interface.verify import verifyClass
 from zope.interface.verify import verifyObject
 
+from plone.app.testing import TEST_USER_ID, setRoles
 from Products.Archetypes.interfaces import IMultiPageSchema
 
 from Products.PloneSurvey.content.Survey import Survey
@@ -12,9 +12,9 @@ from Products.PloneSurvey.content.SurveySelectQuestion import SurveySelectQuesti
 from Products.PloneSurvey.content.SurveyTextQuestion import SurveyTextQuestion
 from Products.PloneSurvey.interfaces import *
 
-from base import PloneSurveyTestCase
+from base import INTEGRATION_TESTING
 
-class TestInterfaces(PloneSurveyTestCase):
+class TestInterfaces(unittest.TestCase):
     """Ensure survey interfaces are working"""
 
     def testSurveyImplements(self):
@@ -35,16 +35,19 @@ class TestInterfaces(PloneSurveyTestCase):
         assert verifyClass(IPloneSurveyQuestion, SurveyTextQuestion)
         assert IPloneSurveyQuestion.implementedBy(SurveyTextQuestion)
 
-class TestClassesImplements(PloneSurveyTestCase):
+class TestClassesImplements(unittest.TestCase):
     """Ensure survey objects implement the interfaces"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
 
     def testSurveyInterface(self):
         from Products.PloneSurvey.interfaces import ISurvey
-        SurveyObject = getattr(self.folder, 's1')
+        SurveyObject = getattr(self.portal, 's1')
         assert ISurvey.providedBy(SurveyObject)
         assert verifyObject(ISurvey, SurveyObject)
 
@@ -55,12 +58,15 @@ class TestClassesImplements(PloneSurveyTestCase):
         assert ISurveyTextQuestion.providedBy(stq1)
         assert verifyObject(ISurveyTextQuestion, stq1)
 
-class TestMultiPageInterface(PloneSurveyTestCase):
+class TestMultiPageInterface(unittest.TestCase):
     """Ensure survey objects implement the multi page interface"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
 
     def testSurvey(self):
         SurveyObject = self.s1
