@@ -22,7 +22,7 @@ from Products.PloneTestCase.PloneTestCase import setupPloneSite
 
 from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
 from Products.PloneSurvey.tests import utils
-from utils import MockMailHost
+from Products.CMFPlone.tests.utils import MockMailHost
 
 # Set up a Plone site, and apply the extension profiles
 # to make sure they are installed.
