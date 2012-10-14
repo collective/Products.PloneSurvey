@@ -27,6 +27,9 @@ setup(name='Products.PloneSurvey',
           # -*- Extra requirements: -*-
           'z3c.rml',
       ],
+      extras_require={
+          "test": ["plone.app.testing",],
+      },
       entry_points="""
       # -*- Entry points: -*-
       """,
