@@ -1,21 +1,26 @@
-#
-# Test PloneSurvey Survey
-#
+import unittest2 as unittest
 
 import os, sys
 from DateTime import DateTime
 from AccessControl import Unauthorized
 
-from base import PloneSurveyTestCase
+from plone.app.testing import TEST_USER_NAME, TEST_USER_ID, setRoles
+from plone.app.testing import login, logout
+from Products.CMFCore.utils import getToolByName
 
-class TestRespondentDetails(PloneSurveyTestCase):
+from base import INTEGRATION_TESTING, INTEGRATION_ANON_SURVEY_TESTING
+
+class TestRespondentDetails(unittest.TestCase):
     """Ensure respondent is added to survey object"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
 
-    def testRespondentsPropertyd(self):
+    def testRespondentsPropertyCreated(self):
         """check respondent attribute created"""
         s1 = getattr(self, 's1')
         assert hasattr(s1, 'respondents')
@@ -96,16 +101,17 @@ class TestRespondentDetails(PloneSurveyTestCase):
         respondent = s1.getRespondentDetails("test_user_1_")
         assert respondent['end'] != ''
 
-class TestResetOwnResponse(PloneSurveyTestCase):
+class TestResetOwnResponse(unittest.TestCase):
     """Ensure user can reset their own response"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.createAnonSurvey()
-        self.folder.s1.invokeFactory('Survey Text Question', 'stq1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        self.portal.s1.invokeFactory('Survey Text Question', 'stq1')
 
     def testResetOwnResponse(self):
         """Ensure user can reset their own response"""
-        s1 = getattr(self.folder, 's1')
+        s1 = getattr(self.portal, 's1')
         s1.setCompletedForUser()
         assert len(s1.getRespondentsList()) == 1
         s1.resetForAuthenticatedUser()
@@ -113,38 +119,41 @@ class TestResetOwnResponse(PloneSurveyTestCase):
 
     def testResetOwnResponseUser(self):
         """Ensure user can reset their own response"""
-        s1 = getattr(self.folder, 's1')
+        s1 = getattr(self.portal, 's1')
         s1.setCompletedForUser()
         assert len(s1.getRespondentsList()) == 1
         s1.resetForUser('test_user_1_')
         assert len(s1.getRespondentsList()) == 0
 
-class TestCanNotResetResponse(PloneSurveyTestCase):
+class TestCanNotResetResponse(unittest.TestCase):
     """Ensure user can not reset another response"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.addMember('survey_user', 'Survey User', 'survey@here.com', 'Member', DateTime())
-        self.createAnonSurvey()
-        self.folder.s1.invokeFactory('Survey Text Question', 'stq1')
-        self.logout()
+    def setUp(self):
+        self.portal = self.layer['portal']
+        self.portal_membership = getToolByName(self.portal, 'portal_membership')
+        self.portal_membership.addMember('survey_user', 'secret', ['Member',], [],
+                                         {'fullname': 'Survey User', 'email': 'survey@here.com',})
+        self.portal.s1.invokeFactory('Survey Text Question', 'stq1')
+        logout()
 
     def testResetOwnResponse(self):
         """Ensure user can reset their own response"""
-        self.login('survey_user')
-        s1 = getattr(self.folder, 's1')
+        login(self.portal, 'survey_user')
+        s1 = getattr(self.portal, 's1')
         s1.setCompletedForUser()
-        self.setRoles(('Authenticated',))
+        setRoles(self.portal, TEST_USER_ID, ['Authenticated'])
         assert len(s1.getRespondentsList()) == 1
         s1.resetForAuthenticatedUser()
         assert len(s1.getRespondentsList()) == 0
 
     def testCantResetFromResetMethod(self):
         """Ensure user can't reset response from underlying method"""
-        self.login('survey_user')
-        s1 = getattr(self.folder, 's1')
+        login(self.portal, 'survey_user')
+        s1 = getattr(self.portal, 's1')
         s1.setCompletedForUser()
         assert len(s1.getRespondentsList()) == 1
-        self.logout()
+        logout()
         self.assertRaises(Unauthorized,
                           s1.resetForUser,
                           'survey_user')
@@ -152,8 +161,8 @@ class TestCanNotResetResponse(PloneSurveyTestCase):
 
     def testAnonymousCantResetFromResetMethod(self):
         """Ensure anonymous user can't reset response"""
-        self.logout()
-        s1 = getattr(self.folder, 's1')
+        logout()
+        s1 = getattr(self.portal, 's1')
         s1.setCompletedForUser()
         assert len(s1.getRespondentsList()) == 1
         self.assertRaises(Unauthorized,
@@ -161,14 +170,20 @@ class TestCanNotResetResponse(PloneSurveyTestCase):
                           'survey_user')
         assert len(s1.getRespondentsList()) == 1
 
-class TestSurvey(PloneSurveyTestCase):
+class TestSurvey(unittest.TestCase):
     """Ensure survey validation"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
-        self.addMember('survey_user', 'Survey User', 'survey@here.com', 'Member', DateTime())
-        self.addMember('no_name_user', '', 'survey@here.com', 'Member', DateTime())
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
+        self.portal_membership = getToolByName(self.portal, 'portal_membership')
+        self.portal_membership.addMember('survey_user', 'secret', ['Member',], [],
+                                         {'fullname': 'Survey User', 'email': 'survey@here.com',})
+        self.portal_membership.addMember('no_name_user', 'secret', ['Member',], [],
+                                         {'fullname': '', 'email': 'survey@here.com',})
 
     def testCanGetFullName(self):
         s1 = getattr(self, 's1')
@@ -185,17 +200,18 @@ class TestSurvey(PloneSurveyTestCase):
         userid = s1.getRespondentFullName('Anonymous')
         assert userid is None, "Something returned for anonymous"
 
-class TestAddAnswer(PloneSurveyTestCase):
+class TestAddAnswer(unittest.TestCase):
     """Ensure survey question can be answered"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.createAnonSurvey()
-        self.s1.invokeFactory('Survey Text Question', 'stq1')
-        stq1 = getattr(self.s1, 'stq1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        self.portal.s1.invokeFactory('Survey Text Question', 'stq1')
+        stq1 = getattr(self.portal.s1, 'stq1')
         stq1.setRequired(True)
 
     def testAddAnswer(self):
-        s1 = getattr(self, 's1')
+        s1 = getattr(self.portal, 's1')
         userid = s1.getSurveyId()
         assert userid == "test_user_1_", "Not default test user"
         questions = s1.getQuestions()
@@ -203,27 +219,27 @@ class TestAddAnswer(PloneSurveyTestCase):
             if question.portal_type == 'Survey Text Question':
                 question.addAnswer('Text answer')
                 assert question.getAnswerFor(userid) == 'Text answer', "Answer not saved correctly"
-        answers = self.s1.getAnswersByUser(userid)
+        answers = s1.getAnswersByUser(userid)
         self.assertEqual(len(answers), 1)
 
     def testAnonymousAddAnswer(self):
-        s1 = getattr(self, 's1')
-        self.logout()
+        s1 = getattr(self.portal, 's1')
+        logout()
         questions = s1.getQuestions()
         for question in questions:
             if question.portal_type == 'Survey Text Question':
                 question.addAnswer('Anonymous Text answer')
                 # need to login as original user, as anonymous cannot getAnswer
-                self.login("test_user_1_")
+                login(self.portal, TEST_USER_NAME)
                 users = s1.getRespondents()
                 assert len(users) == 1, 'More than one user responded'
                 assert question.getAnswerFor(users[0]) == 'Anonymous Text answer', "Answer not saved correctly"
 
     def testAnonymousCantAddAnswer(self):
-        s1 = getattr(self, 's1')
-        stq1 = getattr(self.s1, 'stq1')
+        s1 = getattr(self.portal, 's1')
+        stq1 = getattr(s1, 'stq1')
         s1.setAllowAnonymous(False)
-        self.logout()
+        logout()
         questions = s1.getQuestions()
         for question in questions:
             if question.portal_type == 'Survey Text Question':
@@ -231,12 +247,15 @@ class TestAddAnswer(PloneSurveyTestCase):
                     question.addAnswer,
                     'Anonymous Text answer')
 
-class TestAddSelectAnswer(PloneSurveyTestCase):
+class TestAddSelectAnswer(unittest.TestCase):
     """Ensure survey select question can be answered"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Select Question', 'ssq1')
         ssq1 = getattr(self.s1, 'ssq1')
@@ -253,13 +272,16 @@ class TestAddSelectAnswer(PloneSurveyTestCase):
         answers = self.s1.getAnswersByUser(userid)
         self.assertEqual(len(answers), 1)
 
-class TestBarchart(PloneSurveyTestCase):
+class TestBarchart(unittest.TestCase):
     """Ensure survey barchart works correctly"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
+    def setUp(self):
         """Build a survey with a range of questions"""
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Select Question', 'ssq1')
         self.s1.invokeFactory('Survey Text Question', 'stq1')
@@ -276,13 +298,16 @@ class TestBarchart(PloneSurveyTestCase):
         colours = s1.getSurveyColors(0)
         assert colours is not None
 
-class TestReturnsQuestions(PloneSurveyTestCase):
+class TestReturnsQuestions(unittest.TestCase):
     """Ensure survey returns correct questions"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
+    def setUp(self):
         """Build a survey with a range of questions"""
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Select Question', 'ssq1')
         self.s1.invokeFactory('Survey Text Question', 'stq1')
@@ -319,17 +344,3 @@ class TestReturnsQuestions(PloneSurveyTestCase):
         self.assertEqual(questions[1].getId(), 'ssq1')
         self.assertEqual(questions[2].getId(), 'ssq2')
         self.assertEqual(questions[3].getId(), 'smq2')
-
-def test_suite():
-    from unittest import TestSuite, makeSuite
-    suite = TestSuite()
-    suite.addTest(makeSuite(TestRespondentDetails))
-    suite.addTest(makeSuite(TestResetOwnResponse))
-    # XXX security context isn't available from unit test
-    #suite.addTest(makeSuite(TestCanNotResetResponse))
-    suite.addTest(makeSuite(TestSurvey))
-    suite.addTest(makeSuite(TestAddAnswer))
-    suite.addTest(makeSuite(TestAddSelectAnswer))
-    suite.addTest(makeSuite(TestBarchart))
-    suite.addTest(makeSuite(TestReturnsQuestions))
-    return suite

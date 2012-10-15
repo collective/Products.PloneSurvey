@@ -1,19 +1,21 @@
-#
-# Test PloneSurvey Text Question
-#
-from Testing.makerequest import makerequest
+import unittest2 as unittest
+
+from plone.app.testing import TEST_USER_ID, setRoles
 
 from Products.CMFFormController.ControllerState import ControllerState
 from Products.CMFCore.utils import getToolByName
 
-from base import PloneSurveyTestCase
+from base import INTEGRATION_TESTING
 
-class testTextValidation(PloneSurveyTestCase):
+class testTextValidation(unittest.TestCase):
     """Test survey text question validation"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Text Question', 'stq1')
 
@@ -32,8 +34,7 @@ class testTextValidation(PloneSurveyTestCase):
     def testValidateScript(self):
         s1 = getattr(self, 's1')
         ssq1 = getattr(s1, 'stq1')
-        app = makerequest(self.app)
-        app.REQUEST.form['stq1'] = 'Text Answer'
+        self.layer['request'].form['stq1'] = 'Text Answer'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -42,15 +43,18 @@ class testTextValidation(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert controller_state.getErrors() == {}, "Validation error raised"
 
-class TestLengthValidation(PloneSurveyTestCase):
+class TestLengthValidation(unittest.TestCase):
     """Ensure validation for text length"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Text Question', 'stq1')
         stq1 = getattr(self.s1, 'stq1')
@@ -59,9 +63,8 @@ class TestLengthValidation(PloneSurveyTestCase):
 
     def testQuestionValidates(self):
         s1 = getattr(self, 's1')
-        app = makerequest(self.app)
         # add your form variables
-        app.REQUEST.form['stq1'] = 'Text Answer'
+        self.layer['request'].form['stq1'] = 'Text Answer'
         # set up a dummy state object
         dummy_controller_state = ControllerState(
                                     id='survey_view',
@@ -73,7 +76,7 @@ class TestLengthValidation(PloneSurveyTestCase):
         # get the form controller
         controller = self.portal.portal_form_controller
         # send the validate script to the form controller with the dummy state object
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         # Do any relevant tests
         assert controller_state.getErrors() == {}, "Validation error raised"
         userid = s1.getSurveyId()
@@ -88,9 +91,8 @@ class TestLengthValidation(PloneSurveyTestCase):
         s1 = getattr(self, 's1')
         stq1 = getattr(self.s1, 'stq1')
         stq1.setMaxLength(50)
-        app = makerequest(self.app)
         # add your form variables
-        app.REQUEST.form['stq1'] = 'Text Answer'
+        self.layer['request'].form['stq1'] = 'Text Answer'
         # set up a dummy state object
         dummy_controller_state = ControllerState(
                                     id='survey_view',
@@ -102,7 +104,7 @@ class TestLengthValidation(PloneSurveyTestCase):
         # get the form controller
         controller = self.portal.portal_form_controller
         # send the validate script to the form controller with the dummy state object
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         # Do any relevant tests
         assert controller_state.getErrors() == {}, "Validation error not raised"
 
@@ -110,9 +112,8 @@ class TestLengthValidation(PloneSurveyTestCase):
         s1 = getattr(self, 's1')
         stq1 = getattr(self.s1, 'stq1')
         stq1.setMaxLength(5)
-        app = makerequest(self.app)
         # add your form variables
-        app.REQUEST.form['stq1'] = 'Text Answer'
+        self.layer['request'].form['stq1'] = 'Text Answer'
         # set up a dummy state object
         dummy_controller_state = ControllerState(
                                     id='survey_view',
@@ -124,16 +125,19 @@ class TestLengthValidation(PloneSurveyTestCase):
         # get the form controller
         controller = self.portal.portal_form_controller
         # send the validate script to the form controller with the dummy state object
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         # Do any relevant tests
         assert controller_state.getErrors() != {}, "Validation error not raised"
 
-class TestEmailValidation(PloneSurveyTestCase):
+class TestEmailValidation(unittest.TestCase):
     """Test email validation on a text question"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Text Question', 'stq1')
         self.s1.stq1.setValidation('isEmail')
@@ -141,8 +145,7 @@ class TestEmailValidation(PloneSurveyTestCase):
     def testEmailValidationPasses(self):
         s1 = getattr(self, 's1')
         stq1 = getattr(self.s1, 'stq1')
-        app = makerequest(self.app)
-        app.REQUEST.form['stq1'] = 'someone@somewhere.com'
+        self.layer['request'].form['stq1'] = 'someone@somewhere.com'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -151,14 +154,13 @@ class TestEmailValidation(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert controller_state.getErrors() == {}, "Validation error raised"
 
     def testEmailValidationFails(self):
         s1 = getattr(self, 's1')
         stq1 = getattr(self.s1, 'stq1')
-        app = makerequest(self.app)
-        app.REQUEST.form['stq1'] = 'Not an email address'
+        self.layer['request'].form['stq1'] = 'Not an email address'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -167,13 +169,5 @@ class TestEmailValidation(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert controller_state.getErrors() != {}, "Validation error not raised"
-
-def test_suite():
-    from unittest import TestSuite, makeSuite
-    suite = TestSuite()
-    suite.addTest(makeSuite(testTextValidation))
-    suite.addTest(makeSuite(TestLengthValidation))
-    suite.addTest(makeSuite(TestEmailValidation))
-    return suite

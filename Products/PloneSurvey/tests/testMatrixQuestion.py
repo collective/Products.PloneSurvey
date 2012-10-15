@@ -1,23 +1,24 @@
-#
-# Test PloneSurvey Matrix Question
-#
+import unittest2 as unittest
+
 from zope.event import notify
 from zope.lifecycleevent import ObjectCreatedEvent
 
-from Testing.makerequest import makerequest
-
+from plone.app.testing import TEST_USER_ID, setRoles
 from Products.Archetypes.utils import DisplayList
 from Products.CMFFormController.ControllerState import ControllerState
 from Products.CMFCore.utils import getToolByName
 
-from base import PloneSurveyTestCase
+from base import INTEGRATION_TESTING
 
-class testMatrixQuestion(PloneSurveyTestCase):
+class testMatrixQuestion(unittest.TestCase):
     """Ensure survey question can be answered"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Matrix', 'sm1')
         self.s1.sm1.invokeFactory('Survey Matrix Question', 'smq1')
@@ -41,9 +42,8 @@ class testMatrixQuestion(PloneSurveyTestCase):
         sm1 = getattr(s1, 'sm1')
         smq1 = getattr(sm1, 'smq1')
         smq1.setLikertOptions(1)
-        app = makerequest(self.app)
         # add your form variables
-        app.REQUEST.form['sm1-smq1'] = '1'
+        self.layer['request'].form['sm1-smq1'] = '1'
         # set up a dummy state object
         dummy_controller_state = ControllerState(
                                     id='survey_view',
@@ -55,7 +55,7 @@ class testMatrixQuestion(PloneSurveyTestCase):
         # get the form controller
         controller = self.portal.portal_form_controller
         # send the validate script to the form controller with the dummy state object
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         # Do any relevant tests
         assert controller_state.getErrors() == {}, "Validation error raised: %s" % controller_state.getErrors()
         userid = s1.getSurveyId()
@@ -69,8 +69,7 @@ class testMatrixQuestion(PloneSurveyTestCase):
         s1 = getattr(self, 's1')
         sm1 = getattr(s1, 'sm1')
         smq1 = getattr(sm1, 'smq1')
-        app = makerequest(self.app)
-        app.REQUEST.form['smq1'] = 'Spam Answer'
+        self.layer['request'].form['smq1'] = 'Spam Answer'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -79,7 +78,7 @@ class testMatrixQuestion(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert controller_state.getErrors() != {}, "Validation error not raised"
 
     def testCantAddSpamToLikert(self):
@@ -87,8 +86,7 @@ class testMatrixQuestion(PloneSurveyTestCase):
         sm1 = getattr(s1, 'sm1')
         smq1 = getattr(sm1, 'smq1')
         smq1.setLikertOptions(1)
-        app = makerequest(self.app)
-        app.REQUEST.form['smq1'] = '99'
+        self.layer['request'].form['smq1'] = '99'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -97,7 +95,7 @@ class testMatrixQuestion(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert controller_state.getErrors() != {}, "Validation error not raised"
 
     def testCantAddTextToLikert(self):
@@ -105,8 +103,7 @@ class testMatrixQuestion(PloneSurveyTestCase):
         sm1 = getattr(s1, 'sm1')
         smq1 = getattr(sm1, 'smq1')
         smq1.setLikertOptions(1)
-        app = makerequest(self.app)
-        app.REQUEST.form['smq1'] = 'Spam Answer'
+        self.layer['request'].form['smq1'] = 'Spam Answer'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -115,15 +112,18 @@ class testMatrixQuestion(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert controller_state.getErrors() != {}, "Validation error not raised"
 
-class TestRequired(PloneSurveyTestCase):
+class TestRequired(unittest.TestCase):
     """Ensure required field works correctly"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.invokeFactory('Survey Matrix', 'sm1')
         self.s1.sm1.invokeFactory('Survey Matrix Question', 'smq1')
 
@@ -143,12 +143,15 @@ class TestRequired(PloneSurveyTestCase):
         assert smq1.getRequired() == 0, "Should be required when nullValue exists"
 
 
-class TestAnswerOptions(PloneSurveyTestCase):
+class TestAnswerOptions(unittest.TestCase):
     """Ensure matrix options are correct"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Matrix', 'sm1')
         self.s1.sm1.invokeFactory('Survey Matrix Question', 'smq1')
@@ -168,12 +171,15 @@ class TestAnswerOptions(PloneSurveyTestCase):
         assert len(smq1.getQuestionOptions()) == 6, "Wrong number of likert options returned"
         assert smq1.getQuestionOptions().getValue(0) == 'Not applicable', "Null option not first"
 
-class testMatrixQuestionValidation(PloneSurveyTestCase):
+class testMatrixQuestionValidation(unittest.TestCase):
     """Ensure survey matrix validates correctly"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Matrix', 'sm1')
         sm1 = getattr(self.s1, 'sm1')
@@ -185,9 +191,8 @@ class testMatrixQuestionValidation(PloneSurveyTestCase):
         s1 = getattr(self, 's1')
         sm1 = getattr(s1, 'sm1')
         smq1 = getattr(sm1, 'smq1')
-        app = makerequest(self.app)
         # add your form variables
-        app.REQUEST.form['sm1-smq1'] = ['5', '4']
+        self.layer['request'].form['sm1-smq1'] = ['5', '4']
         # set up a dummy state object
         dummy_controller_state = ControllerState(
                                     id='survey_view',
@@ -199,7 +204,7 @@ class testMatrixQuestionValidation(PloneSurveyTestCase):
         # get the form controller
         controller = self.portal.portal_form_controller
         # send the validate script to the form controller with the dummy state object
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         # Do any relevant tests
         assert controller_state.getErrors() == {}, controller_state.getErrors()
         userid = s1.getSurveyId()
@@ -215,9 +220,8 @@ class testMatrixQuestionValidation(PloneSurveyTestCase):
         sm1 = getattr(s1, 'sm1')
         sm1.setInputType("multipleSelect")
         smq1 = getattr(sm1, 'smq1')
-        app = makerequest(self.app)
         # add your form variables
-        app.REQUEST.form['sm1-smq1'] = ['5', '4']
+        self.layer['request'].form['sm1-smq1'] = ['5', '4']
         # set up a dummy state object
         dummy_controller_state = ControllerState(
                                     id='survey_view',
@@ -229,7 +233,7 @@ class testMatrixQuestionValidation(PloneSurveyTestCase):
         # get the form controller
         controller = self.portal.portal_form_controller
         # send the validate script to the form controller with the dummy state object
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         # Do any relevant tests
         assert controller_state.getErrors() == {}, controller_state.getErrors()
         userid = s1.getSurveyId()
@@ -239,12 +243,3 @@ class testMatrixQuestionValidation(PloneSurveyTestCase):
             if question.portal_type == 'Survey Matrix Question':
                 answer = question.getAnswerFor(userid)
                 assert answer == [5, 4], "Answer not in question options: %s" % answers
-
-def test_suite():
-    from unittest import TestSuite, makeSuite
-    suite = TestSuite()
-    suite.addTest(makeSuite(testMatrixQuestion))
-    suite.addTest(makeSuite(TestRequired))
-    suite.addTest(makeSuite(TestAnswerOptions))
-    suite.addTest(makeSuite(testMatrixQuestionValidation))
-    return suite

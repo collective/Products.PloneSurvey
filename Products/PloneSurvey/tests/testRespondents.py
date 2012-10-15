@@ -1,19 +1,20 @@
-#
-# Test PloneSurvey respondents
-#
+import unittest2 as unittest
+
 import os
 
 from Products.PloneSurvey.tests import utils
-from base import PloneSurveyTestCase
 
-class TestUploadMembers(PloneSurveyTestCase):
+from base import INTEGRATION_ANON_SURVEY_TESTING
+
+class TestUploadMembers(unittest.TestCase):
     """Test Upload members"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.createAnonSurvey()
+    def setUp(self):
+        self.portal = self.layer['portal']
 
     def testUploadMethod(self):
-        s1 = getattr(self.folder, 's1')
+        s1 = getattr(self.portal, 's1')
         assert len(s1.getAuthenticatedRespondents()) == 0
         data_path = os.path.dirname(utils.__file__)
         data_catch = open(os.path.join(data_path, 'user_import'), 'rU')
@@ -26,20 +27,21 @@ class TestUploadMembers(PloneSurveyTestCase):
         assert respondent['fullname'] == 'User Two'
 
 
-class TestDeleteMember(PloneSurveyTestCase):
+class TestDeleteMember(unittest.TestCase):
     """Test member deletion"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.createAnonSurvey()
+    def setUp(self):
+        self.portal = self.layer['portal']
         data_path = os.path.dirname(utils.__file__)
         data_catch = open(os.path.join(data_path, 'user_import'), 'rU')
         input = data_catch.read()
         data_catch.close()
-        self.s1.uploadRespondents(input=input)
+        self.portal.s1.uploadRespondents(input=input)
 
     def testDeleteRespondent(self):
         """Ensure a respondent can be deleted"""
-        s1 = getattr(self.folder, 's1')
+        s1 = getattr(self.portal, 's1')
         respondents = s1.getAuthenticatedRespondents()
         assert len(respondents) == 2
         s1.deleteAuthenticatedRespondent('user1@here.com')
@@ -49,7 +51,7 @@ class TestDeleteMember(PloneSurveyTestCase):
 
     def testDeleteProperties(self):
         """Ensure respondents details deleted"""
-        s1 = getattr(self.folder, 's1')
+        s1 = getattr(self.portal, 's1')
         s1.deleteAuthenticatedRespondent('user2@here.com')
         assert s1.getAuthenticatedRespondents()[0]['email_sent'] == ''
         s1.registerRespondentSent('user1@here.com')
@@ -61,13 +63,6 @@ class TestDeleteMember(PloneSurveyTestCase):
         data_catch = open(os.path.join(data_path, 'user_import'), 'rU')
         input = data_catch.read()
         data_catch.close()
-        self.s1.uploadRespondents(input=input)
+        s1.uploadRespondents(input=input)
         s1.deleteAuthenticatedRespondent('user2@here.com')
         assert s1.getAuthenticatedRespondents()[0]['email_sent'] == '', 'Known error'
-
-def test_suite():
-    from unittest import TestSuite, makeSuite
-    suite = TestSuite()
-    suite.addTest(makeSuite(TestUploadMembers))
-    suite.addTest(makeSuite(TestDeleteMember))
-    return suite

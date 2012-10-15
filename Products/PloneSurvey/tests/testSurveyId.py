@@ -1,59 +1,78 @@
-#
-# Test PloneSurvey Survey ID
-#
+import unittest2 as unittest
+
 from DateTime import DateTime
-from Testing.makerequest import makerequest
+
+from plone.app.testing import login, logout
+from plone.app.testing import TEST_USER_ID, setRoles
 
 from Products.CMFFormController.ControllerState import ControllerState
+from Products.CMFCore.utils import getToolByName
 
-from base import PloneSurveyTestCase
+from base import INTEGRATION_TESTING, INTEGRATION_ANON_SURVEY_TESTING
 
-class TestSurveyId(PloneSurveyTestCase):
+class TestSurveyId(unittest.TestCase):
     """Ensure surveyId method returns right thing"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.createAnonSurvey()
+    def setUp(self):
+        self.portal = self.layer['portal']
 
     def testSurveyId(self):
         """test for test user"""
-        s1 = getattr(self, 's1')
+        s1 = getattr(self.portal, 's1')
         userid = s1.getSurveyId()
         assert userid == 'test_user_1_'
 
     def testIdForOtherUser(self):
         """test for another user"""
-        self.addMember('a_user', 'A User', 'user@here.com', '(Member,)', DateTime())
-        self.logout()
-        self.login('a_user')
-        s1 = getattr(self, 's1')
+        self.portal_membership = getToolByName(self.portal, 'portal_membership')
+        self.portal_membership.addMember('a_user', 'secret', ['Member',], [],
+                                         {'fullname': 'A User', 'email': 'user@here.com',})
+        logout()
+        login(self.portal, 'a_user')
+        s1 = getattr(self.portal, 's1')
         userid = s1.getSurveyId()
         assert userid == 'a_user'
 
-class TestAnonymousId(PloneSurveyTestCase):
+class TestAnonymousId(unittest.TestCase):
     """Ensure anonymous id is correctly constructed"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.createSubSurvey()
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        s1 = getattr(self.portal, 's1')
+        s1.invokeFactory('Sub Survey', 'ss1')
+        workflow_tool = getToolByName(self.portal, 'portal_workflow')
+        workflow_tool.doActionFor(s1.ss1,'publish')
 
     def testAnonymousIdGeneration(self):
-        s1 = getattr(self, 's1')
+        s1 = getattr(self.portal, 's1')
         now = DateTime()
-        self.logout()
+        logout()
         userid = s1.getSurveyId()
         expected_userid = 'Anonymous' + '@' + str(now)
         assert userid[:-9] == expected_userid[:-9], "Anonymous id generation not working - %s" % userid
 
-class TestNoCookiesWorks(PloneSurveyTestCase):
+class TestNoCookiesWorks(unittest.TestCase):
     """Ensure survey can be answered with no cookies enabled"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.createSimpleTwoPageSurvey()
-        self.logout()
+    def setUp(self):
+        self.portal = self.layer['portal']
+        workflow_tool = getToolByName(self.portal, 'portal_workflow')
+        s1 = getattr(self.portal, 's1')
+        s1.invokeFactory('Sub Survey', 'ss1')
+        workflow_tool.doActionFor(s1.ss1,'publish')
+        s1.invokeFactory('Survey Text Question', 'stq1')
+        s1.ss1.invokeFactory('Survey Text Question', 'stq2')
+        self.workflow.doActionFor(s1.ss1.stq1,'publish')
+        self.workflow.doActionFor(s1.ss1.stq2,'publish')
+        logout()
 
     def testCanAnswerFirstPage(self):
-        s1 = getattr(self, 's1')
-        app = makerequest(self.app)
-        app.REQUEST.form['stq1'] = 'An answer'
+        s1 = getattr(self.portal, 's1')
+        self.layer['request'].form['stq1'] = 'An answer'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -62,13 +81,12 @@ class TestNoCookiesWorks(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
-        assert controller_state.getErrors() == {}, "Validation error raised"
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
+        assert controller_state.getErrors() == {}, controller_state.getErrors()
 
     def testSecondPageRedirects(self):
-        s1 = getattr(self, 's1')
-        app = makerequest(self.app)
-        app.REQUEST.form['stq2'] = 'Another answer'
+        s1 = getattr(self.portal, 's1')
+        self.layer['request'].form['stq2'] = 'Another answer'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1.ss1,
@@ -77,14 +95,13 @@ class TestNoCookiesWorks(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
-        assert controller_state.getErrors() == {}, "Validation error raised"
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
+        assert controller_state.getErrors() == {}, controller_state.getErrors()
 
     def testTwoRequests(self):
-        s1 = getattr(self, 's1')
+        s1 = getattr(self.portal, 's1')
         survey_id = s1.getSurveyId()
-        app = makerequest(self.app)
-        app.REQUEST.form['stq1'] = 'An answer'
+        self.layer['request'].form['stq1'] = 'An answer'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -93,11 +110,10 @@ class TestNoCookiesWorks(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
-        assert controller_state.getErrors() == {}, "Validation error raised"
-        app = makerequest(self.app)
-        app.REQUEST.form['stq2'] = 'Another answer'
-        app.REQUEST.form['survey_user_id'] = s1.getRespondents()[0]
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
+        assert controller_state.getErrors() == {}, controller_state.getErrors()
+        self.layer['request'].form['stq2'] = 'Another answer'
+        self.layer['request'].form['survey_user_id'] = s1.getRespondents()[0]
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1.ss1,
@@ -106,30 +122,27 @@ class TestNoCookiesWorks(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
-        assert controller_state.getErrors() == {}, "Validation error raised"
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
+        assert controller_state.getErrors() == {}, controller_state.getErrors()
         respondents = s1.getRespondents()
         assert len(respondents) == 1, respondents
 
-class TestReturnsFirstPage(PloneSurveyTestCase):
+class TestReturnsFirstPage(unittest.TestCase):
     """Ensure survey returns first page, if no survey ID exists in request"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.createSubSurvey()
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        s1 = getattr(self.portal, 's1')
+        s1.invokeFactory('Sub Survey', 'ss1')
+        workflow_tool = getToolByName(self.portal, 'portal_workflow')
+        workflow_tool.doActionFor(s1.ss1,'publish')
 
     def testAnonymousIdGeneration(self):
-        s1 = getattr(self, 's1')
+        s1 = getattr(self.portal, 's1')
         now = DateTime()
-        self.logout()
+        logout()
         userid = s1.getSurveyId()
         expected_userid = 'Anonymous' + '@' + str(now)
         assert userid[:-9] == expected_userid[:-9], "Anonymous id generation not working - %s" % userid
-
-def test_suite():
-    from unittest import TestSuite, makeSuite
-    suite = TestSuite()
-    suite.addTest(makeSuite(TestSurveyId))
-    suite.addTest(makeSuite(TestAnonymousId))
-    suite.addTest(makeSuite(TestNoCookiesWorks))
-    suite.addTest(makeSuite(TestReturnsFirstPage))
-    return suite

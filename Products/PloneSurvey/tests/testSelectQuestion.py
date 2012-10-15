@@ -1,20 +1,21 @@
-#
-# Test PloneSurvey Select Question
-#
-from Testing.makerequest import makerequest
+import unittest2 as unittest
 
+from plone.app.testing import TEST_USER_ID, setRoles
 from Products.Archetypes.utils import DisplayList
 from Products.CMFFormController.ControllerState import ControllerState
 from Products.CMFCore.utils import getToolByName
 
-from base import PloneSurveyTestCase
+from base import INTEGRATION_TESTING
 
-class testSelectQuestion(PloneSurveyTestCase):
+class testSelectQuestion(unittest.TestCase):
     """Ensure survey question can be answered"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Select Question', 'ssq1')
 
@@ -34,9 +35,8 @@ class testSelectQuestion(PloneSurveyTestCase):
         s1 = getattr(self, 's1')
         ssq1 = getattr(s1, 'ssq1')
         ssq1.setLikertOptions(1)
-        app = makerequest(self.app)
         # add your form variables
-        app.REQUEST.form['ssq1'] = '1'
+        self.layer['request'].form['ssq1'] = '1'
         # set up a dummy state object
         dummy_controller_state = ControllerState(
                                     id='survey_view',
@@ -48,7 +48,7 @@ class testSelectQuestion(PloneSurveyTestCase):
         # get the form controller
         controller = self.portal.portal_form_controller
         # send the validate script to the form controller with the dummy state object
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         # Do any relevant tests
         assert controller_state.getErrors() == {}, "Validation error raised"
         userid = s1.getSurveyId()
@@ -61,8 +61,7 @@ class testSelectQuestion(PloneSurveyTestCase):
     def testCantAddSpam(self):
         s1 = getattr(self, 's1')
         ssq1 = getattr(s1, 'ssq1')
-        app = makerequest(self.app)
-        app.REQUEST.form['ssq1'] = 'Spam Answer'
+        self.layer['request'].form['ssq1'] = 'Spam Answer'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -71,15 +70,14 @@ class testSelectQuestion(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert controller_state.getErrors() != {}, "Validation error not raised"
 
     def testCantAddSpamToLikert(self):
         s1 = getattr(self, 's1')
         ssq1 = getattr(s1, 'ssq1')
         ssq1.setLikertOptions(1)
-        app = makerequest(self.app)
-        app.REQUEST.form['ssq1'] = '99'
+        self.layer['request'].form['ssq1'] = '99'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -88,15 +86,14 @@ class testSelectQuestion(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert controller_state.getErrors() != {}, "Validation error not raised"
 
     def testCantAddTextToLikert(self):
         s1 = getattr(self, 's1')
         ssq1 = getattr(s1, 'ssq1')
         ssq1.setLikertOptions(1)
-        app = makerequest(self.app)
-        app.REQUEST.form['ssq1'] = 'Spam Answer'
+        self.layer['request'].form['ssq1'] = 'Spam Answer'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -105,15 +102,18 @@ class testSelectQuestion(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert controller_state.getErrors() != {}, "Validation error not raised"
 
-class TestRequired(PloneSurveyTestCase):
+class TestRequired(unittest.TestCase):
     """Ensure required field works correctly"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.invokeFactory('Survey Select Question', 'ssq1')
 
     def testSurveySelectQuestion(self):
@@ -123,17 +123,20 @@ class TestRequired(PloneSurveyTestCase):
         ssq1.setNullValue('Not applicable')
         assert ssq1.getRequired() == 0, "Should be required when nullValue exists"
 
-class TestAnswerOptions(PloneSurveyTestCase):
+class TestAnswerOptions(unittest.TestCase):
     """Ensure select answer options are correct"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Select Question', 'ssq1')
 
     def testSelectQuestionOptions(self):
-        s1 = getattr(self, 's1')
+        s1 = getattr(self.portal, 's1')
         ssq1 = getattr(s1, 'ssq1')
         assert ssq1.getQuestionOptions() == ssq1.getAnswerOptions(), "Options not returned correctly"
         ssq1.setLikertOptions('1')
@@ -147,7 +150,7 @@ class TestAnswerOptions(PloneSurveyTestCase):
         assert ssq1.getQuestionOptions().getValue(0) == 'Not applicable', "Null option not first"
 
     def testSelectQuestionOptionsOrderVocabOption1(self):
-        s1 = getattr(self, 's1')
+        s1 = getattr(self.portal, 's1')
         ssq1 = getattr(s1, 'ssq1')
         ssq1.setLikertOptions('1')
         ssq1.setReverseLikert(True)
@@ -155,19 +158,22 @@ class TestAnswerOptions(PloneSurveyTestCase):
         assert options[0] == 1, "Key of likert option wrong"
 
     def testSelectQuestionOptionsOrderOption2(self):
-        s1 = getattr(self, 's1')
+        s1 = getattr(self.portal, 's1')
         ssq1 = getattr(s1, 'ssq1')
         ssq1.setLikertOptions('2')
         ssq1.setReverseLikert(True)
         options = ssq1.getQuestionOptions()
         assert options[0] == 1, "Key of likert option wrong"
 
-class TestSelectValidation(PloneSurveyTestCase):
+class TestSelectValidation(unittest.TestCase):
     """Ensure survey select validation"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Select Question', 'ssq1')
         ssq1 = getattr(self.s1, 'ssq1')
@@ -176,9 +182,8 @@ class TestSelectValidation(PloneSurveyTestCase):
     def testMultipleCheckboxAnswersValidates(self):
         s1 = getattr(self, 's1')
         ssq1 = getattr(s1, 'ssq1')
-        app = makerequest(self.app)
         # add your form variables
-        app.REQUEST.form['ssq1'] = ['Yes', 'No']
+        self.layer['request'].form['ssq1'] = ['Yes', 'No']
         # set up a dummy state object
         dummy_controller_state = ControllerState(
                                     id='survey_view',
@@ -190,7 +195,7 @@ class TestSelectValidation(PloneSurveyTestCase):
         # get the form controller
         controller = self.portal.portal_form_controller
         # send the validate script to the form controller with the dummy state object
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         # Do any relevant tests
         assert controller_state.getErrors() == {}, controller_state.getErrors()
         userid = s1.getSurveyId()
@@ -204,9 +209,8 @@ class TestSelectValidation(PloneSurveyTestCase):
         s1 = getattr(self, 's1')
         ssq1 = getattr(s1, 'ssq1')
         ssq1.setInputType("multipleSelect")
-        app = makerequest(self.app)
         # add your form variables
-        app.REQUEST.form['ssq1'] = ['Yes', 'No']
+        self.layer['request'].form['ssq1'] = ['Yes', 'No']
         # set up a dummy state object
         dummy_controller_state = ControllerState(
                                     id='survey_view',
@@ -218,7 +222,7 @@ class TestSelectValidation(PloneSurveyTestCase):
         # get the form controller
         controller = self.portal.portal_form_controller
         # send the validate script to the form controller with the dummy state object
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         # Do any relevant tests
         assert controller_state.getErrors() == {}, controller_state.getErrors()
         userid = s1.getSurveyId()
@@ -232,9 +236,8 @@ class TestSelectValidation(PloneSurveyTestCase):
         s1 = getattr(self, 's1')
         ssq1 = getattr(s1, 'ssq1')
         ssq1.setLikertOptions(1)
-        app = makerequest(self.app)
         # add your form variables
-        app.REQUEST.form['ssq1'] = ['1', '2']
+        self.layer['request'].form['ssq1'] = ['1', '2']
         # set up a dummy state object
         dummy_controller_state = ControllerState(
                                     id='survey_view',
@@ -246,7 +249,7 @@ class TestSelectValidation(PloneSurveyTestCase):
         # get the form controller
         controller = self.portal.portal_form_controller
         # send the validate script to the form controller with the dummy state object
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         # Do any relevant tests
         assert controller_state.getErrors() == {}, controller_state.getErrors()
         userid = s1.getSurveyId()
@@ -256,12 +259,15 @@ class TestSelectValidation(PloneSurveyTestCase):
                 answer = question.getAnswerFor(userid)
                 assert answer == [1, 2], "Answer not saved correctly: %s" %answer
 
-class TestSelectComment(PloneSurveyTestCase):
+class TestSelectComment(unittest.TestCase):
     """Ensure survey validation"""
+    layer = INTEGRATION_TESTING
 
-    def afterSetUp(self):
-        self.folder.invokeFactory('Survey', 's1')
-        self.s1 = getattr(self.folder, 's1')
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+        self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Select Question', 'ssq1')
         self.s1.ssq1.setCommentType('text')
@@ -286,9 +292,8 @@ class TestSelectComment(PloneSurveyTestCase):
         s1 = getattr(self, 's1')
         ssq1 = getattr(s1, 'ssq1')
         userid = s1.getSurveyId()
-        app = makerequest(self.app)
-        app.REQUEST.form['ssq1'] = 'Yes'
-        app.REQUEST.form['ssq1_comments'] = 'Comment'
+        self.layer['request'].form['ssq1'] = 'Yes'
+        self.layer['request'].form['ssq1_comments'] = 'Comment'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -297,7 +302,7 @@ class TestSelectComment(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert ssq1.getAnswerFor(userid) == 'Yes', "Answer not saved correctly"
         assert ssq1.getCommentsFor(userid) == 'Comment', "Comment not saved correctly"
 
@@ -305,9 +310,8 @@ class TestSelectComment(PloneSurveyTestCase):
         s1 = getattr(self, 's1')
         ssq1 = getattr(s1, 'ssq1')
         userid = s1.getSurveyId()
-        app = makerequest(self.app)
-        app.REQUEST.form['ssq1'] = ''
-        app.REQUEST.form['ssq1_comments'] = 'Comment'
+        self.layer['request'].form['ssq1'] = ''
+        self.layer['request'].form['ssq1_comments'] = 'Comment'
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -316,16 +320,6 @@ class TestSelectComment(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert ssq1.getAnswerFor(userid) == '', "Answer not saved correctly: %s" %ssq1.getAnswerFor(userid)
         assert ssq1.getCommentsFor(userid) == 'Comment', "Comment not saved correctly"
-
-def test_suite():
-    from unittest import TestSuite, makeSuite
-    suite = TestSuite()
-    suite.addTest(makeSuite(testSelectQuestion))
-    suite.addTest(makeSuite(TestRequired))
-    suite.addTest(makeSuite(TestAnswerOptions))
-    suite.addTest(makeSuite(TestSelectValidation))
-    suite.addTest(makeSuite(TestSelectComment))
-    return suite

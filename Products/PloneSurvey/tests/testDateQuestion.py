@@ -1,44 +1,44 @@
-#
-# Test PloneSurvey Date Question
-#
-from DateTime.DateTime import DateTime
-from Testing.makerequest import makerequest
+import unittest2 as unittest
 
+from DateTime.DateTime import DateTime
+
+from plone.app.testing import TEST_USER_ID, setRoles
 from Products.Archetypes.utils import DisplayList
 from Products.CMFFormController.ControllerState import ControllerState
 from Products.CMFCore.utils import getToolByName
 
-from base import PloneSurveyTestCase
+from base import INTEGRATION_ANON_SURVEY_TESTING
 
-class testAddDateQuestion(PloneSurveyTestCase):
+class testAddDateQuestion(unittest.TestCase):
     """Ensure date question works correctly"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.createAnonSurvey()
+    def setUp(self):
+        self.portal = self.layer['portal']
 
     def testCreateDateQuestion(self):
-        s1 = getattr(self, 's1')
+        s1 = getattr(self.portal, 's1')
         s1.invokeFactory('Survey Date Question', 'sdq1')
         assert 'sdq1' in s1.objectIds()
 
-class testPostValidate(PloneSurveyTestCase):
+class testPostValidate(unittest.TestCase):
     """Ensure post validation works correctly"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.createAnonSurvey()
+    def setUp(self):
+        self.portal = self.layer['portal']
+        self.s1 = getattr(self.portal, 's1')
         self.s1.invokeFactory('Survey Date Question', 'sdq1')
-        self.app = makerequest(self.app)
-        self.app.REQUEST.form['title'] = 'Date Question Title'
-        self.app.REQUEST.form['showYMD'] = True
-        self.app.REQUEST.form['showHM'] = True
-        self.app.REQUEST.form['startingYear'] = '1970'
-        self.app.REQUEST.form['endingYear'] = '2001'
-        self.app.REQUEST.form['futureYears'] = ''
+        self.layer['request'].form['title'] = 'Date Question Title'
+        self.layer['request'].form['showYMD'] = True
+        self.layer['request'].form['showHM'] = True
+        self.layer['request'].form['startingYear'] = '1970'
+        self.layer['request'].form['endingYear'] = '2001'
+        self.layer['request'].form['futureYears'] = ''
 
     def testFormValidates(self):
         """Test form validates correctly"""
         sdq1 = getattr(self.s1, 'sdq1')
-        app = self.app
         dummy_controller_state = ControllerState(
                                     id='base_edit',
                                     context=sdq1,
@@ -47,18 +47,17 @@ class testPostValidate(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_base',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_base',])
         errors = controller_state.getErrors()
-        errors = sdq1.post_validate(self.app.REQUEST, errors)
+        errors = sdq1.post_validate(self.layer['request'], errors)
         assert errors == {}, "Validation error raised: %s" % controller_state.getErrors()
 
     def testIntegers(self):
         """Test validation fails if an integer field is a string"""
         sdq1 = getattr(self.s1, 'sdq1')
-        self.app.REQUEST.form['startingYear'] = 'string'
-        self.app.REQUEST.form['endingYear'] = 'string'
-        self.app.REQUEST.form['futureYears'] = 'string'
-        app = self.app
+        self.layer['request'].form['startingYear'] = 'string'
+        self.layer['request'].form['endingYear'] = 'string'
+        self.layer['request'].form['futureYears'] = 'string'
         dummy_controller_state = ControllerState(
                                     id='base_edit',
                                     context=sdq1,
@@ -67,9 +66,9 @@ class testPostValidate(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_base',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_base',])
         errors = controller_state.getErrors()
-        errors = sdq1.post_validate(self.app.REQUEST, errors)
+        errors = sdq1.post_validate(self.layer['request'], errors)
         assert errors != {}, "Validation error not raised"
         assert errors.has_key('startingYear')
         assert errors.has_key('endingYear')
@@ -78,9 +77,8 @@ class testPostValidate(PloneSurveyTestCase):
     def testQuestionField(self):
         """Test validation fails if ymd and hm both unselected"""
         sdq1 = getattr(self.s1, 'sdq1')
-        self.app.REQUEST.form['showYMD'] = False
-        self.app.REQUEST.form['showHM'] = False
-        app = self.app
+        self.layer['request'].form['showYMD'] = False
+        self.layer['request'].form['showHM'] = False
         dummy_controller_state = ControllerState(
                                     id='base_edit',
                                     context=sdq1,
@@ -89,9 +87,9 @@ class testPostValidate(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_base',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_base',])
         errors = controller_state.getErrors()
-        errors = sdq1.post_validate(self.app.REQUEST, errors)
+        errors = sdq1.post_validate(self.layer['request'], errors)
         assert errors != {}, "Validation error not raised"
         assert errors.has_key('showYMD')
         assert errors.has_key('showHM')
@@ -99,8 +97,7 @@ class testPostValidate(PloneSurveyTestCase):
     def testEndYear(self):
         """Test validation fails if end year is before start year"""
         sdq1 = getattr(self.s1, 'sdq1')
-        self.app.REQUEST.form['endingYear'] = '1969'
-        app = self.app
+        self.layer['request'].form['endingYear'] = '1969'
         dummy_controller_state = ControllerState(
                                     id='base_edit',
                                     context=sdq1,
@@ -109,18 +106,17 @@ class testPostValidate(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_base',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_base',])
         errors = controller_state.getErrors()
-        errors = sdq1.post_validate(self.app.REQUEST, errors)
+        errors = sdq1.post_validate(self.layer['request'], errors)
         assert errors != {}, "Validation error not raised"
         assert errors.has_key('endingYear')
 
     def testFutureYear(self):
         """Test validation passes if future year, and no end year"""
         sdq1 = getattr(self.s1, 'sdq1')
-        self.app.REQUEST.form['endingYear'] = ''
-        self.app.REQUEST.form['futureYears'] = '5'
-        app = self.app
+        self.layer['request'].form['endingYear'] = ''
+        self.layer['request'].form['futureYears'] = '5'
         dummy_controller_state = ControllerState(
                                     id='base_edit',
                                     context=sdq1,
@@ -129,16 +125,18 @@ class testPostValidate(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_base',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_base',])
         errors = controller_state.getErrors()
-        errors = sdq1.post_validate(self.app.REQUEST, errors)
+        errors = sdq1.post_validate(self.layer['request'], errors)
         assert errors == {}, "Validation error raised: %s" % errors
 
-class testDateQuestion(PloneSurveyTestCase):
+class testDateQuestion(unittest.TestCase):
     """Ensure date question works correctly"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
 
-    def afterSetUp(self):
-        self.createAnonSurvey()
+    def setUp(self):
+        self.portal = self.layer['portal']
+        self.s1 = getattr(self.portal, 's1')
         self.s1.invokeFactory('Survey Date Question', 'sdq1')
 
     def testAddAnswer(self):
@@ -158,15 +156,14 @@ class testDateQuestion(PloneSurveyTestCase):
         s1 = getattr(self, 's1')
         sdq1 = getattr(s1, 'sdq1')
         sdq1.setRequired(True)
-        app = makerequest(self.app)
         now = DateTime()
         now_value = str(now.year()) + '/' + str(now.month()) + '/' + str(now.day()) + ' ' + str(now.hour()) + ':' + str(now.minute()) + ':00 GMT'
-        self.app.REQUEST.form['sdq1_ampm'] = ''
-        self.app.REQUEST.form['sdq1_day'] = str(now.day())
-        self.app.REQUEST.form['sdq1_hour'] = str(now.hour())
-        self.app.REQUEST.form['sdq1_minute'] = str(now.minute())
-        self.app.REQUEST.form['sdq1_month'] = str(now.month())
-        self.app.REQUEST.form['sdq1_year'] = str(now.year())
+        self.layer['request'].form['sdq1_ampm'] = ''
+        self.layer['request'].form['sdq1_day'] = str(now.day())
+        self.layer['request'].form['sdq1_hour'] = str(now.hour())
+        self.layer['request'].form['sdq1_minute'] = str(now.minute())
+        self.layer['request'].form['sdq1_month'] = str(now.month())
+        self.layer['request'].form['sdq1_year'] = str(now.year())
         dummy_controller_state = ControllerState(
                                     id='survey_view',
                                     context=s1,
@@ -175,7 +172,7 @@ class testDateQuestion(PloneSurveyTestCase):
                                     errors={},
                                     next_action=None,)
         controller = self.portal.portal_form_controller
-        controller_state = controller.validate(dummy_controller_state, app.REQUEST, ['validate_survey',])
+        controller_state = controller.validate(dummy_controller_state, self.layer['request'], ['validate_survey',])
         assert controller_state.getErrors() == {}, "Validation error raised: %s" % controller_state.getErrors()
         userid = s1.getSurveyId()
         assert userid == "test_user_1_", "Not default test user"
