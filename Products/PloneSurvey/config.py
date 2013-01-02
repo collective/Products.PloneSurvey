@@ -5,8 +5,6 @@ from Products.Archetypes.utils import IntDisplayList
 from Products.validation import validation
 from zope.i18nmessageid import MessageFactory
 
-import permissions
-
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
 
 SKINS_DIR = 'skins'
