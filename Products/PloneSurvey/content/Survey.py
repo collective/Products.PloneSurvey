@@ -463,7 +463,7 @@ class Survey(ATCTOrderedFolder):
             return full_name
         return member.id
 
-    security.declareProtected(permissions.ViewSurveyResults, 'getRespondents')
+    security.declareProtected(permissions.ViewSurveyResults, 'getAnswersByUser')
     def getAnswersByUser(self, userid):
         """Return a set of answers by user id"""
         questions = self.getAllQuestionsInOrder()
