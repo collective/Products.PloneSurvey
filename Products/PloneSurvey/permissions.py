@@ -7,11 +7,9 @@ from Products.CMFCore.permissions import AccessContentsInformation
 from Products.CMFCore.permissions import ManageProperties
 from Products.CMFCore.permissions import ManagePortal
 
-from config import PROJECTNAME
-
-addSurvey = '%s: Add Survey' % PROJECTNAME
+addSurvey = 'PloneSurvey: Add Survey'
 # N.B. Use of this permission is hard-coded in survey_view skin template!
-ResetOwnResponses = '%s: Reset Own Responses' % PROJECTNAME
-ViewSurveyResults = '%s: View Survey Results' % PROJECTNAME
+ResetOwnResponses = 'PloneSurvey: Reset Own Responses'
+ViewSurveyResults = 'PloneSurvey: View Survey Results'
 
 setDefaultRoles(ViewSurveyResults,('Manager', 'Owner'))
