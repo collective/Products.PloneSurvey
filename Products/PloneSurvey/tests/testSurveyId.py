@@ -43,8 +43,6 @@ class TestAnonymousId(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         s1 = getattr(self.portal, 's1')
         s1.invokeFactory('Sub Survey', 'ss1')
-        workflow_tool = getToolByName(self.portal, 'portal_workflow')
-        workflow_tool.doActionFor(s1.ss1,'publish')
 
     def testAnonymousIdGeneration(self):
         s1 = getattr(self.portal, 's1')
@@ -60,14 +58,10 @@ class TestNoCookiesWorks(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        workflow_tool = getToolByName(self.portal, 'portal_workflow')
         s1 = getattr(self.portal, 's1')
         s1.invokeFactory('Sub Survey', 'ss1')
-        workflow_tool.doActionFor(s1.ss1,'publish')
         s1.invokeFactory('Survey Text Question', 'stq1')
         s1.ss1.invokeFactory('Survey Text Question', 'stq2')
-        self.workflow.doActionFor(s1.ss1.stq1,'publish')
-        self.workflow.doActionFor(s1.ss1.stq2,'publish')
         logout()
 
     def testCanAnswerFirstPage(self):
@@ -136,8 +130,6 @@ class TestReturnsFirstPage(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         s1 = getattr(self.portal, 's1')
         s1.invokeFactory('Sub Survey', 'ss1')
-        workflow_tool = getToolByName(self.portal, 'portal_workflow')
-        workflow_tool.doActionFor(s1.ss1,'publish')
 
     def testAnonymousIdGeneration(self):
         s1 = getattr(self.portal, 's1')
