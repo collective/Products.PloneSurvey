@@ -1,6 +1,3 @@
-import os, os.path
-from Globals import package_home
-
 from Products.Archetypes.public import process_types, listTypes
 from Products.CMFCore.utils import ContentInit, ToolInit
 from Products.CMFCore.DirectoryView import registerDirectory
