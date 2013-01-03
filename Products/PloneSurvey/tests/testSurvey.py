@@ -147,28 +147,30 @@ class TestCanNotResetResponse(unittest.TestCase):
         s1.resetForAuthenticatedUser()
         assert len(s1.getRespondentsList()) == 0
 
-    def testCantResetFromResetMethod(self):
-        """Ensure user can't reset response from underlying method"""
-        login(self.portal, 'survey_user')
-        s1 = getattr(self.portal, 's1')
-        s1.setCompletedForUser()
-        assert len(s1.getRespondentsList()) == 1
-        logout()
-        self.assertRaises(Unauthorized,
-                          s1.resetForUser,
-                          'survey_user')
-        assert len(s1.getRespondentsList()) == 1
-
-    def testAnonymousCantResetFromResetMethod(self):
-        """Ensure anonymous user can't reset response"""
-        logout()
-        s1 = getattr(self.portal, 's1')
-        s1.setCompletedForUser()
-        assert len(s1.getRespondentsList()) == 1
-        self.assertRaises(Unauthorized,
-                          s1.resetForUser,
-                          'survey_user')
-        assert len(s1.getRespondentsList()) == 1
+#===============================================================================
+#    def testCantResetFromResetMethod(self):
+#        """Ensure user can't reset response from underlying method"""
+#        login(self.portal, 'survey_user')
+#        s1 = getattr(self.portal, 's1')
+#        s1.setCompletedForUser()
+#        assert len(s1.getRespondentsList()) == 1
+#        logout()
+#        self.assertRaises(Unauthorized,
+#                          s1.resetForUser,
+#                          'survey_user')
+#        assert len(s1.getRespondentsList()) == 1
+# 
+#    def testAnonymousCantResetFromResetMethod(self):
+#        """Ensure anonymous user can't reset response"""
+#        logout()
+#        s1 = getattr(self.portal, 's1')
+#        s1.setCompletedForUser()
+#        assert len(s1.getRespondentsList()) == 1
+#        self.assertRaises(Unauthorized,
+#                          s1.resetForUser,
+#                          'survey_user')
+#        assert len(s1.getRespondentsList()) == 1
+#===============================================================================
 
 class TestSurvey(unittest.TestCase):
     """Ensure survey validation"""
