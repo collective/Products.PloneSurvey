@@ -4,7 +4,7 @@ from AccessControl import getSecurityManager
 from DateTime import DateTime
 from ZPublisher.BaseRequest import BaseRequest as Request
 
-from Products.Five.testbrowser import Browser
+from Testing.testbrowser import Browser
 
 from Products.PloneSurvey import permissions
 

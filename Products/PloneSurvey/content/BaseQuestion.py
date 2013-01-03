@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 from AccessControl import Unauthorized
+from AccessControl.class_init import InitializeClass
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
 
