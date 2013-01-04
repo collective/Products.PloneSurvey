@@ -87,7 +87,6 @@ class SubSurvey(ATCTOrderedFolder):
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
-                'Survey Two Dimensional',
                 ]}, full_objects=True)
         return questions
 

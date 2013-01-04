@@ -29,19 +29,6 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
                            ),
         ),
 
-##    LinesField('dimensions',
-##        searchable=0,
-##        required=0,
-##        default=[],
-##        widget=LinesWidget(
-##            label="Dimensions",
-##            label_msgid="label_dimensions",
-##            description="""Questions can be associated with one or more dimensions.
-##                           Press enter to seperate the options.""",
-##            description_msgid="help_dimensions",
-##            i18n_domain="plonesurvey",),
-##        ),
-
     TextField('thankYouMessage',
         required=0,
         searchable=0,
@@ -317,22 +304,6 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
                           default=u"Select where the text block above should appear."),
            ),
         ),
-
-##    LinesField('dimensions',
-##        searchable=0,
-##        required=0,
-##        default=[],
-##        multiValued=1,
-##        vocabulary='getDimensionsVocab',
-##        widget=MultiSelectionWidget(
-##            format='checkbox',
-##            label="Dimensions",
-##            label_msgid="label_dimensions",
-##            description="""Specify the dimensions which apply to this question.""",
-##            description_msgid="help_dimensions",
-##            i18n_domain="plonesurvey",),
-##        index='FieldIndex'
-##        ),
 
     ))
 
@@ -624,7 +595,6 @@ SurveyMatrixSchema = BaseQuestionSchema.copy() + Schema((
 
 finalizeATCTSchema(SurveyMatrixSchema, moveDiscussion=False)
 del SurveyMatrixSchema['required']
-##del SurveyMatrixSchema['dimensions']
 del SurveyMatrixSchema["relatedItems"]
 
 SurveyMatrixQuestionSchema = BaseQuestionSchema.copy()

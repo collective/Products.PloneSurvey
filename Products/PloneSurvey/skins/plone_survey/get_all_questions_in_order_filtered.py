@@ -5,17 +5,7 @@ questions = context.getAllQuestionsInOrder(include_sub_survey=include_sub_survey
 result = []
 for question in questions:
     ok = True
-    
-    # At least one dimension in question.getDimensions() must be in dimensions
-    if dimensions:     
-        not_found = True
-        for dim in question.getDimensions():
-            if dim in dimensions:
-                not_found = False
-                break
-        if not_found:
-            ok = False
-            
+
     if ignore_meta_types:
         if question.meta_type in ignore_meta_types:
             ok = ok and False

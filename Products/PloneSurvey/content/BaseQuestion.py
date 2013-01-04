@@ -197,18 +197,6 @@ class BaseQuestion(ATCTContent):
     def getWeightFor(self, answerOption):
         return self.getAnswerOptionsWeights()[list(self.getAnswerOptions()).index(answerOption)]
 
-    security.declareProtected(permissions.View, 'getDimensionsVocab')
-    def getDimensionsVocab(self):
-        """Return dimensions of parent"""
-        parent = self.aq_parent
-        while parent and (parent.portal_type != 'Survey'):
-            parent = parent.aq_parent
-
-        if parent.portal_type == 'Survey':
-            return parent.getDimensions()
-
-        return []
-
     security.declareProtected(permissions.View, 'getMaxWeight')
     def getMaxWeight(self):
         """

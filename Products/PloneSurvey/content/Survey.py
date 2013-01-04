@@ -131,7 +131,6 @@ class Survey(ATCTOrderedFolder):
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
-                'Survey Two Dimensional',
                 ]},
             full_objects=True)
         return questions
@@ -145,8 +144,7 @@ class Survey(ATCTOrderedFolder):
         results = portal_catalog.searchResults(portal_type = ['Survey Date Question',
                                                               'Survey Matrix Question',
                                                               'Survey Select Question',
-                                                              'Survey Text Question',
-                                                              'Survey Two Dimensional',],
+                                                              'Survey Text Question',],
                                                path = path,
                                                order = 'getObjPositionInParent')
         for result in results:
@@ -164,7 +162,6 @@ class Survey(ATCTOrderedFolder):
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
-                'Survey Two Dimensional',
                 ]},
             full_objects=True)
         for object in objects:
@@ -177,7 +174,6 @@ class Survey(ATCTOrderedFolder):
                         'Survey Date Question',
                         'Survey Select Question',
                         'Survey Text Question',
-                        'Survey Two Dimensional',
                         ]},
                     full_objects=True)
                 for sub_survey_object in sub_survey_objects:
@@ -188,20 +184,6 @@ class Survey(ATCTOrderedFolder):
                             full_objects=True)
                         for survey_matrix_object in survey_matrix_objects:
                             questions.append(survey_matrix_object)
-                    elif sub_survey_object.portal_type == 'Survey Two Dimensional':
-                        survey_2d_objects = sub_survey_object.getFolderContents(
-                            contentFilter={'portal_type' : 'Survey 2-Dimensional Question'},
-                            full_objects=True)
-                        for survey_2d_object in survey_2d_objects:
-                            questions.append(survey_2d_object)
-            elif object.portal_type == 'Survey Two Dimensional':
-                questions.append(object)
-                survey_2d_objects = object.getFolderContents(
-                    contentFilter={'portal_type' : 'Survey 2-Dimensional Question'},
-                    full_objects=True)
-                for survey_2d_object in survey_2d_objects:
-                    questions.append(survey_2d_object)
-                # XXX should check if comment is present
             elif object.portal_type == 'Survey Matrix':
                 questions.append(object)
                 survey_matrix_objects = object.getFolderContents(

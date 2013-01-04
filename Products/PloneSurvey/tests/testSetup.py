@@ -18,8 +18,6 @@ class TestInstallation(unittest.TestCase):
                           'Survey Matrix',
                           'Survey Matrix Question',
                           'Survey Select Question',
-                          #'Survey Two Dimensional',
-                          #'Survey 2-Dimensional Question',
                           'Survey Text Question')
 
     def testCssInstalled(self):
@@ -122,8 +120,6 @@ class TestContentCreation(unittest.TestCase):
         self.failUnless('ssq1' in s1.objectIds())
         s1.invokeFactory('Survey Text Question', 'stq1')
         self.failUnless('stq1' in s1.objectIds())
-        #s1.invokeFactory('Survey Two Dimensional', 'std1')
-        #self.failUnless('std1' in s1.objectIds())
 
     def testCreateSubSurvey(self):
         self.s1.invokeFactory('Sub Survey', 'ss1')
@@ -148,8 +144,6 @@ class TestContentCreation(unittest.TestCase):
         self.failUnless('ssq1' in ss1.objectIds())
         ss1.invokeFactory('Survey Text Question', 'stq1')
         self.failUnless('stq1' in ss1.objectIds())
-        #ss1.invokeFactory('Survey Two Dimensional', 'std1')
-        #self.failUnless('std1' in ss1.objectIds())
 
     def testCreateSelectQuestion(self):
         self.s1.invokeFactory('Survey Select Question', 'sq1')
