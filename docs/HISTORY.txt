@@ -4,6 +4,13 @@ Changelog for Products.PloneSurvey
 1.4.6 - Unreleased
 ------------------
 
+  * Fix: avoid overwriting authenticated respondent data when refreshing the
+    survey_view [david.batranu]
+  * Fix: fixing spreadsheet3 export for multiple select question
+    [david.batranu]
+  * Fix: url quoting respondent keys to fix key login [david.batranu]
+  * Fix: fixing answers attribute check for matrix questions [david.batranu]
+  * Fix: int iteration and Attribute Error in Survey.py [david.batranu]
   * Updated package to new i18n translation framework
     [sauzher]
 

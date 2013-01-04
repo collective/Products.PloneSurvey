@@ -437,6 +437,8 @@ class Survey(ATCTOrderedFolder):
             respondents = self.respondents
         except AttributeError:
             self.reset()
+        if self.respondents.has_key(user_id):
+            return
         self.respondents[user_id] = PersistentMapping(start=DateTime(),
                                                       ip_address=self.getRemoteIp(),
                                                       end='')
@@ -640,7 +642,7 @@ class Survey(ATCTOrderedFolder):
             email_from_address = self.email_from_address
         email_body = self.getEmailInvite()
         email_body = email_body.replace('**Name**', user_details['fullname'])
-        survey_url = self.absolute_url() + '/login_form_bridge?email=' + email_address + '&amp;key=' + user_details['key']
+        survey_url = self.absolute_url() + '/login_form_bridge?email=' + email_address + '&amp;key=' + urllib.quote(user_details['key'])
         email_body = email_body.replace('**Survey**', '<a href="' + survey_url + '">' + self.Title() + '</a>')
         mail_text = self.survey_send_invite_template(
             user=user,
@@ -778,6 +780,8 @@ class Survey(ATCTOrderedFolder):
                     options = question.getQuestionOptions()
                     answerList = question.getAnswerFor(user)
                     if answerList and not isinstance(answerList, str):
+                        if not isinstance(answerList, list):
+                            answerList = [answerList]
                         for option in options:
                             if answerList.count(option) > 0:
                                 answer += '1;'
@@ -789,7 +793,10 @@ class Survey(ATCTOrderedFolder):
                     else:
                         answer = ''
                 else:
-                    options = question.getQuestionOptions()
+                    if not hasattr(question, 'getQuestionOptions'):
+                        options = question.title
+                    else:
+                        options = question.getQuestionOptions()
                     answerLabel = question.getAnswerFor(user)
                     answer = str(len(options))
                     i = 0
