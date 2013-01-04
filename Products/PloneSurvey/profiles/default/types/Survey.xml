@@ -32,7 +32,7 @@
  <alias from="properties" to="base_metadata"/>
  <alias from="sharing" to="folder_localrole_form"/>
  <alias from="view" to="(selected layout)"/>
- <alias from="results" to="survey_view_results"/>
+ <alias from="results" to="@@Products.PloneSurvey.survey_view_results"/>
  <alias from="reset" to="survey_reset_form"/>
  <alias from="overview" to="survey_overview"/>
  <action title="View" action_id="view" category="object" condition_expr=""
@@ -68,7 +68,7 @@
  <action title="Results" action_id="results"
     category="object"
     condition_expr=""
-    url_expr="string:$object_url/survey_view_results" visible="True">
+    url_expr="string:$object_url/@@Products.PloneSurvey.survey_view_results" visible="True">
   <permission value="PloneSurvey: View Survey Results"/>
  </action>
  <action title="Reset" action_id="reset"

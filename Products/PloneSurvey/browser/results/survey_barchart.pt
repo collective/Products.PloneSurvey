@@ -29,7 +29,7 @@
             <table>
                 <tr>
                     <td tal:condition="python:question.meta_type not in ['SurveyTextQuestion', 'SurveyMatrix', 'SurveyTwoDimensional', 'SurveyDateQuestion']">
-                        <div metal:use-macro="here/question_barchart/macros/barchart" />
+                        <div metal:use-macro="context/@@Products.PloneSurvey.question_barchart/macros/barchart" />
                     </td>
                     <td valign="top">
                         <ul tal:condition="python: question.meta_type not in ('SurveyMatrix','SurveyTwoDimensional', 'SurveyDateQuestion') and question.getInputType() not in ('text', 'area')">

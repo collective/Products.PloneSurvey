@@ -513,7 +513,7 @@ class Survey(ATCTOrderedFolder):
         message = []
         message.append('Survey %s.' % self.Title())
         message.append('has been completed by user: %s.' % userid)
-        message.append(self.absolute_url() + '/survey_view_results')
+        message.append(self.absolute_url() + '/@@Products.PloneSurvey.survey_view_results')
         mMsg = '\n\n'.join(message)
         try:
             self.MailHost.send(mMsg, mTo, mFrom, mSubj)

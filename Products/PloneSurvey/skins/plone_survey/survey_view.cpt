@@ -116,7 +116,7 @@
                 <legend i18n:translate="legend_already_completed">You have already filled in this survey</legend>
                 <div tal:define="questions here/getAllQuestionsInOrder"
                      tal:repeat="question questions">
-                    <div metal:use-macro="here/question_macro/macros/display" />
+                    <div metal:use-macro="context/@@Products.PloneSurvey.question_macro/macros/display" />
                 </div>
                 <div class="formControls">
                     <input class="context"
