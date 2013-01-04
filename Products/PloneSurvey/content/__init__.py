@@ -5,5 +5,3 @@ import SurveyMatrix
 import SurveyMatrixQuestion
 import SurveySelectQuestion
 import SurveyTextQuestion
-#import SurveyTwoDimensional
-#import SurveyTwoDimensionalQuestion

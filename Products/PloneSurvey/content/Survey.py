@@ -762,7 +762,7 @@ class Survey(ATCTOrderedFolder):
         """Build spreadsheet 3."""
         data = StringIO()
         sheet = csv.writer(data)
-        questions = self.get_all_questions_in_order_filtered(ignore_meta_types=['SurveyTwoDimensional','SurveyMatrix'])
+        questions = self.get_all_questions_in_order_filtered(ignore_meta_types=['SurveyMatrix',])
         sheet.writerow(('user',) + tuple(q.Title() for q in questions) + ('completed',))
         for user in self.getRespondents():
             if self.getConfidential():
