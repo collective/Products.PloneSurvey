@@ -6,7 +6,7 @@
  <property name="title" i18n:translate="">Survey Text Question</property>
  <property name="description"
            i18n:translate="">A textual question within a survey.</property>
- <property name="content_icon">icon_plonesurvey_small.gif</property>
+ <property name="content_icon">++resource++Products.PloneSurvey.images/icon_plonesurvey.gif</property>
  <property name="content_meta_type">SurveyTextQuestion</property>
  <property name="product">PloneSurvey</property>
  <property name="factory">addSurveyTextQuestion</property>

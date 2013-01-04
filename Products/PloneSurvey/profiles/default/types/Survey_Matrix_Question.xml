@@ -6,7 +6,7 @@
  <property name="title" i18n:translate="">Survey Matrix Question</property>
  <property name="description"
            i18n:translate="">A question in a matrix within a survey.</property>
- <property name="content_icon">icon_plonesurvey_small.gif</property>
+ <property name="content_icon">++resource++Products.PloneSurvey.images/icon_plonesurvey.gif</property>
  <property name="content_meta_type">SurveyMatrixQuestion</property>
  <property name="product">PloneSurvey</property>
  <property name="factory">addSurveyMatrixQuestion</property>
