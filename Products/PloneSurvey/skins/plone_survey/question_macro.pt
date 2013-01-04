@@ -22,7 +22,7 @@
     <div tal:condition="python:question.getBody() and question.getTextLocation() == 2"
           tal:content="structure question/getBody" />
     <div tal:define="error errors/?qid|nothing"
-         tal:attributes="class python:test(error, 'field error', 'field')">
+         tal:attributes="class python:error and 'field error' or 'field'">
         <div tal:content="error" />
 
         <input type="text"

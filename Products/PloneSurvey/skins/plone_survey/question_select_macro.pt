@@ -24,12 +24,12 @@
          tal:content="structure question/getBody" />
     <div tal:define="hasOptions python:hasattr(question, 'getQuestionOptions') and len(question.getQuestionOptions()) > 0;
                      error errors/?qid|nothing"
-         tal:attributes="class python:test(error, 'field error', 'field')">
+         tal:attributes="class python:error and 'field error' or 'field'">
         <div tal:content="error" />
 
         <tal:radio tal:condition="python:question.getInputType() == 'radio' and hasOptions"
                    tal:repeat="option question/getQuestionOptions">
-            <div tal:attributes="class python:test(repeat['option'].odd(), 'odd optionRow', 'even optionRow')">                   
+            <div tal:attributes="class python:repeat['option'].odd() and 'odd optionRow' or 'even optionRow'">                   
                 <input type="radio"
                        class="noborder"
                        tal:attributes="value option;
@@ -37,7 +37,7 @@
                                        id string:${qid}-${repeat/option/number};
                                        checked python:option == answer;" />
                 <label i18n:translate=""
-                       tal:content="python:test(same_type(option, 'string'), option, hasattr(question.getQuestionOptions(), 'getValue') and question.getQuestionOptions().getValue(option))"
+                       tal:content="python:same_type(option, 'string') and option or (hasattr(question.getQuestionOptions(), 'getValue') and question.getQuestionOptions().getValue(option))"
                        tal:attributes="for string:${qid}-${repeat/option/number}" />
             </div> 
         </tal:radio>
@@ -53,7 +53,7 @@
                     tal:attributes="value option;
                                     selected python:answer and option == answer;"
                     i18n:translate=""
-                    tal:content="python:test(same_type(option, 'string'), option, hasattr(question.getQuestionOptions(), 'getValue') and question.getQuestionOptions().getValue(option))" />
+                    tal:content="python:same_type(option, 'string') and option or (hasattr(question.getQuestionOptions(), 'getValue') and question.getQuestionOptions().getValue(option))" />
         </select>
 
         <select tal:condition="python:question.getInputType() == 'multipleSelect' and hasOptions"
@@ -70,7 +70,7 @@
 
         <tal:checkbox tal:condition="python:question.getInputType() == 'checkbox' and hasOptions"
                       tal:repeat="option question/getQuestionOptions">
-            <div tal:attributes="class python:test(repeat['option'].odd(), 'odd optionRow', 'even optionRow')">                      
+            <div tal:attributes="class python:repeat['option'].odd() and 'odd optionRow' or 'even optionRow'">                      
                 <input type="checkbox"
                        class="noborder"
                        name="answer"
@@ -91,7 +91,7 @@
          tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()"
          tal:define="name string:${qid}_comments;
                      error errors/?qid_comments|nothing"
-         tal:attributes="class python:test(error, 'field error', 'field')">
+         tal:attributes="class python:error and 'field error' or 'field'">
 
         <div tal:content="question/getCommentLabel">Comment - mandatory if "no"</div>
 

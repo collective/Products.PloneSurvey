@@ -80,7 +80,7 @@
                 <span i18n:translate="label_overview_branching">Branching:</span>
                 <span tal:replace="page/getRequiredQuestion" />
                 <span i18n:translate=""
-                      tal:content="python:test(page.getRequiredAnswerYesNo(), 'is', 'is not')" />
+                      tal:content="python:page.getRequiredAnswerYesNo() and 'is' or 'is not'" />
                 <span tal:replace="page/getRequiredAnswer" />
             </p>
             <p class="formHelp"

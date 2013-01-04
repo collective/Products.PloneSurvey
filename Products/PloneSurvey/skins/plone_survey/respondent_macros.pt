@@ -20,7 +20,7 @@
       <div class="field"
            tal:define="error errors/fullname|nothing;
                        fullname request/fullname | nothing;"
-           tal:attributes="class python:test(error, 'field error', 'field')">
+           tal:attributes="class python:error and 'field error' or 'field'">
 
         <label for="fullname"
                i18n:translate="label_fullname">Name</label>
@@ -42,7 +42,7 @@
       <div class="field"
            tal:define="error errors/emailaddress|nothing;
                        emailaddress request/emailaddress | nothing;"
-           tal:attributes="class python:test(error, 'field error', 'field')">
+           tal:attributes="class python:error and 'field error' or 'field'">
 
         <label for="emailaddress"
                i18n:translate="label_email_address">Email Address</label>
@@ -61,29 +61,6 @@
                tal:attributes="value emailaddress;"/>
       </div>
 
-<!--
-      <div class="field"
-           tal:define="error errors/password|nothing;
-                       password request/password | nothing;"
-           tal:attributes="class python:test(error, 'field error', 'field')">
-
-        <label for="password"
-               i18n:translate="label_password">Password</label>
-
-        <span class="fieldRequired" title="Required"
-              i18n:attributes="title title_required;"
-              i18n:translate="label_required_in_parentheses">(Required)</span>
-
-        <div tal:content="error">Validation error output</div>
-
-        <input type="text"
-               name="password"
-               id="password"
-               size="30"
-               value="password"
-               tal:attributes="value password;"/>
-      </div>
--->
       <div class="formControls">
         <input class="context"
                type="submit"

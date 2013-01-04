@@ -35,7 +35,7 @@
                     <td tal:content="python:question.getCommentsFor(user)"
                         tal:condition="question/getCommentType | nothing" />
                 </span>
-                <td i18n:translate="" tal:content="python:test(here.checkCompletedFor(user), 'Completed', 'Not Completed')" />
+                <td i18n:translate="" tal:content="python:context.checkCompletedFor(user) and 'Completed' or 'Not Completed'" />
             </tr>
         </table>
     </div>

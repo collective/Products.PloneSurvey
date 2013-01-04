@@ -19,11 +19,11 @@
          tal:content="question/Description" />
     <div tal:condition="python:question.getBody() and question.getTextLocation() == 2"
          tal:content="structure question/getBody" />
-    <div tal:attributes="class python:test(error, 'field error', 'field')">
+    <div tal:attributes="class python:error and 'field error' or 'field'">
     <div tal:content="error" />
 
     <table class="listing matrixTable"
-           tal:define="hasOptions python: hasattr(question, 'getQuestionOptions') and len(question.getQuestionOptions()) > 0;
+           tal:define="hasOptions python:hasattr(question, 'getQuestionOptions') and len(question.getQuestionOptions()) > 0;
                        options question/getQuestionOptions;
                        input_type question/getInputType">
         <thead>
@@ -33,7 +33,7 @@
             <th class="nosort" style="text-transform: none;"
                 tal:condition="python:input_type in ['radio', 'checkbox']"
                 tal:repeat="option options"
-                tal:content="python:test(same_type(options, ()), option, hasattr(options, 'getValue') and options.getValue(option))"/>
+                tal:content="python:same_type(options, ()) and option or (hasattr(options, 'getValue') and options.getValue(option))"/>
             <th class="nosort" style="text-transform: none;"
                   tal:condition="python:input_type not in ['radio', 'checkbox']">
                 Select Option
@@ -42,7 +42,7 @@
         </thead>
         
         <tr tal:repeat="matrix_question matrix_questions"
-            tal:attributes="class python:test(repeat['matrix_question'].odd(), 'odd', 'even')">
+            tal:attributes="class python:repeat['matrix_question'].odd() and 'odd' or 'even'">
             <div tal:omit-tag=""
                  tal:define="mqid matrix_question/getId;">
                 <td class="questionColumn">
@@ -76,7 +76,7 @@
                                 class="noborder"
                                 tal:attributes="value option;
                                                 selected python:answer and option == answer;"
-                                tal:content="python:test(same_type(options, ()), option, hasattr(options, 'getValue') and options.getValue(option))" />
+                                tal:content="python:same_type(options, ()) and option or (hasattr(options, 'getValue') and options.getValue(option))" />
                     </select>
                 </td>
                 <td tal:condition="python:input_type == 'multipleSelect'">
@@ -112,11 +112,11 @@
 </div>
 <dl metal:define-macro="display">
     <dt tal:content="question/Title" />
-    <dd tal:content="python: question.getAnswerFor(member_id)" />
+    <dd tal:content="python:question.getAnswerFor(member_id)" />
     <div tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()"
          tal:omit-tag="">
         <dt>Comment</dt>
-        <dd tal:content="python: question.getCommentsFor(member_id) or 'No Comment'" />
+        <dd tal:content="python:question.getCommentsFor(member_id) or 'No Comment'" />
     </div>
 </dl>
 </body>
