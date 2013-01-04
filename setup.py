@@ -24,7 +24,7 @@ setup(name='Products.PloneSurvey',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
+          'Products.CMFPlone',
           'z3c.rml',
       ],
       extras_require={
