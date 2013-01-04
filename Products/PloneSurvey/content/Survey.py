@@ -495,11 +495,15 @@ class Survey(ATCTOrderedFolder):
         mtool = getToolByName(self, 'portal_membership')
         member = mtool.getAuthenticatedMember()
         user_id = member.getMemberId()
-        return self.resetForUser(user_id)
+        return self._resetForUser(user_id)
 
     security.declareProtected(permissions.ModifyPortalContent,
                               'resetForUser')
     def resetForUser(self, userid):
+        """Remove answer for a single user"""
+        self._resetForUser(userid)
+
+    def _resetForUser(self, userid):
         """Remove answer for a single user"""
         completed = self.getCompletedFor()
         if userid in completed:
