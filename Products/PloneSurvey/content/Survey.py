@@ -877,6 +877,8 @@ class Survey(ATCTOrderedFolder):
                         else:
                             row.append('')
                     else:
+                        if type(answer)==int:
+                            answer=str(answer)
                         if options[i] in answer:
                             if boolean:
                                 row.append(1)
