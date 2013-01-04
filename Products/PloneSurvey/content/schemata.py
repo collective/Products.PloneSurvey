@@ -486,20 +486,6 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
            ),
         ),
 
-##    LinesField('answerOptionsWeights',
-##        searchable=0,
-##        required=0,
-##        default=("1", "-1"),
-##        widget=LinesWidget(
-##            label="Answer option weights",
-##            label_msgid="label_answer_options_weights",
-##            description="""Enter the weight for each answer option.
-##                           Press enter to seperate the weights.""",
-##            description_msgid="help_answer_options_weights",
-##            i18n_domain="plonesurvey",
-##           ),
-##        ),
-
     StringField('inputType',
         searchable=0,
         required=0,
@@ -564,20 +550,6 @@ SurveyMatrixSchema = BaseQuestionSchema.copy() + Schema((
                                   u"enter a value for no response, eg Not applicable"),
            ),
         ),
-
-##    LinesField('answerOptionsWeights',
-##        searchable=0,
-##        required=0,
-##        default=("1", "-1"),
-##        widget=LinesWidget(
-##            label="Answer option weights",
-##            label_msgid="label_answer_options_weights",
-##            description="""Enter the weight for each answer option.
-##                           Press enter to seperate the weights.""",
-##            description_msgid="help_answer_options_weights",
-##            i18n_domain="plonesurvey",
-##           ),
-##        ),
 
     StringField('inputType',
         searchable=0,
