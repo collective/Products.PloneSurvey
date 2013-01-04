@@ -37,7 +37,7 @@
                                        id string:${qid}-${repeat/option/number};
                                        checked python:option == answer;" />
                 <label i18n:translate=""
-                       tal:content="python:same_type(option, 'string') and option or (hasattr(question.getQuestionOptions(), 'getValue') and question.getQuestionOptions().getValue(option))"
+                       tal:content="python:isinstance(option, str) and option or (hasattr(question.getQuestionOptions(), 'getValue') and question.getQuestionOptions().getValue(option))"
                        tal:attributes="for string:${qid}-${repeat/option/number}" />
             </div> 
         </tal:radio>

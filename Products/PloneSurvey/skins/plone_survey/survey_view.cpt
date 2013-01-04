@@ -61,19 +61,19 @@
                     <div tal:condition="python:question.getBody() and question.getTextLocation() == 1"
                           tal:content="structure question/getBody" />
                     <tal:condition condition="python:question.meta_type == 'SurveyTextQuestion'">
-                        <div metal:use-macro="here/question_macro/macros/question" />
+                        <div metal:use-macro="context/@@Products.PloneSurvey.question_macro/macros/question" />
                     </tal:condition>
                     <tal:condition condition="python:question.meta_type == 'SurveyDateQuestion'">
-                        <div metal:use-macro="here/question_date_macro/macros/question" />
+                        <div metal:use-macro="context/@@Products.PloneSurvey.question_date_macro/macros/question" />
                     </tal:condition>
                     <tal:condition condition="python:question.meta_type == 'SurveyMatrix'">
-                        <div metal:use-macro="here/question_matrix_macro/macros/question" />
+                        <div metal:use-macro="context/@@Products.PloneSurvey.question_matrix_macro/macros/question" />
                     </tal:condition>
                     <tal:condition condition="python:question.meta_type == 'SurveySelectQuestion'">
-                        <div metal:use-macro="here/question_select_macro/macros/question" />
+                        <div metal:use-macro="context/@@Products.PloneSurvey.question_select_macro/macros/question" />
                     </tal:condition>
                     <tal:condition condition="python:question.meta_type == 'SurveyTwoDimensional'">
-                        <div metal:use-macro="here/question_twodimensional_macro/macros/question" />
+                        <div metal:use-macro="context/@@Products.PloneSurvey.question_twodimensional_macro/macros/question" />
                     </tal:condition>
                     <div tal:condition="python:question.getBody() and question.getTextLocation() == 3"
                           tal:content="structure question/getBody" />

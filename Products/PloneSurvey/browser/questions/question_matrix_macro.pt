@@ -33,7 +33,7 @@
             <th class="nosort" style="text-transform: none;"
                 tal:condition="python:input_type in ['radio', 'checkbox']"
                 tal:repeat="option options"
-                tal:content="python:same_type(options, ()) and option or (hasattr(options, 'getValue') and options.getValue(option))"/>
+                tal:content="python:isinstance(options, list) and option or (hasattr(options, 'getValue') and options.getValue(option))"/>
             <th class="nosort" style="text-transform: none;"
                   tal:condition="python:input_type not in ['radio', 'checkbox']">
                 Select Option

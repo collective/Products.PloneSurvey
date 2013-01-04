@@ -23,12 +23,13 @@
         <div tal:condition="python:question.getBody() and question.getTextLocation() == 2"
              tal:content="structure question/getBody" />
     <div tal:define="error errors/?qid|nothing"
-         tal:attributes="class python:test(error, 'field error', 'field')">
+         tal:attributes="class python:error and 'field error' or 'field'">
         <div tal:content="error" />
 
     </div>
 
-    <div tal:define="formname string:survey_view;
+    <div tal:define="DateTime python:modules['DateTime'].DateTime;
+    	             formname string:survey_view;
                      inputname question/id;
                      inputvalue python:DateTime();
                      show_ymd question/getShowYMD;
@@ -43,7 +44,7 @@
          tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()"
          tal:define="name string:${qid}_comments;
                      error errors/?qid_comments|nothing"
-         tal:attributes="class python:test(error, 'field error', 'field')">
+         tal:attributes="class python:error and 'field error' or 'field'">
 
         <div tal:content="question/getCommentLabel">Comment - mandatory if "no"</div>
 
@@ -51,11 +52,11 @@
                   rows="6"
                   tal:content="python:request.get(name,'') or question.getCommentsFor(member_id)"
                   tal:attributes="name name"
-                  tal:condition="python: question.getCommentType()=='area'" />
+                  tal:condition="python:question.getCommentType()=='area'" />
         <input type="text"
                tal:attributes="name name;
                                value python:request.get(name,'') or question.getCommentsFor(member_id)"
-               tal:condition="python: question.getCommentType()=='text'"/>
+               tal:condition="python:question.getCommentType()=='text'"/>
     </div>
 </div>
 <dl metal:define-macro="display">
@@ -64,7 +65,7 @@
     <div tal:condition="python:hasattr(question, 'getCommentType') and question.getCommentType()"
          tal:omit-tag="">
         <dt>Comment</dt>
-        <dd tal:content="python: question.getCommentsFor(member_id) or 'No Comment'" />
+        <dd tal:content="python:question.getCommentsFor(member_id) or 'No Comment'" />
     </div>
 </dl>
 </body>
