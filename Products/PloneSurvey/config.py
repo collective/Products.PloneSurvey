@@ -11,13 +11,6 @@ SKINS_DIR = 'skins'
 
 GLOBALS = globals()
 
-try:
-    from reportlab.lib import colors
-except ImportError:
-    HAS_REPORTLAB = False
-else:
-    HAS_REPORTLAB = True
-
 DEFAULT_SURVEY_INVITE = u'''
 <p>Dear **Name**,</p>
 <p>Please complete the **Survey**</p>
