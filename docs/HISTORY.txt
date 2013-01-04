@@ -4,6 +4,9 @@ Changelog for Products.PloneSurvey
 1.4.6 - Unreleased
 ------------------
 
+  * Updated package to new i18n translation framework
+    [sauzher]
+
 1.4.5 - 2012-10-14
 ------------------
 

@@ -4,6 +4,7 @@
            i18n_domain="plonesurvey">
 
   <include package=".browser" />
+  <i18n:registerTranslations directory="locales" />
 
   <include package=".content" />
 
