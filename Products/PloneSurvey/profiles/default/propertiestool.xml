@@ -9,8 +9,6 @@
    <element value="Survey Matrix Question"/>
    <element value="Survey Select Question"/>
    <element value="Survey Text Question"/>
-   <element value="Survey Two Dimensional"/>
-   <element value="Survey 2-Dimensional Question"/>
   </property>
  </object>
  <object name="site_properties" meta_type="Plone Property Sheet">
