@@ -25,7 +25,6 @@ class TestInstallation(unittest.TestCase):
 
     def testSkinLayersInstalled(self):
         self.failUnless('plone_survey' in self.portal.portal_skins.objectIds())
-        self.failUnless('plone_survey_images' in self.portal.portal_skins.objectIds())
 
     def testPortalFactorySetup(self):
         self.failUnless('Survey' in self.portal.portal_factory.getFactoryTypes())
