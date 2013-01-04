@@ -882,18 +882,6 @@ class Survey(ATCTOrderedFolder):
             sheet.writerow(row)
         return data.getvalue()
 
-    security.declareProtected(permissions.ManagePortal, 'fixSurveyResults')
-    def fixSurveyResults(self):
-        """Fix survey results"""
-        return # XXX this method does not work yet
-        questions = self.getAllQuestions()
-        for question in questions:
-            if question in ['Survey Matrix Question', 'Survey Select Question']:
-                should_be_integer = question.getLikertOptions() and True or False
-                raise str(should_be_integer)
-                answers = question.answers
-        return 'done'
-
     security.declareProtected(permissions.ManagePortal, 'openFile')
     def openFile(self):
         """open the file, and return the file contents"""
