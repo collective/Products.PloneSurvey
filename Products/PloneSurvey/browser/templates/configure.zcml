@@ -1,0 +1,13 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five"
+           i18n_domain="plonesurvey">
+
+    <browser:page
+       for="Products.PloneSurvey.interfaces.ISurvey"
+       name="import_respondents"
+       class="Products.PloneSurvey.browser.importer.importerRespondentsView"
+       template="import_respondents.pt"
+       permission="cmf.AddPortalContent"/>
+
+</configure>

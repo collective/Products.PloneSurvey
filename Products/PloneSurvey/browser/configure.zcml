@@ -1,10 +1,13 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"
-           xmlns:five="http://namespaces.zope.org/five">
+           xmlns:five="http://namespaces.zope.org/five"
+           i18n_domain="plonesurvey">
 
     <!-- included for CMF Permissions -->
     <include package="Products.CMFCore"/>
 
+    <include package=".questions" />
+    <include package=".templates" />
     <include package=".viewlets" />
 
     <!-- Folder factories -->
@@ -29,14 +32,6 @@
     <browser:resourceDirectory
     name="Products.PloneSurvey.stylesheets"
     directory="stylesheets"
-    />
-
-    <browser:page
-       for="..interfaces.ISurvey"
-       name="import_respondents"
-       class="Products.PloneSurvey.browser.importer.importerRespondentsView"
-       template="templates/import_respondents.pt"
-       permission="cmf.AddPortalContent"
     />
 
 </configure>
