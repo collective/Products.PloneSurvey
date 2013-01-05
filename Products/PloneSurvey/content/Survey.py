@@ -882,7 +882,7 @@ class Survey(ATCTOrderedFolder):
             sheet.writerow(row)
         return data.getvalue()
 
-    security.declareProtected(permissions.ManagePortal, 'openFile')
+    security.declareProtected(permissions.ModifyPortalContent, 'openFile')
     def openFile(self):
         """open the file, and return the file contents"""
         data_path = os.path.abspath('import')
@@ -899,7 +899,7 @@ class Survey(ATCTOrderedFolder):
         data_catch.close()
         return input
 
-    security.declareProtected(permissions.ManagePortal, 'uploadRespondents')
+    security.declareProtected(permissions.ModifyPortalContent, 'uploadRespondents')
     def uploadRespondents(self, input=None):
         """upload the respondents"""
         if input is None:
@@ -914,6 +914,7 @@ class Survey(ATCTOrderedFolder):
                 errors.append(user)
         return errors
 
+    security.declareProtected(permissions.ModifyPortalContent, 'pre_validate')
     def pre_validate(self, REQUEST, errors):
         """ checks captcha """
         product_installed = self.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas')
