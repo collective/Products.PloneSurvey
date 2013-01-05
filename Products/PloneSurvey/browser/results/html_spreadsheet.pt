@@ -1,12 +1,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
-      metal:use-macro="here/main_template/macros/master"
+      metal:use-macro="context/main_template/macros/master"
       i18n:domain="plonesurvey">
 
 <body>
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
-        tal:define="questions here/getAllQuestionsInOrder">
+        tal:define="questions context/getAllQuestionsInOrder">
     <div>
         <table class="listing">
             <tr>
@@ -19,8 +19,10 @@
                 </span>
                 <th i18n:translate="">Completed</th>
             </tr>
-            <tr tal:repeat="user here/getRespondents">
-                <td tal:content="user" />
+            <tr tal:repeat="user context/getRespondents">
+                <td tal:condition="not:context/getConfidential"
+                	tal:content="user" />
+                <td tal:condition="context/getConfidential">Anonymous</td>
                 <span tal:repeat="question questions"
                       tal:omit-tag="">
                     <td tal:define="answer python:question.getAnswerFor(user)">

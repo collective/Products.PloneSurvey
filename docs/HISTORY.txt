@@ -4,6 +4,8 @@ Changelog for Products.PloneSurvey
 1.4.6 - Unreleased
 ------------------
 
+  * Fix: hide respondent names in html_spreadsheet for confidential surveys
+    [Gaudenz Steinlin]
   * Fix: avoid overwriting authenticated respondent data when refreshing the
     survey_view [david.batranu]
   * Fix: fixing spreadsheet3 export for multiple select question
