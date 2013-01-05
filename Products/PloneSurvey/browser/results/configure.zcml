@@ -27,12 +27,6 @@
 
     <browser:page
        for="Products.PloneSurvey.interfaces.ISurvey"
-       name="Products.PloneSurvey.survey_results_questions"
-       template="survey_results_questions.pt"
-       permission="zope2.View"/>
-
-    <browser:page
-       for="Products.PloneSurvey.interfaces.ISurvey"
        name="Products.PloneSurvey.survey_view_results"
        template="survey_view_results.pt"
        permission="zope2.View"/>
