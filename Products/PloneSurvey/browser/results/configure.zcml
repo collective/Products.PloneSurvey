@@ -31,4 +31,11 @@
        template="survey_view_results.pt"
        permission="zope2.View"/>
 
+    <browser:page
+       for="Products.PloneSurvey.interfaces.ISurvey"
+       class=".respondents_table.RespondentsTableView"
+       name="Products.PloneSurvey.respondents_table"
+       template="respondents_table.pt"
+       permission="zope2.View"/>
+
 </configure>

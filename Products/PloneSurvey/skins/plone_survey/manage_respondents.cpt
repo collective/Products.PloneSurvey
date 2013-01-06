@@ -86,43 +86,8 @@
         </div>
         <div>&nbsp;</div>
         <h2 i18n:translate="">Users who have responded</h2>
+        <div tal:replace="structure context/@@Products.PloneSurvey.respondents_table" />
 
-        <table id="sortable"
-               class="listing">
-            <thead>
-                <tr>
-                    <th class="nosort">&nbsp;</th>
-                    <th i18n:translate="respondents_userid">User Id</th>
-                    <th i18n:translate="respondents_ip">IP Address</th>
-                    <th i18n:translate="respondents_start">Start</th>
-                    <th i18n:translate="respondents_end">End</th>
-                    <th i18n:translate="respondents_time_taken">Time Taken</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tal:items repeat="user already_responded"> 
-                    <tr tal:define="user_details python:here.getRespondentDetails(user)">
-                        <td>
-                            <input type="checkbox"
-                                   class="noborder"
-                                   name="answer"
-                                   value="option"
-                                   tal:attributes="value user;
-                                                   name string:users;" />
-                        </td>
-                        <td>
-                            <span tal:replace="python:context.getRespondentFullName(user) or user" />
-                        </td>
-                        <td tal:content="python:user_details['ip_address']" />
-                        <td tal:content="python:context.restrictedTraverse('@@plone').toLocalizedTime(user_details['start'],long_format=1)"
-                        	tal:attributes="class python:'sortabledata-' + user_details['start'].strftime('%Y-%m-%d-%H-%M-%S')" />
-                        <td tal:content="python:context.restrictedTraverse('@@plone').toLocalizedTime(user_details['end'],long_format=1)"
-                        	tal:attributes="class python:user_details['end'] and 'sortabledata-' + user_details['end'].strftime('%Y-%m-%d-%H-%M-%S')" />
-                        <td tal:content="python:user_details['time_taken']" />
-                    </tr>
-                </tal:items>
-            </tbody>
-        </table>
         <div>
             <a tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=all"
                onClick="return window.confirm('Are you sure?');">
