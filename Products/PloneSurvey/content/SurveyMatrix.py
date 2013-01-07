@@ -6,6 +6,7 @@ from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
 
 from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import LIKERT_OPTIONS_MAP
@@ -38,7 +39,7 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
             if error_value:
                 error_string = error_string + ' ' + str(matrix_q.title_or_id()) + ','
         if error_string != '':
-            error_string = error_string[:-1]
+            error_string = safe_unicode(error_string[:-1])
             error_msg = self.translate(
                 default='Please provide an answer for the question',
                 msgid='please_provide_answer_for',
