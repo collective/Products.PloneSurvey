@@ -32,13 +32,10 @@ if emailaddress in acl_users.getUserNames():
     state.setError('emailaddress', error_msg)
 
 if state.getErrors():
-    return state.set(status='failure', portal_status_message=_(msgid='text_correct_errors',
-                                                               default=u'Please correct the errors shown',
-                                                               domain='plonesurvey'))
+    context.plone_utils.addPortalMessage(_(u'Please correct the errors shown.'), 'error')
+    return state.set(status='failure')
 else:
     context.addAuthenticatedRespondent(emailaddress, fullname=fullname)
-    return state.set(status='success',
-        portal_status_message=_(msgid='authenticated_respondent_created',
-                                default=u'Respondent created',
-                                domain='plonesurvey'))
+    context.plone_utils.addPortalMessage(_(u'Respondent created.'), 'info')
+    return state.set(status='success')
 

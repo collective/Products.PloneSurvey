@@ -77,9 +77,8 @@ if not state.getErrors():
             context.captcha_validator()
 
 if state.getErrors():
-    return state.set(status='failure', portal_status_message=_(msgid='text_correct_errors',
-                                                               default=u'Please correct the errors shown',
-                                                               domain='plonesurvey'))
+    context.plone_utils.addPortalMessage(_(u'Please correct the errors shown.'), 'error')
+    return state.set(status='failure')
 else:
     state.set(status='success')
     state.setKwargs({'survey_user_id':form.get('survey_user_id')})

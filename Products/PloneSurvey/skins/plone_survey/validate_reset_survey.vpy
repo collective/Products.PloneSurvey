@@ -5,9 +5,8 @@ _ = context.translate
 context.resetForAuthenticatedUser()
 
 if state.getErrors():
-    return state.set(status='failure', portal_status_message=_(msgid='text_correct_errors',
-                                                               default=u'Please correct the errors shown',
-                                                               domain='plonesurvey'))
+    context.plone_utils.addPortalMessage(_(u'Please correct the errors shown.'), 'error')
+    return state.set(status='failure')
 else:
     return state.set(status='success')
 return state

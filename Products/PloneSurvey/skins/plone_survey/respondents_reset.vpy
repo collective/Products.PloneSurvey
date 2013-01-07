@@ -14,7 +14,9 @@ else:
     users_reset.append(users)
 
 if state.getErrors():
-    return state.set(status='failure', portal_status_message=_(msgid='text_survey_reset_error', default='Survey did not reset correctly', domain='plonesurvey'))
+    context.plone_utils.addPortalMessage(_(u'Survey did not reset correctly.'), 'error')
+    return state.set(status='failure')
 else:
-    return state.set(status='success', portal_status_message=_(msgid='text_survey_users_reset_error', default='${users} have been reset', mapping={'users':users}, domain='plonesurvey'))
+    context.plone_utils.addPortalMessage(_(u'${users} have been reset.', mapping={'users':users}), 'info')
+    return state.set(status='success')
 return state
