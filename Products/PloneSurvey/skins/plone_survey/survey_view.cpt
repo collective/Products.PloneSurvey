@@ -124,7 +124,7 @@
                            value="Reset Survey"
                            name="form.button.reset_survey"
                            i18n:attributes="value reset_survey_button"
-                           tal:condition="python:user.has_permission('PloneSurvey: Reset Own Responses', here)" />
+                           tal:condition="python:user.has_permission('PloneSurvey: Reset Own Responses', context) and not isAnon" />
                 </div>
             </fieldset>
         </form>
