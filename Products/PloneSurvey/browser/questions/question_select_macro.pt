@@ -53,7 +53,7 @@
                     tal:attributes="value option;
                                     selected python:answer and option == answer;"
                     i18n:translate=""
-                    tal:content="python:same_type(option, 'string') and option or (hasattr(question.getQuestionOptions(), 'getValue') and question.getQuestionOptions().getValue(option))" />
+                    tal:content="python:hasattr(question.getQuestionOptions(), 'getValue') and question.getQuestionOptions().getValue(option) or option" />
         </select>
 
         <select tal:condition="python:question.getInputType() == 'multipleSelect' and hasOptions"

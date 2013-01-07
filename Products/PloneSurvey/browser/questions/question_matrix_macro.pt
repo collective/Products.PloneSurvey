@@ -76,7 +76,7 @@
                                 class="noborder"
                                 tal:attributes="value option;
                                                 selected python:answer and option == answer;"
-                                tal:content="python:same_type(options, ()) and option or (hasattr(options, 'getValue') and options.getValue(option))" />
+                                tal:content="python:hasattr(options, 'getValue') and options.getValue(option) or option" />
                     </select>
                 </td>
                 <td tal:condition="python:input_type == 'multipleSelect'">
