@@ -14,8 +14,12 @@
         <form tal:attributes="action template/id">
             <fieldset>
                 <legend i18n:translate="survey_reset">Survey Reset</legend>
+                <div tal:define="error errors/survey_reset|nothing"
+                	 tal:attributes="class python:error and 'field error' or 'field'"
+                	 tal:content="error" />
                 <div class="formControls">
                     <input type="submit" name="reset" value=" Reset " class="standalone"
+                           id="reset_button"
                            i18n:attributes="value label_reset"/>
                 </div>
                 <input type="hidden" name="form.submitted" value="1" />

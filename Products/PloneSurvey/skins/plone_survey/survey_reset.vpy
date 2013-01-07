@@ -1,13 +1,18 @@
 questions = context.getAllQuestionsInOrder()
 _ = context.translate 
 
+if not questions:
+    context.plone_utils.addPortalMessage(_(u'There are no questions to reset.'), 'error')
+    return state.set(status='failure')
+
 for question in questions:
     question.reset()
 
 question.aq_parent.setCompletedFor([])
 
 if state.getErrors():
-    return state.set(status='failure', portal_status_message=_(msgid='text_survey_reset_error', default=u'Survey did not reset correctly', domain='plonesurvey'))
+    context.plone_utils.addPortalMessage(_(u'Survey did not reset correctly.'), 'error')
+    return state.set(status='failure')
 else:
-    return state.set(status='success', portal_status_message=_(msgid='text_survey_reset_success', default=u'Survey has been reset', domain='plonesurvey'))
-return state
+    context.plone_utils.addPortalMessage(_(u'Survey has been reset.'), 'info')
+    return state.set(status='success')
