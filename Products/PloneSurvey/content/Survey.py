@@ -739,6 +739,26 @@ class Survey(ATCTOrderedFolder):
         self.setCsvHeaders()
         return self.buildSpreadsheet3()
 
+    security.declareProtected(permissions.ViewSurveyResults, 'get_all_questions_in_order_filtered')
+    def get_all_questions_in_order_filtered(self, include_sub_survey=False, ignore_meta_types=[], ignore_input_types=[], restrict_meta_types=[]):
+        """This is only used in buildSpreadsheet3, and should be moved into a nother method."""
+        questions = self.getAllQuestionsInOrder(include_sub_survey=include_sub_survey)
+        result = []
+        for question in questions:
+            ok = True
+            if ignore_meta_types:
+                if question.meta_type in ignore_meta_types:
+                    ok = ok and False
+            if ignore_input_types:
+                if question.getInputType() in ignore_input_types:
+                    ok = ok and False
+            if restrict_meta_types:
+                if question.meta_type not in restrict_meta_types:
+                    ok = ok and False
+            if ok:
+                result.append(question)
+        return result
+
     security.declareProtected(permissions.ViewSurveyResults, 'buildSpreadsheet3')
     def buildSpreadsheet3(self):
         """Build spreadsheet 3."""
