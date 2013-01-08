@@ -35,6 +35,9 @@ class SurveyDateQuestion(BaseQuestion):
         if not is_showYMD_set and not is_showHM_set:
             errors['showYMD'] = u'At least one of these must be selected.'
             errors['showHM'] = u'At least one of these must be selected.'
+            return errors
+        elif not is_showYMD_set:
+            return errors
         startingYear = form.get('startingYear', None)
         try:
             startingYear = int(startingYear)
