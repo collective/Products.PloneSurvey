@@ -34,7 +34,7 @@
  <alias from="view" to="(selected layout)"/>
  <alias from="results" to="@@Products.PloneSurvey.survey_view_results"/>
  <alias from="reset" to="survey_reset_form"/>
- <alias from="overview" to="survey_overview"/>
+ <alias from="overview" to="@@Products.PloneSurvey.survey_overview"/>
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}" visible="True">
   <permission value="View"/>
@@ -80,7 +80,7 @@
  <action title="Overview" action_id="overview"
     category="object"
     condition_expr=""
-    url_expr="string:$object_url/survey_overview" visible="True">
+    url_expr="string:$object_url/@@Products.PloneSurvey.survey_overview" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Respondents" action_id="authenticated_respondents"

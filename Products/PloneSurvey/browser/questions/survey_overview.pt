@@ -42,7 +42,7 @@
         <hr />
         <div tal:define="questions here/getQuestions"
              tal:repeat="question questions">
-            <div metal:use-macro="here/survey_overview_macro/macros/question_overview" />
+            <div metal:use-macro="context/@@Products.PloneSurvey.survey_overview_macro/macros/question_overview" />
         </div>
         <form method="post"
               tal:attributes="action string:${here/absolute_url}/folder_factories">
@@ -88,7 +88,7 @@
                tal:content="page/Description" />
             <div tal:define="questions page/getQuestions"
                  tal:repeat="question questions">
-                <div metal:use-macro="here/survey_overview_macro/macros/question_overview" />
+                <div metal:use-macro="context/@@Products.PloneSurvey.survey_overview_macro/macros/question_overview" />
             </div>
             <div tal:condition="not:page/getQuestions" i18n:translate="label_overview_no_question">
                 There are no questions on this page.

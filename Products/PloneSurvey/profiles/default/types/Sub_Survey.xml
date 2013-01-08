@@ -64,7 +64,7 @@
  <action title="Overview" action_id="overview"
     category="object"
     condition_expr=""
-    url_expr="string:$object_url/survey_overview" visible="True">
+    url_expr="string:$object_url/@@Products.PloneSurvey.survey_overview" visible="True">
   <permission value="ModifyPortalContent"/>
  </action>
 </object>

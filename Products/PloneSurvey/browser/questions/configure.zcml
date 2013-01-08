@@ -25,4 +25,16 @@
        template="question_select_macro.pt"
        permission="zope2.View"/>
 
+    <browser:page
+       for="Products.PloneSurvey.interfaces.ISurvey"
+       name="Products.PloneSurvey.survey_overview"
+       template="survey_overview.pt"
+       permission="zope2.View"/>
+
+    <browser:page
+       for="Products.PloneSurvey.interfaces.ISurvey"
+       name="Products.PloneSurvey.survey_overview_macro"
+       template="survey_overview_macro.pt"
+       permission="zope2.View"/>
+
 </configure>
