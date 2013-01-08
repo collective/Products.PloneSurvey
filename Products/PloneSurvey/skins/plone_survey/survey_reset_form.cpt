@@ -11,14 +11,15 @@
     <p i18n:translate="desc_reset_survey">
         This will remove all the answers from the current survey. Are you sure?
     </p>
-        <form tal:attributes="action template/id">
+        <form id="survey_reset_form"
+        	tal:attributes="action template/id">
             <fieldset>
                 <legend i18n:translate="survey_reset">Survey Reset</legend>
                 <div tal:define="error errors/survey_reset|nothing"
                 	 tal:attributes="class python:error and 'field error' or 'field'"
                 	 tal:content="error" />
                 <div class="formControls">
-                    <input type="submit" name="reset" value=" Reset " class="standalone"
+                    <input type="submit" name="reset" value="Reset" class="standalone"
                            id="reset_button"
                            i18n:attributes="value label_reset"/>
                 </div>

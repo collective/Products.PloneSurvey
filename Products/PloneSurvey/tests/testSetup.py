@@ -23,6 +23,9 @@ class TestInstallation(unittest.TestCase):
     def testCssInstalled(self):
         self.failUnless('++resource++Products.PloneSurvey.stylesheets/survey_results.css' in self.portal.portal_css.getResourceIds())
 
+    def testJsInstalled(self):
+        self.failUnless('++resource++Products.PloneSurvey.javascripts/survey_reset.js' in self.portal.portal_javascripts.getResourceIds())
+
     def testSkinLayersInstalled(self):
         self.failUnless('plone_survey' in self.portal.portal_skins.objectIds())
 

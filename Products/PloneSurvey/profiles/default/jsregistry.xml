@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True"
+    expression="python:'survey_reset_form' in request.URL"
+    id="++resource++Products.PloneSurvey.javascripts/survey_reset.js" inline="False"/>
+</object>
