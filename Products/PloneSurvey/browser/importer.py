@@ -25,6 +25,8 @@ class importerRespondentsView(BrowserView):
         result = [x for x in reader(source, dialect=oExcel)]
 
         for x in result:
+            if len(x) != 2:
+                continue
             fullname = x[0]
             email = x[1]
             self.context.addAuthenticatedRespondent(email,
