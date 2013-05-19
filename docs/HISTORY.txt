@@ -1,7 +1,7 @@
 Changelog for Products.PloneSurvey
 ==================================
 
-1.4.6 - Unreleased
+1.4.6 - 2013-05-19
 ------------------
 
   * Fix: hide respondent names in html_spreadsheet for confidential surveys
