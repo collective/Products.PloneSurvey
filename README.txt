@@ -48,7 +48,7 @@ Respondents can be categorised as one of three kinds.
 
 3. Survey respondents, who can be added using the respondents tab on the survey. This allows you to add users with a one time  token to allow a closed survey to be completed by users who are not portal members.
 
-Respondents can be added individually, or can be bulk uploaded by adding a file with an id of `user_import` in the import directory of your site. The format must be one user per line, and an example user_import file is in the tests/utils folder within the product. This functionality has not been fully tested and may not work with your configuration.
+Respondents can be added individually, or can be bulk uploaded by uploading a file using the Import Respondents link under the respondents tab.
 
 Known Issues
 ------------

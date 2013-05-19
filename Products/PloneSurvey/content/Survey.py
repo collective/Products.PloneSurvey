@@ -902,6 +902,7 @@ class Survey(ATCTOrderedFolder):
             sheet.writerow(row)
         return data.getvalue()
 
+    # TODO next two methods are still needed for the tests, but should be removed and the tests fixed
     security.declareProtected(permissions.ModifyPortalContent, 'openFile')
     def openFile(self):
         """open the file, and return the file contents"""
