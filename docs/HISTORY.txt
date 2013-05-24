@@ -4,6 +4,9 @@ Changelog for Products.PloneSurvey
 1.4.7 - Unreleased
 ------------------
 
+  * updated Spanish translation
+    [Manuel Gualda Caballero]
+
 1.4.6 - 2013-05-19
 ------------------
 

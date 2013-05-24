@@ -69,7 +69,7 @@ Translations
 
   Spanish translation
   Héctor Velarde, "La Jornada":mailto:hvelarde@jornada.com.mx
+  Manuel Gualda Caballero
 
   Catalan translation
   Pilar Marinas, UPCnet (Universitat Politècnica de Catalunya)
-

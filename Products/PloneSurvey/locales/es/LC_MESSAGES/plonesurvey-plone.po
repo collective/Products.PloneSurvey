@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PloneSurvey 1.2.0\n"
+"Project-Id-Version: PloneSurvey 1.4.6\n"
 "POT-Creation-Date: 2006-06-27 20:42+0000\n"
-"PO-Revision-Date: 2007-10-30 20:20-0600\n"
-"Last-Translator: Héctor Velarde <hvelarde@jornada.com.mx>\n"
+"PO-Revision-Date: 2013-05-23 16:07-0100\n"
+"Last-Translator: Manuel Gualda Caballero <manuel@minombre.es>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #. Default: Branching
 msgid "Branching"
-msgstr ""
+msgstr "Ramificación"
 
 #. Default: Comment Field
 #: ../content/BaseQuestion.py
@@ -27,7 +27,7 @@ msgstr "Campo de comentario"
 #. Default: Export
 #: ../content/Survey.py
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 #. Default: Introduction
 #: ../content/BaseQuestion.py
@@ -51,7 +51,7 @@ msgstr "Reiniciar"
 #. Default: Respondents
 #: ../content/Survey.py
 msgid "Respondents"
-msgstr ""
+msgstr "Encuestados"
 
 #. Default: Results
 #: ../content/Survey.py
@@ -64,21 +64,21 @@ msgstr "valor por defecto"
 
 #. Default: Branching
 msgid "label_schema_Branching"
-msgstr ""
+msgstr "Ramificación"
 
 #. Default: Comment Field
 msgid "label_schema_Comment Field"
-msgstr ""
+msgstr "Campo de comentario"
 
 #. Default: Email Invite
 msgid "label_schema_Email Invite"
-msgstr ""
+msgstr "Correo de invitación"
 
 #. Default: Introduction
 msgid "label_schema_Introduction"
-msgstr ""
+msgstr "Introducción"
 
 #. Default: Text Block
 msgid "label_schema_Text Block"
-msgstr ""
+msgstr "Bloque de texto"
 
