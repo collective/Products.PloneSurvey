@@ -66,24 +66,28 @@
   <permission value="View"/>
  </action>
  <action title="Results" action_id="results"
+    i18n:attributes="title"
     category="object"
     condition_expr=""
     url_expr="string:$object_url/@@Products.PloneSurvey.survey_view_results" visible="True">
   <permission value="PloneSurvey: View Survey Results"/>
  </action>
  <action title="Reset" action_id="reset"
+    i18n:attributes="title"
     category="object"
     condition_expr=""
     url_expr="string:$object_url/survey_reset_form" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Overview" action_id="overview"
+    i18n:attributes="title"
     category="object"
     condition_expr=""
     url_expr="string:$object_url/@@Products.PloneSurvey.survey_overview" visible="True">
   <permission value="Modify portal content"/>
  </action>
  <action title="Respondents" action_id="authenticated_respondents"
+    i18n:attributes="title"
     category="object"
     condition_expr=""
     url_expr="string:$object_url/manage_respondents" visible="True">

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-26 18:51+0000\n"
+"POT-Creation-Date: 2013-05-26 19:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,6 +126,10 @@ msgstr ""
 msgid "OK Only"
 msgstr ""
 
+#: ../profiles/default/types/Survey.xml
+msgid "Overview"
+msgstr ""
+
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:35
 #: ../skins/plone_survey/validate_reset_survey.vpy:8
 #: ../skins/plone_survey/validate_survey.vpy:80
@@ -148,8 +152,20 @@ msgstr ""
 msgid "Quite Useful"
 msgstr ""
 
+#: ../profiles/default/types/Survey.xml
+msgid "Reset"
+msgstr ""
+
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:39
 msgid "Respondent created."
+msgstr ""
+
+#: ../profiles/default/types/Survey.xml
+msgid "Respondents"
+msgstr ""
+
+#: ../profiles/default/types/Survey.xml
+msgid "Results"
 msgstr ""
 
 #: ../profiles/default/types/Sub_Survey.xml
