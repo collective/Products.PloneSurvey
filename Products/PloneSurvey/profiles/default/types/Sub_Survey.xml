@@ -62,6 +62,7 @@
   <permission value="View"/>
  </action>
  <action title="Overview" action_id="overview"
+    i18n:attributes="title"
     category="object"
     condition_expr=""
     url_expr="string:$object_url/@@Products.PloneSurvey.survey_overview" visible="True">
