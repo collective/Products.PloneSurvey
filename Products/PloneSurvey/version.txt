@@ -1,1 +1,1 @@
-1.4.7 (GIT?Unreleased)
+1.4.7dev
