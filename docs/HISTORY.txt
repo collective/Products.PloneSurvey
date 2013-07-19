@@ -7,6 +7,9 @@ Changelog for Products.PloneSurvey
   * updated Spanish translation
     [Manuel Gualda Caballero]
 
+  * Fix: mistake link url for @@Products.PloneSurvey.html_spreadsheet at survey_view_results.pt
+    [terapyon] 
+
 1.4.6 - 2013-05-19
 ------------------
 

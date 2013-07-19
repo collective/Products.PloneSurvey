@@ -30,7 +30,7 @@
                 <span i18n:translate="download_detail_spreadsheet">download detailed spreadsheet</span>
                 (<a href="#" tal:attributes="href string:${here/absolute_url}/spreadsheet2">csv</a>)
 				(<a href="#" tal:attributes="href string:${here/absolute_url}/spreadsheet2_tab">tsv</a>)
-                (<a href="#" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">html</a>)
+                (<a href="#" tal:attributes="href string:${here/absolute_url}/@@Products.PloneSurvey.html_spreadsheet">html</a>)
             </li>
             <li>
                 <span i18n:translate="download_detail_selected">download detailed spreadsheet (selection numbers only)</span>
