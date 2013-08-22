@@ -2,7 +2,11 @@
 
 from AccessControl import ClassSecurityInfo
 from AccessControl import Unauthorized
-from AccessControl.class_init import InitializeClass
+try:
+    from AccessControl.class_init import InitializeClass
+except ImportError:
+    # Old Zope/Plone
+    from Globals import InitializeClass
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
 

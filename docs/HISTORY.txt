@@ -10,6 +10,9 @@ Changelog for Products.PloneSurvey
   * Fix: mistake link url for @@Products.PloneSurvey.html_spreadsheet at survey_view_results.pt
     [terapyon] 
 
+  * Restored minimal Plone 3 compatibility (but beware z3c.rml version)
+    [keul]
+
 1.4.6 - 2013-05-19
 ------------------
 
