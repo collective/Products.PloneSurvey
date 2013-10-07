@@ -12,6 +12,9 @@ Changelog for Products.PloneSurvey
 
   * Restored minimal Plone 3 compatibility (but beware z3c.rml version)
     [keul]
+  
+  * Fixed getAnswerFor return value for selectionBox fields. Now force to return a string like radio
+    [cekk]
 
 1.4.6 - 2013-05-19
 ------------------
