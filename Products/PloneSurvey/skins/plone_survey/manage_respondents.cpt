@@ -28,7 +28,7 @@
         </div>
         <div tal:condition="context/getAllowAnonymous">
             <div>
-                Responses: <span tal:replace="python:len(already_responded)" />
+                <tal:block i18n:translate="responses_stats">Responses:</tal:block><span tal:replace="python:len(already_responded)" />
             </div>
         </div>
 
