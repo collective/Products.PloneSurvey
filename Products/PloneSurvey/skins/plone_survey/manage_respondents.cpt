@@ -21,8 +21,9 @@
                               respondents python:context.get_acl_users().getUserNames()">
                  <tal:block i18n:translate="responses_stats">Responses:</tal:block>
                  <span tal:replace="python:len(already_responded)" />/<span tal:replace="python:len(respondents)" />
-                 - <span tal:condition="respondents"
-                         tal:replace="python:round(float(len(already_responded))/float(len(respondents))*100, 2)" />%
+                 <tal:percentage tal:condition="respondents">
+                  - <tal:block content="python:round(float(len(already_responded))/float(len(respondents))*100, 2)" />%
+                 </tal:percentage>
              </div>
         </div>
         <div tal:condition="context/getAllowAnonymous">
@@ -52,24 +53,29 @@
                 <td>
                     <span tal:condition="respondent/email_sent|nothing"
                           tal:content="python:context.restrictedTraverse('@@plone').toLocalizedTime(respondent['email_sent'],long_format=1)" />
-                    <a tal:condition="not:respondent/email_sent|nothing"
-                       tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=${encoded_email}">
+                    <a i18n:translate="send_invite_label"
+                       tal:condition="not:respondent/email_sent|nothing"
+                       tal:attributes="href 
+                       string:${context/absolute_url}/survey_send_invite?email=${encoded_email}">
                       Send Invite
                     </a>
                 </td>
                 <td>
                             <ul>
                                 <li>
-                                    <a tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=${encoded_email}">
+                                    <a i18n:translate="send_reminder_label"
+                                       tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=${encoded_email}">
                                         Send Reminder
                                     </a>
                                 </li>
                                 <li>
-                                    <a tal:attributes="href string:${context/absolute_url}/deleteAuthenticatedRespondent?email=${encoded_email}"
+                                    <a i18n:translate="delete_respondent_label"
+                                       tal:attributes="href string:${context/absolute_url}/deleteAuthenticatedRespondent?email=${encoded_email}"
                                         onClick="return window.confirm('Are you sure?');">Delete Respondent</a>
                                 </li>
                                 <li>
-                                    <a target="_blank"
+                                    <a i18n:translate="complete_for_user_label"
+                                        target="_blank"
                                         tal:define="key python:respondent['key']"
                                         tal:attributes="href string:${context/absolute_url}/login_form_bridge?email=${encoded_email}&key=${key}">
                                         Complete for User</a>
@@ -83,7 +89,7 @@
         <div >
              <a tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=new"
                  onClick="return window.confirm('Are you sure?');"
-                 i18n:translate="send_invite_label"> 
+                 i18n:translate="send_survey_invite_label"> 
                  send survey invite</a> <tal:block i18n:translate="">to all respondents who have not been invited yet.</tal:block>
         </div>
         <div>&nbsp;</div>
@@ -93,7 +99,7 @@
         <div>
             <a tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=all"
                onClick="return window.confirm('Are you sure?');"
-               i18n:translate="send_reminder_label">
+               i18n:translate="send_survey_reminder_label">
                send survey reminder/invite</a> <tal:block i18n:translate="">to all respondents who have not yet responded.</tal:block>
         </div>
     </tal:main-macro>

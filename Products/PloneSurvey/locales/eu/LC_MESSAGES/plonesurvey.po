@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-18 10:09+0000\n"
+"POT-Creation-Date: 2014-02-18 10:49+0000\n"
 "PO-Revision-Date: 2007-02-09 11:55+0100\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "A textual question within a survey."
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:43
+#: ../skins/plone_survey/manage_respondents.cpt:44
 msgid "Action"
 msgstr ""
 
@@ -87,11 +87,11 @@ msgstr "Guztiz aurka"
 msgid "Done importing respondents"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:41
+#: ../skins/plone_survey/manage_respondents.cpt:42
 msgid "Email Address"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:42
+#: ../skins/plone_survey/manage_respondents.cpt:43
 msgid "Email Sent"
 msgstr ""
 
@@ -100,11 +100,11 @@ msgstr ""
 msgid "Good"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:35
+#: ../skins/plone_survey/manage_respondents.cpt:36
 msgid "Invited Respondents"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:40
+#: ../skins/plone_survey/manage_respondents.cpt:41
 msgid "Name"
 msgstr ""
 
@@ -198,14 +198,26 @@ msgid "Survey Text Question"
 msgstr ""
 
 #: ../skins/plone_survey/respondents_reset.vpy:17
-#: ../skins/plone_survey/survey_reset.vpy:14
+#: ../skins/plone_survey/survey_reset.vpy:16
 msgid "Survey did not reset correctly."
 msgstr ""
 
-#: ../skins/plone_survey/survey_reset.vpy:17
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_reset.vpy:21
 msgid "Survey has been reset."
 msgstr ""
 
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_send_invite.py:22
+msgid "Survey invite sent to ${email}"
+msgstr ""
+
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_send_invite.py:12
+msgid "Survey invite sent to ${invites_sent} recipients"
+msgstr ""
+
+#. Default: "plonesurvey"
 #: ../skins/plone_survey/survey_reset.vpy:5
 msgid "There are no questions to reset."
 msgstr ""
@@ -219,7 +231,7 @@ msgstr ""
 msgid "Users who have not responded yet"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:90
+#: ../skins/plone_survey/manage_respondents.cpt:96
 msgid "Users who have responded"
 msgstr ""
 
@@ -254,9 +266,19 @@ msgstr ""
 msgid "commentLabelDefault"
 msgstr ""
 
+#. Default: "Complete for User"
+#: ../skins/plone_survey/manage_respondents.cpt:77
+msgid "complete_for_user_label"
+msgstr ""
+
 #. Default: "Create Respondent"
 #: ../skins/plone_survey/respondent_macros.pt:65
 msgid "create_respondent_button"
+msgstr ""
+
+#. Default: "Delete Respondent"
+#: ../skins/plone_survey/manage_respondents.cpt:72
+msgid "delete_respondent_label"
 msgstr ""
 
 #. Default: "This will remove all the answers from the current survey. Are you sure?"
@@ -1094,14 +1116,24 @@ msgstr ""
 msgid "save_button"
 msgstr "Gorde"
 
-#. Default: "send survey invite"
-#: ../skins/plone_survey/manage_respondents.cpt:84
+#. Default: "Send Invite"
+#: ../skins/plone_survey/manage_respondents.cpt:56
 msgid "send_invite_label"
 msgstr ""
 
-#. Default: "send survey reminder/invite"
-#: ../skins/plone_survey/manage_respondents.cpt:94
+#. Default: "Send Reminder"
+#: ../skins/plone_survey/manage_respondents.cpt:66
 msgid "send_reminder_label"
+msgstr ""
+
+#. Default: "send survey invite"
+#: ../skins/plone_survey/manage_respondents.cpt:90
+msgid "send_survey_invite_label"
+msgstr ""
+
+#. Default: "send survey reminder/invite"
+#: ../skins/plone_survey/manage_respondents.cpt:100
+msgid "send_survey_reminder_label"
 msgstr ""
 
 #. Default: "Submit"
@@ -1129,11 +1161,11 @@ msgstr "Inkesta berrezarri"
 msgid "title_required"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:87
+#: ../skins/plone_survey/manage_respondents.cpt:93
 msgid "to all respondents who have not been invited yet."
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:97
+#: ../skins/plone_survey/manage_respondents.cpt:103
 msgid "to all respondents who have not yet responded."
 msgstr ""
 

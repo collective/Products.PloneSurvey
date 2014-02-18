@@ -1,4 +1,5 @@
 ##parameters=email
+_ = context.translate
 
 from Products.CMFCore.utils import getToolByName
 portal_properties   = getToolByName(context, 'portal_properties')
@@ -8,12 +9,18 @@ pu = getToolByName(context, 'plone_utils')
 
 if email == 'all':
     invites_sent = context.sendSurveyInviteAll(send_to_all=True)
-    pu.addPortalMessage("Survey invite sent to %s recipients" % invites_sent)
+    pu.addPortalMessage(_("Survey invite sent to ${invites_sent} recipients",
+                          domain="plonesurvey",
+                          mapping={'invites_sent': invites_sent}))
 elif email == 'new':
     invites_sent = context.sendSurveyInviteAll(send_to_all=False)
-    pu.addPortalMessage("Survey invite sent to %s recipients" % invites_sent)
+    pu.addPortalMessage(_("Survey invite sent to ${invites_sent} recipients",
+                          domain="plonesurvey",
+                          mapping={'invites_sent': invites_sent}))
 else:
     context.sendSurveyInvite(email)
-    pu.addPortalMessage("Survey invite sent to %s" % email)
+    pu.addPortalMessage(_("Survey invite sent to ${email}",
+                          domain="plonesurvey",
+                          mapping={'email': email}))
 
 context.REQUEST.RESPONSE.redirect(context.REQUEST.HTTP_REFERER)

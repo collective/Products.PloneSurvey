@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.PloneSurvey 1.4.2\n"
-"POT-Creation-Date: 2014-02-18 10:09+0000\n"
+"POT-Creation-Date: 2014-02-18 10:49+0000\n"
 "PO-Revision-Date: 2011-01-14 09:57+0000\n"
 "Last-Translator: luca.fabbri <luca.fabbri at redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.net>\n"
@@ -48,7 +48,7 @@ msgstr "Una sotto pagina dentro a un questionario."
 msgid "A textual question within a survey."
 msgstr "Una domanda testuale in un questionario."
 
-#: ../skins/plone_survey/manage_respondents.cpt:43
+#: ../skins/plone_survey/manage_respondents.cpt:44
 msgid "Action"
 msgstr "Azione"
 
@@ -81,11 +81,11 @@ msgstr "Disaccordo completo"
 msgid "Done importing respondents"
 msgstr "Importazione partecipanti terminata"
 
-#: ../skins/plone_survey/manage_respondents.cpt:41
+#: ../skins/plone_survey/manage_respondents.cpt:42
 msgid "Email Address"
 msgstr "Indirizzo e-mail"
 
-#: ../skins/plone_survey/manage_respondents.cpt:42
+#: ../skins/plone_survey/manage_respondents.cpt:43
 msgid "Email Sent"
 msgstr "E-mail inviata"
 
@@ -94,11 +94,11 @@ msgstr "E-mail inviata"
 msgid "Good"
 msgstr "Bene"
 
-#: ../skins/plone_survey/manage_respondents.cpt:35
+#: ../skins/plone_survey/manage_respondents.cpt:36
 msgid "Invited Respondents"
 msgstr "Partecipanti invitati"
 
-#: ../skins/plone_survey/manage_respondents.cpt:40
+#: ../skins/plone_survey/manage_respondents.cpt:41
 msgid "Name"
 msgstr "Nome"
 
@@ -187,14 +187,26 @@ msgid "Survey Text Question"
 msgstr "Domanda testuale"
 
 #: ../skins/plone_survey/respondents_reset.vpy:17
-#: ../skins/plone_survey/survey_reset.vpy:14
+#: ../skins/plone_survey/survey_reset.vpy:16
 msgid "Survey did not reset correctly."
 msgstr "Il sondaggio non è stato ripristinato correttamente."
 
-#: ../skins/plone_survey/survey_reset.vpy:17
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_reset.vpy:21
 msgid "Survey has been reset."
 msgstr "Il sondaggio è stato ripristinato."
 
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_send_invite.py:22
+msgid "Survey invite sent to ${email}"
+msgstr "Invito al sondaggio spedito a ${email}"
+
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_send_invite.py:12
+msgid "Survey invite sent to ${invites_sent} recipients"
+msgstr "Invito al sondaggio spedito a ${invites_sent} partecipanti"
+
+#. Default: "plonesurvey"
 #: ../skins/plone_survey/survey_reset.vpy:5
 msgid "There are no questions to reset."
 msgstr "Non ci sono domande da ripristinare."
@@ -208,7 +220,7 @@ msgstr "Utile"
 msgid "Users who have not responded yet"
 msgstr "Utenti che non hanno ancora risposto"
 
-#: ../skins/plone_survey/manage_respondents.cpt:90
+#: ../skins/plone_survey/manage_respondents.cpt:96
 msgid "Users who have responded"
 msgstr "Utenti che hanno risposto"
 
@@ -240,10 +252,20 @@ msgstr "Puoi aggiungere domane al questionario."
 msgid "commentLabelDefault"
 msgstr "Commento - opzionale se \"no\""
 
+#. Default: "Complete for User"
+#: ../skins/plone_survey/manage_respondents.cpt:77
+msgid "complete_for_user_label"
+msgstr "Completa per l'utente"
+
 #. Default: "Create Respondent"
 #: ../skins/plone_survey/respondent_macros.pt:65
 msgid "create_respondent_button"
 msgstr "Crea partecipante"
+
+#. Default: "Delete Respondent"
+#: ../skins/plone_survey/manage_respondents.cpt:72
+msgid "delete_respondent_label"
+msgstr "Cancella partecipante"
 
 #. <p i18n:translate="desc_reset_survey">
 #. This will remove all the answers from the current survey. Are you sure?
@@ -993,14 +1015,24 @@ msgstr "Risposte:"
 msgid "save_button"
 msgstr "Salva"
 
-#. Default: "send survey invite"
-#: ../skins/plone_survey/manage_respondents.cpt:84
+#. Default: "Send Invite"
+#: ../skins/plone_survey/manage_respondents.cpt:56
 msgid "send_invite_label"
+msgstr "Spedisci un invito"
+
+#. Default: "Send Reminder"
+#: ../skins/plone_survey/manage_respondents.cpt:66
+msgid "send_reminder_label"
+msgstr "Spedisci un promemoria"
+
+#. Default: "send survey invite"
+#: ../skins/plone_survey/manage_respondents.cpt:90
+msgid "send_survey_invite_label"
 msgstr "spedisci un invito per il sondaggio"
 
 #. Default: "send survey reminder/invite"
-#: ../skins/plone_survey/manage_respondents.cpt:94
-msgid "send_reminder_label"
+#: ../skins/plone_survey/manage_respondents.cpt:100
+msgid "send_survey_reminder_label"
 msgstr "spedisci un promemoria/invito del sondaggio"
 
 #. Default: "Submit"
@@ -1023,11 +1055,11 @@ msgstr "Ripristina questionario"
 msgid "title_required"
 msgstr "Richiesto"
 
-#: ../skins/plone_survey/manage_respondents.cpt:87
+#: ../skins/plone_survey/manage_respondents.cpt:93
 msgid "to all respondents who have not been invited yet."
 msgstr "a tutti i partecipanti che non sono ancora stati invitati."
 
-#: ../skins/plone_survey/manage_respondents.cpt:97
+#: ../skins/plone_survey/manage_respondents.cpt:103
 msgid "to all respondents who have not yet responded."
 msgstr "a tutti i partecipanti che non hanno ancora risposto."
 
