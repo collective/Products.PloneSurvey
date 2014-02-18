@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-26 19:06+0000\n"
+"POT-Creation-Date: 2014-02-18 10:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "A textual question within a survey."
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:42
+#: ../skins/plone_survey/manage_respondents.cpt:43
 msgid "Action"
 msgstr ""
 
@@ -82,11 +82,11 @@ msgstr ""
 msgid "Done importing respondents"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:40
+#: ../skins/plone_survey/manage_respondents.cpt:41
 msgid "Email Address"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:41
+#: ../skins/plone_survey/manage_respondents.cpt:42
 msgid "Email Sent"
 msgstr ""
 
@@ -95,11 +95,11 @@ msgstr ""
 msgid "Good"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:34
+#: ../skins/plone_survey/manage_respondents.cpt:35
 msgid "Invited Respondents"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:39
+#: ../skins/plone_survey/manage_respondents.cpt:40
 msgid "Name"
 msgstr ""
 
@@ -108,7 +108,7 @@ msgstr ""
 msgid "Neutral"
 msgstr ""
 
-#: ../content/BaseQuestion.py:114
+#: ../content/BaseQuestion.py:120
 msgid "No"
 msgstr ""
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "OK Only"
 msgstr ""
 
-#: ../profiles/default/types/Survey.xml
+#: ../profiles/default/types/Sub_Survey.xml
 msgid "Overview"
 msgstr ""
 
@@ -152,20 +152,8 @@ msgstr ""
 msgid "Quite Useful"
 msgstr ""
 
-#: ../profiles/default/types/Survey.xml
-msgid "Reset"
-msgstr ""
-
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:39
 msgid "Respondent created."
-msgstr ""
-
-#: ../profiles/default/types/Survey.xml
-msgid "Respondents"
-msgstr ""
-
-#: ../profiles/default/types/Survey.xml
-msgid "Results"
 msgstr ""
 
 #: ../profiles/default/types/Sub_Survey.xml
@@ -218,7 +206,7 @@ msgstr ""
 msgid "Users who have not responded yet"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:88
+#: ../skins/plone_survey/manage_respondents.cpt:90
 msgid "Users who have responded"
 msgstr ""
 
@@ -237,7 +225,7 @@ msgstr ""
 msgid "Very Useful"
 msgstr ""
 
-#: ../content/BaseQuestion.py:114
+#: ../content/BaseQuestion.py:120
 msgid "Yes"
 msgstr ""
 
@@ -246,7 +234,7 @@ msgid "You can add questions to surveys."
 msgstr ""
 
 #. Default: "Comment - mandatory if \"no\""
-#: ../content/BaseQuestion.py:126
+#: ../content/BaseQuestion.py:132
 msgid "commentLabelDefault"
 msgstr ""
 
@@ -867,6 +855,11 @@ msgstr ""
 msgid "new_authenticated_respondent"
 msgstr ""
 
+#. Default: "No respondents"
+#: ../skins/plone_survey/manage_respondents.cpt:18
+msgid "no_respondents_label"
+msgstr ""
+
 #. Default: "Comment:"
 #: ../browser/questions/survey_overview_macro.pt:41
 msgid "overview_comment"
@@ -942,9 +935,24 @@ msgstr ""
 msgid "respondents_userid"
 msgstr ""
 
+#. Default: "Responses:"
+#: ../skins/plone_survey/manage_respondents.cpt:22
+msgid "responses_stats"
+msgstr ""
+
 #. Default: "Save"
 #: ../skins/plone_survey/survey_view.cpt:87
 msgid "save_button"
+msgstr ""
+
+#. Default: "send survey invite"
+#: ../skins/plone_survey/manage_respondents.cpt:84
+msgid "send_invite_label"
+msgstr ""
+
+#. Default: "send survey reminder/invite"
+#: ../skins/plone_survey/manage_respondents.cpt:94
+msgid "send_reminder_label"
 msgstr ""
 
 #. Default: "Submit"
@@ -965,6 +973,14 @@ msgstr ""
 #. Default: "Required"
 #: ../skins/plone_survey/respondent_macros.pt:28
 msgid "title_required"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:87
+msgid "to all respondents who have not been invited yet."
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:97
+msgid "to all respondents who have not yet responded."
 msgstr ""
 
 #: ../browser/results/html_spreadsheet.pt:13

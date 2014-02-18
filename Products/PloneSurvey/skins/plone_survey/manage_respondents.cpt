@@ -15,11 +15,12 @@
             <span tal:replace="here/Title">Title</span><br />
             <span i18n:translate="">Users who have not responded yet</span>
         </h1>
-        <div tal:condition="not:respondents">No respondents</div>
+        <div tal:condition="not:respondents" i18n:translate="no_respondents_label">No respondents</div>
         <div tal:condition="not:context/getAllowAnonymous">
              <div tal:define="already_responded context/getRespondents;
                               respondents python:context.get_acl_users().getUserNames()">
-                 Responses: <span tal:replace="python:len(already_responded)" />/<span tal:replace="python:len(respondents)" />
+                 <tal:block i18n:translate="responses_stats">Responses:</tal:block>
+                 <span tal:replace="python:len(already_responded)" />/<span tal:replace="python:len(respondents)" />
                  - <span tal:condition="respondents"
                          tal:replace="python:round(float(len(already_responded))/float(len(respondents))*100, 2)" />%
              </div>
@@ -79,10 +80,11 @@
         </tal:invited>
             </tbody>
         </table>
-        <div>
+        <div >
              <a tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=new"
-                 onClick="return window.confirm('Are you sure?');"> 
-                 send survey invite</a> to all respondents who have not been invited yet.
+                 onClick="return window.confirm('Are you sure?');"
+                 i18n:translate="send_invite_label"> 
+                 send survey invite</a> <tal:block i18n:translate="">to all respondents who have not been invited yet.</tal:block>
         </div>
         <div>&nbsp;</div>
         <h2 i18n:translate="">Users who have responded</h2>
@@ -90,8 +92,9 @@
 
         <div>
             <a tal:attributes="href string:${context/absolute_url}/survey_send_invite?email=all"
-               onClick="return window.confirm('Are you sure?');">
-               send survey reminder/invite</a> to all respondents who have not yet responded.
+               onClick="return window.confirm('Are you sure?');"
+               i18n:translate="send_reminder_label">
+               send survey reminder/invite</a> <tal:block i18n:translate="">to all respondents who have not yet responded.</tal:block>
         </div>
     </tal:main-macro>
 </metal:main>
