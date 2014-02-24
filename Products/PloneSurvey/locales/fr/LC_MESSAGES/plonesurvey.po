@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-02-18 10:49+0000\n"
+"POT-Creation-Date: 2014-02-24 17:02+0000\n"
 "PO-Revision-Date: 2011-04-19 18:30+0100\n"
 "Last-Translator: Jonathan Riboux <plone@quadra-informatique.fr>\n"
 "Language-Team: EIfEL Team <marc.van.coillie@eife-l.org>\n"
@@ -170,6 +170,10 @@ msgstr "Sous-sondage"
 msgid "Survey"
 msgstr "Sondage"
 
+#: ../content/Survey.py:518
+msgid "Survey ${survey_title}"
+msgstr ""
+
 #: ../profiles/default/types/Survey_Date_Question.xml
 msgid "Survey Date Question"
 msgstr "Question date/heure"
@@ -254,6 +258,10 @@ msgstr "Oui"
 msgid "You can add questions to surveys."
 msgstr "Vous pouvez ajouter des questions aux sondages."
 
+#: ../content/Survey.py:514
+msgid "[${survey_title}] New survey submitted"
+msgstr ""
+
 #. Default: "Comment - mandatory if \"no\""
 #: ../content/BaseQuestion.py:132
 msgid "commentLabelDefault"
@@ -324,7 +332,7 @@ msgstr "Télécharger les résultats des listes de selection"
 msgid "download_selectasboolean_spreadsheet"
 msgstr "Télécharger les résultats des listes de selection, avec des réponses boolénnes (Vrai/Faux)"
 
-#: ../content/Survey.py:954
+#: ../content/Survey.py:962
 msgid "emailInviteDefault"
 msgstr ""
 
@@ -337,6 +345,10 @@ msgstr "Cette adresse email est déjà utilisée"
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:22
 msgid "email_address_invalid"
 msgstr "Cette adresse email est invalide"
+
+#: ../content/Survey.py:521
+msgid "has been completed by user: ${userid}"
+msgstr ""
 
 #. Default: "Comments"
 #. <h3 i18n:translate="heading_comments">

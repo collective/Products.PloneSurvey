@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PloneSurvey 1.4.6\n"
-"POT-Creation-Date: 2014-02-18 10:49+0000\n"
+"POT-Creation-Date: 2014-02-24 17:02+0000\n"
 "PO-Revision-Date: 2013-05-23 16:07-0100\n"
 "Last-Translator: Manuel Gualda Caballero <manuel@minombre.es>\n"
 "Language-Team: \n"
@@ -170,6 +170,10 @@ msgstr "Subencuesta"
 msgid "Survey"
 msgstr "Encuesta"
 
+#: ../content/Survey.py:518
+msgid "Survey ${survey_title}"
+msgstr ""
+
 #: ../profiles/default/types/Survey_Date_Question.xml
 msgid "Survey Date Question"
 msgstr "Pregunta de fecha"
@@ -255,6 +259,10 @@ msgstr "Sí"
 msgid "You can add questions to surveys."
 msgstr "Puede añadir preguntas a las encuestas"
 
+#: ../content/Survey.py:514
+msgid "[${survey_title}] New survey submitted"
+msgstr ""
+
 #. Default: "Comment - mandatory if \"no\""
 #: ../content/BaseQuestion.py:132
 msgid "commentLabelDefault"
@@ -326,7 +334,7 @@ msgid "download_selectasboolean_spreadsheet"
 msgstr "descargar hoja de cálculo de las preguntas de selección con las respuestas como binarios"
 
 # No es necesario traducir: You would normally write the email in the survey, so translating the default one is a bit pointless.
-#: ../content/Survey.py:954
+#: ../content/Survey.py:962
 msgid "emailInviteDefault"
 msgstr ""
 
@@ -339,6 +347,10 @@ msgstr "La dirección de correo ya está siendo usada"
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:22
 msgid "email_address_invalid"
 msgstr "La dirección de correo no es válida"
+
+#: ../content/Survey.py:521
+msgid "has been completed by user: ${userid}"
+msgstr ""
 
 #. Default: "Comments"
 #. <h3 i18n:translate="heading_comments">

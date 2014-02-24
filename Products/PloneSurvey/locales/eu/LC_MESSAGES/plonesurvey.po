@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-18 10:49+0000\n"
+"POT-Creation-Date: 2014-02-24 17:02+0000\n"
 "PO-Revision-Date: 2007-02-09 11:55+0100\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -177,6 +177,10 @@ msgstr ""
 msgid "Survey"
 msgstr ""
 
+#: ../content/Survey.py:518
+msgid "Survey ${survey_title}"
+msgstr ""
+
 #: ../profiles/default/types/Survey_Date_Question.xml
 msgid "Survey Date Question"
 msgstr ""
@@ -261,6 +265,10 @@ msgstr "Bai"
 msgid "You can add questions to surveys."
 msgstr ""
 
+#: ../content/Survey.py:514
+msgid "[${survey_title}] New survey submitted"
+msgstr ""
+
 #. Default: "Comment - mandatory if \"no\""
 #: ../content/BaseQuestion.py:132
 msgid "commentLabelDefault"
@@ -332,7 +340,7 @@ msgstr ""
 msgid "download_selectasboolean_spreadsheet"
 msgstr ""
 
-#: ../content/Survey.py:954
+#: ../content/Survey.py:962
 msgid "emailInviteDefault"
 msgstr ""
 
@@ -344,6 +352,10 @@ msgstr ""
 #. Default: "The email address is invalid"
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:22
 msgid "email_address_invalid"
+msgstr ""
+
+#: ../content/Survey.py:521
+msgid "has been completed by user: ${userid}"
 msgstr ""
 
 #. Default: "Comments"

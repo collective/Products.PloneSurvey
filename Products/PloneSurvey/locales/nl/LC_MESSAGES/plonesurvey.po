@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-02-18 10:49+0000\n"
+"POT-Creation-Date: 2014-02-24 17:02+0000\n"
 "PO-Revision-Date: 2011-10-03 15:30+0100\n"
 "Last-Translator: Ralph Jacobs <ralph@fourdigits.nl>\n"
 "Language-Team: EIfEL Team <marc.van.coillie@eife-l.org>\n"
@@ -169,6 +169,10 @@ msgstr "Sub Enquête"
 msgid "Survey"
 msgstr "Enquête"
 
+#: ../content/Survey.py:518
+msgid "Survey ${survey_title}"
+msgstr ""
+
 #: ../profiles/default/types/Survey_Date_Question.xml
 msgid "Survey Date Question"
 msgstr "Enquête Datum Vraag"
@@ -251,6 +255,10 @@ msgstr "Ja"
 msgid "You can add questions to surveys."
 msgstr "Er kunnen vragen toegevoegd worden aan enquêtes."
 
+#: ../content/Survey.py:514
+msgid "[${survey_title}] New survey submitted"
+msgstr ""
+
 #. Default: "Comment - mandatory if \"no\""
 #: ../content/BaseQuestion.py:132
 msgid "commentLabelDefault"
@@ -321,7 +329,7 @@ msgstr "download spreadsheet voor selectie vragen"
 msgid "download_selectasboolean_spreadsheet"
 msgstr "download spreadsheet voor select vragen met ja/nee antwoorden"
 
-#: ../content/Survey.py:954
+#: ../content/Survey.py:962
 msgid "emailInviteDefault"
 msgstr ""
 
@@ -334,6 +342,10 @@ msgstr "Het email adres is al in gebruik"
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:22
 msgid "email_address_invalid"
 msgstr "Het email adres is niet geldig"
+
+#: ../content/Survey.py:521
+msgid "has been completed by user: ${userid}"
+msgstr ""
 
 #. Default: "Comments"
 #. <h3 i18n:translate="heading_comments">

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.PloneSurvey 1.4.2\n"
-"POT-Creation-Date: 2014-02-18 10:49+0000\n"
+"POT-Creation-Date: 2014-02-24 16:57+0000\n"
 "PO-Revision-Date: 2011-01-14 09:57+0000\n"
 "Last-Translator: luca.fabbri <luca.fabbri at redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.net>\n"
@@ -166,6 +166,10 @@ msgstr "Sotto-questionario"
 msgid "Survey"
 msgstr "Questionario"
 
+#: ../content/Survey.py:518
+msgid "Survey ${survey_title}"
+msgstr "Il questionario ${survey_title}"
+
 #: ../profiles/default/types/Survey_Date_Question.xml
 msgid "Survey Date Question"
 msgstr "Domanda su data"
@@ -247,6 +251,10 @@ msgstr "Sì"
 msgid "You can add questions to surveys."
 msgstr "Puoi aggiungere domane al questionario."
 
+#: ../content/Survey.py:514
+msgid "[${survey_title}] New survey submitted"
+msgstr "[${survey_title}] Nuovo questionario compilato"
+
 #. Default: "Comment - mandatory if \"no\""
 #: ../content/BaseQuestion.py:132
 msgid "commentLabelDefault"
@@ -305,7 +313,7 @@ msgstr "scarica foglio di calcolo per le domande selezionate"
 msgid "download_selectasboolean_spreadsheet"
 msgstr "scarica foglio di calcolo per le domande selezionate con risposte booleane"
 
-#: ../content/Survey.py:954
+#: ../content/Survey.py:962
 msgid "emailInviteDefault"
 msgstr ""
 "<p>Egregio **Name**,</p>\n"
@@ -321,6 +329,10 @@ msgstr "Questo indirizzo e-mail è giò in uso"
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:22
 msgid "email_address_invalid"
 msgstr "L'indirizzo e-mail non è valido"
+
+#: ../content/Survey.py:521
+msgid "has been completed by user: ${userid}"
+msgstr "è stato compilato dall'utente: ${userid}"
 
 #. Default: "Comments"
 #: ../browser/results/survey_barchart.pt:66
