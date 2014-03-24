@@ -89,7 +89,9 @@ class BaseQuestion(ATCTContent):
         if self.getInputType() in ['multipleSelect', 'checkbox']:
             if type(answer) == 'NoneType':
                 return []
-        if self.getInputType() in ['radio']:
+        if self.getInputType() in ['radio', 'selectionBox']:
+            if not answer:
+                return ""
             return str(answer)
         return answer
 

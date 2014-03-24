@@ -1,10 +1,9 @@
 # Brazilian Portuguese translation.
 # Luis Flavio Loreto da Rocha <lflrocha@gmail.com>, 2007.
-
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2006-06-27 20:42+0000\n"
+"POT-Creation-Date: 2014-02-24 17:02+0000\n"
 "PO-Revision-Date: 2007-01-10 11:08-0200\n"
 "Last-Translator: Luis Flavio Rocha <lflrocha@gmail.com>\n"
 "Language-Team: TcheZope <>\n"
@@ -17,602 +16,1186 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plonesurvey\n"
 
-#: ../skins/plone_survey/survey_reset_form.cpt
-#. <input class="standalone" i18n:attributes="value label_reset" name="reset" type="submit" value=" Reset "/>
-# Default: " Reset "
-msgid "label_reset"
-msgstr "Reiniciar"
-
-#: ../skins/plone_survey/survey_view.cpt
-#. <input class="context" i18n:attributes="value submit_page_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="here/isMultipage" type="submit" value="Next"/>
-# Default: "Next"
-msgid "submit_page_button"
-msgstr "Próxima"
-
-#: ../skins/plone_survey/question_matrix_macro.pt
-#. <option class="noborder" i18n:translate="Please select" value="">
-#.  -- Please, select --
-#. </option>
-# Default: "-- Please, select --"
-msgid "Please select"
-msgstr "-- Por favor, selcione --"
-
-#: ../skins/plone_survey/question_matrix_macro.pt
-#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired|nothing" title="Required">
-#.  (Required)
-#. </span>
-#: ../skins/plone_survey/question_macro.pt
-#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired" title="Required">
-#.  (Required)
-#. </span>
-# Default: "(Required)"
-msgid "label_required_in_parentheses"
-msgstr "(Obrigatório)"
-
-#: ../skins/plone_survey/respondents_view.cpt
-#. <input class="context" i18n:attributes="value reset_button" name="submit" tal:attributes="tabindex tabindex/next" type="submit" value="Reset"/>
-# Default: "Reset"
-msgid "reset_button"
-msgstr "Reiniciar"
-
-#: ../skins/plone_survey/survey_view.cpt
-#. <input class="context" i18n:attributes="value reset_survey_button" name="form.button.reset_survey" tabindex="" tal:attributes="tabindex tabindex/next" type="submit" value="Reset Survey"/>
-# Default: "Reset Survey"
-msgid "reset_survey_button"
-msgstr "Reiniciar questionário"
-
-#: ../skins/plone_survey/survey_view.cpt
-#. <input class="context" i18n:attributes="value save_button" name="form.button.save" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="nothing" type="submit" value="Save"/>
-# Default: "Save"
-msgid "save_button"
-msgstr "Salvar"
-
-#: ../skins/plone_survey/survey_view.cpt
-#. <input class="context" i18n:attributes="value submit_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="not: here/isMultipage" type="submit" value="Submit"/>
-# Default: "Submit"
-msgid "submit_button"
-msgstr "Enviar"
-
-#: ../skins/plone_survey/survey_reset_form.cpt
-#. <p i18n:translate="desc_reset_survey">
-#.         This will remove all the answers from the current survey. Are you sure?
-#. </p>
-# Default: "This will remove all the answers from the current survey. Are you sure?"
-msgid "desc_reset_survey"
-msgstr "Isto irá apagar todas as respostas do questionário atual. Você tem certeza?"
-
-#: ../skins/plone_survey/survey_overview.cpt
-#. <p i18n:translate="desc_survey_overview">
-#.         This is an overview of the current survey.
-#. </p>
-# Default: "This is an overview of the current survey."
-msgid "desc_survey_overview"
-msgstr "Esta é uma visão geral do questionário atual."
-
-#: ../skins/plone_survey/survey_view_results.pt
-#. <a i18n:translate="detailed_spreadsheet" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">
-#.                                 detailed spreadsheet
-#. </a>
-# Default: "detailed spreadsheet"
-msgid "detailed_spreadsheet"
-msgstr "planilha detalhada"
-
-#: ../skins/plone_survey/survey_view_results.pt
-#. <span i18n:translate="download_detail_selected">
-#.  download detailed spreadsheet (selection numbers only)
-#. </span>
-# Default: "download detailed spreadsheet (selection numbers only)"
-msgid "download_detail_selected"
-msgstr "download da planilha (somente os números selecionados)"
-
-#: ../skins/plone_survey/survey_view_results.pt
-#. <span i18n:translate="download_detail_spreadsheet">
-#.  download detailed spreadsheet
-#. </span>
-# Default: "download detailed spreadsheet"
-msgid "download_detail_spreadsheet"
-msgstr "download da planilha detalhada"
-
-#: ../skins/plone_survey/survey_view_results.pt
-#. <span i18n:translate="download_summary_spreadsheet">
-#.  download summary spreadsheet
-#. </span>
-# Default: "download summary spreadsheet"
-msgid "download_summary_spreadsheet"
-msgstr "download da planilha resumida"
-
-#: ../skins/plone_survey/survey_view_results.pt
-#. <h3 i18n:translate="heading_comments">
-#.  Comments
-#. </h3>
-# Default: "Comments"
-msgid "heading_comments"
-msgstr "Comentários"
-
-#: ../skins/plone_survey/comments_view.pt
-#. <h4 i18n:translate="heading_comments_for">
-#.  All comments for
-#.  ${objective}
-#.  ${title}
-#. </h4>
-# Default: "All comments for ${objective} ${title}"
-msgid "heading_comments_for"
-msgstr "Todos os comentários para ${objective} ${title}"
-
-#: ../skins/plone_survey/survey_reset_form.cpt
-#. <h1 i18n:translate="heading_reset_survey">
-#.  Reset Survey
-#. </h1>
-# Default: "Reset Survey"
-msgid "heading_reset_survey"
-msgstr "Reiniciar questionário"
-
-#: ../skins/plone_survey/survey_overview.cpt
-#. <h1 i18n:translate="heading_survey_overview">
-#.  Survey Overview
-#. </h1>
-# Default: "Survey Overview"
-msgid "heading_survey_overview"
-msgstr "Visão geral do questionário"
-
-#: ../skins/plone_survey/survey_view_results.pt
-#. <h1 i18n:translate="heading_results">
-#.  Results for survey
-#.  ${title}
-#. </h1>
-# Default: "Results for survey ${title}"
-msgid "heading_results"
-msgstr "Resultados para o questionário ${title}"
-
-#: ../skins/plone_survey/portlet_questions.pt
-#. <h5 i18n:translate="heading_survey_contents">
-#.  Survey Contents
-#. </h5>
-# Default: "Survey Contents"
-msgid "heading_survey_contents"
-msgstr "Conteúdo do questionário"
-
-#: ../skins/plone_survey/survey_view_results.pt
-#  <h2 i18n:translate="heading_totals_for">Totals for
-#    <span tal:replace="question/Title"
-#      tal:omit-tag=""
-#      i18n:name="title" />:
-#  </h2>
-# Default: "Totals for ${title}:"
-msgid "heading_totals_for"
-msgstr "Totais para ${title}"
-
-# Default: Enter the options you want to be available to the user here. Press enter to seperate the options.
-msgid "help_answer_options"
-msgstr "Insira as opções de resposta. Uma por linha."
-
-# Default: The comment label.
-msgid "help_comment_label"
-msgstr "Título do comentário."
-
-# Default: Add a short description of the survey here.
-msgid "help_description"
-msgstr "Informe uma pequena descrição para o questionário."
-
-# Default: This is the URL that the user will be directed to on completion of the survey. Use "http://site.to.go.to/page" or "route/to/page" for this portal
-msgid "help_exit_url"
-msgstr "Informe o endereço da página para a qual o usuário será redirecionado ao enviar o questionário. Utilize \"http://endereco.do.site/pagina\" para redirecionar para um site externo ou \"caminho/da/pagina\" para direcionar para uma página do portal."
-
-# Default: Please select what type of input you would like to use for this question.
-msgid "help_input_type"
-msgstr "Por favor selecione o tipo de campo que será usado as respostas desta pergunta."
-
-# Default: Select what type of comment box you would like.
-msgid "help_label_comment_type"
-msgstr "Selecione o tipo de campo que deverá ser usado para o comentário."
-
-# Default: The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally.
-msgid "help_previous_question"
-msgstr "A pergunta condicional define quando o sub-questionário deverá ser apresentado. Selecione 'Nenhuma' para mostrar este sub-questionário incondicionalmente."
-
-# Default: Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed.
-msgid "help_previous_question_answer"
-msgstr "Informe para qual resposta o sub-questionário deverá ser apresentado."
-
-# Default: Check this box if the required answer should be selected for this Sub Survey to be displayed.
-msgid "help_previous_question_answer_yes_no"
-msgstr "Selecione esta opção se a resposta necessária deverá ser selecionada para este sub-questionário ser apresentado."
-
-# Default: Add a long description of the question here, to clarify any details.
-msgid "help_question_description"
-msgstr "Informe uma descrição para a pergunta, para esclarecer qualquer detalhe."
-
-# Default: Select if this question is required, meaning participant must give a response.
-msgid "help_required"
-msgstr "Selecione se a perguta é obrigatória, isto é, o participante deverá informar uma resposta."
-
-# Default: Enter an email address to receive notifications of survey completions.
-msgid "help_survey_notification_email"
-msgstr "Informe um endereço de email para ser avisado quando algum usuário finalizar o preenchimento do questionário."
-
-# Default: Select a method to receive notification emails.
-msgid "help_survey_notification_method"
-msgstr "Selecione o método para receber notificações por email."
-
-# Default: Enter a number of columns for this field (width of the field in the characters)
-msgid "help_text_cols"
-msgstr "Informe o número de colunas para este campo (largura do campo em caracteres)."
-
-# Default: Enter a number of rows for this field. This value is applicable only in the Text Area input type
-msgid "help_text_rows"
-msgstr "Informe o número de linhas para este campo. Este valor somente é aplicavel caso o tipo do campo seja Text Area."
-
-# Default: This is the message that will be displayed to the user when they complete the survey.
-msgid "help_thankyou"
-msgstr "Informe a mensagem que será apresentada para o usuário quando ele enviar o questionário."
-
-# Default: Enter a title.
-msgid "help_title"
-msgstr "Informe o título."
-
-# Default: Select a validation for this question
-msgid "help_validation"
-msgstr "Selecione um método para validação do campo."
-
-# Default: Email on each submission
-msgid "label_all_emails"
-msgstr "Enviar email a cada submissão"
-
-# Default: Allow Anonymous
-msgid "label_allow_anonymous"
-msgstr "Permitir usuários anônimos"
-
-# Default: Answer options
-msgid "label_answer_options"
-msgstr "Opções de resposta"
-
-# Default: Check Boxes
-msgid "label_check_boxes"
-msgstr "Caixas de verificação"
-
-# Default: Comment label
-msgid "label_comment_label"
-msgstr "Título do campo para comentário"
-
-# Default: Comment Type
-msgid "label_comment_type"
-msgstr "Tipo do campo para comentário"
-
-# Default: Survey description
-msgid "label_description"
-msgstr "Descrição do questionário"
-
-# Default: Exit URL
-msgid "label_exit_url"
-msgstr "URL de saída"
-
-# Default: Input Type
-msgid "label_input_type"
-msgstr "Tipo de campo"
-
-# Default: Add survey status to the survey title (open, closed)?
-msgid "label_modify_title"
-msgstr "Adicionar o status ao título do questionário (aberto, fechado)?"
-
-# Default: Multiple Selection Box
-msgid "label_multiple_selection_box"
-msgstr "Caixa de multipla seleção"
-
-# Default: No emails
-msgid "label_no_emails"
-msgstr "Sem emails"
-
-# Default: Conditional Question
-msgid "label_previous_question"
-msgstr "Pergunta condicional"
-
-# Default: Required Answer
-msgid "label_previous_question_answer"
-msgstr "Resposta obrigatória"
-
-# Default: Use Required Answer?
-msgid "label_previous_question_answer_yes_no"
-msgstr "Utilizar respostas obrigatórias?"
-
-# Default: Description
-msgid "label_question_description"
-msgstr "Descrição"
-
-# Default: Radio Buttons
-msgid "label_radio_buttons"
-msgstr "Radio Buttons"
-
-# Default: Required
-msgid "label_required"
-msgstr "Obrigatório"
-
-# Default: 'Saved' message test
-msgid "label_saved_text"
-msgstr "Mensagem apresentada quando o usuário salvar o questionário"
-
-# Default: Selection Box
-msgid "label_selection_box"
-msgstr "Caixa de seleção"
-
-# Default: Closed
-msgid "label_survey_closed"
-msgstr "Finalizado"
-
-# Default: Survey Notification Email Address
-msgid "label_survey_notification_email"
-msgstr "Email para notificação de questionários"
-
-# Default: Survey Notification Method
-msgid "label_survey_notification_method"
-msgstr "Forma de notificação"
-
-# Default: Open
-msgid "label_survey_open"
-msgstr "Aberto"
-
-# Default: Survey currently
-msgid "label_survey_status"
-msgstr "Questionário atualmente"
-
-# Default: Text Area
-msgid "label_text_area"
-msgstr "Área de texto"
-
-# Default: Cols (width in characters)
-msgid "label_text_cols"
-msgstr "Colunas"
-
-# Default: Text Field
-msgid "label_text_field"
-msgstr "Campo texto"
-
-# Default: Rows (number of lines)
-msgid "label_text_rows"
-msgstr "Linhas"
-
-# Default: 'Thank you' message text
-msgid "label_thank"
-msgstr "Mensagem de agradecimento"
-
-# Default: Title
-msgid "label_title"
-msgstr "Título"
-
-# Default: Validation
-msgid "label_validation"
-msgstr "Validação"
-
-#: ../skins/plone_survey/survey_view.cpt
-#. <legend i18n:translate="legend_already_completed">
-#.  You have already filled in this survey
-#. </legend>
-# Default: "You have already filled in this survey"
-msgid "legend_already_completed"
-msgstr "Você já finalizou este questionário"
-
-#: ../skins/plone_survey/survey_view.cpt
-#. <legend i18n:translate="legend_question_details">
-#.  Question details
-#. </legend>
-# Default: "Question details"
-msgid "legend_question_details"
-msgstr "Detalhes do questionário"
-
-#: ../skins/plone_survey/respondents_view.cpt
-#. <legend i18n:translate="reset_users">
-#.  Reset Users
-#. </legend>
-# Default: "Reset Users"
-msgid "reset_users"
-msgstr "Reiniciar usuário"
-
-#: ../skins/plone_survey/respondents_view.cpt
-#. <span i18n:translate="respondents_for_survey">
-#.  Respondents for survey
-#. </span>
-# Default: "Respondents for survey"
-msgid "respondents_for_survey"
-msgstr "Participantes da enquete"
-
-#: ../skins/plone_survey/survey_reset_form.cpt
-#. <legend i18n:translate="survey_reset">
-#.  Survey Reset
-#. </legend>
-# Default: "Survey Reset"
-msgid "survey_reset"
-msgstr "Reiniciar enquete"
-
-# Default: Please correct the errors shown
-msgid "text_correct_errors"
-msgstr "Por favor, corrija os erros apontados"
-
-# Default: You have saved the survey. Don't forget to come back and finish it.
-msgid "text_default_saved_message"
-msgstr "Você salvou o questionário. Não esqueça de retornar para finalizar o preenchimento."
-
-# Default: Thank you for completing the survey.
-msgid "text_default_thank_you"
-msgstr "Obrigado por finalizar o preenchimento do questionário."
-
-# Default: Survey did not reset correctly
-msgid "text_survey_reset_error"
-msgstr "O questionário não foi reiniciado corretamente"
-
-# Default: Survey has been reset
-msgid "text_survey_reset_success"
-msgstr "O questionário foi reiniciado"
-
-# Default: ${users} have been reset
-msgid "text_survey_users_reset_error"
-msgstr "${users} foram reiniciados"
-
-#: ../skins/plone_survey/survey_view_results.pt
-#. <a i18n:translate="view_comments_in_full" tal:attributes="href string:${here/absolute_url}/comments_view">
-#.  view comments in full...
-#. </a>
-# Default: "view comments in full..."
-msgid "view_comments_in_full"
-msgstr "ver comentários completos..."
-
-#: ../skins/plone_survey/survey_view_results.pt
-#. <a i18n:translate="view_respondents" tal:attributes="href string:${here/absolute_url}/respondents_view">
-#.                     view respondents
-#. </a>
-# Default: "view respondents"
-msgid "view_respondents"
-msgstr "ver participantes"
-
-# Default: Enter an introduction for the survey.
-msgid "help_introduction"
-msgstr "Informe um texto de introdução para o questionário."
-
-# Default: Survey introduction
-msgid "label_introduction"
-msgstr "Introdução do questionário"
-
-#: ../skins/plone_survey/survey_view_results.pt
-#<span i18n:translate="label_use_detailed_for_text">This question had a text
-# input type, for results use the </span>
-# Default: This question had a text input type, for results use the
-msgid "label_use_detailed_for_text"
-msgstr "A resposta desta pergunta é do tipo texto, para ver os resultados, utilize o"
-
-#: ../skins/plone_survey/survey_overview.pt
-#   <th i18n:translate="">Question Id</th>
-# Default: Question Id
-msgid "Question Id"
-msgstr "Id da pergunta"
-
-#: ../skins/plone_survey/survey_overview.pt
-# <th i18n:translate="">Question Title</th>
-# Default: Question Title
-msgid "Question Title"
-msgstr "Título da pergunta"
-
-#: ../skins/plone_survey/survey_overview.pt
-#<th i18n:translate="">Question Type</th>
-# Default: Question Type
-msgid "Question Type"
-msgstr "Tipo de pergunta"
-
-#: ../skins/plone_survey/survey_overview.pt
-#<th i18n:translate="">Sub Survey</th>
-# Default: Sub Survey
-msgid "Sub Survey"
-msgstr "Sub-questionário"
-
-#: ../skins/plone_survey/survey_overview.pt
-#<th i18n:translate="">Branching</th>
-# Default: Branching
-msgid "Branching"
-msgstr "Ramificação"
-
-#: ../skins/plone_survey/survey_overview.pt
-#<th i18n:translate="">Required</th>
-# Default: Required
-msgid "Required"
-msgstr "Obrigatório"
-
-#: ../skins/plone_survey/survey_overview.pt
-# <td i18n:translate="" tal:condition="python: question.aq_parent.portal_type
-# == 'Sub Survey'  or question.portal_type == 'Sub Survey'">Yes</td>
-# Default: Yes
-msgid "Yes"
-msgstr "Sim"
-
-#<td i18n:translate="" tal:condition="python:
-#question.aq_parent.portal_type != 'Sub Survey' and question.portal_type !=
-# 'Sub Survey'">No</td>
-# Default: No
-msgid "No"
-msgstr "Não"
-
-#: ../content/BaseSurvey.py
-msgid "label_no_comment_field"
-msgstr "Nenhum"
-
-# Default: Agree Strongly
-msgid "Agree Strongly"
-msgstr "Concordo fortemente"
-
-# Default: Agree
+#: ../skins/plone_survey/respondents_reset.vpy:20
+msgid "${users} have been reset."
+msgstr ""
+
+#. Default: "A little Useful"
+#: ../config.py:87
+msgid "A little Useful"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Matrix.xml
+msgid "A matrix of questions within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Survey_Date_Question.xml
+msgid "A question for date/time within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Survey_Matrix_Question.xml
+msgid "A question in a matrix within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Survey_Select_Question.xml
+msgid "A question with select vocab within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Sub_Survey.xml
+msgid "A sub page within a survey."
+msgstr ""
+
+#: ../profiles/default/types/Survey_Text_Question.xml
+msgid "A textual question within a survey."
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:44
+msgid "Action"
+msgstr ""
+
+#. Default: "Agree"
+#: ../config.py:92
+#, fuzzy
 msgid "Agree"
 msgstr "Concordo"
 
-# Default: Neutral
-msgid "Neutral"
-msgstr "Indiferente"
+#. Default: "Agree Strongly"
+#: ../config.py:91
+#, fuzzy
+msgid "Agree Strongly"
+msgstr "Concordo fortemente"
 
-# Default: Disagree
-msgid "Disagree"
-msgstr "Discordo"
-
-# Default: Disagree Strongly
-msgid "Disagree Strongly"
-msgstr "Discordo fortemente"
-
-# Default: Please provide an answer for the question 
-msgid "please_provide_answer_for"
-msgstr "Por favor, informe uma resposta para esta pergunta"
-
-# Default: Please provide an answer for this question
-msgid "please_provide_answer"
-msgstr "Por favor, informe uma resposta para esta pergunta"
-
-# Default: user
-msgid "user"
-msgstr "usuário"
-
-# Default: Completed
+#. Default: Completed
+#: ../browser/results/html_spreadsheet.pt:20
 msgid "Completed"
 msgstr "Finalizado"
 
-# Default: Not Completed
-msgid "Not Completed"
-msgstr "Não finalizado"
+#. Default: "Disagree"
+#: ../config.py:94
+#, fuzzy
+msgid "Disagree"
+msgstr "Discordo"
 
-# THESE WERE ADDED FOR 31.10.2006
-# Default: This is the message that will be displayed to the user when they save the survey, but don't submit it.
-msgid "help_saved_text"
-msgstr "Informe a mensagem que será apresentada ao usuário quando ele salvar o questionário."
+#. Default: "Disagree Strongly"
+#: ../config.py:95
+#, fuzzy
+msgid "Disagree Strongly"
+msgstr "Discordo fortemente"
 
-# Default: Allow Save Functionality
-msgid "label_allow_save"
-msgstr "Permitir funcionalidade de salvar"
+#: ../browser/importer.py:35
+msgid "Done importing respondents"
+msgstr ""
 
-# Default: Allow logged in users to save survey for finishing later.
+#: ../skins/plone_survey/manage_respondents.cpt:42
+msgid "Email Address"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:43
+msgid "Email Sent"
+msgstr ""
+
+#. Default: "Good"
+#: ../config.py:78
+msgid "Good"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:36
+msgid "Invited Respondents"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:41
+msgid "Name"
+msgstr ""
+
+#. Default: "Neutral"
+#: ../config.py:93
+#, fuzzy
+msgid "Neutral"
+msgstr "Indiferente"
+
+# <td i18n:translate="" tal:condition="python:
+# question.aq_parent.portal_type != 'Sub Survey' and question.portal_type !=
+# 'Sub Survey'">No</td>
+#. Default: No
+#: ../content/BaseQuestion.py:120
+msgid "No"
+msgstr "Não"
+
+#: ../browser/importer.py:20
+msgid "No source file given"
+msgstr ""
+
+#. Default: "Not Useful"
+#: ../config.py:88
+msgid "Not Useful"
+msgstr ""
+
+#. Default: "OK Only"
+#: ../config.py:79
+msgid "OK Only"
+msgstr ""
+
+#: ../profiles/default/types/Sub_Survey.xml
+msgid "Overview"
+msgstr ""
+
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:35
+#: ../skins/plone_survey/validate_reset_survey.vpy:8
+#: ../skins/plone_survey/validate_survey.vpy:80
+msgid "Please correct the errors shown."
+msgstr ""
+
+#. <option class="noborder" i18n:translate="Please select" value="">
+#. -- Please, select --
+#. </option>
+#. Default: "-- Please, select --"
+#: ../browser/questions/question_matrix_macro.pt:72
+#: ../browser/questions/question_select_macro.pt:48
+msgid "Please select"
+msgstr "-- Por favor, selcione --"
+
+#. Default: "Poor"
+#: ../config.py:80
+msgid "Poor"
+msgstr ""
+
+#. Default: "Quite Useful"
+#: ../config.py:86
+msgid "Quite Useful"
+msgstr ""
+
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:39
+msgid "Respondent created."
+msgstr ""
+
+# <th i18n:translate="">Sub Survey</th>
+#. Default: Sub Survey
+#: ../profiles/default/types/Sub_Survey.xml
+msgid "Sub Survey"
+msgstr "Sub-questionário"
+
+#: ../profiles/default/types/Survey.xml
+msgid "Survey"
+msgstr ""
+
+#: ../content/Survey.py:518
+msgid "Survey ${survey_title}"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Date_Question.xml
+msgid "Survey Date Question"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Matrix.xml
+msgid "Survey Matrix"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Matrix_Question.xml
+msgid "Survey Matrix Question"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Select_Question.xml
+msgid "Survey Select Question"
+msgstr ""
+
+#: ../profiles/default/types/Survey_Text_Question.xml
+msgid "Survey Text Question"
+msgstr ""
+
+#: ../skins/plone_survey/respondents_reset.vpy:17
+#: ../skins/plone_survey/survey_reset.vpy:16
+msgid "Survey did not reset correctly."
+msgstr ""
+
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_reset.vpy:21
+msgid "Survey has been reset."
+msgstr ""
+
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_send_invite.py:22
+msgid "Survey invite sent to ${email}"
+msgstr ""
+
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_send_invite.py:12
+msgid "Survey invite sent to ${invites_sent} recipients"
+msgstr ""
+
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_reset.vpy:5
+msgid "There are no questions to reset."
+msgstr ""
+
+#. Default: "Useful"
+#: ../config.py:85
+msgid "Useful"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:16
+msgid "Users who have not responded yet"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:96
+msgid "Users who have responded"
+msgstr ""
+
+#. Default: "Very Good"
+#: ../config.py:77
+msgid "Very Good"
+msgstr ""
+
+#. Default: "Very Poor"
+#: ../config.py:81
+msgid "Very Poor"
+msgstr ""
+
+#. Default: "Very Useful"
+#: ../config.py:84
+msgid "Very Useful"
+msgstr ""
+
+# <td i18n:translate="" tal:condition="python: question.aq_parent.portal_type
+# == 'Sub Survey'  or question.portal_type == 'Sub Survey'">Yes</td>
+#. Default: Yes
+#: ../content/BaseQuestion.py:120
+msgid "Yes"
+msgstr "Sim"
+
+#: ../profiles/default/types/Survey.xml
+msgid "You can add questions to surveys."
+msgstr ""
+
+#: ../content/Survey.py:514
+msgid "[${survey_title}] New survey submitted"
+msgstr ""
+
+#. Default: "Comment - mandatory if \"no\""
+#: ../content/BaseQuestion.py:132
+msgid "commentLabelDefault"
+msgstr ""
+
+#. Default: "Complete for User"
+#: ../skins/plone_survey/manage_respondents.cpt:77
+msgid "complete_for_user_label"
+msgstr ""
+
+#. Default: "Create Respondent"
+#: ../skins/plone_survey/respondent_macros.pt:65
+msgid "create_respondent_button"
+msgstr ""
+
+#. Default: "Delete Respondent"
+#: ../skins/plone_survey/manage_respondents.cpt:72
+msgid "delete_respondent_label"
+msgstr ""
+
+#. <p i18n:translate="desc_reset_survey">
+#. This will remove all the answers from the current survey. Are you sure?
+#. </p>
+#. Default: "This will remove all the answers from the current survey. Are you sure?"
+#: ../skins/plone_survey/survey_reset_form.cpt:11
+msgid "desc_reset_survey"
+msgstr "Isto irá apagar todas as respostas do questionário atual. Você tem certeza?"
+
+#. <p i18n:translate="desc_survey_overview">
+#. This is an overview of the current survey.
+#. </p>
+#. Default: "This is an overview of the current survey: ${title}"
+#: ../browser/questions/survey_overview.pt:36
+#, fuzzy
+msgid "desc_survey_overview"
+msgstr "Esta é uma visão geral do questionário atual."
+
+#. <a i18n:translate="detailed_spreadsheet" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">
+#. detailed spreadsheet
+#. </a>
+#. Default: "detailed spreadsheet"
+#: ../browser/results/survey_barchart.pt:50
+msgid "detailed_spreadsheet"
+msgstr "planilha detalhada"
+
+#. <span i18n:translate="download_detail_selected">
+#. download detailed spreadsheet (selection numbers only)
+#. </span>
+#. Default: "download detailed spreadsheet (selection numbers only)"
+#: ../browser/results/survey_view_results.pt:36
+msgid "download_detail_selected"
+msgstr "download da planilha (somente os números selecionados)"
+
+#. <span i18n:translate="download_detail_spreadsheet">
+#. download detailed spreadsheet
+#. </span>
+#. Default: "download detailed spreadsheet"
+#: ../browser/results/survey_view_results.pt:30
+msgid "download_detail_spreadsheet"
+msgstr "download da planilha detalhada"
+
+#. Default: "download spreadsheet for select questions"
+#: ../browser/results/survey_view_results.pt:40
+msgid "download_select_spreadsheet"
+msgstr ""
+
+#. Default: "download spreadsheet for select questions with answers as booleans"
+#: ../browser/results/survey_view_results.pt:44
+msgid "download_selectasboolean_spreadsheet"
+msgstr ""
+
+#: ../content/Survey.py:962
+msgid "emailInviteDefault"
+msgstr ""
+
+#. Default: "The email address is already in use"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:29
+msgid "email_address_in_use"
+msgstr ""
+
+#. Default: "The email address is invalid"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:22
+msgid "email_address_invalid"
+msgstr ""
+
+#: ../content/Survey.py:521
+msgid "has been completed by user: ${userid}"
+msgstr ""
+
+#. <h3 i18n:translate="heading_comments">
+#. Comments
+#. </h3>
+#. Default: "Comments"
+#: ../browser/results/survey_barchart.pt:66
+msgid "heading_comments"
+msgstr "Comentários"
+
+#. <h4 i18n:translate="heading_comments_for">
+#. All comments for
+#. ${objective}
+#. ${title}
+#. </h4>
+#. Default: "All comments for ${objective} ${title}"
+#: ../browser/results/comments_view.pt:22
+msgid "heading_comments_for"
+msgstr "Todos os comentários para ${objective} ${title}"
+
+#. <h1 i18n:translate="heading_reset_survey">
+#. Reset Survey
+#. </h1>
+#. Default: "Reset Survey"
+#: ../skins/plone_survey/survey_reset_form.cpt:10
+msgid "heading_reset_survey"
+msgstr "Reiniciar questionário"
+
+#. <h1 i18n:translate="heading_results">
+#. Results for survey
+#. ${title}
+#. </h1>
+#. Default: "Results for survey ${title}"
+#: ../browser/results/survey_barchart.pt:14
+#: ../browser/results/survey_view_results.pt:14
+msgid "heading_results"
+msgstr "Resultados para o questionário ${title}"
+
+#. <h1 i18n:translate="heading_survey_overview">
+#. Survey Overview
+#. </h1>
+#. Default: "Survey Overview"
+#: ../browser/questions/survey_overview.pt:15
+msgid "heading_survey_overview"
+msgstr "Visão geral do questionário"
+
+# <h2 i18n:translate="heading_totals_for">Totals for
+# <span tal:replace="question/Title"
+# tal:omit-tag=""
+# i18n:name="title" />:
+# </h2>
+#. Default: "Totals for ${title}:"
+#: ../browser/results/survey_barchart.pt:21
+msgid "heading_totals_for"
+msgstr "Totais para ${title}"
+
+#. Default: "Anonymous user will be able to fill the survey"
+#: ../content/schemata.py:86
+msgid "help_allow_anonymous"
+msgstr ""
+
+#. Default: "Allow logged in users to save survey for finishing later."
+#: ../content/schemata.py:96
+#, fuzzy
 msgid "help_allow_save"
 msgstr "Permite aos usuários logados salvarem o questionário para finalizar o preenchimento posteriormente."
 
-# Default: edit
-msgid "label_overview_edit"
-msgstr "editar"
+#. Default: "Enter the options you want to be available to the user here. Press enter to seperate the options."
+#: ../content/schemata.py:469
+#, fuzzy
+msgid "help_answer_options"
+msgstr "Insira as opções de resposta. Uma por linha."
 
-# Default: contents
-msgid "label_overview_contents"
-msgstr "conteúdo"
+#. Default: "The comment label."
+#: ../content/schemata.py:275
+#, fuzzy
+msgid "help_comment_label"
+msgstr "Título do comentário."
 
-# Default: branching
-msgid "label_overview_branching"
-msgstr "Ramificação"
+#. Default: "Prevent respondents usernames from appearing in results"
+#: ../content/schemata.py:76
+msgid "help_confidential"
+msgstr ""
 
-# Default: There are no questions on this page.
-msgid "label_overview_no_question"
-msgstr "Não existem perguntas nesta página."
+#. Default: "Add a short description of the survey here."
+#: ../content/schemata.py:187
+#, fuzzy
+msgid "help_description"
+msgstr "Informe uma pequena descrição para o questionário."
 
-# Default: Add Question
-msgid "label_overview_add_question"
-msgstr "Adicionar pergunta"
+#. Default: "An email invite will be sent to loaded respondents, use '**Name**' for the respondents name, and '**Survey**' for the title of the survey as a link to the survey."
+#: ../content/schemata.py:151
+msgid "help_email_invite"
+msgstr ""
 
-# Default: Add Page
-msgid "label_overview_add_page"
-msgstr "Adicionar página"
+#. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
+#: ../content/schemata.py:63
+#, fuzzy
+msgid "help_exit_url"
+msgstr "Informe o endereço da página para a qual o usuário será redirecionado ao enviar o questionário. Utilize \"http://endereco.do.site/pagina\" para redirecionar para um site externo ou \"caminho/da/pagina\" para direcionar para uma página do portal."
 
-# Default: Question	
+#. Default: "Please select what type of input you would like to use for this question."
+#: ../content/schemata.py:378
+#, fuzzy
+msgid "help_input_type"
+msgstr "Por favor selecione o tipo de campo que será usado as respostas desta pergunta."
+
+#. Default: "Enter an introduction for the survey."
+#: ../content/schemata.py:26
+#, fuzzy
+msgid "help_introduction"
+msgstr "Informe um texto de introdução para o questionário."
+
+#. Default: "Enter person's email address that the survey invite email is from."
+#: ../content/schemata.py:177
+msgid "help_invite_from_email"
+msgstr ""
+
+#. Default: "Enter person's name that the survey invite email is from."
+#: ../content/schemata.py:166
+msgid "help_invite_from_name"
+msgstr ""
+
+#. Default: "Select what type of comment box you would like."
+#: ../content/schemata.py:262
+#, fuzzy
+msgid "help_label_comment_type"
+msgstr "Selecione o tipo de campo que deverá ser usado para o comentário."
+
+#. Default: "Select a Likert scale to use for options, or use the box below."
+#: ../content/schemata.py:447
+msgid "help_likertoptions"
+msgstr ""
+
+#. Default: "Enter the maximum number of characters a user can enter for this question"
+#: ../content/schemata.py:390
+msgid "help_maxlength"
+msgstr ""
+
+#. Default: "Leave this blank to make the question required, or enter a value for no response, eg Not applicable"
+#: ../content/schemata.py:548
+msgid "help_nullvalue"
+msgstr ""
+
+#. Default: "Leave this blank to make the question required, or enter a value for no response, eg Not applicable. If this is a multiple select or checkbox field, enter some random text, which will not appear in the survey, to make this question not required."
+#: ../content/schemata.py:480
+msgid "help_nullvalue_select"
+msgstr ""
+
+#. Default: "The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally."
+#: ../content/schemata.py:201
+#, fuzzy
+msgid "help_previous_question"
+msgstr "A pergunta condicional define quando o sub-questionário deverá ser apresentado. Selecione 'Nenhuma' para mostrar este sub-questionário incondicionalmente."
+
+#. Default: "Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed."
+#: ../content/schemata.py:214
+#, fuzzy
+msgid "help_previous_question_answer"
+msgstr "Informe para qual resposta o sub-questionário deverá ser apresentado."
+
+#. Default: "Check this box if the required answer should be selected for this Sub Survey to be displayed."
+#: ../content/schemata.py:227
+#, fuzzy
+msgid "help_previous_question_answer_yes_no"
+msgstr "Selecione esta opção se a resposta necessária deverá ser selecionada para este sub-questionário ser apresentado."
+
+#. Default: "Add a long description of the question here, to clarify any details."
+#: ../content/schemata.py:312
+#, fuzzy
+msgid "help_question_description"
+msgstr "Informe uma descrição para a pergunta, para esclarecer qualquer detalhe."
+
+#. Default: "Select if this question is required, meaning participant must give a response."
+#: ../content/schemata.py:249
+#, fuzzy
+msgid "help_required"
+msgstr "Selecione se a perguta é obrigatória, isto é, o participante deverá informar uma resposta."
+
+#. Default: "Display the likert options in reverse order, bad to good."
+#: ../content/schemata.py:458
+msgid "help_reverselikert"
+msgstr ""
+
+# THESE WERE ADDED FOR 31.10.2006
+#. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
+#: ../content/schemata.py:52
+#, fuzzy
+msgid "help_saved_text"
+msgstr "Informe a mensagem que será apresentada ao usuário quando ele salvar o questionário."
+
+#. Default: "Enter an email address to receive notifications of survey completions."
+#: ../content/schemata.py:107
+#, fuzzy
+msgid "help_survey_notification_email"
+msgstr "Informe um endereço de email para ser avisado quando algum usuário finalizar o preenchimento do questionário."
+
+#. Default: "Select a method to receive notification emails."
+#: ../content/schemata.py:118
+#, fuzzy
+msgid "help_survey_notification_method"
+msgstr "Selecione o método para receber notificações por email."
+
+#. Default: "Enter a number of columns for this field (width of the field in the characters)"
+#: ../content/schemata.py:402
+#, fuzzy
+msgid "help_text_cols"
+msgstr "Informe o número de colunas para este campo (largura do campo em caracteres)."
+
+#. Default: "Enter a number of rows for this field. This value is applicable only in the Text Area input type"
+#: ../content/schemata.py:414
+#, fuzzy
+msgid "help_text_rows"
+msgstr "Informe o número de linhas para este campo. Este valor somente é aplicavel caso o tipo do campo seja Text Area."
+
+#. Default: "Select where the text block above should appear."
+#: ../content/schemata.py:303
+msgid "help_textlocation"
+msgstr ""
+
+#. Default: "This is the message that will be displayed to the user when they complete the survey."
+#: ../content/schemata.py:39
+#, fuzzy
+msgid "help_thankyou"
+msgstr "Informe a mensagem que será apresentada para o usuário quando ele enviar o questionário."
+
+#. Default: "Select a validation for this question"
+#: ../content/schemata.py:427
+#, fuzzy
+msgid "help_validation"
+msgstr "Selecione um método para validação do campo."
+
+#. Default: "Import respondents"
+#: ../skins/plone_survey/respondent_macros.pt:8
+msgid "import_respondents"
+msgstr ""
+
+#. Default: "Import respondents from CSV source"
+#: ../browser/templates/import_respondents.pt:29
+msgid "import_respondents_from_source"
+msgstr ""
+
+#. Default: "Email on each submission"
+#: ../config.py:26
+#, fuzzy
+msgid "label_all_emails"
+msgstr "Enviar email a cada submissão"
+
+#. Default: "Allow Anonymous"
+#: ../content/schemata.py:85
+#, fuzzy
+msgid "label_allow_anonymous"
+msgstr "Permitir usuários anônimos"
+
+#. Default: "Allow Save Functionality"
+#: ../content/schemata.py:95
+#, fuzzy
+msgid "label_allow_save"
+msgstr "Permitir funcionalidade de salvar"
+
+#. Default: "Answer options"
+#: ../content/schemata.py:468
+#, fuzzy
+msgid "label_answer_options"
+msgstr "Opções de resposta"
+
+#. Default: "Appears above question"
+#: ../config.py:52
+msgid "label_appears_above_question"
+msgstr ""
+
+#. Default: "Appears after answer"
+#: ../config.py:54
+msgid "label_appears_after_answer"
+msgstr ""
+
+#. Default: "Appears between question and answer"
+#: ../config.py:53
+msgid "label_appears_between_question_and_answer"
+msgstr ""
+
+#. Default: "Check Boxes"
+#: ../config.py:38
+#, fuzzy
+msgid "label_check_boxes"
+msgstr "Caixas de verificação"
+
+#. Default: "Comment label"
+#: ../content/schemata.py:274
+#, fuzzy
+msgid "label_comment_label"
+msgstr "Título do campo para comentário"
+
+#. Default: "Comment Type"
+#: ../content/schemata.py:261
+#, fuzzy
+msgid "label_comment_type"
+msgstr "Tipo do campo para comentário"
+
+#. Default: "Confidential"
+#: ../content/schemata.py:75
+msgid "label_confidential"
+msgstr ""
+
+#. Default: "Survey description"
+#: ../content/schemata.py:186
+#, fuzzy
+msgid "label_description"
+msgstr "Descrição do questionário"
+
+#. Default: "Does not appear"
+#: ../config.py:51
+msgid "label_does_not_appear"
+msgstr ""
+
+#. Default: "Email Address"
+#: ../skins/plone_survey/respondent_macros.pt:47
+msgid "label_email_address"
+msgstr ""
+
+#. Default: "Email Invite"
+#: ../content/schemata.py:150
+msgid "label_email_invite"
+msgstr ""
+
+#. Default: "Ending Year"
+#: ../content/schemata.py:349
+msgid "label_endingyear"
+msgstr ""
+
+#. Default: "Exit URL"
+#: ../content/schemata.py:62
+#, fuzzy
+msgid "label_exit_url"
+msgstr "URL de saída"
+
+#. Default: "Name"
+#: ../skins/plone_survey/respondent_macros.pt:25
+msgid "label_fullname"
+msgstr ""
+
+#. Default: "Future Years"
+#: ../content/schemata.py:358
+msgid "label_futureyears"
+msgstr ""
+
+#. Default: "Input Type"
+#: ../content/schemata.py:377
+#, fuzzy
+msgid "label_input_type"
+msgstr "Tipo de campo"
+
+#. Default: "Introduction"
+#: ../content/schemata.py:24
+#, fuzzy
+msgid "label_introduction"
+msgstr "Introdução do questionário"
+
+#. Default: "Email Invite From"
+#: ../content/schemata.py:176
+msgid "label_invite_from_email"
+msgstr ""
+
+#. Default: "Person Invite From"
+#: ../content/schemata.py:165
+msgid "label_invite_from_name"
+msgstr ""
+
+#. Default: "Likert Options"
+#: ../content/schemata.py:446
+msgid "label_likertoptions"
+msgstr ""
+
+#. Default: "Question"
+#: ../browser/questions/question_matrix_macro.pt:31
+#, fuzzy
 msgid "label_matrix_question"
 msgstr "Pergunta"
 
-# Default: No users have completed the survey yet.
+#. Default: "Maximum length of characters"
+#: ../content/schemata.py:389
+msgid "label_maxlength"
+msgstr ""
+
+#. Default: "Multiple Selection Box"
+#: ../config.py:37
+#, fuzzy
+msgid "label_multiple_selection_box"
+msgstr "Caixa de multipla seleção"
+
+#. Default: "None"
+#: ../config.py:58
+msgid "label_no_comment_field"
+msgstr "Nenhum"
+
+#. Default: "No emails"
+#: ../config.py:25
+#, fuzzy
+msgid "label_no_emails"
+msgstr "Sem emails"
+
+#. Default: "No users have completed the survey yet."
+#: ../skins/plone_survey/respondents_view.cpt:83
+#, fuzzy
 msgid "label_no_users_yet"
 msgstr "Nenhum usuário respondeu o questionário ainda"
+
+#. Default: "Null Value"
+#: ../content/schemata.py:479
+msgid "label_nullvalue"
+msgstr ""
+
+#. Default: "Add Page"
+#: ../browser/questions/survey_overview.pt:109
+#, fuzzy
+msgid "label_overview_add_page"
+msgstr "Adicionar página"
+
+#. Default: "Add Question"
+#: ../browser/questions/survey_overview.pt:49
+#, fuzzy
+msgid "label_overview_add_question"
+msgstr "Adicionar pergunta"
+
+#. Default: "Branching:"
+#: ../browser/questions/survey_overview.pt:80
+#, fuzzy
+msgid "label_overview_branching"
+msgstr "Ramificação"
+
+#. Default: "Survey Contents"
+#: ../browser/questions/survey_overview.pt:27
+#, fuzzy
+msgid "label_overview_contents"
+msgstr "conteúdo"
+
+#. Default: "Edit Survey"
+#: ../browser/questions/survey_overview.pt:19
+#, fuzzy
+msgid "label_overview_edit"
+msgstr "editar"
+
+#. Default: "There are no questions on this page."
+#: ../browser/questions/survey_overview.pt:93
+#, fuzzy
+msgid "label_overview_no_question"
+msgstr "Não existem perguntas nesta página."
+
+#. Default: "Conditional Question"
+#: ../content/schemata.py:200
+#, fuzzy
+msgid "label_previous_question"
+msgstr "Pergunta condicional"
+
+#. Default: "Required Answer"
+#: ../content/schemata.py:213
+#, fuzzy
+msgid "label_previous_question_answer"
+msgstr "Resposta obrigatória"
+
+#. Default: "Use Required Answer?"
+#: ../content/schemata.py:226
+#, fuzzy
+msgid "label_previous_question_answer_yes_no"
+msgstr "Utilizar respostas obrigatórias?"
+
+#. Default: "Description"
+#: ../content/schemata.py:311
+#, fuzzy
+msgid "label_question_description"
+msgstr "Descrição"
+
+#. Default: "Radio Buttons"
+#: ../config.py:35
+#, fuzzy
+msgid "label_radio_buttons"
+msgstr "Radio Buttons"
+
+#. Default: "Required"
+#: ../content/schemata.py:248
+#, fuzzy
+msgid "label_required"
+msgstr "Obrigatório"
+
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired|nothing" title="Required">
+#. (Required)
+#. </span>
+#. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired" title="Required">
+#. Default: "(Required)"
+#: ../browser/questions/question_date_macro.pt:14
+#: ../browser/questions/question_macro.pt:13
+#: ../browser/questions/question_matrix_macro.pt:51
+msgid "label_required_in_parentheses"
+msgstr "(Obrigatório)"
+
+#. <input class="standalone" i18n:attributes="value label_reset" name="reset" type="submit" value=" Reset "/>
+#. Default: "Reset"
+#: ../skins/plone_survey/survey_reset_form.cpt:22
+#, fuzzy
+msgid "label_reset"
+msgstr "Reiniciar"
+
+#. Default: "Reverse Likert Scale"
+#: ../content/schemata.py:457
+msgid "label_reverselikert"
+msgstr ""
+
+#. Default: "'Saved' message text"
+#: ../content/schemata.py:50
+#, fuzzy
+msgid "label_saved_text"
+msgstr "Mensagem apresentada quando o usuário salvar o questionário"
+
+#. Default: "Selection Box"
+#: ../config.py:36
+#, fuzzy
+msgid "label_selection_box"
+msgstr "Caixa de seleção"
+
+#. Default: "Show Captcha"
+#: ../content/schemata.py:134
+msgid "label_show_captcha"
+msgstr ""
+
+#. Default: "Show hours and minutes"
+#: ../content/schemata.py:331
+msgid "label_showhm"
+msgstr ""
+
+#. Default: "Show date"
+#: ../content/schemata.py:322
+msgid "label_showymd"
+msgstr ""
+
+#. Default: "Starting Year"
+#: ../content/schemata.py:340
+msgid "label_startingyear"
+msgstr ""
+
+#. Default: "Closed"
+#: ../config.py:21
+#, fuzzy
+msgid "label_survey_closed"
+msgstr "Finalizado"
+
+#. Default: "Survey Notification Email Address"
+#: ../content/schemata.py:105
+#, fuzzy
+msgid "label_survey_notification_email"
+msgstr "Email para notificação de questionários"
+
+#. Default: "Survey Notification Method"
+#: ../content/schemata.py:117
+#, fuzzy
+msgid "label_survey_notification_method"
+msgstr "Forma de notificação"
+
+#. Default: "Open"
+#: ../config.py:20
+#, fuzzy
+msgid "label_survey_open"
+msgstr "Aberto"
+
+#. Default: "Text Area"
+#: ../config.py:31
+#, fuzzy
+msgid "label_text_area"
+msgstr "Área de texto"
+
+#. Default: "Cols (width in characters)"
+#: ../content/schemata.py:401
+#, fuzzy
+msgid "label_text_cols"
+msgstr "Colunas"
+
+#. Default: "Text Field"
+#: ../config.py:30
+#, fuzzy
+msgid "label_text_field"
+msgstr "Campo texto"
+
+#. Default: "Rows (number of lines)"
+#: ../content/schemata.py:413
+#, fuzzy
+msgid "label_text_rows"
+msgstr "Linhas"
+
+#. Default: "Text Block"
+#: ../content/schemata.py:290
+msgid "label_textblockbody"
+msgstr ""
+
+#. Default: "Location of Text Block"
+#: ../content/schemata.py:302
+msgid "label_textlocation"
+msgstr ""
+
+#. Default: "'Thank you' message text"
+#: ../content/schemata.py:37
+#, fuzzy
+msgid "label_thank"
+msgstr "Mensagem de agradecimento"
+
+#. Default: "This question had a date input type, for results use the"
+#: ../browser/results/survey_barchart.pt:56
+msgid "label_use_detailed_for_date"
+msgstr ""
+
+# <span i18n:translate="label_use_detailed_for_text">This question had a text
+# input type, for results use the </span>
+#. Default: "This question had a text input type, for results use the"
+#: ../browser/results/survey_barchart.pt:49
+#, fuzzy
+msgid "label_use_detailed_for_text"
+msgstr "A resposta desta pergunta é do tipo texto, para ver os resultados, utilize o"
+
+#. Default: "Use the options below"
+#: ../config.py:69
+msgid "label_use_options_below"
+msgstr ""
+
+#. Default: "Validation"
+#: ../content/schemata.py:426
+#, fuzzy
+msgid "label_validation"
+msgstr "Validação"
+
+#. <legend i18n:translate="legend_already_completed">
+#. You have already filled in this survey
+#. </legend>
+#. Default: "You have already filled in this survey"
+#: ../skins/plone_survey/survey_view.cpt:116
+msgid "legend_already_completed"
+msgstr "Você já finalizou este questionário"
+
+#. <legend i18n:translate="legend_question_details">
+#. Question details
+#. </legend>
+#. Default: "Question details"
+#: ../skins/plone_survey/survey_view.cpt:58
+msgid "legend_question_details"
+msgstr "Detalhes do questionário"
+
+#. Default: "(\"Agree Strongly\", \"Agree\", \"Neutral\", \"Disagree\", \"Disagree Strongly\")"
+#: ../config.py:72
+msgid "list_agree_disagree"
+msgstr ""
+
+#. Default: "(\"Very Good\", \"Good\", \"OK Only\", \"Poor\", \"Very Poor\")"
+#: ../config.py:70
+msgid "list_good_poor"
+msgstr ""
+
+#. Default: "(\"Very Useful\", \"Useful\", \"Quite Useful\", \"A little Useful\", \"Not Useful\")"
+#: ../config.py:71
+msgid "list_useful_notuseful"
+msgstr ""
+
+#. Default: "New Authenticated Respondent"
+#: ../skins/plone_survey/respondent_macros.pt:18
+msgid "new_authenticated_respondent"
+msgstr ""
+
+#. Default: "No respondents"
+#: ../skins/plone_survey/manage_respondents.cpt:18
+msgid "no_respondents_label"
+msgstr ""
+
+#. Default: "Comment:"
+#: ../browser/questions/survey_overview_macro.pt:41
+msgid "overview_comment"
+msgstr ""
+
+#. Default: "Edit Question"
+#: ../browser/questions/survey_overview_macro.pt:20
+msgid "overview_editquestion"
+msgstr ""
+
+#. Default: "Please provide an answer for this question"
+#: ../skins/plone_survey/validate_survey.vpy:26
+#, fuzzy
+msgid "please_provide_answer"
+msgstr "Por favor, informe uma resposta para esta pergunta"
+
+#. Default: "Please provide an email address"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:14
+msgid "please_provide_email_address"
+msgstr ""
+
+#. Default: "Please provide a name"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:8
+msgid "please_provide_fullname"
+msgstr ""
+
+#. <input class="context" i18n:attributes="value reset_button" name="submit" tal:attributes="tabindex tabindex/next" type="submit" value="Reset"/>
+#. Default: "Reset"
+#: ../skins/plone_survey/respondents_view.cpt:76
+msgid "reset_button"
+msgstr "Reiniciar"
+
+#. <input class="context" i18n:attributes="value reset_survey_button" name="form.button.reset_survey" tabindex="" tal:attributes="tabindex tabindex/next" type="submit" value="Reset Survey"/>
+#. Default: "Reset Survey"
+#: ../skins/plone_survey/survey_view.cpt:122
+msgid "reset_survey_button"
+msgstr "Reiniciar questionário"
+
+#. <legend i18n:translate="reset_users">
+#. Reset Users
+#. </legend>
+#. Default: "Reset Users"
+#: ../skins/plone_survey/respondents_view.cpt:37
+msgid "reset_users"
+msgstr "Reiniciar usuário"
+
+#. Default: "End"
+#: ../browser/results/respondents_table.pt:10
+#: ../skins/plone_survey/respondents_view.cpt:48
+msgid "respondents_end"
+msgstr ""
+
+#. <span i18n:translate="respondents_for_survey">
+#. Respondents for survey
+#. </span>
+#. Default: "Respondents for survey"
+#: ../skins/plone_survey/respondents_view.cpt:14
+msgid "respondents_for_survey"
+msgstr "Participantes da enquete"
+
+#. Default: "IP Address"
+#: ../browser/results/respondents_table.pt:8
+#: ../skins/plone_survey/respondents_view.cpt:46
+msgid "respondents_ip"
+msgstr ""
+
+#. Default: "Start"
+#: ../browser/results/respondents_table.pt:9
+#: ../skins/plone_survey/respondents_view.cpt:47
+msgid "respondents_start"
+msgstr ""
+
+#. Default: "Time Taken"
+#: ../browser/results/respondents_table.pt:11
+#: ../skins/plone_survey/respondents_view.cpt:49
+msgid "respondents_time_taken"
+msgstr ""
+
+#. Default: "User Id"
+#: ../browser/results/respondents_table.pt:7
+#: ../skins/plone_survey/respondents_view.cpt:45
+msgid "respondents_userid"
+msgstr ""
+
+#. Default: "Responses:"
+#: ../skins/plone_survey/manage_respondents.cpt:22
+msgid "responses_stats"
+msgstr ""
+
+#. <input class="context" i18n:attributes="value save_button" name="form.button.save" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="nothing" type="submit" value="Save"/>
+#. Default: "Save"
+#: ../skins/plone_survey/survey_view.cpt:87
+msgid "save_button"
+msgstr "Salvar"
+
+#. Default: "Send Invite"
+#: ../skins/plone_survey/manage_respondents.cpt:56
+msgid "send_invite_label"
+msgstr ""
+
+#. Default: "Send Reminder"
+#: ../skins/plone_survey/manage_respondents.cpt:66
+msgid "send_reminder_label"
+msgstr ""
+
+#. Default: "send survey invite"
+#: ../skins/plone_survey/manage_respondents.cpt:90
+msgid "send_survey_invite_label"
+msgstr ""
+
+#. Default: "send survey reminder/invite"
+#: ../skins/plone_survey/manage_respondents.cpt:100
+msgid "send_survey_reminder_label"
+msgstr ""
+
+#. <input class="context" i18n:attributes="value submit_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="not: here/isMultipage" type="submit" value="Submit"/>
+#. Default: "Submit"
+#: ../skins/plone_survey/survey_view.cpt:99
+msgid "submit_button"
+msgstr "Enviar"
+
+#. <input class="context" i18n:attributes="value submit_page_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="here/isMultipage" type="submit" value="Next"/>
+#. Default: "Next"
+#: ../skins/plone_survey/survey_view.cpt:93
+msgid "submit_page_button"
+msgstr "Próxima"
+
+#. <legend i18n:translate="survey_reset">
+#. Survey Reset
+#. </legend>
+#. Default: "Survey Reset"
+#: ../skins/plone_survey/survey_reset_form.cpt:17
+msgid "survey_reset"
+msgstr "Reiniciar enquete"
+
+#. Default: "Required"
+#: ../skins/plone_survey/respondent_macros.pt:28
+msgid "title_required"
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:93
+msgid "to all respondents who have not been invited yet."
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:103
+msgid "to all respondents who have not yet responded."
+msgstr ""
+
+#. Default: user
+#: ../browser/results/html_spreadsheet.pt:13
+msgid "user"
+msgstr "usuário"
+
+#. <a i18n:translate="view_comments_in_full" tal:attributes="href string:${here/absolute_url}/comments_view">
+#. view comments in full...
+#. </a>
+#. Default: "view comments in full..."
+#: ../browser/results/survey_barchart.pt:76
+msgid "view_comments_in_full"
+msgstr "ver comentários completos..."
+
+#. <a i18n:translate="view_respondents" tal:attributes="href string:${here/absolute_url}/respondents_view">
+#. view respondents
+#. </a>
+#. Default: "view respondents"
+#: ../browser/results/survey_view_results.pt:24
+msgid "view_respondents"
+msgstr "ver participantes"
+
+#. Default: "View survey results in a barchart"
+#: ../browser/results/survey_view_results.pt:18
+msgid "view_results_barchart"
+msgstr ""
 

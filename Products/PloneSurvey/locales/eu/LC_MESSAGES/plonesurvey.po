@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-10-03 13:29+0000\n"
+"POT-Creation-Date: 2014-02-24 17:02+0000\n"
 "PO-Revision-Date: 2007-02-09 11:55+0100\n"
 "Last-Translator: Mikel Larreategi <mlarreategi@codesyntax.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,12 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plonesurvey\n"
 
+#: ../skins/plone_survey/respondents_reset.vpy:20
+msgid "${users} have been reset."
+msgstr ""
+
 #. Default: "A little Useful"
-#: ../config.py:96
+#: ../config.py:87
 msgid "A little Useful"
 msgstr ""
 
@@ -46,74 +50,66 @@ msgstr ""
 msgid "A textual question within a survey."
 msgstr ""
 
-#: ../profiles/default/types/Survey_2-Dimensional_Question.xml
-msgid "A two-dimensional question with a weighted vocab within a survey."
-msgstr ""
-
-#: ../profiles/default/types/Survey_Two_Dimensional.xml
-msgid "A two-dimensional question within a survey."
-msgstr ""
-
-#: ../skins/plone_survey/manage_respondents.cpt:42
+#: ../skins/plone_survey/manage_respondents.cpt:44
 msgid "Action"
 msgstr ""
 
 #. Default: "Agree"
-#: ../config.py:101
+#: ../config.py:92
 #, fuzzy
 msgid "Agree"
 msgstr "Ados"
 
 #. Default: "Agree Strongly"
-#: ../config.py:100
+#: ../config.py:91
 #, fuzzy
 msgid "Agree Strongly"
 msgstr "Guztiz ados"
 
 #. Default: Completed
-#: ../skins/plone_survey/html_spreadsheet.pt:20
+#: ../browser/results/html_spreadsheet.pt:20
 msgid "Completed"
 msgstr ""
 
 #. Default: "Disagree"
-#: ../config.py:103
+#: ../config.py:94
 #, fuzzy
 msgid "Disagree"
 msgstr "Ez nago ados"
 
 #. Default: "Disagree Strongly"
-#: ../config.py:104
+#: ../config.py:95
 #, fuzzy
 msgid "Disagree Strongly"
 msgstr "Guztiz aurka"
 
-#: ../browser/importer.py:33
+#: ../browser/importer.py:35
 msgid "Done importing respondents"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:40
+#: ../skins/plone_survey/manage_respondents.cpt:42
 msgid "Email Address"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:41
+#: ../skins/plone_survey/manage_respondents.cpt:43
 msgid "Email Sent"
 msgstr ""
 
 #. Default: "Good"
-#: ../config.py:87
+#: ../config.py:78
 msgid "Good"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:34
+#: ../skins/plone_survey/manage_respondents.cpt:36
 msgid "Invited Respondents"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:39
+#: ../skins/plone_survey/manage_respondents.cpt:41
 msgid "Name"
 msgstr ""
 
 #. Default: "Neutral"
-#: ../config.py:102
+#: ../config.py:93
 #, fuzzy
 msgid "Neutral"
 msgstr "Neutrala"
@@ -122,7 +118,7 @@ msgstr "Neutrala"
 # question.aq_parent.portal_type != 'Sub Survey' and question.portal_type !=
 # 'Sub Survey'">No</td>
 #. Default: No
-#: ../content/BaseQuestion.py:220
+#: ../content/BaseQuestion.py:120
 msgid "No"
 msgstr "Ez"
 
@@ -131,45 +127,46 @@ msgid "No source file given"
 msgstr ""
 
 #. Default: "Not Useful"
-#: ../config.py:97
+#: ../config.py:88
 msgid "Not Useful"
 msgstr ""
 
 #. Default: "OK Only"
-#: ../config.py:88
+#: ../config.py:79
 msgid "OK Only"
+msgstr ""
+
+#: ../profiles/default/types/Sub_Survey.xml
+msgid "Overview"
+msgstr ""
+
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:35
+#: ../skins/plone_survey/validate_reset_survey.vpy:8
+#: ../skins/plone_survey/validate_survey.vpy:80
+msgid "Please correct the errors shown."
 msgstr ""
 
 #. Default: "-- Please, select --"
 #. <option class="noborder" i18n:translate="Please select" value="">
 #. -- Please, select --
 #. </option>
-#: ../skins/plone_survey/question_matrix_macro.pt:72
-#: ../skins/plone_survey/question_select_macro.pt:48
+#: ../browser/questions/question_matrix_macro.pt:72
+#: ../browser/questions/question_select_macro.pt:48
 msgid "Please select"
 msgstr "-- Aukeratu mesedez --"
 
 #. Default: "Poor"
-#: ../config.py:89
+#: ../config.py:80
 msgid "Poor"
 msgstr ""
 
 #. Default: "Quite Useful"
-#: ../config.py:95
+#: ../config.py:86
 msgid "Quite Useful"
 msgstr ""
 
-#. Default: "Repair"
-#: ../skins/plone_survey/repair_survey_results.cpt:18
-msgid "Repair "
-msgstr ""
-
-#: ../skins/plone_survey/repair_survey_results.cpt:10
-msgid "Repair Survey Results"
-msgstr ""
-
-#: ../skins/plone_survey/repair_survey_results.cpt:16
-msgid "Repair results"
+#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:39
+msgid "Respondent created."
 msgstr ""
 
 #: ../profiles/default/types/Sub_Survey.xml
@@ -180,8 +177,8 @@ msgstr ""
 msgid "Survey"
 msgstr ""
 
-#: ../profiles/default/types/Survey_2-Dimensional_Question.xml
-msgid "Survey 2-Dimensional Question"
+#: ../content/Survey.py:518
+msgid "Survey ${survey_title}"
 msgstr ""
 
 #: ../profiles/default/types/Survey_Date_Question.xml
@@ -204,12 +201,33 @@ msgstr ""
 msgid "Survey Text Question"
 msgstr ""
 
-#: ../profiles/default/types/Survey_Two_Dimensional.xml
-msgid "Survey Two Dimensional"
+#: ../skins/plone_survey/respondents_reset.vpy:17
+#: ../skins/plone_survey/survey_reset.vpy:16
+msgid "Survey did not reset correctly."
+msgstr ""
+
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_reset.vpy:21
+msgid "Survey has been reset."
+msgstr ""
+
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_send_invite.py:22
+msgid "Survey invite sent to ${email}"
+msgstr ""
+
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_send_invite.py:12
+msgid "Survey invite sent to ${invites_sent} recipients"
+msgstr ""
+
+#. Default: "plonesurvey"
+#: ../skins/plone_survey/survey_reset.vpy:5
+msgid "There are no questions to reset."
 msgstr ""
 
 #. Default: "Useful"
-#: ../config.py:94
+#: ../config.py:85
 msgid "Useful"
 msgstr ""
 
@@ -217,29 +235,29 @@ msgstr ""
 msgid "Users who have not responded yet"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:88
+#: ../skins/plone_survey/manage_respondents.cpt:96
 msgid "Users who have responded"
 msgstr ""
 
 #. Default: "Very Good"
-#: ../config.py:86
+#: ../config.py:77
 msgid "Very Good"
 msgstr ""
 
 #. Default: "Very Poor"
-#: ../config.py:90
+#: ../config.py:81
 msgid "Very Poor"
 msgstr ""
 
 #. Default: "Very Useful"
-#: ../config.py:93
+#: ../config.py:84
 msgid "Very Useful"
 msgstr ""
 
 # <td i18n:translate="" tal:condition="python: question.aq_parent.portal_type
 # == 'Sub Survey'  or question.portal_type == 'Sub Survey'">Yes</td>
 #. Default: Yes
-#: ../content/BaseQuestion.py:220
+#: ../content/BaseQuestion.py:120
 msgid "Yes"
 msgstr "Bai"
 
@@ -247,19 +265,28 @@ msgstr "Bai"
 msgid "You can add questions to surveys."
 msgstr ""
 
-#. Default: "Respondent created"
-#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:41
-msgid "authenticated_respondent_created"
+#: ../content/Survey.py:514
+msgid "[${survey_title}] New survey submitted"
 msgstr ""
 
 #. Default: "Comment - mandatory if \"no\""
-#: ../content/BaseQuestion.py:232
+#: ../content/BaseQuestion.py:132
 msgid "commentLabelDefault"
 msgstr ""
 
+#. Default: "Complete for User"
+#: ../skins/plone_survey/manage_respondents.cpt:77
+msgid "complete_for_user_label"
+msgstr ""
+
 #. Default: "Create Respondent"
-#: ../skins/plone_survey/respondent_macros.pt:88
+#: ../skins/plone_survey/respondent_macros.pt:65
 msgid "create_respondent_button"
+msgstr ""
+
+#. Default: "Delete Respondent"
+#: ../skins/plone_survey/manage_respondents.cpt:72
+msgid "delete_respondent_label"
 msgstr ""
 
 #. Default: "This will remove all the answers from the current survey. Are you sure?"
@@ -274,7 +301,7 @@ msgstr "Inkestaren erantzun guztiak ezabatuko ditu honek. Ziur al zaude?"
 #. This is an overview of the current survey.
 #. </p>
 #. Default: "This is an overview of the current survey: ${title}"
-#: ../skins/plone_survey/survey_overview.pt:36
+#: ../browser/questions/survey_overview.pt:36
 #, fuzzy
 msgid "desc_survey_overview"
 msgstr "Inkestaren gainbegirada bat da hau (????)"
@@ -283,7 +310,7 @@ msgstr "Inkestaren gainbegirada bat da hau (????)"
 #. <a i18n:translate="detailed_spreadsheet" tal:attributes="href string:${here/absolute_url}/html_spreadsheet">
 #. detailed spreadsheet
 #. </a>
-#: ../skins/plone_survey/survey_barchart.pt:50
+#: ../browser/results/survey_barchart.pt:50
 msgid "detailed_spreadsheet"
 msgstr "Kalkulu orria"
 
@@ -291,7 +318,7 @@ msgstr "Kalkulu orria"
 #. <span i18n:translate="download_detail_selected">
 #. download detailed spreadsheet (selection numbers only)
 #. </span>
-#: ../skins/plone_survey/survey_view_results.pt:52
+#: ../browser/results/survey_view_results.pt:36
 msgid "download_detail_selected"
 msgstr "kalkulu orria deskargatu"
 
@@ -299,21 +326,21 @@ msgstr "kalkulu orria deskargatu"
 #. <span i18n:translate="download_detail_spreadsheet">
 #. download detailed spreadsheet
 #. </span>
-#: ../skins/plone_survey/survey_view_results.pt:47
+#: ../browser/results/survey_view_results.pt:30
 msgid "download_detail_spreadsheet"
 msgstr "kalkulu orri zehatza deskargatu"
 
 #. Default: "download spreadsheet for select questions"
-#: ../skins/plone_survey/survey_view_results.pt:56
+#: ../browser/results/survey_view_results.pt:40
 msgid "download_select_spreadsheet"
 msgstr ""
 
 #. Default: "download spreadsheet for select questions with answers as booleans"
-#: ../skins/plone_survey/survey_view_results.pt:60
+#: ../browser/results/survey_view_results.pt:44
 msgid "download_selectasboolean_spreadsheet"
 msgstr ""
 
-#: ../content/Survey.py:939
+#: ../content/Survey.py:962
 msgid "emailInviteDefault"
 msgstr ""
 
@@ -327,11 +354,15 @@ msgstr ""
 msgid "email_address_invalid"
 msgstr ""
 
+#: ../content/Survey.py:521
+msgid "has been completed by user: ${userid}"
+msgstr ""
+
 #. Default: "Comments"
 #. <h3 i18n:translate="heading_comments">
 #. Comments
 #. </h3>
-#: ../skins/plone_survey/survey_barchart.pt:66
+#: ../browser/results/survey_barchart.pt:66
 msgid "heading_comments"
 msgstr "Iruzkinak"
 
@@ -341,7 +372,7 @@ msgstr "Iruzkinak"
 #. ${objective}
 #. ${title}
 #. </h4>
-#: ../skins/plone_survey/comments_view.pt:22
+#: ../browser/results/comments_view.pt:22
 msgid "heading_comments_for"
 msgstr "${objective} ${title}-(r)en gaineko iruzkin guztiak"
 
@@ -358,24 +389,16 @@ msgstr "Inkesta berrezarri"
 #. Results for survey
 #. ${title}
 #. </h1>
-#: ../skins/plone_survey/survey_barchart.pt:14
-#: ../skins/plone_survey/survey_view_results.pt:14
+#: ../browser/results/survey_barchart.pt:14
+#: ../browser/results/survey_view_results.pt:14
 msgid "heading_results"
 msgstr "${title} inkestaren emaitzak"
-
-#. Default: "Survey Contents"
-#. <h5 i18n:translate="heading_survey_contents">
-#. Survey Contents
-#. </h5>
-#: ../skins/plone_survey/portlet_questions.pt:16
-msgid "heading_survey_contents"
-msgstr "Inkestaren edukia"
 
 #. Default: "Survey Overview"
 #. <h1 i18n:translate="heading_survey_overview">
 #. Survey Overview
 #. </h1>
-#: ../skins/plone_survey/survey_overview.pt:15
+#: ../browser/questions/survey_overview.pt:15
 msgid "heading_survey_overview"
 msgstr "Inkestaren gainbegirada (???)"
 
@@ -385,60 +408,60 @@ msgstr "Inkestaren gainbegirada (???)"
 # i18n:name="title" />:
 # </h2>
 #. Default: "Totals for ${title}:"
-#: ../skins/plone_survey/survey_barchart.pt:21
+#: ../browser/results/survey_barchart.pt:21
 msgid "heading_totals_for"
 msgstr "${title-(r)en guztizkoa"
 
 #. Default: "Anonymous user will be able to fill the survey"
-#: ../content/schemata.py:99
+#: ../content/schemata.py:86
 msgid "help_allow_anonymous"
 msgstr ""
 
 #. Default: "Allow logged in users to save survey for finishing later."
-#: ../content/schemata.py:109
+#: ../content/schemata.py:96
 msgid "help_allow_save"
 msgstr ""
 
 #. 
 #. Default: "Enter the options you want to be available to the user here. Press enter to seperate the options."
-#: ../content/schemata.py:498
+#: ../content/schemata.py:469
 #, fuzzy
 msgid "help_answer_options"
 msgstr "Erabiltzaileak erantzuteko izango dituen aukerak jarri hemen. Idatzi aukera bat lerro bakoitzeko."
 
 #. 
 #. Default: "The comment label."
-#: ../content/schemata.py:288
+#: ../content/schemata.py:275
 msgid "help_comment_label"
 msgstr ""
 
 #. Default: "Prevent respondents usernames from appearing in results"
-#: ../content/schemata.py:89
+#: ../content/schemata.py:76
 msgid "help_confidential"
 msgstr ""
 
 #. 
 #. Default: "Add a short description of the survey here."
-#: ../content/schemata.py:200
+#: ../content/schemata.py:187
 #, fuzzy
 msgid "help_description"
 msgstr "Inkestaren deskribapen laburra"
 
 #. Default: "An email invite will be sent to loaded respondents, use '**Name**' for the respondents name, and '**Survey**' for the title of the survey as a link to the survey."
-#: ../content/schemata.py:164
+#: ../content/schemata.py:151
 msgid "help_email_invite"
 msgstr ""
 
 #. 
 #. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
-#: ../content/schemata.py:76
+#: ../content/schemata.py:63
 #, fuzzy
 msgid "help_exit_url"
 msgstr "Inkesta bukatutakoan erabiltzailea helbide honetara bideratuko dugu. Erabili \"http://zerbitzaria.com\" kanpoko helbide batera joateko edo \"orrialderako/bide/hau\" atari barruko helbide batera joateko."
 
 #. 
 #. Default: "Please select what type of input you would like to use for this question."
-#: ../content/schemata.py:407
+#: ../content/schemata.py:378
 #, fuzzy
 msgid "help_input_type"
 msgstr "Aukeratu zein motako elementua erabili nahi duzun galdera honentzat"
@@ -449,123 +472,123 @@ msgid "help_introduction"
 msgstr ""
 
 #. Default: "Enter person's email address that the survey invite email is from."
-#: ../content/schemata.py:190
+#: ../content/schemata.py:177
 msgid "help_invite_from_email"
 msgstr ""
 
 #. Default: "Enter person's name that the survey invite email is from."
-#: ../content/schemata.py:179
+#: ../content/schemata.py:166
 msgid "help_invite_from_name"
 msgstr ""
 
 #. 
 #. Default: "Select what type of comment box you would like."
-#: ../content/schemata.py:275
+#: ../content/schemata.py:262
 #, fuzzy
 msgid "help_label_comment_type"
 msgstr "Aukeratu nolako iruzkin kutxa erabili nahi duzun"
 
 #. Default: "Select a Likert scale to use for options, or use the box below."
-#: ../content/schemata.py:476
+#: ../content/schemata.py:447
 msgid "help_likertoptions"
 msgstr ""
 
 #. Default: "Enter the maximum number of characters a user can enter for this question"
-#: ../content/schemata.py:419
+#: ../content/schemata.py:390
 msgid "help_maxlength"
 msgstr ""
 
 #. Default: "Leave this blank to make the question required, or enter a value for no response, eg Not applicable"
-#: ../content/schemata.py:591
+#: ../content/schemata.py:548
 msgid "help_nullvalue"
 msgstr ""
 
 #. Default: "Leave this blank to make the question required, or enter a value for no response, eg Not applicable. If this is a multiple select or checkbox field, enter some random text, which will not appear in the survey, to make this question not required."
-#: ../content/schemata.py:509
+#: ../content/schemata.py:480
 msgid "help_nullvalue_select"
 msgstr ""
 
 #. 
 #. Default: "The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally."
-#: ../content/schemata.py:214
+#: ../content/schemata.py:201
 msgid "help_previous_question"
 msgstr ""
 
 #. 
 #. Default: "Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed."
-#: ../content/schemata.py:227
+#: ../content/schemata.py:214
 msgid "help_previous_question_answer"
 msgstr ""
 
 #. 
 #. Default: "Check this box if the required answer should be selected for this Sub Survey to be displayed."
-#: ../content/schemata.py:240
+#: ../content/schemata.py:227
 msgid "help_previous_question_answer_yes_no"
 msgstr ""
 
 #. 
 #. Default: "Add a long description of the question here, to clarify any details."
-#: ../content/schemata.py:341
+#: ../content/schemata.py:312
 msgid "help_question_description"
 msgstr ""
 
 #. 
 #. Default: "Select if this question is required, meaning participant must give a response."
-#: ../content/schemata.py:262
+#: ../content/schemata.py:249
 msgid "help_required"
 msgstr ""
 
 #. Default: "Display the likert options in reverse order, bad to good."
-#: ../content/schemata.py:487
+#: ../content/schemata.py:458
 msgid "help_reverselikert"
 msgstr ""
 
 #. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
-#: ../content/schemata.py:65
+#: ../content/schemata.py:52
 msgid "help_saved_text"
 msgstr ""
 
 #. 
 #. Default: "Enter an email address to receive notifications of survey completions."
-#: ../content/schemata.py:120
+#: ../content/schemata.py:107
 #, fuzzy
 msgid "help_survey_notification_email"
 msgstr "Inkestak betetakoan notifikazioa jasotzeko eposta helbidea gehitu"
 
 #. 
 #. Default: "Select a method to receive notification emails."
-#: ../content/schemata.py:131
+#: ../content/schemata.py:118
 #, fuzzy
 msgid "help_survey_notification_method"
 msgstr "Eposta bidezko notifikazioak jasotzeko modua aukeratu"
 
 #. 
 #. Default: "Enter a number of columns for this field (width of the field in the characters)"
-#: ../content/schemata.py:431
+#: ../content/schemata.py:402
 msgid "help_text_cols"
 msgstr ""
 
 #. 
 #. Default: "Enter a number of rows for this field. This value is applicable only in the Text Area input type"
-#: ../content/schemata.py:443
+#: ../content/schemata.py:414
 msgid "help_text_rows"
 msgstr ""
 
 #. Default: "Select where the text block above should appear."
-#: ../content/schemata.py:316
+#: ../content/schemata.py:303
 msgid "help_textlocation"
 msgstr ""
 
 #. 
 #. Default: "This is the message that will be displayed to the user when they complete the survey."
-#: ../content/schemata.py:52
+#: ../content/schemata.py:39
 #, fuzzy
 msgid "help_thankyou"
 msgstr "Erabiltzaileak inkesta betetakoan ikusiko duen mezua da hau"
 
 #. 
 #. Default: "Select a validation for this question"
-#: ../content/schemata.py:456
+#: ../content/schemata.py:427
 msgid "help_validation"
 msgstr ""
 
@@ -580,77 +603,77 @@ msgid "import_respondents_from_source"
 msgstr ""
 
 #. Default: "Email on each submission"
-#: ../config.py:35
+#: ../config.py:26
 #, fuzzy
 msgid "label_all_emails"
 msgstr "Eposta bidali bidalketa bakoitzean"
 
 #. 
 #. Default: "Allow Anonymous"
-#: ../content/schemata.py:98
+#: ../content/schemata.py:85
 #, fuzzy
 msgid "label_allow_anonymous"
 msgstr "Erabiltzaile anonimoek erantzutea baimendu"
 
 #. Default: "Allow Save Functionality"
-#: ../content/schemata.py:108
+#: ../content/schemata.py:95
 msgid "label_allow_save"
 msgstr ""
 
 #. 
 #. Default: "Answer options"
-#: ../content/schemata.py:497
+#: ../content/schemata.py:468
 #, fuzzy
 msgid "label_answer_options"
 msgstr "Erantzunaren aukerak"
 
 #. Default: "Appears above question"
-#: ../config.py:61
+#: ../config.py:52
 msgid "label_appears_above_question"
 msgstr ""
 
 #. Default: "Appears after answer"
-#: ../config.py:63
+#: ../config.py:54
 msgid "label_appears_after_answer"
 msgstr ""
 
 #. Default: "Appears between question and answer"
-#: ../config.py:62
+#: ../config.py:53
 msgid "label_appears_between_question_and_answer"
 msgstr ""
 
 #. Default: "Check Boxes"
-#: ../config.py:47
+#: ../config.py:38
 #, fuzzy
 msgid "label_check_boxes"
 msgstr "Aukera kutxak (checkbox)"
 
 #. 
 #. Default: "Comment label"
-#: ../content/schemata.py:287
+#: ../content/schemata.py:274
 msgid "label_comment_label"
 msgstr ""
 
 #. 
 #. Default: "Comment Type"
-#: ../content/schemata.py:274
+#: ../content/schemata.py:261
 msgid "label_comment_type"
 msgstr ""
 
 #. Default: "Confidential"
-#: ../content/schemata.py:88
+#: ../content/schemata.py:75
 msgid "label_confidential"
 msgstr ""
 
 #. 
 #. Default: "Survey description"
-#: ../content/schemata.py:199
+#: ../content/schemata.py:186
 #, fuzzy
 msgid "label_description"
 msgstr "Deskribapena"
 
 #. Default: "Does not appear"
-#: ../config.py:60
+#: ../config.py:51
 msgid "label_does_not_appear"
 msgstr ""
 
@@ -660,18 +683,18 @@ msgid "label_email_address"
 msgstr ""
 
 #. Default: "Email Invite"
-#: ../content/schemata.py:163
+#: ../content/schemata.py:150
 msgid "label_email_invite"
 msgstr ""
 
 #. Default: "Ending Year"
-#: ../content/schemata.py:378
+#: ../content/schemata.py:349
 msgid "label_endingyear"
 msgstr ""
 
 #. 
 #. Default: "Exit URL"
-#: ../content/schemata.py:75
+#: ../content/schemata.py:62
 #, fuzzy
 msgid "label_exit_url"
 msgstr "Irteera URLa"
@@ -682,13 +705,13 @@ msgid "label_fullname"
 msgstr ""
 
 #. Default: "Future Years"
-#: ../content/schemata.py:387
+#: ../content/schemata.py:358
 msgid "label_futureyears"
 msgstr ""
 
 #. 
 #. Default: "Input Type"
-#: ../content/schemata.py:406
+#: ../content/schemata.py:377
 msgid "label_input_type"
 msgstr ""
 
@@ -698,44 +721,44 @@ msgid "label_introduction"
 msgstr ""
 
 #. Default: "Email Invite From"
-#: ../content/schemata.py:189
+#: ../content/schemata.py:176
 msgid "label_invite_from_email"
 msgstr ""
 
 #. Default: "Person Invite From"
-#: ../content/schemata.py:178
+#: ../content/schemata.py:165
 msgid "label_invite_from_name"
 msgstr ""
 
 #. Default: "Likert Options"
-#: ../content/schemata.py:475
+#: ../content/schemata.py:446
 msgid "label_likertoptions"
 msgstr ""
 
 #. Default: "Question"
-#: ../skins/plone_survey/question_matrix_macro.pt:31
+#: ../browser/questions/question_matrix_macro.pt:31
 #, fuzzy
 msgid "label_matrix_question"
 msgstr "AGldera"
 
 #. Default: "Maximum length of characters"
-#: ../content/schemata.py:418
+#: ../content/schemata.py:389
 msgid "label_maxlength"
 msgstr ""
 
 #. Default: "Multiple Selection Box"
-#: ../config.py:46
+#: ../config.py:37
 #, fuzzy
 msgid "label_multiple_selection_box"
 msgstr "Aukera anitzeko kutxa "
 
 #. Default: "None"
-#: ../config.py:67
+#: ../config.py:58
 msgid "label_no_comment_field"
 msgstr ""
 
 #. Default: "No emails"
-#: ../config.py:34
+#: ../config.py:25
 #, fuzzy
 msgid "label_no_emails"
 msgstr "Epostarik ez"
@@ -747,78 +770,78 @@ msgid "label_no_users_yet"
 msgstr "Inork ez du inkestarik bete"
 
 #. Default: "Null Value"
-#: ../content/schemata.py:508
+#: ../content/schemata.py:479
 msgid "label_nullvalue"
 msgstr ""
 
 #. Default: "Add Page"
-#: ../skins/plone_survey/survey_overview.pt:109
+#: ../browser/questions/survey_overview.pt:109
 #, fuzzy
 msgid "label_overview_add_page"
 msgstr "Orrialdea gehitu"
 
 #. Default: "Add Question"
-#: ../skins/plone_survey/survey_overview.pt:49
+#: ../browser/questions/survey_overview.pt:49
 #, fuzzy
 msgid "label_overview_add_question"
 msgstr "Galdera gehitu"
 
 #. Default: "Branching:"
-#: ../skins/plone_survey/survey_overview.pt:80
+#: ../browser/questions/survey_overview.pt:80
 msgid "label_overview_branching"
 msgstr ""
 
 #. Default: "Survey Contents"
-#: ../skins/plone_survey/survey_overview.pt:27
+#: ../browser/questions/survey_overview.pt:27
 #, fuzzy
 msgid "label_overview_contents"
 msgstr "edukiak"
 
 #. Default: "Edit Survey"
-#: ../skins/plone_survey/survey_overview.pt:19
+#: ../browser/questions/survey_overview.pt:19
 #, fuzzy
 msgid "label_overview_edit"
 msgstr "editatu"
 
 #. Default: "There are no questions on this page."
-#: ../skins/plone_survey/survey_overview.pt:93
+#: ../browser/questions/survey_overview.pt:93
 #, fuzzy
 msgid "label_overview_no_question"
 msgstr "Orrialde honetan ez dago galderarik"
 
 #. 
 #. Default: "Conditional Question"
-#: ../content/schemata.py:213
+#: ../content/schemata.py:200
 msgid "label_previous_question"
 msgstr ""
 
 #. 
 #. Default: "Required Answer"
-#: ../content/schemata.py:226
+#: ../content/schemata.py:213
 msgid "label_previous_question_answer"
 msgstr ""
 
 #. 
 #. Default: "Use Required Answer?"
-#: ../content/schemata.py:239
+#: ../content/schemata.py:226
 msgid "label_previous_question_answer_yes_no"
 msgstr ""
 
 #. 
 #. Default: "Description"
-#: ../content/schemata.py:340
+#: ../content/schemata.py:311
 #, fuzzy
 msgid "label_question_description"
 msgstr "Deskribapena"
 
 #. Default: "Radio Buttons"
-#: ../config.py:44
+#: ../config.py:35
 msgid "label_radio_buttons"
 msgstr ""
 
 #. 
 #. Default: "Required"
-#: ../content/schemata.py:261
+#: ../content/schemata.py:248
 #, fuzzy
 msgid "label_required"
 msgstr "Derrigorrezkoa"
@@ -828,144 +851,144 @@ msgstr "Derrigorrezkoa"
 #. (Required)
 #. </span>
 #. <span class="fieldRequired" i18n:translate="label_required_in_parentheses" tal:condition="question/getRequired" title="Required">
-#: ../skins/plone_survey/question_date_macro.pt:14
-#: ../skins/plone_survey/question_macro.pt:13
-#: ../skins/plone_survey/question_matrix_macro.pt:51
+#: ../browser/questions/question_date_macro.pt:14
+#: ../browser/questions/question_macro.pt:13
+#: ../browser/questions/question_matrix_macro.pt:51
 msgid "label_required_in_parentheses"
 msgstr "(Beharrezkoa)"
 
 #. <input class="standalone" i18n:attributes="value label_reset" name="reset" type="submit" value=" Reset "/>
 #. Default: "Reset"
-#: ../skins/plone_survey/survey_reset_form.cpt:18
+#: ../skins/plone_survey/survey_reset_form.cpt:22
 #, fuzzy
 msgid "label_reset"
 msgstr "Berrezarri"
 
 #. Default: "Reverse Likert Scale"
-#: ../content/schemata.py:486
+#: ../content/schemata.py:457
 msgid "label_reverselikert"
 msgstr ""
 
 #. 
 #. Default: "'Saved' message text"
-#: ../content/schemata.py:63
+#: ../content/schemata.py:50
 msgid "label_saved_text"
 msgstr ""
 
 #. Default: "Selection Box"
-#: ../config.py:45
+#: ../config.py:36
 msgid "label_selection_box"
 msgstr ""
 
 #. Default: "Show Captcha"
-#: ../content/schemata.py:147
+#: ../content/schemata.py:134
 msgid "label_show_captcha"
 msgstr ""
 
 #. Default: "Show hours and minutes"
-#: ../content/schemata.py:360
+#: ../content/schemata.py:331
 msgid "label_showhm"
 msgstr ""
 
 #. Default: "Show date"
-#: ../content/schemata.py:351
+#: ../content/schemata.py:322
 msgid "label_showymd"
 msgstr ""
 
 #. Default: "Starting Year"
-#: ../content/schemata.py:369
+#: ../content/schemata.py:340
 msgid "label_startingyear"
 msgstr ""
 
 #. Default: "Closed"
-#: ../config.py:30
+#: ../config.py:21
 #, fuzzy
 msgid "label_survey_closed"
 msgstr "Itxita"
 
 #. 
 #. Default: "Survey Notification Email Address"
-#: ../content/schemata.py:118
+#: ../content/schemata.py:105
 #, fuzzy
 msgid "label_survey_notification_email"
 msgstr "Inkestaren notifikazio eposta"
 
 #. 
 #. Default: "Survey Notification Method"
-#: ../content/schemata.py:130
+#: ../content/schemata.py:117
 #, fuzzy
 msgid "label_survey_notification_method"
 msgstr "Inkesta notifikatzeko modua"
 
 #. Default: "Open"
-#: ../config.py:29
+#: ../config.py:20
 #, fuzzy
 msgid "label_survey_open"
 msgstr "Irekita"
 
 #. Default: "Text Area"
-#: ../config.py:40
+#: ../config.py:31
 #, fuzzy
 msgid "label_text_area"
 msgstr "Testu area"
 
 #. 
 #. Default: "Cols (width in characters)"
-#: ../content/schemata.py:430
+#: ../content/schemata.py:401
 #, fuzzy
 msgid "label_text_cols"
 msgstr "Zutabe kopurua"
 
 #. Default: "Text Field"
-#: ../config.py:39
+#: ../config.py:30
 #, fuzzy
 msgid "label_text_field"
 msgstr "Testu kutxa"
 
 #. 
 #. Default: "Rows (number of lines)"
-#: ../content/schemata.py:442
+#: ../content/schemata.py:413
 #, fuzzy
 msgid "label_text_rows"
 msgstr "Lerro kopurua"
 
 #. Default: "Text Block"
-#: ../content/schemata.py:303
+#: ../content/schemata.py:290
 msgid "label_textblockbody"
 msgstr ""
 
 #. Default: "Location of Text Block"
-#: ../content/schemata.py:315
+#: ../content/schemata.py:302
 msgid "label_textlocation"
 msgstr ""
 
 #. 
 #. Default: "'Thank you' message text"
-#: ../content/schemata.py:50
+#: ../content/schemata.py:37
 #, fuzzy
 msgid "label_thank"
 msgstr "'Eskerrik asko' mezua"
 
 #. Default: "This question had a date input type, for results use the"
-#: ../skins/plone_survey/survey_barchart.pt:56
+#: ../browser/results/survey_barchart.pt:56
 msgid "label_use_detailed_for_date"
 msgstr ""
 
 # <span i18n:translate="label_use_detailed_for_text">This question had a text
 # input type, for results use the </span>
 #. Default: "This question had a text input type, for results use the"
-#: ../skins/plone_survey/survey_barchart.pt:49
+#: ../browser/results/survey_barchart.pt:49
 msgid "label_use_detailed_for_text"
 msgstr ""
 
 #. Default: "Use the options below"
-#: ../config.py:78
+#: ../config.py:69
 msgid "label_use_options_below"
 msgstr ""
 
 #. 
 #. Default: "Validation"
-#: ../content/schemata.py:455
+#: ../content/schemata.py:426
 #, fuzzy
 msgid "label_validation"
 msgstr "Balidazioa"
@@ -987,17 +1010,17 @@ msgid "legend_question_details"
 msgstr "Galderaren xehetasunak"
 
 #. Default: "(\"Agree Strongly\", \"Agree\", \"Neutral\", \"Disagree\", \"Disagree Strongly\")"
-#: ../config.py:81
+#: ../config.py:72
 msgid "list_agree_disagree"
 msgstr ""
 
 #. Default: "(\"Very Good\", \"Good\", \"OK Only\", \"Poor\", \"Very Poor\")"
-#: ../config.py:79
+#: ../config.py:70
 msgid "list_good_poor"
 msgstr ""
 
 #. Default: "(\"Very Useful\", \"Useful\", \"Quite Useful\", \"A little Useful\", \"Not Useful\")"
-#: ../config.py:80
+#: ../config.py:71
 msgid "list_useful_notuseful"
 msgstr ""
 
@@ -1006,13 +1029,18 @@ msgstr ""
 msgid "new_authenticated_respondent"
 msgstr ""
 
+#. Default: "No respondents"
+#: ../skins/plone_survey/manage_respondents.cpt:18
+msgid "no_respondents_label"
+msgstr ""
+
 #. Default: "Comment:"
-#: ../skins/plone_survey/survey_overview_macro.pt:41
+#: ../browser/questions/survey_overview_macro.pt:41
 msgid "overview_comment"
 msgstr ""
 
 #. Default: "Edit Question"
-#: ../skins/plone_survey/survey_overview_macro.pt:20
+#: ../browser/questions/survey_overview_macro.pt:20
 msgid "overview_editquestion"
 msgstr ""
 
@@ -1029,11 +1057,6 @@ msgstr ""
 #. Default: "Please provide a name"
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:8
 msgid "please_provide_fullname"
-msgstr ""
-
-#. Default: "This will repair any survey responses that are stored incorrectly. Are you sure?"
-#: ../skins/plone_survey/repair_survey_results.cpt:11
-msgid "repair_survey_text"
 msgstr ""
 
 #. Default: "Reset"
@@ -1057,7 +1080,7 @@ msgid "reset_users"
 msgstr "Erabiltzaileak berrezarri"
 
 #. Default: "End"
-#: ../skins/plone_survey/manage_respondents.cpt:98
+#: ../browser/results/respondents_table.pt:10
 #: ../skins/plone_survey/respondents_view.cpt:48
 msgid "respondents_end"
 msgstr ""
@@ -1071,27 +1094,32 @@ msgid "respondents_for_survey"
 msgstr ""
 
 #. Default: "IP Address"
-#: ../skins/plone_survey/manage_respondents.cpt:96
+#: ../browser/results/respondents_table.pt:8
 #: ../skins/plone_survey/respondents_view.cpt:46
 msgid "respondents_ip"
 msgstr ""
 
 #. Default: "Start"
-#: ../skins/plone_survey/manage_respondents.cpt:97
+#: ../browser/results/respondents_table.pt:9
 #: ../skins/plone_survey/respondents_view.cpt:47
 msgid "respondents_start"
 msgstr ""
 
 #. Default: "Time Taken"
-#: ../skins/plone_survey/manage_respondents.cpt:99
+#: ../browser/results/respondents_table.pt:11
 #: ../skins/plone_survey/respondents_view.cpt:49
 msgid "respondents_time_taken"
 msgstr ""
 
 #. Default: "User Id"
-#: ../skins/plone_survey/manage_respondents.cpt:95
+#: ../browser/results/respondents_table.pt:7
 #: ../skins/plone_survey/respondents_view.cpt:45
 msgid "respondents_userid"
+msgstr ""
+
+#. Default: "Responses:"
+#: ../skins/plone_survey/manage_respondents.cpt:22
+msgid "responses_stats"
 msgstr ""
 
 #. Default: "Save"
@@ -1099,6 +1127,26 @@ msgstr ""
 #: ../skins/plone_survey/survey_view.cpt:87
 msgid "save_button"
 msgstr "Gorde"
+
+#. Default: "Send Invite"
+#: ../skins/plone_survey/manage_respondents.cpt:56
+msgid "send_invite_label"
+msgstr ""
+
+#. Default: "Send Reminder"
+#: ../skins/plone_survey/manage_respondents.cpt:66
+msgid "send_reminder_label"
+msgstr ""
+
+#. Default: "send survey invite"
+#: ../skins/plone_survey/manage_respondents.cpt:90
+msgid "send_survey_invite_label"
+msgstr ""
+
+#. Default: "send survey reminder/invite"
+#: ../skins/plone_survey/manage_respondents.cpt:100
+msgid "send_survey_reminder_label"
+msgstr ""
 
 #. Default: "Submit"
 #. <input class="context" i18n:attributes="value submit_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="not: here/isMultipage" type="submit" value="Submit"/>
@@ -1116,44 +1164,25 @@ msgstr "Hurrengoa"
 #. <legend i18n:translate="survey_reset">
 #. Survey Reset
 #. </legend>
-#: ../skins/plone_survey/survey_reset_form.cpt:16
+#: ../skins/plone_survey/survey_reset_form.cpt:17
 msgid "survey_reset"
 msgstr "Inkesta berrezarri"
-
-#. Default: "Please correct the errors shown"
-#: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:35
-#: ../skins/plone_survey/validate_reset_survey.vpy:8
-#: ../skins/plone_survey/validate_survey.vpy:80
-#, fuzzy
-msgid "text_correct_errors"
-msgstr "Zuzendu adierazitako akatsak"
-
-#. Default: "Survey did not reset correctly"
-#: ../skins/plone_survey/respondents_reset.vpy:17
-#: ../skins/plone_survey/survey_reset.vpy:10
-#, fuzzy
-msgid "text_survey_reset_error"
-msgstr "Inkesta ez da ongi berrezarri"
-
-#. Default: "Survey has been reset"
-#: ../skins/plone_survey/survey_reset.vpy:12
-#, fuzzy
-msgid "text_survey_reset_success"
-msgstr "Inkesta ongi berrezarri da"
-
-#. Default: "${users} have been reset"
-#: ../skins/plone_survey/respondents_reset.vpy:19
-#, fuzzy
-msgid "text_survey_users_reset_error"
-msgstr "${users} erabiltzaile berrezarri dira"
 
 #. Default: "Required"
 #: ../skins/plone_survey/respondent_macros.pt:28
 msgid "title_required"
 msgstr ""
 
+#: ../skins/plone_survey/manage_respondents.cpt:93
+msgid "to all respondents who have not been invited yet."
+msgstr ""
+
+#: ../skins/plone_survey/manage_respondents.cpt:103
+msgid "to all respondents who have not yet responded."
+msgstr ""
+
 #. Default: user
-#: ../skins/plone_survey/html_spreadsheet.pt:13
+#: ../browser/results/html_spreadsheet.pt:13
 msgid "user"
 msgstr "Erabiltzailea"
 
@@ -1161,30 +1190,20 @@ msgstr "Erabiltzailea"
 #. <a i18n:translate="view_comments_in_full" tal:attributes="href string:${here/absolute_url}/comments_view">
 #. view comments in full...
 #. </a>
-#: ../skins/plone_survey/survey_barchart.pt:76
+#: ../browser/results/survey_barchart.pt:76
 msgid "view_comments_in_full"
-msgstr ""
-
-#. Default: "view results as a barchart of dimensions versus score"
-#: ../skins/plone_survey/survey_view_results.pt:30
-msgid "view_dimensions"
-msgstr ""
-
-#. Default: "view results as a barchart of questions versus score"
-#: ../skins/plone_survey/survey_view_results.pt:36
-msgid "view_questions"
 msgstr ""
 
 #. Default: "view respondents"
 #. <a i18n:translate="view_respondents" tal:attributes="href string:${here/absolute_url}/respondents_view">
 #. view respondents
 #. </a>
-#: ../skins/plone_survey/survey_view_results.pt:24
+#: ../browser/results/survey_view_results.pt:24
 msgid "view_respondents"
 msgstr "erantzun dutenak ikusi"
 
 #. Default: "View survey results in a barchart"
-#: ../skins/plone_survey/survey_view_results.pt:18
+#: ../browser/results/survey_view_results.pt:18
 msgid "view_results_barchart"
 msgstr ""
 

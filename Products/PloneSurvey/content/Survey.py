@@ -14,6 +14,7 @@ from AccessControl import ClassSecurityInfo
 from AccessControl import getSecurityManager
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
+from zope.i18n import translate
 
 from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
@@ -34,6 +35,7 @@ from Products.PloneSurvey.interfaces import ISurvey
 from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
 
 from schemata import SurveySchema
+
 
 # Dumb class to work around bug in _getPropertyProviderForUser which
 # causes it to always operate on portal.acl_users
@@ -509,14 +511,20 @@ class Survey(ATCTOrderedFolder):
         properties = self.portal_properties.site_properties
         mTo = self.getSurveyNotificationEmail()
         mFrom = properties.email_from_address
-        mSubj = '[%s] New survey submitted' % self.Title()
+        mSubj = translate(_('[${survey_title}] New survey submitted',
+                            mapping={'survey_title': self.Title()}),
+                context=self.REQUEST)
         message = []
-        message.append('Survey %s.' % self.Title())
-        message.append('has been completed by user: %s.' % userid)
+        message.append(translate(_('Survey ${survey_title}',
+                                 mapping={'survey_title': self.Title()}),
+                        context=self.REQUEST))
+        message.append(translate(_('has been completed by user: ${userid}',
+                                 mapping={'userid': userid}),
+                       context=self.REQUEST))
         message.append(self.absolute_url() + '/@@Products.PloneSurvey.survey_view_results')
         mMsg = '\n\n'.join(message)
         try:
-            self.MailHost.send(mMsg, mTo, mFrom, mSubj)
+            self.MailHost.send(mMsg.encode('utf-8'), mTo, mFrom, mSubj)
         except ConflictError:
             raise
         except:
