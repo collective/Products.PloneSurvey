@@ -68,12 +68,12 @@
                                          tal:repeat="item comments">
                                 <p tal:condition="python:item['comments'].strip()">
                                     <strong tal:content="item/userid">userid:</strong>
-                                    <a tal:attributes="href string:${here/absolute_url}/comments_view#${question/getId}_${item/userid}">
+                                    <a tal:attributes="href string:${here/absolute_url}/@@Products.PloneSurvey.comments_view#${question/getId}_${item/userid}">
                                         <em tal:content="python: item['comments'][:100]" />
                                     </a>
                                 </p>
                             </metal:block>
-                            <a tal:attributes="href string:${here/absolute_url}/comments_view"
+                            <a tal:attributes="href string:${here/absolute_url}/@@Products.PloneSurvey.comments_view"
                                i18n:translate="view_comments_in_full">view comments in full...</a>
                         </div>
                     </td>
