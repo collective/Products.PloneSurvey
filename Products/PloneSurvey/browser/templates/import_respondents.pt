@@ -27,6 +27,7 @@
             <dd tal:content="view/message"></dd>
         </dl>
         <p i18n:translate="import_respondents_from_source">Import respondents from CSV source</p>
+        <p i18n:translate="import_respondents_from_source_help">The file must have exactly two columns, user name and email address, in this order, without headline.</p>
         <div>
             <form method="post" enctype="multipart/form-data">
                 <input type="file" name="frm_csv" value="Upload csv ile"/>
