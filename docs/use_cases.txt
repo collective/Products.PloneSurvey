@@ -42,7 +42,7 @@ Use Case: Allow anonymous users to complete the survey.
 
 Support: Anonymous users can be allowed to complete the survey by selecting allow anonymous. A session cookie is stored to prevent a single anonymous user to respond to the survey multiple times in the same browser session. This allows multiple users using drop in computers to respond to the same survey.
 
-Allowing to respondents to reset their own response is not ideal in this situation, as the anonymous id is easy to discover allowing anonymous users to remove other anonymous users responses.
+Allowing respondents to reset their own response is not ideal in this situation, as the anonymous id is easy to discover allowing anonymous users to remove other anonymous users' responses.
 
 Portal Users
 ------------

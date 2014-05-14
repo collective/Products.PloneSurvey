@@ -1,12 +1,7 @@
 Products.PloneSurvey - A survey tool for Plone
 ============================================================
 
-This package allows users to create a survey or simple form for collecting user's feedback. Surveys can be a simple single page, or a multi page survey with complex branching
-
-Using PloneSurvey
------------------
-Once a survey is added, questions can be added such as select question or 
-
+This package allows users to create a survey or simple form for collecting user's feedback. Surveys can be a simple single page, or a multi page survey with complex branching.
 
 Installation
 ------------
@@ -42,11 +37,11 @@ There is also a permission, `PloneSurvey: View Survey Results`, to grant users a
 
 Respondents can be categorised as one of three kinds.
 
-1. portal members, who must have view permission on the survey in order to be able to complete it.
+1. Portal members, who must have view permission on the survey in order to be able to complete it.
 
 2. Anonymous users, who must have view permission, and you must have enabled the `allow anonymous` option on the survey.
 
-3. Survey respondents, who can be added using the respondents tab on the survey. This allows you to add users with a one time  token to allow a closed survey to be completed by users who are not portal members.
+3. Survey respondents, who can be added using the respondents tab on the survey. This allows you to add users with a one time token to allow a closed survey to be completed by users who are not portal members.
 
 Respondents can be added individually, or can be bulk uploaded by uploading a file using the Import Respondents link under the respondents tab.
 
