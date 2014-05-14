@@ -468,7 +468,7 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
             label=_('label_answer_options', default=u"Answer options"),
             description=_("help_answer_options",
                           default=u"Enter the options you want to be available to the user here. "
-                                  u"Press enter to seperate the options."),
+                                  u"Press enter to separate the options."),
            ),
         ),
 
@@ -536,7 +536,7 @@ SurveyMatrixSchema = BaseQuestionSchema.copy() + Schema((
             label=_("label_answer_options", default=u"Answer options"),
             description=_("help_answer_options",
                           default=u"Enter the options you want to be available to the user here. "
-                                  u"Press enter to seperate the options."),
+                                  u"Press enter to separate the options."),
            ),
         ),
 

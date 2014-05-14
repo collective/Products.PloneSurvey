@@ -416,7 +416,7 @@ msgstr "Los usuarios anónimos podrán cumplimentar la encuesta"
 msgid "help_allow_save"
 msgstr "Permite que los usuarios que hayan iniciado sesión guarden la encuesta para terminarla más tarde."
 
-#. Default: "Enter the options you want to be available to the user here. Press enter to seperate the options."
+#. Default: "Enter the options you want to be available to the user here. Press enter to separate the options."
 #: ../content/schemata.py:469
 msgid "help_answer_options"
 msgstr "Introduzca aquí las opciones que desea que estén disponibles para el usuario (una opción por línea)."

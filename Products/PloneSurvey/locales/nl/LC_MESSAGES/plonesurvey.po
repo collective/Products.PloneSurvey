@@ -412,7 +412,7 @@ msgid "help_allow_save"
 msgstr "Sta ingelogde gebruikers toe om een enquête op te slaan zodat ze deze later kunnen afmaken."
 
 #. 
-#. Default: "Enter the options you want to be available to the user here. Press enter to seperate the options."
+#. Default: "Enter the options you want to be available to the user here. Press enter to separate the options."
 #: ../content/schemata.py:469
 msgid "help_answer_options"
 msgstr "Voer de opties in die u hier aan de geënquêteerde beschikbaar wil stellen. Druk op enter om de opties te scheiden."

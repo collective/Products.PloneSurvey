@@ -164,7 +164,7 @@ msgstr ""
 msgid "help_allow_save"
 msgstr ""
 
-#. Default: "Enter the options you want to be available to the user here. Press enter to seperate the options."
+#. Default: "Enter the options you want to be available to the user here. Press enter to separate the options."
 #: ../content/schemata.py:469
 msgid "help_answer_options"
 msgstr ""

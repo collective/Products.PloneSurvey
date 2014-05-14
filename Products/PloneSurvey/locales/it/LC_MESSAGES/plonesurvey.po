@@ -376,7 +376,7 @@ msgid "help_allow_save"
 msgstr "Permetti agli utenti autenticati di salvare il questionario per finirlo in seguito."
 
 #. 
-#. Default: "Enter the options you want to be available to the user here. Press enter to seperate the options."
+#. Default: "Enter the options you want to be available to the user here. Press enter to separate the options."
 #: ../content/schemata.py:469
 msgid "help_answer_options"
 msgstr "Immetti qui le opzioni da rendere disponibili all'utente. Premi invio per separare le opzioni."
