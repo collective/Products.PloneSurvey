@@ -16,7 +16,7 @@ setup(name='Products.PloneSurvey',
         ],
       keywords='Plone, Survey',
       author='Michael Davis',
-      author_email='m.r.davis@cranfield.ac.uk',
+      author_email='m.r.davis@me.com',
       url='http://plone.org/products/plonesurvey',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
@@ -35,3 +35,4 @@ setup(name='Products.PloneSurvey',
       # -*- Entry points: -*-
       """,
       )
+

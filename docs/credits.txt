@@ -49,7 +49,7 @@ Translations
   Radim Novotny, "CoreNet Solutions":mailto:radim.novotny@corenet.cz
 
   German translation
-  Eggert Ehmke, Sven Deichmann
+  Eggert Ehmke, Sven Deichmann, Michael Bunk
 
   Polish translation and i18n fixs
   Piotr Furman - webservice.pl
