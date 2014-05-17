@@ -50,7 +50,7 @@ class TestAnonymousId(unittest.TestCase):
         logout()
         userid = s1.getSurveyId()
         expected_userid = 'Anonymous' + '@' + str(now)
-        assert userid[:-9] == expected_userid[:-9], "Anonymous id generation not working - %s" % userid
+        assert userid[:-12] == expected_userid[:-12], "Anonymous id generation not working - %s, %s" % (userid, expected_userid)
 
 class TestNoCookiesWorks(unittest.TestCase):
     """Ensure survey can be answered with no cookies enabled"""
@@ -137,4 +137,4 @@ class TestReturnsFirstPage(unittest.TestCase):
         logout()
         userid = s1.getSurveyId()
         expected_userid = 'Anonymous' + '@' + str(now)
-        assert userid[:-9] == expected_userid[:-9], "Anonymous id generation not working - %s" % userid
+        assert userid[:-12] == expected_userid[:-12], "Anonymous id generation not working - %s, %s" % (userid, expected_userid)
