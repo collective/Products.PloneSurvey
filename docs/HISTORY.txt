@@ -1,8 +1,12 @@
 Changelog for Products.PloneSurvey
 ==================================
 
-1.4.7 - Unreleased
+1.4.7 - 2014-05-17
 ------------------
+
+  * Write a buildout and setup travis [Michael Davis]
+
+  * German translation [Michael Bunk]
 
   * updated Spanish translation
     [Manuel Gualda Caballero]
