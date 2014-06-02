@@ -17,6 +17,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.PloneSurvey import permissions
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
 
+
 class BaseQuestion(ATCTContent):
     """Base class for survey questions"""
     immediate_view = "base_edit"
@@ -56,8 +57,11 @@ class BaseQuestion(ATCTContent):
             elif getattr(ob, '_isPortalRoot', False):
                 raise Exception("Could not find a parent Survey.")
         portal_membership = getToolByName(self, 'portal_membership')
-        if portal_membership.isAnonymousUser() and not survey.getAllowAnonymous():
-            raise Unauthorized, ("This survey is not available to anonymous users.")
+        if portal_membership.isAnonymousUser() \
+           and not survey.getAllowAnonymous():
+            raise Unauthorized(
+                "This survey is not available to anonymous users."
+            )
         userid = self.getSurveyId()
         # Call the real method for storing the answer for this user.
         return self._addAnswer(userid, value, comments)
@@ -72,7 +76,8 @@ class BaseQuestion(ATCTContent):
 ##        if self.answers.has_key(userid):
 ##            # XXX Should this get raised?  If so, a more appropriate
 ##            # exception is probably in order.
-##            msg = "User '%s' has already answered this question. Reset the original response to supply a new answer."
+##            msg = "User '%s' has already answered this question.
+##                   Reset the original response to supply a new answer."
 ##            raise Exception(msg % userid)
 ##        else:
         self.answers[userid] = PersistentMapping(value=value,
@@ -120,12 +125,12 @@ class BaseQuestion(ATCTContent):
         foo = (_(u'Yes'), _(u'No'))
         translation_service = getToolByName(self,'translation_service')
         return (translation_service.utranslate(domain='plonesurvey',
-                                             msgid=u'Yes',
+                                               msgid=u'Yes',
                                              context=self),
                 translation_service.utranslate(domain='plonesurvey',
                                              msgid=u'No',
                                              context=self),
-                )
+        )
 
     security.declarePrivate('_get_commentLabel_default')
     def _get_commentLabel_default(self):

@@ -1,4 +1,3 @@
-import datetime
 import string
 import csv
 import os
@@ -19,12 +18,12 @@ from zope.i18n import translate
 from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
-from Products.ATContentTypes.utils import dt2DT, DT2dt
+from Products.ATContentTypes.utils import DT2dt
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.exceptions import BadRequest
-from Products.CMFPlone import PloneMessageFactory
 
-from Products.PluggableAuthService.PluggableAuthService import addPluggableAuthService
+from Products.PluggableAuthService.PluggableAuthService \
+    import addPluggableAuthService
 from Products.PlonePAS.Extensions.Install import *
 
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
@@ -121,14 +120,14 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.View, 'isMultipage')
     def isMultipage(self):
         """Return true if there is more than one page in the survey"""
-        if self.getFolderContents(contentFilter={'portal_type':'Sub Survey',}):
+        if self.getFolderContents(contentFilter={'portal_type': 'Sub Survey'}):
             return True
 
     security.declareProtected(permissions.View, 'getQuestions')
     def getQuestions(self):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(
-            contentFilter={'portal_type':[
+            contentFilter={'portal_type': [
                 'Survey Date Question',
                 'Survey Matrix',
                 'Survey Select Question',
@@ -143,12 +142,16 @@ class Survey(ATCTOrderedFolder):
         portal_catalog = getToolByName(self, 'portal_catalog')
         questions = []
         path = string.join(self.getPhysicalPath(), '/')
-        results = portal_catalog.searchResults(portal_type = ['Survey Date Question',
-                                                              'Survey Matrix Question',
-                                                              'Survey Select Question',
-                                                              'Survey Text Question',],
-                                               path = path,
-                                               order = 'getObjPositionInParent')
+        results = portal_catalog.searchResults(
+            portal_type=[
+                'Survey Date Question',
+                'Survey Matrix Question',
+                'Survey Select Question',
+                'Survey Text Question'
+            ],
+            path=path,
+            order='getObjPositionInParent'
+        )
         for result in results:
             questions.append(result.getObject())
         return questions
