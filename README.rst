@@ -1,7 +1,8 @@
 Products.PloneSurvey - A survey tool for Plone
 ==============================================
 
-This package allows users to create a survey or simple form for collecting user's feedback. Surveys can be a simple single page, or a multi page survey with complex branching.
+This package allows users to create a survey or simple form for collecting user's feedback: on a course, simple data collection etc..
+Surveys can be a simple single page, or a multi page survey with complex branching.
 
 Installation
 ------------
@@ -14,9 +15,7 @@ To install the package, list it in the ``eggs`` line in buildout.cfg, e.g.::
         ...
         Products.PloneSurvey
 
-Alternatively, use one of the buildouts in the `buildout directory <http://svn.plone.org/svn/collective/Products.PloneSurvey/buildout/>`_
-
-Once you have the package installed, you need to use the Portal Quick Installer to install it into your Plone site.
+Once you have the package installed, you need to use the activate it in the Site-Setups ``Add-ons`` sections to install it into your Plone site.
 
 Usage
 -----
@@ -33,7 +32,7 @@ You can reset the survey completely, which will remove all answers to all questi
 
 Anonymous users are tracked with a cookie, so they will be unable to complete the survey more than once. However, if the anonymous user closes their browser and reopens the survey, they will be able to complete the survey as a new anonymous user. This is to support multiple user computers such as drop in computers within Libraries. The IP address is tracked, so users trying to spam the survey can be spotted within the results and these could be reset by the survey administrator.
 
-There is also a permission, `PloneSurvey: View Survey Results`, to grant users access to the results of the survey. This has not been fully tested and may not work as expected.
+There is also a permission, ``PloneSurvey: View Survey Results``, to grant users access to the results of the survey. This has not been fully tested and may not work as expected.
 
 Respondents can be categorised as one of three kinds.
 
@@ -45,9 +44,20 @@ Respondents can be categorised as one of three kinds.
 
 Respondents can be added individually, or can be bulk uploaded by uploading a file using the Import Respondents link under the respondents tab.
 
+See also: `Plone Product Page for PloneSurvey <http://plone.org/products/plonesurvey>`_.
+
+
 Known Issues
 ------------
 
 The save functionality does not work reliably, and should not be used.
 
 The confidential option on the survey does not do anything yet, and respondent's personal data is still saved to the system.
+
+
+Source Code
+-----------
+
+The sources are in a GIT DVCS with its main master branch at `github <http://github.com/collective/Products.PloneSurvey>`_.
+
+We'd be happy to see many commits, forks and pull-requests to make it even better.

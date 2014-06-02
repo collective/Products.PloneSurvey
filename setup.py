@@ -1,38 +1,45 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
+
 import os
 
-version = open(os.path.join("Products", "PloneSurvey", "version.txt")).read().strip()
+version = open(
+    os.path.join("Products", "PloneSurvey", "version.txt")
+).read().strip()
 
-setup(name='Products.PloneSurvey',
-      version=version,
-      description="Plone Survey is a simple product written to collect data from people - feedback on a course, simple data collection etc.",
-      long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
-      classifiers=[
+description = "Plone Survey is an addon collecting data from people."
+
+longdesc = open("README.rst").read()
+longdesc += open(os.path.join("docs", "HISTORY.rst")).read()
+
+setup(
+    name='Products.PloneSurvey',
+    version=version,
+    description=description,
+    long_description=longdesc,
+    classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
-        ],
-      keywords='Plone, Survey',
-      author='Michael Davis',
-      author_email='m.r.davis@me.com',
-      url='http://plone.org/products/plonesurvey',
-      license='GPL',
-      packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['Products'],
-      include_package_data=True,
-      zip_safe=False,
-      install_requires=[
-          'setuptools',
-          'Products.CMFPlone',
-          'z3c.rml',
-      ],
-      extras_require={
-          "test": ["plone.app.testing",],
-      },
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
-      )
-
+    ],
+    keywords='Plone, Survey',
+    author='Michael Davis',
+    author_email='m.r.davis@me.com',
+    url='http://plone.org/products/plonesurvey',
+    license='GPL',
+    packages=find_packages(exclude=['ez_setup']),
+    namespace_packages=['Products'],
+    include_package_data=True,
+    zip_safe=False,
+    install_requires=[
+        'setuptools',
+        'Products.CMFPlone',
+        'z3c.rml',
+    ],
+    extras_require={
+        "test": ["plone.app.testing"],
+    },
+    entry_points="""
+    # -*- Entry points: -*-
+    """,
+)

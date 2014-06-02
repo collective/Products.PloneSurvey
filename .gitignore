@@ -29,6 +29,7 @@ lib/
 parts/
 dist/
 var/
+local/
 
 # OSX
 .DS_Store
