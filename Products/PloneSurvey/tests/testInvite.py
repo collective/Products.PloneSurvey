@@ -3,6 +3,7 @@ import unittest2 as unittest
 from base import INTEGRATION_Mail_TESTING
 from base import loadRespondents
 
+
 class TestEmail(unittest.TestCase):
     """Test email formatted and sent"""
     layer = INTEGRATION_Mail_TESTING
@@ -33,13 +34,13 @@ class TestEmail(unittest.TestCase):
         assert 'login_form_bridge?email=user1@here.com' in first_message
         assert expected_string in first_message
 
+
 class TestSendMethods(unittest.TestCase):
     """Test send method"""
     layer = INTEGRATION_Mail_TESTING
 
     def setUp(self):
         self.portal = self.layer['portal']
-        s1 = getattr(self.portal, 's1')
         loadRespondents(self.portal)
 
     def testSingleSend(self):
@@ -107,24 +108,24 @@ class TestSendMethods(unittest.TestCase):
 #        assert len(messages) == 2, len(messages)
 #        assert number_sent == 1
 
+
 class TestRegisterSent(unittest.TestCase):
     """Test send method registers a respondent as being sent an email"""
     layer = INTEGRATION_Mail_TESTING
 
     def setUp(self):
         self.portal = self.layer['portal']
-        s1 = getattr(self.portal, 's1')
         loadRespondents(self.portal)
 
     def testRegisterMethod(self):
         """Test the register method works correctly"""
         s1 = getattr(self.portal, 's1')
         respondent = s1.getAuthenticatedRespondent('user2@here.com')
-        assert respondent.has_key('email_sent')
+        assert 'email_sent' in respondent
         assert respondent['email_sent'] == ''
         s1.registerRespondentSent('user2@here.com')
         respondent = s1.getAuthenticatedRespondent('user2@here.com')
-        assert respondent.has_key('email_sent')
+        assert 'email_sent' in respondent
         assert len(respondent['email_sent']) > 0
 
     def testSingleSend(self):
@@ -132,8 +133,9 @@ class TestRegisterSent(unittest.TestCase):
         s1 = getattr(self.portal, 's1')
         s1.sendSurveyInvite('user2@here.com')
         respondent = s1.getAuthenticatedRespondent('user2@here.com')
-        assert respondent.has_key('email_sent')
+        assert 'email_sent' in respondent
         assert len(respondent['email_sent']) > 0
+
 
 class TestSentFrom(unittest.TestCase):
     """Test email is sent from correct address"""
@@ -141,16 +143,16 @@ class TestSentFrom(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        s1 = getattr(self.portal, 's1')
         loadRespondents(self.portal)
 
     def testDefaultFrom(self):
         """Default should come from site admin"""
         s1 = getattr(self.portal, 's1')
         s1.sendSurveyInvite('user2@here.com')
-        messages = self.portal.MailHost.messages
+        # messages = self.portal.MailHost.messages
         # XXX this does not fall over to the portal administrator
-        #assert 'From: "Portal Administrator" <postmaster@localhost>' in messages[0]
+        # assert 'From: "Portal Administrator" <postmaster@localhost>' \
+        #     in messages[0]
 
     def testSurveyFrom(self):
         """Test email from survey manager"""

@@ -6,6 +6,7 @@ from plone.app.testing import TEST_USER_ID, setRoles
 
 from base import INTEGRATION_TESTING
 
+
 class testRespondentsCreated(unittest.TestCase):
     """Ensure respondents details correctly converted"""
     layer = INTEGRATION_TESTING
@@ -28,7 +29,6 @@ class testRespondentsCreated(unittest.TestCase):
     def testRespondentsView(self):
         """Ensure template does not raise an error with a respondent"""
         s1 = getattr(self.portal, 's1')
-        userid = s1.getSurveyId()
         questions = s1.getQuestions()
         for question in questions:
             question.addAnswer('Answer')

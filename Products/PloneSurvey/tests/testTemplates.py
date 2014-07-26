@@ -3,9 +3,12 @@ import unittest2 as unittest
 from ZPublisher.BaseRequest import BaseRequest as Request
 
 from plone.app.testing import TEST_USER_ID, setRoles
-from plone.app.testing import login, logout
+from plone.app.testing import logout
 
-from base import INTEGRATION_TESTING, INTEGRATION_ANON_SURVEY_TESTING, INTEGRATION_BRANCHING_TESTING
+from base import INTEGRATION_TESTING
+from base import INTEGRATION_ANON_SURVEY_TESTING
+from base import INTEGRATION_BRANCHING_TESTING
+
 
 class TestTemplatesWork(unittest.TestCase):
     """Ensure templates work correctly"""
@@ -36,6 +39,7 @@ class TestTemplatesWork(unittest.TestCase):
         result = s1.respondents_view(REQUEST=Request())
         self.assertEqual(result.find('Error Type') >= 0, False)
 
+
 class TestSubSurveyView(unittest.TestCase):
     """Ensure survey view works with multipe value matrix question"""
     layer = INTEGRATION_BRANCHING_TESTING
@@ -50,6 +54,7 @@ class TestSubSurveyView(unittest.TestCase):
         result = s1.ss1.survey_view(REQUEST=Request())
         # XXX this should test that page is redirected to first page
         self.assertEqual(result.find('Error Type') >= 0, False)
+
 
 class TestSurveyViewWithMultipleMatrix(unittest.TestCase):
     """Ensure survey view works with multipe value matrix question"""
@@ -71,6 +76,7 @@ class TestSurveyViewWithMultipleMatrix(unittest.TestCase):
         s1 = getattr(self.portal, 's1')
         result = s1.survey_view(REQUEST=Request())
         self.assertEqual(result.find('Error Type') >= 0, False)
+
 
 class TestAnonSurveyView(unittest.TestCase):
     """Ensure anonoymous can see the survey"""
