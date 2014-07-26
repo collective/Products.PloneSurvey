@@ -1,10 +1,9 @@
 from Products.Archetypes.public import process_types, listTypes
-from Products.CMFCore.utils import ContentInit, ToolInit
+from Products.CMFCore.utils import ContentInit
 from Products.CMFCore.DirectoryView import registerDirectory
-from Products.CMFPlone.interfaces import IPloneSiteRoot
-from Products.GenericSetup import EXTENSION, profile_registry
 
-# Import "PloneSurveyMessageFactory as _" to create messages in plonesurvey domain
+# Import "PloneSurveyMessageFactory as _" to create messages
+#in plonesurvey domain
 from zope.i18nmessageid import MessageFactory
 PloneSurveyMessageFactory = MessageFactory('plonesurvey')
 
