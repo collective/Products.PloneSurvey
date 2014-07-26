@@ -34,7 +34,8 @@ setup(
     install_requires=[
         'setuptools',
         'Products.CMFPlone',
-        'z3c.rml',
+        'z3c.rml<2.6.0',
+        'reportlab<3.0',
     ],
     extras_require={
         "test": ["plone.app.testing"],
