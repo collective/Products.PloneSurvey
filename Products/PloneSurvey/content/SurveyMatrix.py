@@ -1,11 +1,9 @@
-import string
 from AccessControl import ClassSecurityInfo
 from BTrees.OOBTree import OOBTree
 
 from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
-from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 
 from Products.PloneSurvey import permissions
@@ -14,6 +12,7 @@ from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.content.BaseQuestion import BaseQuestion
 
 from schemata import SurveyMatrixSchema
+
 
 class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
     """A matrix of questions within a survey"""
@@ -28,6 +27,7 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
     answers = OOBTree()
 
     security.declareProtected(permissions.View, 'validateAnswer')
+
     def validateAnswer(self, form, state):
         """Validate the question"""
         matrix_questions = self.getQuestions()
@@ -47,16 +47,19 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
             state.setError(self.getId(), "%s %s" % (error_msg, error_string))
 
     security.declarePublic('canSetDefaultPage')
+
     def canSetDefaultPage(self):
         """Doesn't make sense for surveys to allow alternate views"""
         return False
 
     security.declarePublic('canConstrainTypes')
+
     def canConstrainTypes(self):
         """Should not be able to add non survey types"""
         return False
 
     security.declareProtected(permissions.View, 'getRequired')
+
     def getRequired(self):
         """Return 1 or 0 depending on if a null value exists"""
         if self.getNullValue():
@@ -65,6 +68,7 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
             return 1
 
     security.declareProtected(permissions.View, 'getQuestionOptions')
+
     def getQuestionOptions(self):
         """Return the options for this question"""
         if self.getLikertOptions():
@@ -82,12 +86,11 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
         return self.getAnswerOptions()
 
     security.declareProtected(permissions.View, 'getQuestions')
+
     def getQuestions(self):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(
-            contentFilter={'portal_type':[
-                'Survey Matrix Question',
-                ]},
+            contentFilter={'portal_type' : ['Survey Matrix Question', ]},
             full_objects=True)
         return questions
 

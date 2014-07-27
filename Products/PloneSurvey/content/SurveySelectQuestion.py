@@ -12,6 +12,7 @@ from Products.PloneSurvey.interfaces import IPloneSurveyQuestion
 from BaseQuestion import BaseQuestion
 from schemata import SurveySelectQuestionSchema
 
+
 class SurveySelectQuestion(BaseQuestion):
     """A question with select vocab within a survey"""
     schema = SurveySelectQuestionSchema
@@ -23,6 +24,7 @@ class SurveySelectQuestion(BaseQuestion):
     security = ClassSecurityInfo()
 
     security.declareProtected(permissions.View, 'validateAnswer')
+
     def validateAnswer(self, value, comments, state):
         """Validate the question"""
         validates = True
@@ -38,7 +40,7 @@ class SurveySelectQuestion(BaseQuestion):
                     self.addAnswer(value, comments)
                 else:
                     state.setError(self.getId(), "This is not one of the answer options")
-            else: # value is a list
+            else:  # value is a list
                 if self.getLikertOptions():
                     new_value = []
                     for item in value:
@@ -54,7 +56,7 @@ class SurveySelectQuestion(BaseQuestion):
                     if not item_value in self.getQuestionOptions():
                         validates = False
                 if not validates:
-                        #state.setError(self.getId(), "This is not one of the answer options-2")
+                        # state.setError(self.getId(), "This is not one of the answer options-2")
                         state.setError(self.getId(), str(value) + str(self.getQuestionOptions()))
                 else:
                     self.addAnswer(value, comments)
@@ -64,6 +66,7 @@ class SurveySelectQuestion(BaseQuestion):
             self.addAnswer(value, comments)
 
     security.declareProtected(permissions.View, 'getRequired')
+
     def getRequired(self):
         """Return 1 or 0 depending on if a null value exists"""
         if self.getNullValue():
@@ -72,6 +75,7 @@ class SurveySelectQuestion(BaseQuestion):
             return 1
 
     security.declareProtected(permissions.View, 'getQuestionOptions')
+
     def getQuestionOptions(self):
         """Return the options for this question"""
         if self.getLikertOptions():
@@ -89,6 +93,7 @@ class SurveySelectQuestion(BaseQuestion):
         return self.getAnswerOptions()
 
     security.declareProtected(permissions.View, 'getAggregateAnswers')
+
     def getAggregateAnswers(self):
         """Return a mapping of aggregrate answer values,
         suitable for a histogram"""
@@ -114,16 +119,17 @@ class SurveySelectQuestion(BaseQuestion):
         return aggregate_answers
 
     security.declareProtected(permissions.View, 'getPercentageAnswers')
+
     def getPercentageAnswers(self):
         """Return a mapping of aggregrate answer values,
         suitable for a barchart"""
         max = 0
         aggregate_answers = self.getAggregateAnswers()
-        for k,v in aggregate_answers.items():
+        for k, v in aggregate_answers.items():
             if v > max:
                 max = v
         pct_aggregate_answers = {}
-        for k,v in aggregate_answers.items():
+        for k, v in aggregate_answers.items():
             if v == 0:
                 value = 0
             else:
@@ -132,14 +138,15 @@ class SurveySelectQuestion(BaseQuestion):
         return pct_aggregate_answers
 
     security.declareProtected(permissions.View, 'getPercentages')
+
     def getPercentages(self):
         """Return a mapping of percentages for each answer"""
         total = 0
         aggregate_answers = self.getAggregateAnswers()
-        for k,v in aggregate_answers.items():
+        for k, v in aggregate_answers.items():
             total = v + total
         pct_answers = {}
-        for k,v in aggregate_answers.items():
+        for k, v in aggregate_answers.items():
             if v == 0:
                 value = 0
             else:

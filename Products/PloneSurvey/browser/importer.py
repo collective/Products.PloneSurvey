@@ -30,7 +30,7 @@ class importerRespondentsView(BrowserView):
             fullname = x[0]
             email = x[1]
             self.context.addAuthenticatedRespondent(email,
-                                            fullname=fullname)
+                                                    fullname=fullname)
 
         self.message = _("Done importing respondents")
 

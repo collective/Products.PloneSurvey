@@ -14,8 +14,6 @@ from Products.PloneSurvey.interfaces import ISurveyTextQuestion
 
 from schemata import SurveyTextQuestionSchema
 
-#from zope.i18nmessageid import MessageFactory
-from zope.i18n import translate
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
 
 
@@ -30,6 +28,7 @@ class SurveyTextQuestion(BaseQuestion):
     security = ClassSecurityInfo()
 
     security.declareProtected(permissions.View, 'validateAnswer')
+
     def validateAnswer(self, value, state):
         """Validate the question"""
         if len(value) > self.getMaxLength():
@@ -38,13 +37,14 @@ class SurveyTextQuestion(BaseQuestion):
                 default='Answer too long, must have less characters than: ',
                 msgid='answer-too-long',
                 domain='plonesurvey')
-            
-            state.setError(self.getId(), answertoolong + \
+
+            state.setError(self.getId(), answertoolong +
                            str(self.getMaxLength()))
         else:
             self.addAnswer(value)
 
     security.declareProtected(permissions.View, 'getValidators')
+
     def getValidators(self):
         """Return a list of validators"""
         validator_list = ['None', ]
@@ -52,6 +52,7 @@ class SurveyTextQuestion(BaseQuestion):
         return validator_list
 
     security.declareProtected(permissions.View, 'validateQuestion')
+
     def validateQuestion(self, value):
         """Return a list of validators"""
         validator = self.getValidation()

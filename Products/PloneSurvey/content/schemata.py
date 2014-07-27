@@ -2,47 +2,54 @@
 
 from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
-from Products.ATContentTypes.lib.constraintypes import ConstrainTypesMixinSchema
+from Products.ATContentTypes.lib.constraintypes \
+    import ConstrainTypesMixinSchema
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
 from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import *
 
-SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
-    
-    TextField('body',
+SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + \
+    Schema((
+
+    TextField(
+        'body',
         searchable = 1,
         required=0,
         schemata="Introduction",
-        default_content_type    = 'text/html',
-        default_output_type     = 'text/html',
+        default_content_type='text/html',
+        default_output_type='text/html',
         allowable_content_types=('text/plain',
                                  'text/structured',
-                                 'text/html',
-                                ),
-        widget = RichWidget(label = _('label_introduction',
-                                      default=u"Introduction"),
-                            description = _('help_introduction',
-                                            default=u"Enter an introduction for the survey."),
-                            rows = 5,
-                           ),
-        ),
+                                 'text/html', ),
+        widget=RichWidget(
+            label=_(
+                'label_introduction',
+                default=u"Introduction"),
+                description = _('help_introduction',
+                default=u"Enter an introduction for the survey."),
+                    rows = 5,
+            ),
+    ),
 
-    TextField('thankYouMessage',
+    TextField(
+        'thankYouMessage',
         required=0,
         searchable=0,
         default_method="translateThankYouMessage",
         widget=TextAreaWidget(
-            label=_("label_thank",
-                    default="'Thank you' message text"),
-            description=_('help_thankyou',
-                          default=u"This is the message that will be displayed to the "
-                                  u"user when they complete the survey."),
-           ),
-        ),
+            label=_(
+                "label_thank",
+                default="'Thank you' message text"),
+                description=_('help_thankyou',
+                    default=u"This is the message that will be displayed to "
+                            u"the user when they complete the survey."),
+            ),
+    ),
 
-    TextField('savedMessage',
+    TextField(
+        'savedMessage',
         required=0,
         searchable=0,
         default_method="translateSavedMessage",
@@ -55,7 +62,8 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
            ),
         ),
 
-    StringField('exitUrl',
+    StringField(
+        'exitUrl',
         required=0,
         searchable=0,
         widget=StringWidget(
@@ -68,7 +76,8 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
           ),
         ),
 
-    BooleanField('confidential',
+    BooleanField(
+        'confidential',
         searchable=0,
         required=0,
         widget=BooleanWidget(
@@ -78,7 +87,8 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
           ),
         ),
 
-    BooleanField('allowAnonymous',
+    BooleanField(
+        'allowAnonymous',
         searchable=0,
         required=0,
         widget=BooleanWidget(
@@ -88,7 +98,8 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
           ),
         ),
 
-    BooleanField('allowSave',
+    BooleanField(
+        'allowSave',
         searchable=0,
         required=0,
         widget=BooleanWidget(
@@ -98,7 +109,8 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
           ),
         ),
 
-    StringField('surveyNotificationEmail',
+    StringField(
+        'surveyNotificationEmail',
         required=0,
         searchable=0,
         widget=StringWidget(
@@ -109,7 +121,8 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
           ),
         ),
 
-    StringField('surveyNotificationMethod',
+    StringField(
+        'surveyNotificationMethod',
         required=0,
         searchable=0,
         vocabulary=NOTIFICATION_METHOD,
@@ -120,14 +133,16 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
            ),
         ),
 
-    StringField('completedFor',
+    StringField(
+        'completedFor',
         searchable=0,
         required=0,
         default=[],
         widget=StringWidget(visible=0,),
         ),
 
-    BooleanField('showCaptcha',
+    BooleanField(
+        'showCaptcha',
         searchable=0,
         required=0,
         widget=BooleanWidget(
@@ -135,20 +150,21 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
           ),
         ),
 
-    TextField('emailInvite',
+    TextField(
+        'emailInvite',
         searchable = 1,
-        required = 0,
-        schemata = "Email Invite",
-        default_method = "_get_emailInvite_default",
-        default_content_type    = 'text/html',
-        default_output_type     = 'text/html',
+        required=0,
+        schemata="Email Invite",
+        default_method="_get_emailInvite_default",
+        default_content_type='text/html',
+        default_output_type='text/html',
         allowable_content_types=('text/plain',
                                  'text/structured',
                                  'text/html',
                                 ),
-        widget = RichWidget(
-            label = _('label_email_invite', default=u"Email Invite"),
-            description = _('help_email_invite',
+        widget=RichWidget(
+            label=_('label_email_invite', default=u"Email Invite"),
+            description=_('help_email_invite',
                             default=u"An email invite will be sent to loaded respondents, "
                                     u"use '**Name**' for the respondents name, "
                                     u"and '**Survey**' for the title of the survey as a link "
@@ -157,8 +173,9 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
             ),
     ),
 
-    StringField('inviteFromName',
-        schemata = "Email Invite",
+    StringField(
+        'inviteFromName',
+        schemata="Email Invite",
         required=0,
         searchable=0,
         widget=StringWidget(
@@ -168,8 +185,9 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
           ),
         ),
 
-    StringField('inviteFromEmail',
-        schemata = "Email Invite",
+    StringField(
+        'inviteFromEmail',
+        schemata="Email Invite",
         required=0,
         searchable=0,
         widget=StringWidget(
@@ -183,14 +201,15 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
 ))
 
 finalizeATCTSchema(SurveySchema, moveDiscussion=False)
-SurveySchema["description"].widget.label = _("label_description", default=u"Survey description")
+SurveySchema["description"].widget.label=_("label_description", default=u"Survey description")
 SurveySchema["description"].widget.description = _("help_description",
                                                    default=u"Add a short description of the survey here.")
 del SurveySchema["relatedItems"]
 
 SubSurveySchema = ATContentTypeSchema.copy() + Schema((
 
-    StringField('requiredQuestion',
+    StringField(
+        'requiredQuestion',
         schemata="Branching",
         searchable=0,
         required=0,
@@ -204,7 +223,8 @@ SubSurveySchema = ATContentTypeSchema.copy() + Schema((
            ),
         ),
 
-    StringField('requiredAnswer',
+    StringField(
+        'requiredAnswer',
         schemata="Branching",
         searchable=0,
         required=0,
@@ -217,7 +237,8 @@ SubSurveySchema = ATContentTypeSchema.copy() + Schema((
           ),
         ),
 
-    BooleanField('requiredAnswerYesNo',
+    BooleanField(
+        'requiredAnswerYesNo',
         schemata="Branching",
         searchable=0,
         required=0,
@@ -233,14 +254,15 @@ SubSurveySchema = ATContentTypeSchema.copy() + Schema((
     ))
 
 finalizeATCTSchema(SubSurveySchema, moveDiscussion=False)
-SubSurveySchema["description"].widget.label = _("label_description", default=u"Survey description")
+SubSurveySchema["description"].widget.label=_("label_description", default=u"Survey description")
 SubSurveySchema["description"].widget.description = _("help_description",
                                                       default=u"Add a short description of the survey here.")
 del SubSurveySchema["relatedItems"]
 
 BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
 
-    BooleanField('required',
+    BooleanField(
+        'required',
         searchable=0,
         required=0,
         default=1,
@@ -252,7 +274,8 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
            ),
         ),
 
-    StringField('commentType',
+    StringField(
+        'commentType',
         schemata="Comment Field",
         searchable=0,
         required=0,
@@ -265,7 +288,8 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
           )
         ),
 
-    StringField('commentLabel',
+    StringField(
+        'commentLabel',
         schemata="Comment Field",
         searchable=0,
         required=0,
@@ -276,7 +300,8 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
           )
         ),
 
-    TextField('body',
+    TextField(
+        'body',
         schemata="Text Block",
         searchable=0,
         required=0,
@@ -291,7 +316,8 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
            ),
         ),
 
-    IntegerField('textLocation',
+    IntegerField(
+        'textLocation',
         schemata="Text Block",
         searchable=0,
         required=0,
@@ -308,54 +334,64 @@ BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((
     ))
 
 BaseQuestionSchema["title"].widget.label = "Question"
-BaseQuestionSchema["description"].widget.label = _("label_question_description", default=u"Description")
+BaseQuestionSchema["description"].widget.label=_("label_question_description", default=u"Description")
 BaseQuestionSchema["description"].widget.description = _("help_question_description",
                                                          default=u"Add a long description of the question here, to clarify any details.")
 
 SurveyDateQuestionSchema = BaseQuestionSchema.copy() + Schema((
 
-    BooleanField('showYMD',
-        storage = AnnotationStorage(),
+    BooleanField(
+        'showYMD',
+        storage=AnnotationStorage(),
         searchable=0,
         required=0,
         widget=BooleanWidget(
-            label=_("label_showymd", default=u"Show date"),
+            label=_("label_showymd",
+            default=u"Show date"),
         ),
     ),
 
-    BooleanField('showHM',
-        storage = AnnotationStorage(),
+    BooleanField(
+        'showHM',
+        storage=AnnotationStorage(),
         searchable=0,
         required=0,
         widget=BooleanWidget(
-            label=_("label_showhm", default=u"Show hours and minutes"),
+            label=_("label_showhm",
+            default=u"Show hours and minutes"),
         ),
     ),
 
-    IntegerField('startingYear',
-        storage = AnnotationStorage(),
+    IntegerField(
+        'startingYear',
+        storage=AnnotationStorage(),
         searchable=0,
         required=0,
         widget=IntegerWidget(
-            label=_("label_startingyear", default=u"Starting Year"),
+            label=_("label_startingyear",
+            default=u"Starting Year"),
         ),
     ),
 
-    IntegerField('endingYear',
-        storage = AnnotationStorage(),
+    IntegerField(
+        'endingYear',
+        storage=AnnotationStorage(),
         searchable=0,
         required=0,
         widget=IntegerWidget(
-            label=_("label_endingyear", default=u"Ending Year"),
+            label=_("label_endingyear",
+            default=u"Ending Year"),
         ),
     ),
 
-    IntegerField('futureYears',
-        storage = AnnotationStorage(),
+    IntegerField(
+        'futureYears',
+        storage=AnnotationStorage(),
         searchable=0,
         required=0,
         widget=IntegerWidget(
-            label=_("label_futureyears", default=u"Future Years"),
+            label=_("label_futureyears",
+            default=u"Future Years"),
         ),
     ),
 
@@ -364,11 +400,12 @@ SurveyDateQuestionSchema = BaseQuestionSchema.copy() + Schema((
 finalizeATCTSchema(SurveyDateQuestionSchema, moveDiscussion=False)
 del SurveyDateQuestionSchema['commentType']
 del SurveyDateQuestionSchema['commentLabel']
-del SurveyDateQuestionSchema["relatedItems"]
+del SurveyDateQuestionSchema['relatedItems']
 
 SurveyTextQuestionSchema = BaseQuestionSchema.copy() + Schema((
 
-    StringField('inputType',
+    StringField(
+        'inputType',
         searchable=0,
         required=0,
         vocabulary=TEXT_INPUT_TYPE,
@@ -378,10 +415,11 @@ SurveyTextQuestionSchema = BaseQuestionSchema.copy() + Schema((
             description=_("help_input_type",
                           default=u"Please select what type of input you would "
                                   u"like to use for this question."),
-           ),
         ),
+    ),
 
-    IntegerField('maxLength',
+    IntegerField(
+        'maxLength',
         searchable=0,
         required=0,
         default=4000,
@@ -390,10 +428,11 @@ SurveyTextQuestionSchema = BaseQuestionSchema.copy() + Schema((
             description=_("help_maxlength",
                           default=u"Enter the maximum number of characters a user can enter "
                                   u"for this question"),
-             ),
         ),
+    ),
 
-    IntegerField('cols',
+    IntegerField(
+        'cols',
         searchable=0,
         required=0,
         default=20,
@@ -402,10 +441,11 @@ SurveyTextQuestionSchema = BaseQuestionSchema.copy() + Schema((
             description=_("help_text_cols",
                           default=u"Enter a number of columns for this field "
                                   u"(width of the field in the characters)"),
-             ),
         ),
+    ),
 
-    IntegerField('rows',
+    IntegerField(
+        'rows',
         searchable=0,
         required=0,
         default=6,
@@ -414,10 +454,11 @@ SurveyTextQuestionSchema = BaseQuestionSchema.copy() + Schema((
             description=_("help_text_rows",
                           default=u"Enter a number of rows for this field. "
                                   u"This value is applicable only in the Text Area input type"),
-           ),
         ),
+    ),
 
-    StringField('validation',
+    StringField(
+        'validation',
         searchable=0,
         required=0,
         default = 'None',
@@ -426,8 +467,8 @@ SurveyTextQuestionSchema = BaseQuestionSchema.copy() + Schema((
             label=_(u"label_validation", default=u"Validation"),
             description=_("help_validation",
                           default=u"Select a validation for this question"),
-          ),
         ),
+    ),
 
 ))
 
@@ -438,7 +479,8 @@ del SurveyTextQuestionSchema["relatedItems"]
 
 SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
 
-    IntegerField('likertOptions',
+    IntegerField(
+        'likertOptions',
         searchable=0,
         required=0,
         vocabulary=LIKERT_OPTIONS,
@@ -447,20 +489,22 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
             description=_("help_likertoptions",
                           default=u"Select a Likert scale to use for options, "
                                   u"or use the box below."),
-           ),
         ),
+    ),
 
-    BooleanField('reverseLikert',
+    BooleanField(
+        'reverseLikert',
         searchable=0,
         required=0,
         widget=BooleanWidget(
             label=_("label_reverselikert", default=u"Reverse Likert Scale"),
             description=_("help_reverselikert",
                           default=u"Display the likert options in reverse order, bad to good."),
-          ),
         ),
+    ),
 
-    LinesField('answerOptions',
+    LinesField(
+        'answerOptions',
         searchable=0,
         required=0,
         default_method="_get_yes_no_default",
@@ -469,10 +513,11 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
             description=_("help_answer_options",
                           default=u"Enter the options you want to be available to the user here. "
                                   u"Press enter to separate the options."),
-           ),
         ),
+    ),
 
-    StringField('nullValue',
+    StringField(
+        'nullValue',
         searchable=0,
         required=0,
         widget=StringWidget(
@@ -483,10 +528,11 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
                                   u"If this is a multiple select or checkbox field, "
                                   u"enter some random text, which will not appear in the survey, "
                                   u"to make this question not required."),
-           ),
         ),
+    ),
 
-    StringField('inputType',
+    StringField(
+        'inputType',
         searchable=0,
         required=0,
         vocabulary=SELECT_INPUT_TYPE,
@@ -495,8 +541,8 @@ SurveySelectQuestionSchema = BaseQuestionSchema.copy() + Schema((
             description=_("help_input_type",
                           default=u"Please select what type of input you would like to use "
                                   u"for this question."),
-           ),
         ),
+    ),
 
 ))
 
@@ -506,7 +552,8 @@ del SurveySelectQuestionSchema["relatedItems"]
 
 SurveyMatrixSchema = BaseQuestionSchema.copy() + Schema((
 
-    IntegerField('likertOptions',
+    IntegerField(
+        'likertOptions',
         searchable=0,
         required=0,
         vocabulary=LIKERT_OPTIONS,
@@ -515,53 +562,62 @@ SurveyMatrixSchema = BaseQuestionSchema.copy() + Schema((
             description=_("help_likertoptions",
                           default=u"Select a Likert scale to use for options, "
                                   u"or use the box below."),
-           ),
         ),
+    ),
 
-    BooleanField('reverseLikert',
+    BooleanField(
+        'reverseLikert',
         searchable=0,
         required=0,
         widget=BooleanWidget(
             label=_("label_reverselikert", default=u"Reverse Likert Scale"),
             description=_("help_reverselikert",
                           default=u"Display the likert options in reverse order, bad to good."),
-          ),
         ),
+    ),
 
-    LinesField('answerOptions',
+    LinesField(
+        'answerOptions',
         searchable=0,
         required=1,
         default_method="_get_yes_no_default",
         widget=LinesWidget(
             label=_("label_answer_options", default=u"Answer options"),
-            description=_("help_answer_options",
-                          default=u"Enter the options you want to be available to the user here. "
-                                  u"Press enter to separate the options."),
-           ),
+            description=_(
+                "help_answer_options",
+                default=u"Enter the options you want to be available to the "
+                        u"user here. "
+                        u"Press enter to separate the options."),
         ),
+    ),
 
-    StringField('nullValue',
+    StringField(
+        'nullValue',
         searchable=0,
         required=0,
         widget=StringWidget(
-            label=_("label_nullvalue", default=u"Null Value"),
-            description=_("help_nullvalue",
-                          default=u"Leave this blank to make the question required, or "
-                                  u"enter a value for no response, eg Not applicable"),
-           ),
+            label=_(
+                "label_nullvalue", default=u"Null Value"),
+                description=_("help_nullvalue",
+                    default=u"Leave this blank to make the question required, "
+                            u"or enter a value for no response, "
+                            u"eg Not applicable"),
         ),
+    ),
 
-    StringField('inputType',
+    StringField(
+        'inputType',
         searchable=0,
         required=0,
         vocabulary=SELECT_INPUT_TYPE,
         widget=SelectionWidget(
             label=_("label_input_type", default=u"Input Type"),
-            description=_("help_input_type",
-                          default=u"Please select what type of input you would like to use for "
-                                  u"this question."),
-           ),
+            description=_(
+                "help_input_type",
+                default=u"Please select what type of input you would "
+                        u"like to use for this question."),
         ),
+    ),
 
 ))
 

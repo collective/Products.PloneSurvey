@@ -7,6 +7,7 @@ except:
 from z3c.rml.rml2pdf import parseString
 from Products.Five.browser import BrowserView
 
+
 class PrintSurveyView(BrowserView):
     """A printable view of a survey, rendered as a pdf"""
 

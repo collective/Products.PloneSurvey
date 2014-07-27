@@ -6,6 +6,7 @@ from Products.CMFCore.utils import getToolByName
 LOGGER_ID = 'Products.PloneSurvey'
 PROFILE_ID = 'profile-Products.PloneSurvey:default'
 
+
 def importVarious(context):
     """
     Import various settings."""
@@ -15,9 +16,11 @@ def importVarious(context):
     site = context.getSite()
     out = StringIO()
 
+
 def nullStep(context, logger=None):
     """Null step"""
     pass
+
 
 def upgrade_to_1_4_3(context, logger=None):
     """Method to upgrade the profile to version 2.

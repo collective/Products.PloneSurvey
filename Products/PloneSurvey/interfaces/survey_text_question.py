@@ -1,4 +1,5 @@
-from zope.interface import Interface, Attribute
+from zope.interface import Interface
+
 
 class ISurveyTextQuestion(Interface):
     """A textual question within a survey"""
