@@ -78,11 +78,13 @@ class Survey(ATCTOrderedFolder):
         """Create PAS acl_users else login_form does not work"""
         # need Manager role to add an acl_users object
         remove_role = False
-        if not getSecurityManager().checkPermission(permissions.ManagePortal, self):
+        if not getSecurityManager().checkPermission(permissions.ManagePortal,
+                                                    self):
             portal_membership = getToolByName(self, 'portal_membership')
             current_user = portal_membership.getAuthenticatedMember()
             current_userid = current_user.getId()
-            self.manage_addLocalRoles(userid=current_userid, roles=['Manager', ])
+            self.manage_addLocalRoles(userid=current_userid,
+                                      roles=['Manager', ])
             remove_role = True
         # Re-use code in PlonePAS install
         addPluggableAuthService(self)
@@ -252,7 +254,8 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.View, 'hasDateQuestion')
 
     def hasDateQuestion(self):
-        """Return true if there is a date question in this part of the survey to import the js"""
+        """Return true if there is a date question in this part of the survey 
+        to import the js"""
         objects = self.getFolderContents(
             contentFilter={'portal_type': 'Survey Date Question'})
         if objects:
@@ -311,7 +314,12 @@ class Survey(ATCTOrderedFolder):
             portal_registration = getToolByName(self, 'portal_registration')
             pw = portal_registration.generatePassword()
 
-            self.acl_users.userFolderEditUser(userid, pw, user.getRoles(), user.getDomains(), key=pw)
+            self.acl_users.userFolderEditUser(
+                userid,
+                pw,
+                user.getRoles(),
+                user.getDomains(),
+                key=pw)
 
             # Set key
             props = acl_users.mutable_properties.getPropertiesForUser(user)
@@ -353,7 +361,8 @@ class Survey(ATCTOrderedFolder):
         if self.getAllowAnonymous() and request.has_key(survey_cookie):
             return request.get(survey_cookie, "Anonymous")
         user_id = self.getAnonymousId()
-        #expires = (DateTime() + 365).toZone('GMT').rfc822() # cookie expires in 1 year (365 days)
+        # expires = (DateTime() + 365).toZone('GMT').rfc822()
+        # cookie expires in 1 year (365 days)
         response.setCookie(survey_cookie, user_id, path='/')
         self.addRespondent(user_id)
         return user_id
@@ -454,9 +463,10 @@ class Survey(ATCTOrderedFolder):
             self.reset()
         if self.respondents.has_key(user_id):
             return
-        self.respondents[user_id] = PersistentMapping(start=DateTime(),
-                                                      ip_address=self.getRemoteIp(),
-                                                      end='')
+        self.respondents[user_id] = PersistentMapping(
+            start=DateTime(),
+            ip_address=self.getRemoteIp(),
+            end='')
 
     security.declareProtected(permissions.ModifyPortalContent,
                               'getRespondents')
@@ -654,7 +664,8 @@ class Survey(ATCTOrderedFolder):
 
     def getAuthenticatedRespondent(self, emailaddress):
         """
-        Return dictionary with respondent details. This method is needed because
+        Return dictionary with respondent details.
+        This method is needed because
         getProperty is hosed on the user object.
         """
         di = {'emailaddress': emailaddress, 'id': emailaddress}
@@ -852,7 +863,8 @@ class Survey(ATCTOrderedFolder):
         """Build spreadsheet 3."""
         data = StringIO()
         sheet = csv.writer(data)
-        questions = self.get_all_questions_in_order_filtered(ignore_meta_types=['SurveyMatrix',])
+        questions = self.get_all_questions_in_order_filtered(
+            ignore_meta_types=['SurveyMatrix',])
         sheet.writerow(('user',) + tuple(q.Title() for q in questions) + ('completed',))
         for user in self.getRespondents():
             if self.getConfidential():
@@ -924,7 +936,8 @@ class Survey(ATCTOrderedFolder):
             row = [question.Title(), '']
             row.append(question.getNumberOfRespondents())
             sheet.writerow(row)
-            if question.portal_type in ['Survey Select Question','Survey Matrix Question']:
+            if question.portal_type in ['Survey Select Question',
+                                        'Survey Matrix Question']:
                 options = question.getQuestionOptions()
                 number_options = question.getAggregateAnswers()
                 percentage_options = question.getPercentageAnswers()
@@ -1019,7 +1032,8 @@ class Survey(ATCTOrderedFolder):
         data_catch.close()
         return input
 
-    security.declareProtected(permissions.ModifyPortalContent, 'uploadRespondents')
+    security.declareProtected(permissions.ModifyPortalContent,
+                              'uploadRespondents')
 
     def uploadRespondents(self, input=None):
         """upload the respondents"""
@@ -1031,7 +1045,8 @@ class Survey(ATCTOrderedFolder):
             if not user:  # empty line
                 continue
             user_details = user.split('|')
-            if not self.addAuthenticatedRespondent(user_details[1], fullname=user_details[0]):
+            if not self.addAuthenticatedRespondent(user_details[1],
+                                                   fullname=user_details[0]):
                 errors.append(user)
         return errors
 
