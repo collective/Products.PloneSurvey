@@ -1,3 +1,11 @@
+.. contents::
+
+.. image:: https://travis-ci.org/collective/Products.PloneSurvey.png?branch=master
+    :target: http://travis-ci.org/collective/Products.PloneSurvey
+
+.. image:: https://coveralls.io/repos/collective/Products.PloneSurvey/badge.png?branch=master
+    :target: https://coveralls.io/r/collective/Products.PloneSurvey
+
 Products.PloneSurvey - A survey tool for Plone
 ==============================================
 
