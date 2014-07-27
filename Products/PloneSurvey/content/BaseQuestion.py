@@ -76,13 +76,13 @@ class BaseQuestion(ATCTContent):
         # answer can be supplied.
         # XXX this causes problem when survey fails validation
         # will also cause problem with save function
-##        if self.answers.has_key(userid):
-##            # XXX Should this get raised?  If so, a more appropriate
-##            # exception is probably in order.
-##            msg = "User '%s' has already answered this question.
-##                   Reset the original response to supply a new answer."
-##            raise Exception(msg % userid)
-##        else:
+#        if self.answers.has_key(userid):
+#            # XXX Should this get raised?  If so, a more appropriate
+#            # exception is probably in order.
+#            msg = "User '%s' has already answered this question.
+#                   Reset the original response to supply a new answer."
+#            raise Exception(msg % userid)
+#        else:
         self.answers[userid] = PersistentMapping(value=value,
                                                  comments=comments)
         if not isinstance(self.answers, (PersistentMapping, OOBTree)):
@@ -131,23 +131,23 @@ class BaseQuestion(ATCTContent):
 
     def _get_yes_no_default(self):
         foo = (_(u'Yes'), _(u'No'))
-        translation_service = getToolByName(self,'translation_service')
+        translation_service = getToolByName(self, 'translation_service')
         return (translation_service.utranslate(domain='plonesurvey',
                                                msgid=u'Yes',
-                                             context=self),
+                                               context=self),
                 translation_service.utranslate(domain='plonesurvey',
-                                             msgid=u'No',
-                                             context=self),
-        )
+                                               msgid=u'No',
+                                               context=self), )
 
     security.declarePrivate('_get_commentLabel_default')
 
     def _get_commentLabel_default(self):
         foo = _(u'commentLabelDefault', default=u"Comment - mandatory if \"no\"")
-        translation_service = getToolByName(self,'translation_service')
-        return translation_service.utranslate(domain='plonesurvey',
-                                              msgid=u'commentLabelDefault',
-                                              default=u'Comment - mandatory if "no"',
-                                              context=self)
+        translation_service = getToolByName(self, 'translation_service')
+        return translation_service.utranslate(
+             domain='plonesurvey',
+             msgid=u'commentLabelDefault',
+             default=u'Comment - mandatory if "no"',
+             context=self)
 
 InitializeClass(BaseQuestion)

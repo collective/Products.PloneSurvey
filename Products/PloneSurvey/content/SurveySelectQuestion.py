@@ -40,7 +40,7 @@ class SurveySelectQuestion(BaseQuestion):
                     self.addAnswer(value, comments)
                 else:
                     state.setError(self.getId(), "This is not one of the answer options")
-            else: # value is a list
+            else:  # value is a list
                 if self.getLikertOptions():
                     new_value = []
                     for item in value:
@@ -56,7 +56,7 @@ class SurveySelectQuestion(BaseQuestion):
                     if not item_value in self.getQuestionOptions():
                         validates = False
                 if not validates:
-                        #state.setError(self.getId(), "This is not one of the answer options-2")
+                        # state.setError(self.getId(), "This is not one of the answer options-2")
                         state.setError(self.getId(), str(value) + str(self.getQuestionOptions()))
                 else:
                     self.addAnswer(value, comments)
@@ -125,11 +125,11 @@ class SurveySelectQuestion(BaseQuestion):
         suitable for a barchart"""
         max = 0
         aggregate_answers = self.getAggregateAnswers()
-        for k,v in aggregate_answers.items():
+        for k, v in aggregate_answers.items():
             if v > max:
                 max = v
         pct_aggregate_answers = {}
-        for k,v in aggregate_answers.items():
+        for k, v in aggregate_answers.items():
             if v == 0:
                 value = 0
             else:
@@ -143,10 +143,10 @@ class SurveySelectQuestion(BaseQuestion):
         """Return a mapping of percentages for each answer"""
         total = 0
         aggregate_answers = self.getAggregateAnswers()
-        for k,v in aggregate_answers.items():
+        for k, v in aggregate_answers.items():
             total = v + total
         pct_answers = {}
-        for k,v in aggregate_answers.items():
+        for k, v in aggregate_answers.items():
             if v == 0:
                 value = 0
             else:

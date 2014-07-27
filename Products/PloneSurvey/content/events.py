@@ -1,4 +1,5 @@
 
+
 def createSurveyEventHandler(ob, event):
     """Initialise the survey"""
     if not 'acl_users' in ob.objectIds():
@@ -7,6 +8,7 @@ def createSurveyEventHandler(ob, event):
         ob.aq_inner.aq_base.respondents
     except AttributeError:
         ob.reset()
+
 
 def createQuestionEventHandler(ob, event):
     """Initialise the question"""

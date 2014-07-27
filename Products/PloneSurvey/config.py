@@ -59,7 +59,7 @@ COMMENT_TYPE = DisplayList((
     ('text', _(u'label_text_field', default=u'Text Field')),
     ('area', _(u'label_text_area', default=u'Text Area')),
     ))
-    
+
 TWO_D_INPUT_TYPE = DisplayList((
     ('radio', _(u'label_radio_buttons', default=u'Radio Buttons')),
     ('selectionBox', _(u'label_selection_box', default=u'Selection Box')),
@@ -73,21 +73,21 @@ LIKERT_OPTIONS = IntDisplayList((
     ))
 
 LIKERT_OPTIONS_MAP = {
-    1 : IntDisplayList((
+    1: IntDisplayList((
         (5, _(u'Very Good', default=u'Very Good')),
         (4, _(u'Good', default=u'Good')),
         (3, _(u'OK Only', default=u'OK Only')),
         (2, _(u'Poor', default=u'Poor')),
         (1, _(u'Very Poor', default=u'Very Poor')),
         )),
-    2 : IntDisplayList((
+    2: IntDisplayList((
         (5, _(u'Very Useful', default=u'Very Useful')),
         (4, _(u'Useful', default=u'Useful')),
         (3, _(u'Quite Useful', default=u'Quite Useful')),
         (2, _(u'A little Useful', default=u'A little Useful')),
         (1, _(u'Not Useful', default=u'Not Useful')),
         )),
-    3 : IntDisplayList((
+    3: IntDisplayList((
         (5, _(u'Agree Strongly', default=u'Agree Strongly')),
         (4, _(u'Agree', default=u'Agree')),
         (3, _(u'Neutral', default=u'Neutral')),
