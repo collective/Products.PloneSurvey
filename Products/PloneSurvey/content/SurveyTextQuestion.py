@@ -14,8 +14,6 @@ from Products.PloneSurvey.interfaces import ISurveyTextQuestion
 
 from schemata import SurveyTextQuestionSchema
 
-from Products.PloneSurvey import PloneSurveyMessageFactory as _
-
 
 class SurveyTextQuestion(BaseQuestion):
     """A textual question within a survey"""

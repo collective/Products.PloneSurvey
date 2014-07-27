@@ -7,15 +7,13 @@ from Products.ATContentTypes.lib.constraintypes \
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
-from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import *
 
-SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + \
-    Schema((
+SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
 
     TextField(
         'body',
-        searchable = 1,
+        searchable=1,
         required=0,
         schemata="Introduction",
         default_content_type='text/html',
@@ -24,13 +22,13 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + \
                                  'text/structured',
                                  'text/html', ),
         widget=RichWidget(
-            label=_(
-                'label_introduction',
-                default=u"Introduction"),
-                description = _('help_introduction',
+            label=_('label_introduction',
+                    default=u"Introduction"),
+            description=_(
+                'help_introduction',
                 default=u"Enter an introduction for the survey."),
-                    rows = 5,
-            ),
+            rows=5,
+        ),
     ),
 
     TextField(
@@ -39,13 +37,13 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + \
         searchable=0,
         default_method="translateThankYouMessage",
         widget=TextAreaWidget(
-            label=_(
-                "label_thank",
-                default="'Thank you' message text"),
-                description=_('help_thankyou',
-                    default=u"This is the message that will be displayed to "
-                            u"the user when they complete the survey."),
-            ),
+            label=_("label_thank",
+                    default="'Thank you' message text"),
+            description=_(
+                'help_thankyou',
+                default=u"This is the message that will be displayed to "
+                        u"the user when they complete the survey."),
+        ),
     ),
 
     TextField(
@@ -61,8 +59,8 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + \
                 default=u"This is the message that will be displayed to the "
                         u"user when they save the survey, "
                         u"but don't submit it."),
-           ),
         ),
+    ),
 
     StringField(
         'exitUrl',
@@ -137,7 +135,8 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + \
         searchable=0,
         vocabulary=NOTIFICATION_METHOD,
         widget=SelectionWidget(
-            label=_("label_survey_notification_method", default=u"Survey Notification Method"),
+            label=_("label_survey_notification_method",
+                    default=u"Survey Notification Method"),
             description=_(
                 "help_survey_notification_method",
                 default=u"Select a method to receive notification emails."),
@@ -163,7 +162,7 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + \
 
     TextField(
         'emailInvite',
-        searchable = 1,
+        searchable=1,
         required=0,
         schemata="Email Invite",
         default_method="_get_emailInvite_default",
@@ -171,16 +170,15 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + \
         default_output_type='text/html',
         allowable_content_types=('text/plain',
                                  'text/structured',
-                                 'text/html',
-                                ),
+                                 'text/html', ),
         widget=RichWidget(
             label=_('label_email_invite', default=u"Email Invite"),
             description=_(
                 'help_email_invite',
                 default=u"An email invite will be sent to loaded respondents, "
                         u"use '**Name**' for the respondents name, "
-                        u"and '**Survey**' for the title of the survey as a link "
-                        u"to the survey.", )
+                        u"and '**Survey**' for the title of the survey as "
+                        u"a link to the survey.", )
         ),
     ),
 
@@ -208,16 +206,19 @@ SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + \
             description=_(
                 "help_invite_from_email",
                 default=u"Enter person's email address that the survey invite "
-                        u"email is from."),
+                        u"email is from."
+            ),
         ),
     ),
 
 ))
 
 finalizeATCTSchema(SurveySchema, moveDiscussion=False)
-SurveySchema["description"].widget.label=_("label_description", default=u"Survey description")
-SurveySchema["description"].widget.description = _("help_description",
-                                                   default=u"Add a short description of the survey here.")
+SurveySchema["description"].widget.label = _("label_description",
+                                             default=u"Survey description")
+SurveySchema["description"].widget.description = _(
+    "help_description",
+    default=u"Add a short description of the survey here.")
 del SurveySchema["relatedItems"]
 
 SubSurveySchema = ATContentTypeSchema.copy() + Schema((
@@ -278,8 +279,9 @@ SubSurveySchema = ATContentTypeSchema.copy() + Schema((
 finalizeATCTSchema(SubSurveySchema, moveDiscussion=False)
 SubSurveySchema["description"].widget.label = _("label_description",
                                                 default=u"Survey description")
-SubSurveySchema["description"].widget.description = _("help_description",
-                                                      default=u"Add a short description of the survey here.")
+SubSurveySchema["description"].widget.description = _(
+    "help_description",
+    default=u"Add a short description of the survey here.")
 del SubSurveySchema["relatedItems"]
 
 BaseQuestionSchema = ATContentTypeSchema.copy() + Schema((

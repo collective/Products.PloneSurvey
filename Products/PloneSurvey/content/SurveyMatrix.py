@@ -35,9 +35,10 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
         for matrix_q in matrix_questions:
             matrix_qid = str(self.getId()) + '-' + str(matrix_q.getId())
             value = form.get(matrix_qid, '')
-            error_value = matrix_q.validateAnswer(value,state)
+            error_value = matrix_q.validateAnswer(value, state)
             if error_value:
-                error_string = error_string + ' ' + str(matrix_q.title_or_id()) + ','
+                error_string = error_string + ' ' + \
+                    str(matrix_q.title_or_id()) + ','
         if error_string != '':
             error_string = safe_unicode(error_string[:-1])
             error_msg = self.translate(
@@ -90,7 +91,7 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
     def getQuestions(self):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(
-            contentFilter={'portal_type' : ['Survey Matrix Question', ]},
+            contentFilter={'portal_type': ['Survey Matrix Question', ]},
             full_objects=True)
         return questions
 

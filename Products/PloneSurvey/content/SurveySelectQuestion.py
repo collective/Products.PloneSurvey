@@ -39,7 +39,8 @@ class SurveySelectQuestion(BaseQuestion):
                 if value in self.getQuestionOptions():
                     self.addAnswer(value, comments)
                 else:
-                    state.setError(self.getId(), "This is not one of the answer options")
+                    state.setError(self.getId(),
+                                   "This is not one of the answer options")
             else:  # value is a list
                 if self.getLikertOptions():
                     new_value = []
@@ -47,21 +48,24 @@ class SurveySelectQuestion(BaseQuestion):
                         try:
                             item = int(item)
                         except ValueError:
-                            state.setError(self.getId(), "This is not an integer")
+                            state.setError(self.getId(),
+                                           "This is not an integer")
                             return
                         else:
                             new_value.append(item)
                     value = new_value
                 for item_value in value:
-                    if not item_value in self.getQuestionOptions():
+                    if item_value not in self.getQuestionOptions():
                         validates = False
                 if not validates:
-                        # state.setError(self.getId(), "This is not one of the answer options-2")
-                        state.setError(self.getId(), str(value) + str(self.getQuestionOptions()))
+                        state.setError(
+                            self.getId(),
+                            str(value) + str(self.getQuestionOptions()))
                 else:
                     self.addAnswer(value, comments)
         elif comments:
-            # XXX something more intelligent needs to be done here, and if neither value or comments is
+            # XXX something more intelligent needs to be done here,
+            # and if neither value or comments is
             # provided, then None is stored instead of empty string
             self.addAnswer(value, comments)
 

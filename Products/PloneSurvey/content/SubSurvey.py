@@ -74,8 +74,8 @@ class SubSurvey(ATCTOrderedFolder):
         for result in results:
             object = result.getObject()
             questions.append(object.getId(), object.Title() + ', ' +
-                str(object.getQuestionOptions()))
-        vocab_list = DisplayList((questions))
+                             str(object.getQuestionOptions()))
+        # vocab_list = DisplayList((questions))
         return questions
 
     security.declareProtected(permissions.View, 'getBranchingCondition')
@@ -104,7 +104,8 @@ class SubSurvey(ATCTOrderedFolder):
     security.declareProtected(permissions.View, 'hasDateQuestion')
 
     def hasDateQuestion(self):
-        """Return true if there is a date question in this part of the survey to import the js"""
+        """Return true if there is a date question in this part of the survey
+        to import the js"""
         objects = self.getFolderContents(
             contentFilter={'portal_type': 'Survey Date Question'})
         if objects:
@@ -150,7 +151,7 @@ class SubSurvey(ATCTOrderedFolder):
         else:
             pages = parent.getFolderContents(
                 contentFilter={'portal_type': 'Sub Survey', },
-                    full_objects=True)
+                full_objects=True)
             for page in pages:
                 if required_question in page.objectIds():
                     question = page[required_question]

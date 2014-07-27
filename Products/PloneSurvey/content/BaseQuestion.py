@@ -39,7 +39,7 @@ class BaseQuestion(ATCTContent):
 
     def resetForUser(self, userid):
         """Remove answer for a single user"""
-        if self.answers.has_key(userid):
+        if userid in self.answers:
             del self.answers[userid]
 
     security.declareProtected(permissions.View, 'addAnswer')

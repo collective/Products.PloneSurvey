@@ -103,14 +103,17 @@ class Survey(ATCTOrderedFolder):
 
         # Recreate mutable_properties but specify fields
         uf = self.acl_users
-        pas = uf.manage_addProduct['PluggableAuthService']
+        uf.manage_addProduct['PluggableAuthService']
         plone_pas = uf.manage_addProduct['PlonePAS']
         plone_pas.manage_delObjects('mutable_properties')
-        plone_pas.manage_addZODBMutablePropertyProvider('mutable_properties',
-            fullname='', key='', email_sent='')
+        plone_pas.manage_addZODBMutablePropertyProvider(
+            'mutable_properties',
+            fullname='',
+            key='',
+            email_sent='')
         activatePluginInterfaces(self, 'mutable_properties', out)
         if remove_role:
-            self.manage_delLocalRoles(userids=[current_userid,])
+            self.manage_delLocalRoles(userids=[current_userid, ])
 
     security.declarePublic('canSetDefaultPage')
 
@@ -254,7 +257,7 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.View, 'hasDateQuestion')
 
     def hasDateQuestion(self):
-        """Return true if there is a date question in this part of the survey 
+        """Return true if there is a date question in this part of the survey
         to import the js"""
         objects = self.getFolderContents(
             contentFilter={'portal_type': 'Survey Date Question'})
@@ -358,7 +361,7 @@ class Survey(ATCTOrderedFolder):
             return user_id
         response = request.RESPONSE
         survey_cookie = self.getId()
-        if self.getAllowAnonymous() and request.has_key(survey_cookie):
+        if self.getAllowAnonymous() and survey_cookie in request:
             return request.get(survey_cookie, "Anonymous")
         user_id = self.getAnonymousId()
         # expires = (DateTime() + 365).toZone('GMT').rfc822()
@@ -380,7 +383,8 @@ class Survey(ATCTOrderedFolder):
                     anon_id = anon_id + remote_ip + '@'
             return anon_id + str(DateTime())
         elif portal_membership.isAnonymousUser():
-            return self.REQUEST.RESPONSE.redirect(self.portal_url()+'/login_form?came_from='+self.absolute_url())
+            return self.REQUEST.RESPONSE.redirect(
+                self.portal_url()+'/login_form?came_from='+self.absolute_url())
         return portal_membership.getAuthenticatedMember().getId()
 
     security.declareProtected(permissions.View, 'getRemoteIp')
@@ -428,7 +432,7 @@ class Survey(ATCTOrderedFolder):
     def getRespondentDetails(self, respondent):
         """Return details of a respondent"""
         try:
-            respondents = self.respondents
+            self.respondents
         except AttributeError:
             self.reset()
         try:
@@ -438,7 +442,7 @@ class Survey(ATCTOrderedFolder):
             # probably old survey, create respondent details
             if respondent.find('@'):
                 saved_details = respondent.split('@')
-            #saved_details = respondent.split('@')
+            # saved_details = respondent.split('@')
             self.respondents[respondent] = PersistentMapping(start='',
                                                              ip_address='',
                                                              end='')
@@ -458,10 +462,10 @@ class Survey(ATCTOrderedFolder):
         """Add a respondent to the survey"""
         # TODO needs moving to an event handler
         try:
-            respondents = self.respondents
+            self.respondents
         except AttributeError:
             self.reset()
-        if self.respondents.has_key(user_id):
+        if user_id in self.respondents:
             return
         self.respondents[user_id] = PersistentMapping(
             start=DateTime(),
@@ -550,7 +554,7 @@ class Survey(ATCTOrderedFolder):
         for question in questions:
             question.resetForUser(userid)
         try:
-            if self.respondents.has_key(userid):
+            if userid in self.respondents:
                 del self.respondents[userid]
         except AttributeError:
             # TODO old survey instance
@@ -576,7 +580,8 @@ class Survey(ATCTOrderedFolder):
             'has been completed by user: ${userid}',
             mapping={'userid': userid}),
             context=self.REQUEST))
-        message.append(self.absolute_url() + '/@@Products.PloneSurvey.survey_view_results')
+        message.append(self.absolute_url() +
+                       '/@@Products.PloneSurvey.survey_view_results')
         mMsg = '\n\n'.join(message)
         try:
             self.MailHost.send(mMsg.encode('utf-8'), mTo, mFrom, mSubj)
@@ -598,12 +603,14 @@ class Survey(ATCTOrderedFolder):
 
     def translateSavedMessage(self):
         """ """
-        return self.translate(msgid="text_default_saved_message",
-                              default=u"You have saved the survey.\n "
-                                      u"Don't forget to come back and finish it.",
-                              domain="plonesurvey")
+        return self.translate(
+            msgid="text_default_saved_message",
+            default=u"You have saved the survey.\n "
+                    u"Don't forget to come back and finish it.",
+            domain="plonesurvey")
 
-    security.declareProtected(permissions.ModifyPortalContent, 'deleteAuthenticatedRespondent')
+    security.declareProtected(permissions.ModifyPortalContent,
+                              'deleteAuthenticatedRespondent')
 
     def deleteAuthenticatedRespondent(self, email, REQUEST=None):
         """Delete authenticated respondent"""
@@ -660,7 +667,8 @@ class Survey(ATCTOrderedFolder):
         props.setProperty('email_sent', str(DateTime()))
         acl_users.mutable_properties.setPropertiesForUser(user, props)
 
-    security.declareProtected(permissions.ModifyPortalContent, 'getAuthenticatedRespondent')
+    security.declareProtected(permissions.ModifyPortalContent,
+                              'getAuthenticatedRespondent')
 
     def getAuthenticatedRespondent(self, emailaddress):
         """
@@ -685,7 +693,8 @@ class Survey(ATCTOrderedFolder):
         users = self.get_acl_users().getUsers()
         for user in users:
             respondents.append(user.getId())
-        return [self.getAuthenticatedRespondent(user_id) for user_id in respondents]
+        return [self.getAuthenticatedRespondent(user_id)
+                for user_id in respondents]
 
     security.declareProtected(permissions.ModifyPortalContent,
                               'sendSurveyInvite')
@@ -704,8 +713,11 @@ class Survey(ATCTOrderedFolder):
             email_from_address = self.email_from_address
         email_body = self.getEmailInvite()
         email_body = email_body.replace('**Name**', user_details['fullname'])
-        survey_url = self.absolute_url() + '/login_form_bridge?email=' + email_address + '&amp;key=' + urllib.quote(user_details['key'])
-        email_body = email_body.replace('**Survey**', '<a href="' + survey_url + '">' + self.Title() + '</a>')
+        survey_url = self.absolute_url() + '/login_form_bridge?email=' + \
+            email_address + '&amp;key=' + urllib.quote(user_details['key'])
+        email_body = email_body.replace(
+            '**Survey**',
+            '<a href="' + survey_url + '">' + self.Title() + '</a>')
         mail_text = self.survey_send_invite_template(
             user=user,
             recipient=user.getId(),
@@ -748,7 +760,7 @@ class Survey(ATCTOrderedFolder):
 
     def get_acl_users(self):
         """Fetch acl_users. Create if it does not yet exist."""
-        if not 'acl_users' in self.objectIds():
+        if 'acl_users' not in self.objectIds():
             self.createLocalPas()
         return self.acl_users
 
@@ -805,7 +817,8 @@ class Survey(ATCTOrderedFolder):
         sheet = csv.writer(data, dialect=dialect, quoting=csv.QUOTE_ALL)
         questions = self.getAllQuestionsInOrder()
 
-        sheet.writerow(('user',) + tuple(q.Title() for q in questions) + ('completed',))
+        sheet.writerow(('user',) + tuple(q.Title()
+                       for q in questions) + ('completed',))
 
         for user in self.getRespondents():
             if self.getConfidential():
@@ -821,7 +834,8 @@ class Survey(ATCTOrderedFolder):
                         answer = ', '.join(filter(None, answer))
                 row.append(answer.replace('"', "'").replace('\r\n', ' '))
 
-            row.append(self.checkCompletedFor(user) and 'Completed' or 'Not Completed')
+            row.append(self.checkCompletedFor(user) and
+                       'Completed' or 'Not Completed')
 
             sheet.writerow(row)
 
@@ -837,9 +851,15 @@ class Survey(ATCTOrderedFolder):
     security.declareProtected(permissions.ViewSurveyResults,
                               'get_all_questions_in_order_filtered')
 
-    def get_all_questions_in_order_filtered(self, include_sub_survey=False, ignore_meta_types=[], ignore_input_types=[], restrict_meta_types=[]):
-        """This is only used in buildSpreadsheet3, and should be moved into a nother method."""
-        questions = self.getAllQuestionsInOrder(include_sub_survey=include_sub_survey)
+    def get_all_questions_in_order_filtered(self,
+                                            include_sub_survey=False,
+                                            ignore_meta_types=[],
+                                            ignore_input_types=[],
+                                            restrict_meta_types=[]):
+        """This is only used in buildSpreadsheet3, and should be moved into
+        another method."""
+        questions = self.getAllQuestionsInOrder(
+            include_sub_survey=include_sub_survey)
         result = []
         for question in questions:
             ok = True
@@ -864,8 +884,9 @@ class Survey(ATCTOrderedFolder):
         data = StringIO()
         sheet = csv.writer(data)
         questions = self.get_all_questions_in_order_filtered(
-            ignore_meta_types=['SurveyMatrix',])
-        sheet.writerow(('user',) + tuple(q.Title() for q in questions) + ('completed',))
+            ignore_meta_types=['SurveyMatrix', ])
+        sheet.writerow(('user',) + tuple(q.Title()
+                       for q in questions) + ('completed',))
         for user in self.getRespondents():
             if self.getConfidential():
                 row = ['Anonymous']
@@ -875,7 +896,7 @@ class Survey(ATCTOrderedFolder):
                 answer = ""
                 if question.getInputType() in ['text', 'area']:
                     if question.getAnswerFor(user):
-                        answer = '"' + question.getAnswerFor(user).replace('"',"'") + '"'
+                        answer = '"' + question.getAnswerFor(user).replace('"', "'") + '"'
                     else:
                         answer = ""
                 elif question.getInputType() in ['checkbox', 'multipleSelect']:
@@ -910,7 +931,8 @@ class Survey(ATCTOrderedFolder):
                 row.append(answer)
 #                if question.getCommentType():
 #                line.append('"' + test(question.getCommentsFor(user), question.getCommentsFor(user).replace('"',"'"), "Blank") + '"')
-            row.append(self.checkCompletedFor(user) and 'Completed' or 'Not Completed')
+            row.append(self.checkCompletedFor(user) and
+                       'Completed' or 'Not Completed')
             sheet.writerow(row)
         return data.getvalue()
 
@@ -955,7 +977,7 @@ class Survey(ATCTOrderedFolder):
         """Return spreadsheet select"""
         self.setCsvHeaders()
         try:
-            answers = self.REQUEST.form['answers']
+            self.REQUEST.form['answers']
         except KeyError:
             return self.buildSelectSpreadsheet()
         return self.buildSelectSpreadsheet(boolean=True)
@@ -1057,7 +1079,8 @@ class Survey(ATCTOrderedFolder):
         product_installed = self.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas')
         if not product_installed and REQUEST.get('showCaptcha', 0):
             if int(REQUEST.get('showCaptcha')):
-                errors['showCaptcha'] = 'Product quintagroup.plonecaptchas not installed'
+                errors['showCaptcha'] = \
+                    'Product quintagroup.plonecaptchas not installed'
 
     security.declareProtected(permissions.View, 'isCaptchaInstalled')
 

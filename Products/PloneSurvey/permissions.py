@@ -12,4 +12,4 @@ addSurvey = 'PloneSurvey: Add Survey'
 ResetOwnResponses = 'PloneSurvey: Reset Own Responses'
 ViewSurveyResults = 'PloneSurvey: View Survey Results'
 
-setDefaultRoles(ViewSurveyResults,('Manager', 'Owner'))
+setDefaultRoles(ViewSurveyResults, ('Manager', 'Owner'))

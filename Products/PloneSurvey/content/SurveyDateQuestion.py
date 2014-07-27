@@ -49,12 +49,16 @@ class SurveyDateQuestion(BaseQuestion):
         endingYear = form.get('endingYear', None)
         futureYears = form.get('futureYears', None)
         if endingYear is None and futureYears is None:
-            errors['endingYear'] = u'Either end year or future years must be entered.'
-            errors['futureYears'] = u'Either end year or future years must be entered.'
+            errors['endingYear'] = \
+                u'Either end year or future years must be entered.'
+            errors['futureYears'] = \
+                u'Either end year or future years must be entered.'
             return errors
         elif endingYear and futureYears:
-            errors['endingYear'] = u'Both end year and future years can not be entered.'
-            errors['futureYears'] = u'Both end year and future years can not be entered.'
+            errors['endingYear'] = \
+                u'Both end year and future years can not be entered.'
+            errors['futureYears'] = \
+                u'Both end year and future years can not be entered.'
             return errors
         if endingYear:
             try:
@@ -62,7 +66,8 @@ class SurveyDateQuestion(BaseQuestion):
             except ValueError:
                 errors['endingYear'] = u'End year must be an integer.'
             if int(startingYear) > int(endingYear):
-                errors['endingYear'] = u'End year can not be before start year.'
+                errors['endingYear'] = \
+                    u'End year can not be before start year.'
         if futureYears:
             try:
                 futureYears = int(futureYears)
@@ -89,7 +94,8 @@ class SurveyDateQuestion(BaseQuestion):
         minute = form.get(question_id + '_minute', '00')
         # TODO this is not going to work outside GMT
         # XXX could do with some validation as well
-        value = year + '/' + month + '/' + day + ' ' + hour + ':' + minute + ':00 GMT'
+        value = year + '/' + month + '/' + day + ' ' + hour + \
+            ':' + minute + ':00 GMT'
         self.addAnswer(value)
 
 registerATCT(SurveyDateQuestion, PROJECTNAME)

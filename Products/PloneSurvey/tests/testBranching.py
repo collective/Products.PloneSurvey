@@ -147,7 +147,7 @@ class TestCheckboxBranching(unittest.TestCase):
         assert self.s1.ss1.displaySubSurvey()
         assert '<base href="http://nohost/plone/s1/ss1/" />' in next_page, \
             next_page[next_page.find('<base href'):
-            next_page.find('<base href')+100]
+                      next_page.find('<base href')+100]
 
 
 class TestSubSurveyCheckboxBranching(unittest.TestCase):
