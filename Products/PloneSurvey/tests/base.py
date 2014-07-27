@@ -1,5 +1,4 @@
 import os
-import datetime
 
 from zope.component import getSiteManager
 
@@ -12,14 +11,13 @@ from plone.app.testing import TEST_USER_NAME, TEST_USER_ID, setRoles
 
 from plone.testing import z2
 
-from Products.ATContentTypes.utils import dt2DT
-from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.tests.utils import MockMailHost
 from Products.MailHost.interfaces import IMailHost
 
 from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
 from Products.PloneSurvey.tests import utils
+
 
 class TestCase(PloneSandboxLayer):
 
@@ -29,7 +27,7 @@ class TestCase(PloneSandboxLayer):
         # Load ZCML
         import Products.PloneSurvey
         self.loadZCML(package=Products.PloneSurvey)
-        
+
         # Install product and call its initialize() function
         z2.installProduct(app, PROJECTNAME)
 
@@ -42,7 +40,9 @@ class TestCase(PloneSandboxLayer):
         z2.uninstallProduct(app, PROJECTNAME)
 
 FIXTURE = TestCase()
-INTEGRATION_TESTING = IntegrationTesting(bases=(FIXTURE,), name='fixture:Integration')
+INTEGRATION_TESTING = IntegrationTesting(bases=(FIXTURE,),
+                                         name='fixture:Integration')
+
 
 class TestAnonCase(PloneSandboxLayer):
 
@@ -52,10 +52,10 @@ class TestAnonCase(PloneSandboxLayer):
         # Load ZCML
         import Products.PloneSurvey
         self.loadZCML(package=Products.PloneSurvey)
-        
+
         # Install product and call its initialize() function
         z2.installProduct(app, PROJECTNAME)
-    
+
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         self.applyProfile(portal, '%s:default' % PROJECTNAME)
@@ -64,8 +64,8 @@ class TestAnonCase(PloneSandboxLayer):
         portal.invokeFactory('Survey', 's1')
         s1 = getattr(portal, 's1')
         s1.setAllowAnonymous(True)
-        workflow_tool = getToolByName(portal, 'portal_workflow')
-        #workflow_tool.doActionFor(s1,'publish')
+        # workflow_tool = getToolByName(portal, 'portal_workflow')
+        # workflow_tool.doActionFor(s1,'publish')
         s1.setEmailInvite(DEFAULT_SURVEY_INVITE)
 
     def tearDownZope(self, app):
@@ -73,20 +73,22 @@ class TestAnonCase(PloneSandboxLayer):
         z2.uninstallProduct(app, PROJECTNAME)
 
 ANON_FIXTURE = TestAnonCase()
-INTEGRATION_ANON_SURVEY_TESTING = IntegrationTesting(bases=(ANON_FIXTURE,), name='fixture:Anon')
+INTEGRATION_ANON_SURVEY_TESTING = IntegrationTesting(bases=(ANON_FIXTURE,),
+                                                     name='fixture:Anon')
+
 
 class TestMailCase(PloneSandboxLayer):
-    
+
     defaultBases = (PLONE_FIXTURE,)
-    
+
     def setUpZope(self, app, configurationContext):
         # Load ZCML
         import Products.PloneSurvey
         self.loadZCML(package=Products.PloneSurvey)
-        
+
         # Install product and call its initialize() function
         z2.installProduct(app, PROJECTNAME)
-    
+
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         self.applyProfile(portal, '%s:default' % PROJECTNAME)
@@ -95,34 +97,36 @@ class TestMailCase(PloneSandboxLayer):
         portal.invokeFactory('Survey', 's1')
         s1 = getattr(portal, 's1')
         s1.setAllowAnonymous(True)
-        workflow_tool = getToolByName(portal, 'portal_workflow')
-        #workflow_tool.doActionFor(s1,'publish')
+        # workflow_tool = getToolByName(portal, 'portal_workflow')
+        # workflow_tool.doActionFor(s1,'publish')
         s1.setEmailInvite(DEFAULT_SURVEY_INVITE)
         portal._original_MailHost = portal.MailHost
         portal.MailHost = mailhost = MockMailHost('MailHost')
         sm = getSiteManager(context=portal)
         sm.unregisterUtility(provided=IMailHost)
         sm.registerUtility(mailhost, provided=IMailHost)
-    
+
     def tearDownZope(self, app):
         # Uninstall product
         z2.uninstallProduct(app, PROJECTNAME)
 
 MAIL_FIXTURE = TestMailCase()
-INTEGRATION_Mail_TESTING = IntegrationTesting(bases=(MAIL_FIXTURE,), name='fixture:Mail')
+INTEGRATION_Mail_TESTING = IntegrationTesting(bases=(MAIL_FIXTURE,),
+                                              name='fixture:Mail')
+
 
 class TestBranchingCase(PloneSandboxLayer):
-    
+
     defaultBases = (PLONE_FIXTURE,)
-    
+
     def setUpZope(self, app, configurationContext):
         # Load ZCML
         import Products.PloneSurvey
         self.loadZCML(package=Products.PloneSurvey)
-        
+
         # Install product and call its initialize() function
         z2.installProduct(app, PROJECTNAME)
-    
+
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         self.applyProfile(portal, '%s:default' % PROJECTNAME)
@@ -131,8 +135,8 @@ class TestBranchingCase(PloneSandboxLayer):
         portal.invokeFactory('Survey', 's1')
         s1 = getattr(portal, 's1')
         s1.setAllowAnonymous(True)
-        workflow_tool = getToolByName(portal, 'portal_workflow')
-        #workflow_tool.doActionFor(s1,'publish')
+        # workflow_tool = getToolByName(portal, 'portal_workflow')
+        # workflow_tool.doActionFor(s1,'publish')
         s1.setEmailInvite(DEFAULT_SURVEY_INVITE)
         s1.invokeFactory('Sub Survey', 'ss1')
         s1.invokeFactory('Sub Survey', 'ss2')
@@ -155,20 +159,22 @@ class TestBranchingCase(PloneSandboxLayer):
         z2.uninstallProduct(app, PROJECTNAME)
 
 BRANCHING_FIXTURE = TestBranchingCase()
-INTEGRATION_BRANCHING_TESTING = IntegrationTesting(bases=(BRANCHING_FIXTURE,), name='fixture:Branching')
+INTEGRATION_BRANCHING_TESTING = IntegrationTesting(bases=(BRANCHING_FIXTURE,),
+                                                   name='fixture:Branching')
+
 
 class FunctionalTestCase(PloneSandboxLayer):
-    
+
     defaultBases = (PLONE_FIXTURE,)
-    
+
     def setUpZope(self, app, configurationContext):
         # Load ZCML
         import Products.PloneSurvey
         self.loadZCML(package=Products.PloneSurvey)
-        
+
         # Install product and call its initialize() function
         z2.installProduct(app, PROJECTNAME)
-    
+
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         self.applyProfile(portal, '%s:default' % PROJECTNAME)
@@ -177,16 +183,18 @@ class FunctionalTestCase(PloneSandboxLayer):
         portal.invokeFactory('Survey', 's1')
         s1 = getattr(portal, 's1')
         s1.setAllowAnonymous(True)
-        workflow_tool = getToolByName(portal, 'portal_workflow')
-        #workflow_tool.doActionFor(s1,'publish')
+        # workflow_tool = getToolByName(portal, 'portal_workflow')
+        # workflow_tool.doActionFor(s1,'publish')
         s1.setEmailInvite(DEFAULT_SURVEY_INVITE)
-    
+
     def tearDownZope(self, app):
         # Uninstall product
         z2.uninstallProduct(app, PROJECTNAME)
 
 FUNCTIONAL_FIXTURE = FunctionalTestCase()
-FUNCTIONAL_TESTING = FunctionalTesting(bases=(FUNCTIONAL_FIXTURE,), name='fixture:Functional')
+FUNCTIONAL_TESTING = FunctionalTesting(bases=(FUNCTIONAL_FIXTURE,),
+                                       name='fixture:Functional')
+
 
 def loadRespondents(portal):
     """Load the test respondents"""
@@ -196,9 +204,10 @@ def loadRespondents(portal):
     data_catch.close()
     portal.s1.uploadRespondents(input=input)
 
+
 def fixLineEndings(txt):
-    if txt.count('\r\n'): # MS DOS
+    if txt.count('\r\n'):  # MS DOS
         txt = txt.replace('\r\n', '\n')
-    elif txt.count('\r'): # Mac
+    elif txt.count('\r'):  # Mac
         txt = txt.replace('\r', '\n')
     return txt

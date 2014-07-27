@@ -6,6 +6,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.PloneSurvey import permissions
 from base import INTEGRATION_TESTING
 
+
 class TestInstallation(unittest.TestCase):
     """Ensure product is properly installed"""
     layer = INTEGRATION_TESTING
@@ -21,16 +22,21 @@ class TestInstallation(unittest.TestCase):
                           'Survey Text Question')
 
     def testCssInstalled(self):
-        self.failUnless('++resource++Products.PloneSurvey.stylesheets/survey_results.css' in self.portal.portal_css.getResourceIds())
+        self.failUnless(
+            '++resource++Products.PloneSurvey.stylesheets/survey_results.css'
+            in self.portal.portal_css.getResourceIds())
 
     def testJsInstalled(self):
-        self.failUnless('++resource++Products.PloneSurvey.javascripts/survey_reset.js' in self.portal.portal_javascripts.getResourceIds())
+        self.failUnless(
+            '++resource++Products.PloneSurvey.javascripts/survey_reset.js'
+            in self.portal.portal_javascripts.getResourceIds())
 
     def testSkinLayersInstalled(self):
         self.failUnless('plone_survey' in self.portal.portal_skins.objectIds())
 
     def testPortalFactorySetup(self):
-        self.failUnless('Survey' in self.portal.portal_factory.getFactoryTypes())
+        self.failUnless('Survey' in
+                        self.portal.portal_factory.getFactoryTypes())
 
     def testTypesInstalled(self):
         for t in self.metaTypes:
@@ -49,12 +55,15 @@ class TestInstallation(unittest.TestCase):
     def testMetaTypesCorrect(self):
         """Ensure meta type is correct for each type"""
         for t in self.metaTypes:
-            assert t.replace(' ', '') == self.portal.portal_types.getTypeInfo(t).content_meta_type, t
+            assert t.replace(' ', '') == \
+                self.portal.portal_types.getTypeInfo(t).content_meta_type, t
 
     def testMetaTypesNotToList(self):
+        navtree_props = self.portal.portal_properties.navtree_properties
+        metaTypesNotToList = navtree_props.metaTypesNotToList
         for t in self.metaTypes:
             if t not in ['Survey', 'Sub Survey']:
-                self.failUnless(t in self.portal.portal_properties.navtree_properties.metaTypesNotToList)
+                self.failUnless(t in metaTypesNotToList)
 
     def testPermissions(self):
         """
@@ -68,6 +77,7 @@ class TestInstallation(unittest.TestCase):
         for role in roles:
             if role['name'] == 'Owner':
                 self.failUnless(role['selected'])
+
 
 class TestTypeProperties(unittest.TestCase):
     """Test properties of the types are correct"""
@@ -88,11 +98,13 @@ class TestTypeProperties(unittest.TestCase):
         ss1 = getattr(self.portal.s1, 'ss1')
         assert ss1.meta_type == 'SubSurvey'
         assert ss1.portal_type == 'Sub Survey'
-        archetype_info = self.archetype_tool.lookupType('Products.PloneSurvey', 'SubSurvey')
+        archetype_info = self.archetype_tool.lookupType('Products.PloneSurvey',
+                                                        'SubSurvey')
         assert archetype_info['portal_type'] == 'Sub Survey'
         assert archetype_info['meta_type'] == 'SubSurvey'
         assert archetype_info['name'] == 'SubSurvey'
         assert archetype_info['identifier'] == 'Subsurvey'
+
 
 class TestContentCreation(unittest.TestCase):
     """Ensure content types can be created and edited"""
@@ -126,7 +138,7 @@ class TestContentCreation(unittest.TestCase):
     def testCreateSubSurvey(self):
         self.s1.invokeFactory('Sub Survey', 'ss1')
         self.failUnless('ss1' in self.s1.objectIds())
-        
+
     def testEditSubSurvey(self):
         self.s1.invokeFactory('Sub Survey', 'ss1')
         ss1 = getattr(self.s1, 'ss1')
@@ -150,7 +162,7 @@ class TestContentCreation(unittest.TestCase):
     def testCreateSelectQuestion(self):
         self.s1.invokeFactory('Survey Select Question', 'sq1')
         self.failUnless('sq1' in self.s1.objectIds())
-        
+
     def testEditSelectQuestion(self):
         self.s1.invokeFactory('Survey Select Question', 'sq1')
         sq1 = getattr(self.s1, 'sq1')
@@ -164,7 +176,7 @@ class TestContentCreation(unittest.TestCase):
     def testCreateSurveyTextQuestion(self):
         self.s1.invokeFactory('Survey Text Question', 'stq1')
         self.failUnless('stq1' in self.s1.objectIds())
-        
+
     def testEditSurveyTextQuestion(self):
         self.s1.invokeFactory('Survey Text Question', 'stq1')
         stq1 = getattr(self.s1, 'stq1')
@@ -176,6 +188,7 @@ class TestContentCreation(unittest.TestCase):
         self.assertEqual(stq1.Title(), 'Question title')
         self.assertEqual(stq1.Description(), 'Question description')
         self.assertEqual(stq1.getRequired(), True)
+
 
 class TestTypeActions(unittest.TestCase):
     """Test the conditions on the type actions"""
@@ -208,6 +221,7 @@ class TestTypeActions(unittest.TestCase):
             if action['id'] == 'local_roles':
                 sharing_tab_available = True
         assert sharing_tab_available, "Sharing tab not available"
+
 
 class TestAclUsers(unittest.TestCase):
     """Test acl_users is created"""

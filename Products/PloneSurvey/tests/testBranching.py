@@ -4,6 +4,7 @@ from plone.app.testing import TEST_USER_ID, setRoles
 
 from base import INTEGRATION_TESTING, INTEGRATION_BRANCHING_TESTING
 
+
 class TestBranchingConditions(unittest.TestCase):
     """Test Survey Branching fields"""
     layer = INTEGRATION_TESTING
@@ -19,9 +20,7 @@ class TestBranchingConditions(unittest.TestCase):
 
     def testEditSubSurveyBranch(self):
         s1 = getattr(self.portal, 's1')
-        ssq1 = getattr(s1, 'ssq1')
         ss1 = getattr(s1, 'ss1')
-        ss2 = getattr(s1, 'ss2')
         ss1.setRequiredQuestion('ssq1')
         ss1.setRequiredAnswer(1)
         self.assertEqual(ss1.getRequiredQuestion(), 'ssq1')
@@ -37,6 +36,7 @@ class TestBranchingConditions(unittest.TestCase):
         ss1.setRequiredAnswer(1)
         ss2.setRequiredQuestion('ssq1')
         ss2.setRequiredAnswer(0)
+
 
 class TestRadioBranching(unittest.TestCase):
     """Test Survey Branching for radio questions"""
@@ -76,6 +76,7 @@ class TestRadioBranching(unittest.TestCase):
         assert self.s1.ss2.displaySubSurvey()
         assert '<base href="http://nohost/plone/s1/ss2/" />' in next_page
 
+
 class TestSubSurveyRadioBranching(unittest.TestCase):
     """Test sub survey Branching for radio questions"""
     layer = INTEGRATION_BRANCHING_TESTING
@@ -109,9 +110,10 @@ class TestSubSurveyRadioBranching(unittest.TestCase):
     def testAnswerYes(self):
         """ss1 as yes should return ss3"""
         self.ss1.ssq2.addAnswer('Yes')
-        next_page = self.ss1.getNextPage()
-        #assert not self.ss3.displaySubSurvey()
-        #assert '<base href="http://nohost/plone/Members/test_user_1_/s1/ss3/" />' in next_page
+        # next_page = self.ss1.getNextPage()
+        # assert not self.ss3.displaySubSurvey()
+        # assert '<base href="http://nohost/plone/Members/test_user_1_/s1/ss3/" />' in next_page
+
 
 class TestCheckboxBranching(unittest.TestCase):
     """Test Survey Branching for radio questions"""
@@ -143,7 +145,10 @@ class TestCheckboxBranching(unittest.TestCase):
         self.s1.ssq1.addAnswer(['Yes', 'No'])
         next_page = self.s1.getNextPage()
         assert self.s1.ss1.displaySubSurvey()
-        assert '<base href="http://nohost/plone/s1/ss1/" />' in next_page, next_page[next_page.find('<base href'):next_page.find('<base href')+100]
+        assert '<base href="http://nohost/plone/s1/ss1/" />' in next_page, \
+            next_page[next_page.find('<base href'):
+            next_page.find('<base href')+100]
+
 
 class TestSubSurveyCheckboxBranching(unittest.TestCase):
     """Test sub survey Branching for checkbox questions"""
@@ -167,14 +172,14 @@ class TestSubSurveyCheckboxBranching(unittest.TestCase):
     def testAnswerYes(self):
         """ss1 as yes should return ss3"""
         self.ss1.ssq2.addAnswer('Yes')
-        next_page = self.ss1.getNextPage()
+        # next_page = self.ss1.getNextPage()
         assert not self.ss2.displaySubSurvey()
-        #assert self.ss3.displaySubSurvey()
-        #assert '<base href="http://nohost/plone/Members/test_user_1_/s1/ss3/" />' in next_page
+        # assert self.ss3.displaySubSurvey()
+        # assert '<base href="http://nohost/plone/Members/test_user_1_/s1/ss3/" />' in next_page
 
     def testAnswerList(self):
         """ss1 with yes should return ss1"""
         self.ss1.ssq2.addAnswer(['Yes', 'No'])
-        next_page = self.ss1.getNextPage()
-        #assert self.ss3.displaySubSurvey()
-        #assert '<base href="http://nohost/plone/Members/test_user_1_/s1/ss3/" />' in next_page, next_page[next_page.find('<base href'):next_page.find('<base href')+100]
+        # next_page = self.ss1.getNextPage()
+        # assert self.ss3.displaySubSurvey()
+        # assert '<base href="http://nohost/plone/Members/test_user_1_/s1/ss3/" />' in next_page, next_page[next_page.find('<base href'):next_page.find('<base href')+100]

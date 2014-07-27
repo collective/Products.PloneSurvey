@@ -7,6 +7,7 @@ from plone.app.testing import TEST_USER_ID, setRoles
 from base import INTEGRATION_TESTING
 from base import fixLineEndings
 
+
 class TestBuildSpreadsheetFilename(unittest.TestCase):
     """Ensure spreadsheet 2 works"""
     layer = INTEGRATION_TESTING
@@ -22,7 +23,10 @@ class TestBuildSpreadsheetFilename(unittest.TestCase):
         today = DateTime().strftime("%Y-%m-%d")
         expected_spreadsheet_filename = s1.getId() + '-' + today + '.csv'
         spreadsheet_filename = s1.buildSpreadsheetUrl()
-        assert spreadsheet_filename == expected_spreadsheet_filename, "Filename incorrect: %s - %s" % (spreadsheet_filename, expected_spreadsheet_filename)
+        assert spreadsheet_filename == expected_spreadsheet_filename, \
+            "Filename incorrect: %s - %s" % (spreadsheet_filename,
+                                             expected_spreadsheet_filename)
+
 
 class TestSpreadsheet2(unittest.TestCase):
     """Ensure spreadsheet 2 works"""
@@ -58,6 +62,7 @@ class TestSpreadsheet2(unittest.TestCase):
         csv_file = s1.buildSpreadsheet2()
         assert "test_user_1_" in csv_file, "User name not in spreadsheet"
 
+
 class TestSpreadsheet3(unittest.TestCase):
     """Ensure spreadsheet 3 works"""
     layer = INTEGRATION_TESTING
@@ -92,6 +97,7 @@ class TestSpreadsheet3(unittest.TestCase):
         csv_file = s1.buildSpreadsheet3()
         assert "test_user_1_" in csv_file, "User name not in spreadsheet"
 
+
 class TestSelectInSpreadsheet(unittest.TestCase):
     """Ensure select question in spreadsheets works"""
     layer = INTEGRATION_TESTING
@@ -116,6 +122,7 @@ class TestSelectInSpreadsheet(unittest.TestCase):
         csv_list = csv_list.split("\n")
         assert "0" in csv_list[1], "Answer not in file"
 
+
 class TestSummarySpreadsheet(unittest.TestCase):
     """Ensure summary spreadsheet returns correct results"""
     layer = INTEGRATION_TESTING
@@ -131,6 +138,7 @@ class TestSummarySpreadsheet(unittest.TestCase):
         s1 = getattr(self, 's1')
         csv_file = s1.buildSummarySpreadsheet()
         assert csv_file is not None
+
 
 class TestSelectSpreadsheet(unittest.TestCase):
     """Ensure select spreadsheet returns correct results"""

@@ -1,7 +1,5 @@
 import unittest2 as unittest
 
-import os, sys
-from DateTime import DateTime
 from AccessControl import Unauthorized
 
 from plone.app.testing import TEST_USER_NAME, TEST_USER_ID, setRoles
@@ -9,6 +7,7 @@ from plone.app.testing import login, logout
 from Products.CMFCore.utils import getToolByName
 
 from base import INTEGRATION_TESTING, INTEGRATION_ANON_SURVEY_TESTING
+
 
 class TestRespondentDetails(unittest.TestCase):
     """Ensure respondent is added to survey object"""
@@ -34,9 +33,9 @@ class TestRespondentDetails(unittest.TestCase):
         respondents = s1.getRespondentsDetails()
         assert len(respondents) == 1
         respondent = respondents['test_user_1_']
-        assert respondent.has_key('start')
-        assert respondent.has_key('end')
-        assert respondent.has_key('ip_address')
+        assert 'start' in respondent
+        assert 'end' in respondent
+        assert 'ip_address' in respondent
 
     def testRespondentReset(self):
         s1 = getattr(self, 's1')
@@ -89,9 +88,9 @@ class TestRespondentDetails(unittest.TestCase):
         userid = s1.getSurveyId()
         assert userid == "test_user_1_"
         respondent = s1.getRespondentDetails("test_user_1_")
-        assert respondent.has_key('start')
-        assert respondent.has_key('end')
-        assert respondent.has_key('ip_address')
+        assert 'start' in respondent
+        assert 'end' in respondent
+        assert 'ip_address' in respondent
 
     def testEndTimeAdded(self):
         s1 = getattr(self, 's1')
@@ -100,6 +99,7 @@ class TestRespondentDetails(unittest.TestCase):
         s1.setCompletedForUser()
         respondent = s1.getRespondentDetails("test_user_1_")
         assert respondent['end'] != ''
+
 
 class TestResetOwnResponse(unittest.TestCase):
     """Ensure user can reset their own response"""
@@ -125,15 +125,22 @@ class TestResetOwnResponse(unittest.TestCase):
         s1.resetForUser('test_user_1_')
         assert len(s1.getRespondentsList()) == 0
 
+
 class TestCanNotResetResponse(unittest.TestCase):
     """Ensure user can not reset another response"""
     layer = INTEGRATION_ANON_SURVEY_TESTING
 
     def setUp(self):
         self.portal = self.layer['portal']
-        self.portal_membership = getToolByName(self.portal, 'portal_membership')
-        self.portal_membership.addMember('survey_user', 'secret', ['Member',], [],
-                                         {'fullname': 'Survey User', 'email': 'survey@here.com',})
+        self.portal_membership = getToolByName(self.portal,
+                                               'portal_membership')
+        self.portal_membership.addMember(
+            'survey_user',
+            'secret',
+            ['Member', ],
+            [],
+            {'fullname': 'Survey User', 'email': 'survey@here.com', }
+        )
         self.portal.s1.invokeFactory('Survey Text Question', 'stq1')
         logout()
 
@@ -147,7 +154,7 @@ class TestCanNotResetResponse(unittest.TestCase):
         s1.resetForAuthenticatedUser()
         assert len(s1.getRespondentsList()) == 0
 
-#===============================================================================
+# =============================================================================
 #    def testCantResetFromResetMethod(self):
 #        """Ensure user can't reset response from underlying method"""
 #        login(self.portal, 'survey_user')
@@ -159,7 +166,7 @@ class TestCanNotResetResponse(unittest.TestCase):
 #                          s1.resetForUser,
 #                          'survey_user')
 #        assert len(s1.getRespondentsList()) == 1
-# 
+#
 #    def testAnonymousCantResetFromResetMethod(self):
 #        """Ensure anonymous user can't reset response"""
 #        logout()
@@ -170,7 +177,8 @@ class TestCanNotResetResponse(unittest.TestCase):
 #                          s1.resetForUser,
 #                          'survey_user')
 #        assert len(s1.getRespondentsList()) == 1
-#===============================================================================
+# =============================================================================
+
 
 class TestSurvey(unittest.TestCase):
     """Ensure survey validation"""
@@ -181,11 +189,22 @@ class TestSurvey(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         self.portal.invokeFactory('Survey', 's1')
         self.s1 = getattr(self.portal, 's1')
-        self.portal_membership = getToolByName(self.portal, 'portal_membership')
-        self.portal_membership.addMember('survey_user', 'secret', ['Member',], [],
-                                         {'fullname': 'Survey User', 'email': 'survey@here.com',})
-        self.portal_membership.addMember('no_name_user', 'secret', ['Member',], [],
-                                         {'fullname': '', 'email': 'survey@here.com',})
+        self.portal_membership = getToolByName(self.portal,
+                                               'portal_membership')
+        self.portal_membership.addMember(
+            'survey_user',
+            'secret',
+            ['Member', ],
+            [],
+            {'fullname': 'Survey User', 'email': 'survey@here.com', }
+        )
+        self.portal_membership.addMember(
+            'no_name_user',
+            'secret',
+            ['Member', ],
+            [],
+            {'fullname': '', 'email': 'survey@here.com', }
+        )
 
     def testCanGetFullName(self):
         s1 = getattr(self, 's1')
@@ -201,6 +220,7 @@ class TestSurvey(unittest.TestCase):
         s1 = getattr(self, 's1')
         userid = s1.getRespondentFullName('Anonymous')
         assert userid is None, "Something returned for anonymous"
+
 
 class TestAddAnswer(unittest.TestCase):
     """Ensure survey question can be answered"""
@@ -220,7 +240,8 @@ class TestAddAnswer(unittest.TestCase):
         for question in questions:
             if question.portal_type == 'Survey Text Question':
                 question.addAnswer('Text answer')
-                assert question.getAnswerFor(userid) == 'Text answer', "Answer not saved correctly"
+                assert question.getAnswerFor(userid) == 'Text answer', \
+                    "Answer not saved correctly"
         answers = s1.getAnswersByUser(userid)
         self.assertEqual(len(answers), 1)
 
@@ -235,19 +256,22 @@ class TestAddAnswer(unittest.TestCase):
                 login(self.portal, TEST_USER_NAME)
                 users = s1.getRespondents()
                 assert len(users) == 1, 'More than one user responded'
-                assert question.getAnswerFor(users[0]) == 'Anonymous Text answer', "Answer not saved correctly"
+                assert question.getAnswerFor(users[0]) == \
+                    'Anonymous Text answer', "Answer not saved correctly"
 
     def testAnonymousCantAddAnswer(self):
         s1 = getattr(self.portal, 's1')
-        stq1 = getattr(s1, 'stq1')
         s1.setAllowAnonymous(False)
         logout()
         questions = s1.getQuestions()
         for question in questions:
             if question.portal_type == 'Survey Text Question':
-                self.assertRaises(Unauthorized,
+                self.assertRaises(
+                    Unauthorized,
                     question.addAnswer,
-                    'Anonymous Text answer')
+                    'Anonymous Text answer'
+                )
+
 
 class TestAddSelectAnswer(unittest.TestCase):
     """Ensure survey select question can be answered"""
@@ -260,7 +284,6 @@ class TestAddSelectAnswer(unittest.TestCase):
         self.s1 = getattr(self.portal, 's1')
         self.s1.setAllowAnonymous(True)
         self.s1.invokeFactory('Survey Select Question', 'ssq1')
-        ssq1 = getattr(self.s1, 'ssq1')
 
     def testAddAnswer(self):
         s1 = getattr(self, 's1')
@@ -270,9 +293,11 @@ class TestAddSelectAnswer(unittest.TestCase):
         for question in questions:
             if question.portal_type == 'Survey Select Question':
                 question.addAnswer('Yes')
-                assert question.getAnswerFor(userid) == 'Yes', "Answer not saved correctly"
+                assert question.getAnswerFor(userid) == 'Yes', \
+                    "Answer not saved correctly"
         answers = self.s1.getAnswersByUser(userid)
         self.assertEqual(len(answers), 1)
+
 
 class TestBarchart(unittest.TestCase):
     """Ensure survey barchart works correctly"""
@@ -300,6 +325,7 @@ class TestBarchart(unittest.TestCase):
         colours = s1.getSurveyColors(0)
         assert colours is not None
 
+
 class TestReturnsQuestions(unittest.TestCase):
     """Ensure survey returns correct questions"""
     layer = INTEGRATION_TESTING
@@ -326,7 +352,8 @@ class TestReturnsQuestions(unittest.TestCase):
         self.assertEqual(len(s1.getAllQuestions()), 6)
         self.assertEqual(len(s1.getQuestions()), 3)
         self.assertEqual(len(s1.getAllQuestionsInOrder()), 8)
-        self.assertEqual(len(s1.getAllQuestionsInOrder(include_sub_survey=True)), 9)
+        self.assertEqual(len(s1.getAllQuestionsInOrder(
+            include_sub_survey=True)), 9)
         self.assertEqual(len(s1.getAllSelectQuestionsInOrder()), 4)
 
     def testAllSelectQuestionsOrder(self):
@@ -339,7 +366,7 @@ class TestReturnsQuestions(unittest.TestCase):
 
     def testMoveObjects(self):
         s1 = getattr(self, 's1')
-        s1.moveObjectsToTop(['sm1',])
+        s1.moveObjectsToTop(['sm1', ])
         self.portal.portal_catalog.clearFindAndRebuild()
         questions = s1.getAllSelectQuestionsInOrder()
         self.assertEqual(questions[0].getId(), 'smq1')

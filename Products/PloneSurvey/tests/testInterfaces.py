@@ -6,12 +6,18 @@ from zope.interface.verify import verifyObject
 from plone.app.testing import TEST_USER_ID, setRoles
 
 from Products.PloneSurvey.content.Survey import Survey
-from Products.PloneSurvey.content.SurveyMatrixQuestion import SurveyMatrixQuestion
-from Products.PloneSurvey.content.SurveySelectQuestion import SurveySelectQuestion
-from Products.PloneSurvey.content.SurveyTextQuestion import SurveyTextQuestion
-from Products.PloneSurvey.interfaces import *
+from Products.PloneSurvey.content.SurveyMatrixQuestion \
+    import SurveyMatrixQuestion
+from Products.PloneSurvey.content.SurveySelectQuestion \
+    import SurveySelectQuestion
+from Products.PloneSurvey.content.SurveyTextQuestion \
+    import SurveyTextQuestion
+from Products.PloneSurvey.interfaces import IPloneSurveyQuestion
+from Products.PloneSurvey.interfaces import ISurvey
+from Products.PloneSurvey.interfaces import ISurveyTextQuestion
 
 from base import INTEGRATION_TESTING
+
 
 class TestInterfaces(unittest.TestCase):
     """Ensure survey interfaces are working"""
@@ -33,6 +39,7 @@ class TestInterfaces(unittest.TestCase):
         assert IPloneSurveyQuestion.implementedBy(SurveySelectQuestion)
         assert verifyClass(IPloneSurveyQuestion, SurveyTextQuestion)
         assert IPloneSurveyQuestion.implementedBy(SurveyTextQuestion)
+
 
 class TestClassesImplements(unittest.TestCase):
     """Ensure survey objects implement the interfaces"""

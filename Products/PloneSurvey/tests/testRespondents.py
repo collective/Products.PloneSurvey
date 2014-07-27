@@ -6,6 +6,7 @@ from Products.PloneSurvey.tests import utils
 
 from base import INTEGRATION_ANON_SURVEY_TESTING
 
+
 class TestUploadMembers(unittest.TestCase):
     """Test Upload members"""
     layer = INTEGRATION_ANON_SURVEY_TESTING
@@ -65,4 +66,5 @@ class TestDeleteMember(unittest.TestCase):
         data_catch.close()
         s1.uploadRespondents(input=input)
         s1.deleteAuthenticatedRespondent('user2@here.com')
-        assert s1.getAuthenticatedRespondents()[0]['email_sent'] == '', 'Known error'
+        assert s1.getAuthenticatedRespondents()[0]['email_sent'] == '', \
+            'Known error'
