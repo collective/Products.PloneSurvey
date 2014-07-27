@@ -11,6 +11,7 @@ from Products.PloneSurvey.interfaces import IPloneSurveyQuestion
 from BaseQuestion import BaseQuestion
 from schemata import SurveyDateQuestionSchema
 
+
 class SurveyDateQuestion(BaseQuestion):
     """A question for date/time within a survey"""
     schema = SurveyDateQuestionSchema
@@ -22,6 +23,7 @@ class SurveyDateQuestion(BaseQuestion):
     security = ClassSecurityInfo()
 
     security.declareProtected(permissions.ModifyPortalContent, 'post_validate')
+
     def post_validate(self, REQUEST=None, errors=None):
         """Do the complex validation for the edit form"""
         form = REQUEST.form
@@ -69,11 +71,13 @@ class SurveyDateQuestion(BaseQuestion):
         return errors
 
     security.declareProtected(permissions.View, 'getInputType')
+
     def getInputType(self):
         """Return a hard coded input type"""
         return 'date'
 
     security.declareProtected(permissions.View, 'validateAnswer')
+
     def validateAnswer(self, form, question_id, state):
         """Validate the question"""
         """Construct the deadline from the form"""

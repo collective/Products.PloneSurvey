@@ -30,17 +30,20 @@ class BaseQuestion(ATCTContent):
     security = ClassSecurityInfo()
 
     security.declareProtected(permissions.ModifyPortalContent, 'reset')
+
     def reset(self):
         """Remove answers for all users."""
         self.answers = OOBTree()
 
     security.declareProtected(permissions.ModifyPortalContent, 'resetForUser')
+
     def resetForUser(self, userid):
         """Remove answer for a single user"""
         if self.answers.has_key(userid):
             del self.answers[userid]
 
     security.declareProtected(permissions.View, 'addAnswer')
+
     def addAnswer(self, value, comments=""):
         """Add an answer and optional comments for a user.
         This method protects _addAnswer from anonymous users specifying a
@@ -88,6 +91,7 @@ class BaseQuestion(ATCTContent):
             self.answers._p_changed = 1
 
     security.declareProtected(permissions.View, 'getAnswerFor')
+
     def getAnswerFor(self, userid):
         """Get a specific user's answer"""
         answer = self.answers.get(userid, {}).get('value', None)
@@ -101,11 +105,13 @@ class BaseQuestion(ATCTContent):
         return answer
 
     security.declareProtected(permissions.View, 'getCommentsFor')
+
     def getCommentsFor(self, userid):
         """Get a specific user's comments"""
         return self.answers.get(userid, {}).get('comments', None)
 
     security.declareProtected(permissions.View, 'getComments')
+
     def getComments(self):
         """Return a userid, comments mapping"""
         mlist = []
@@ -117,10 +123,12 @@ class BaseQuestion(ATCTContent):
         return mlist
 
     security.declareProtected(permissions.View, 'getNumberOfRespondents')
+
     def getNumberOfRespondents(self):
         return len(self.answers.keys())
 
     security.declarePrivate('_get_yes_no_default')
+
     def _get_yes_no_default(self):
         foo = (_(u'Yes'), _(u'No'))
         translation_service = getToolByName(self,'translation_service')
@@ -133,6 +141,7 @@ class BaseQuestion(ATCTContent):
         )
 
     security.declarePrivate('_get_commentLabel_default')
+
     def _get_commentLabel_default(self):
         foo = _(u'commentLabelDefault', default=u"Comment - mandatory if \"no\"")
         translation_service = getToolByName(self,'translation_service')

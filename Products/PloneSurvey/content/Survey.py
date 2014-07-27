@@ -48,6 +48,7 @@ class BasicPropertySheet:
     def setProperty(self, id, value):
         self._properties[id] = value
 
+
 class Survey(ATCTOrderedFolder):
     """You can add questions to surveys"""
     schema = SurveySchema
@@ -58,6 +59,7 @@ class Survey(ATCTOrderedFolder):
     security = ClassSecurityInfo()
 
     security.declareProtected(permissions.ModifyPortalContent, 'reset')
+
     def reset(self):
         """Remove all respondents."""
         self.respondents = OOBTree()
@@ -71,6 +73,7 @@ class Survey(ATCTOrderedFolder):
                 raise
 
     security.declarePrivate('createLocalPas')
+
     def createLocalPas(self):
         """Create PAS acl_users else login_form does not work"""
         # need Manager role to add an acl_users object

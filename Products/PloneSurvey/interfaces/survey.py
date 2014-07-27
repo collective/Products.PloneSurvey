@@ -1,7 +1,8 @@
-from zope.interface import Interface, Attribute
+from zope.interface import Interface
+
 
 class ISurvey(Interface):
-    """You can add questions to surveys"""    
+    """You can add questions to surveys"""
 
     def isMultipage():
         """Return true if there is more than one page in the survey"""

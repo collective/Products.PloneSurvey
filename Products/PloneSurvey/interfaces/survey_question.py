@@ -1,5 +1,6 @@
 from zope.interface import Interface
 
+
 class IPloneSurveyQuestion(Interface):
     """A question within a survey"""
 
