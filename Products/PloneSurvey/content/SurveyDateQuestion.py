@@ -1,10 +1,9 @@
 from AccessControl import ClassSecurityInfo
 from zope.interface import implements
 
-from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import registerATCT
+from Products.CMFCore import permissions
 
-from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.interfaces.survey_question \
     import IPloneSurveyQuestion

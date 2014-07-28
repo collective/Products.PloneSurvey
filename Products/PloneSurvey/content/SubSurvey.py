@@ -1,12 +1,11 @@
 import string
 from AccessControl import ClassSecurityInfo
 
-from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
+from Products.CMFCore import permissions
 from Products.CMFCore.utils import getToolByName
 
-from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import PROJECTNAME
 
 from schemata import SubSurveySchema

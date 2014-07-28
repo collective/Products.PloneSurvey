@@ -1,12 +1,12 @@
 from AccessControl import ClassSecurityInfo
 from BTrees.OOBTree import OOBTree
 
-from Products.Archetypes.atapi import *
+from Products.Archetypes.atapi import IntDisplayList
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
+from Products.CMFCore import permissions
 from Products.CMFPlone.utils import safe_unicode
 
-from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import LIKERT_OPTIONS_MAP
 from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.content.BaseQuestion import BaseQuestion

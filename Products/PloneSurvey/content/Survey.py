@@ -15,23 +15,27 @@ from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
 from zope.i18n import translate
 
-from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
 from Products.ATContentTypes.utils import DT2dt
+from Products.CMFCore import permissions
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.exceptions import BadRequest
 
 from Products.PluggableAuthService.PluggableAuthService \
     import addPluggableAuthService
-from Products.PlonePAS.Extensions.Install import *
+from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
+from Products.PlonePAS.Extensions.Install import challenge_chooser_setup
+from Products.PlonePAS.Extensions.Install import registerPluginTypes
+from Products.PlonePAS.Extensions.Install import setupPlugins
 
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
-from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.config import BARCHART_COLORS
 from Products.PloneSurvey.interfaces.survey import ISurvey
 from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
+from Products.PloneSurvey.permissions import ResetOwnResponses
+from Products.PloneSurvey.permissions import ViewSurveyResults
 
 from schemata import SurveySchema
 
@@ -426,8 +430,7 @@ class Survey(ATCTOrderedFolder):
             users[user] = 1
         return users.keys()
 
-    security.declareProtected(permissions.ViewSurveyResults,
-                              'getRespondentDetails')
+    security.declareProtected(ViewSurveyResults, 'getRespondentDetails')
 
     def getRespondentDetails(self, respondent):
         """Return details of a respondent"""
@@ -481,8 +484,7 @@ class Survey(ATCTOrderedFolder):
                 users[user] = 1
         return users.keys()
 
-    security.declareProtected(permissions.ViewSurveyResults,
-                              'getRespondentFullName')
+    security.declareProtected(ViewSurveyResults, 'getRespondentFullName')
 
     def getRespondentFullName(self, userid):
         """get user. used by results spreadsheets to show fullname"""
@@ -495,8 +497,7 @@ class Survey(ATCTOrderedFolder):
             return full_name
         return member.id
 
-    security.declareProtected(permissions.ViewSurveyResults,
-                              'getAnswersByUser')
+    security.declareProtected(ViewSurveyResults, 'getAnswersByUser')
 
     def getAnswersByUser(self, userid):
         """Return a set of answers by user id"""
@@ -525,8 +526,7 @@ class Survey(ATCTOrderedFolder):
             num_colors = len(colors)
         return colors
 
-    security.declareProtected(permissions.ResetOwnResponses,
-                              'resetForAuthenticatedUser')
+    security.declareProtected(ResetOwnResponses, 'resetForAuthenticatedUser')
 
     def resetForAuthenticatedUser(self):
         mtool = getToolByName(self, 'portal_membership')
@@ -761,7 +761,7 @@ class Survey(ATCTOrderedFolder):
             self.createLocalPas()
         return self.acl_users
 
-    security.declareProtected(permissions.ViewSurveyResults, 'setCsvHeaders')
+    security.declareProtected(ViewSurveyResults, 'setCsvHeaders')
 
     def setCsvHeaders(self, filetype='csv'):
         """Set the CSV headers"""
@@ -775,8 +775,7 @@ class Survey(ATCTOrderedFolder):
             'attachment; filename=%s' % file)
         return REQUEST
 
-    security.declareProtected(permissions.ViewSurveyResults,
-                              'buildSpreadsheetUrl')
+    security.declareProtected(ViewSurveyResults, 'buildSpreadsheetUrl')
 
     def buildSpreadsheetUrl(self, filetype='csv'):
         """Create a filename for the spreadsheets"""
@@ -786,15 +785,14 @@ class Survey(ATCTOrderedFolder):
         url = "%s.%s" % (id, filetype)
         return url
 
-    security.declareProtected(permissions.ViewSurveyResults, 'spreadsheet2')
+    security.declareProtected(ViewSurveyResults, 'spreadsheet2')
 
     def spreadsheet2(self):
         """Return spreadsheet 2"""
         self.setCsvHeaders()
         return self.buildSpreadsheet2()
 
-    security.declareProtected(permissions.ViewSurveyResults,
-                              'spreadsheet2_tab')
+    security.declareProtected(ViewSurveyResults, 'spreadsheet2_tab')
 
     def spreadsheet2_tab(self):
         """Return spreadsheet 2 tab"""
@@ -802,8 +800,7 @@ class Survey(ATCTOrderedFolder):
         dialect = csv.excel_tab
         return self.buildSpreadsheet2(dialect)
 
-    security.declareProtected(permissions.ViewSurveyResults,
-                              'buildSpreadsheet2')
+    security.declareProtected(ViewSurveyResults, 'buildSpreadsheet2')
 
     def buildSpreadsheet2(self, dialect=csv.excel):
         """Build spreadsheet 2.
@@ -838,14 +835,14 @@ class Survey(ATCTOrderedFolder):
 
         return data.getvalue()
 
-    security.declareProtected(permissions.ViewSurveyResults, 'spreadsheet3')
+    security.declareProtected(ViewSurveyResults, 'spreadsheet3')
 
     def spreadsheet3(self):
         """Return spreadsheet 3"""
         self.setCsvHeaders()
         return self.buildSpreadsheet3()
 
-    security.declareProtected(permissions.ViewSurveyResults,
+    security.declareProtected(ViewSurveyResults,
                               'get_all_questions_in_order_filtered')
 
     def get_all_questions_in_order_filtered(self,
@@ -873,8 +870,7 @@ class Survey(ATCTOrderedFolder):
                 result.append(question)
         return result
 
-    security.declareProtected(permissions.ViewSurveyResults,
-                              'buildSpreadsheet3')
+    security.declareProtected(ViewSurveyResults, 'buildSpreadsheet3')
 
     def buildSpreadsheet3(self):
         """Build spreadsheet 3."""
@@ -933,8 +929,7 @@ class Survey(ATCTOrderedFolder):
             sheet.writerow(row)
         return data.getvalue()
 
-    security.declareProtected(permissions.ViewSurveyResults,
-                              'summary_spreadsheet')
+    security.declareProtected(ViewSurveyResults, 'summary_spreadsheet')
 
     def summary_spreadsheet(self):
         """Return summary spreadsheet"""
@@ -967,8 +962,7 @@ class Survey(ATCTOrderedFolder):
                     sheet.writerow(row)
         return data.getvalue()
 
-    security.declareProtected(permissions.ViewSurveyResults,
-                              'spreadsheet_select')
+    security.declareProtected(ViewSurveyResults, 'spreadsheet_select')
 
     def spreadsheet_select(self):
         """Return spreadsheet select"""
@@ -979,8 +973,7 @@ class Survey(ATCTOrderedFolder):
             return self.buildSelectSpreadsheet()
         return self.buildSelectSpreadsheet(boolean=True)
 
-    security.declareProtected(permissions.ViewSurveyResults,
-                              'buildSelectSpreadsheet')
+    security.declareProtected(ViewSurveyResults, 'buildSelectSpreadsheet')
 
     def buildSelectSpreadsheet(self, boolean=False):
         """Build the select spreadsheet."""

@@ -1,6 +1,5 @@
 import logging
 
-from StringIO import StringIO
 from Products.CMFCore.utils import getToolByName
 
 LOGGER_ID = 'Products.PloneSurvey'
@@ -13,8 +12,6 @@ def importVarious(context):
     # Only run step if a flag file is present
     if context.readDataFile('PloneSurvey.txt') is None:
         return
-    site = context.getSite()
-    out = StringIO()
 
 
 def nullStep(context, logger=None):

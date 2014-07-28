@@ -1,6 +1,7 @@
 from Products.Archetypes.public import process_types, listTypes
 from Products.CMFCore.utils import ContentInit
 from Products.CMFCore.DirectoryView import registerDirectory
+from Products.CMFCore.permissions import AddPortalContent
 
 # Import "PloneSurveyMessageFactory as _" to create messages
 # in plonesurvey domain
@@ -8,7 +9,7 @@ from zope.i18nmessageid import MessageFactory
 PloneSurveyMessageFactory = MessageFactory('plonesurvey')
 
 from config import SKINS_DIR, GLOBALS, PROJECTNAME
-from permissions import addSurvey, AddPortalContent
+from permissions import addSurvey
 
 registerDirectory(SKINS_DIR, GLOBALS)
 

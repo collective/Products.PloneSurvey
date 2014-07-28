@@ -1,11 +1,10 @@
 from AccessControl import ClassSecurityInfo
 from zope.interface import implements
 
-from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import registerATCT
+from Products.CMFCore import permissions
 from Products.validation import validation
 
-from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.config import TEXT_VALIDATORS
 from Products.PloneSurvey.content.BaseQuestion import BaseQuestion

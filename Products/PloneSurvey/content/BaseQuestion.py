@@ -10,11 +10,10 @@ except ImportError:
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
 
-from Products.Archetypes.atapi import *
 from Products.ATContentTypes.content.base import ATCTContent
+from Products.CMFCore import permissions
 from Products.CMFCore.utils import getToolByName
 
-from Products.PloneSurvey import permissions
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
 
 
