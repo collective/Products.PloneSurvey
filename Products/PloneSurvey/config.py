@@ -15,11 +15,6 @@ DEFAULT_SURVEY_INVITE = u'''
 <p>Please complete the **Survey**</p>
 <p>Thank you</p>'''
 
-SURVEY_STATUS = DisplayList((
-    ('open', _(u'label_survey_open', default=u'Open')),
-    ('closed', _(u'label_survey_closed', default=u'Closed')),
-    ))
-
 NOTIFICATION_METHOD = DisplayList((
     ('', _(u'label_no_emails', default=u'No emails')),
     ('each_submission', _(u'label_all_emails',
@@ -39,16 +34,6 @@ SELECT_INPUT_TYPE = DisplayList((
     ('checkbox', _(u'label_check_boxes', default=u'Check Boxes')),
     ))
 
-INPUT_TYPE = DisplayList((
-    ('radio', _(u'label_radio_buttons', default=u'Radio Buttons')),
-    ('selectionBox', _(u'label_selection_box', default=u'Selection Box')),
-    ('text', _(u'label_text_field', default=u'Text Field')),
-    ('area', _(u'label_text_area', default=u'Text Area')),
-    ('multipleSelect', _(u'label_multiple_selection_box',
-                         default=u'Multiple Selection Box')),
-    ('checkbox', _(u'label_check_boxes', default=u'Check Boxes')),
-    ))
-
 TEXT_LOCATION = IntDisplayList((
     (0, _(u'label_does_not_appear', default=u'Does not appear')),
     (1, _(u'label_appears_above_question', default=u'Appears above question')),
@@ -61,11 +46,6 @@ COMMENT_TYPE = DisplayList((
     ('', _(u'label_no_comment_field', default=u'None')),
     ('text', _(u'label_text_field', default=u'Text Field')),
     ('area', _(u'label_text_area', default=u'Text Area')),
-    ))
-
-TWO_D_INPUT_TYPE = DisplayList((
-    ('radio', _(u'label_radio_buttons', default=u'Radio Buttons')),
-    ('selectionBox', _(u'label_selection_box', default=u'Selection Box')),
     ))
 
 LIKERT_OPTIONS = IntDisplayList((
