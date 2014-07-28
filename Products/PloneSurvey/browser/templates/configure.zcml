@@ -4,7 +4,7 @@
            i18n_domain="plonesurvey">
 
     <browser:page
-       for="Products.PloneSurvey.interfaces.ISurvey"
+       for="Products.PloneSurvey.interfaces.survey.ISurvey"
        name="import_respondents"
        class="Products.PloneSurvey.browser.importer.importerRespondentsView"
        template="import_respondents.pt"

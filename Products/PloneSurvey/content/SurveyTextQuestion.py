@@ -9,8 +9,10 @@ from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.config import TEXT_VALIDATORS
 from Products.PloneSurvey.content.BaseQuestion import BaseQuestion
-from Products.PloneSurvey.interfaces import IPloneSurveyQuestion
-from Products.PloneSurvey.interfaces import ISurveyTextQuestion
+from Products.PloneSurvey.interfaces.survey_question \
+    import IPloneSurveyQuestion
+from Products.PloneSurvey.interfaces.survey_text_question \
+    import ISurveyTextQuestion
 
 from schemata import SurveyTextQuestionSchema
 

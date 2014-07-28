@@ -7,7 +7,12 @@ from Products.ATContentTypes.lib.constraintypes \
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
-from Products.PloneSurvey.config import *
+from Products.PloneSurvey.config import NOTIFICATION_METHOD
+from Products.PloneSurvey.config import TEXT_INPUT_TYPE
+from Products.PloneSurvey.config import SELECT_INPUT_TYPE
+from Products.PloneSurvey.config import TEXT_LOCATION
+from Products.PloneSurvey.config import COMMENT_TYPE
+from Products.PloneSurvey.config import LIKERT_OPTIONS
 
 SurveySchema = ATContentTypeSchema.copy() + ConstrainTypesMixinSchema + Schema((
 

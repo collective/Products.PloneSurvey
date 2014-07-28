@@ -3,7 +3,6 @@ PROJECTNAME = "Products.PloneSurvey"
 from Products.Archetypes.utils import DisplayList
 from Products.Archetypes.utils import IntDisplayList
 from Products.validation import validation
-from zope.i18nmessageid import MessageFactory
 
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
 
@@ -23,7 +22,8 @@ SURVEY_STATUS = DisplayList((
 
 NOTIFICATION_METHOD = DisplayList((
     ('', _(u'label_no_emails', default=u'No emails')),
-    ('each_submission', _(u'label_all_emails', default=u'Email on each submission')),
+    ('each_submission', _(u'label_all_emails',
+                          default=u'Email on each submission')),
     ))
 
 TEXT_INPUT_TYPE = DisplayList((
@@ -34,7 +34,8 @@ TEXT_INPUT_TYPE = DisplayList((
 SELECT_INPUT_TYPE = DisplayList((
     ('radio', _(u'label_radio_buttons', default=u'Radio Buttons')),
     ('selectionBox', _(u'label_selection_box', default=u'Selection Box')),
-    ('multipleSelect', _(u'label_multiple_selection_box', default=u'Multiple Selection Box')),
+    ('multipleSelect', _(u'label_multiple_selection_box',
+                         default=u'Multiple Selection Box')),
     ('checkbox', _(u'label_check_boxes', default=u'Check Boxes')),
     ))
 
@@ -43,14 +44,16 @@ INPUT_TYPE = DisplayList((
     ('selectionBox', _(u'label_selection_box', default=u'Selection Box')),
     ('text', _(u'label_text_field', default=u'Text Field')),
     ('area', _(u'label_text_area', default=u'Text Area')),
-    ('multipleSelect', _(u'label_multiple_selection_box', default=u'Multiple Selection Box')),
+    ('multipleSelect', _(u'label_multiple_selection_box',
+                         default=u'Multiple Selection Box')),
     ('checkbox', _(u'label_check_boxes', default=u'Check Boxes')),
     ))
 
 TEXT_LOCATION = IntDisplayList((
     (0, _(u'label_does_not_appear', default=u'Does not appear')),
     (1, _(u'label_appears_above_question', default=u'Appears above question')),
-    (2, _(u'label_appears_between_question_and_answer', default=u'Appears between question and answer')),
+    (2, _(u'label_appears_between_question_and_answer',
+          default=u'Appears between question and answer')),
     (3, _(u'label_appears_after_answer', default=u'Appears after answer')),
     ))
 
@@ -67,8 +70,10 @@ TWO_D_INPUT_TYPE = DisplayList((
 
 LIKERT_OPTIONS = IntDisplayList((
     (0, _(u'label_use_options_below', default=u'Use the options below')),
-    (1, _(u'list_good_poor', default=u'("Very Good", "Good", "OK Only", "Poor", "Very Poor")')),
-    (2, _(u'list_useful_notuseful', default=u'("Very Useful", "Useful", "Quite Useful", "A little Useful", "Not Useful")')),
+    (1, _(u'list_good_poor',
+          default=u'("Very Good", "Good", "OK Only", "Poor", "Very Poor")')),
+    (2, _(u'list_useful_notuseful',
+          default=u'("Very Useful", "Useful", "Quite Useful", "A little Useful", "Not Useful")')),
     (3, _(u'list_agree_disagree', default=u'("Agree Strongly", "Agree", "Neutral", "Disagree", "Disagree Strongly")')),
     ))
 

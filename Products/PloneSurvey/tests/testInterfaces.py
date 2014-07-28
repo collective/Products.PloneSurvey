@@ -12,9 +12,11 @@ from Products.PloneSurvey.content.SurveySelectQuestion \
     import SurveySelectQuestion
 from Products.PloneSurvey.content.SurveyTextQuestion \
     import SurveyTextQuestion
-from Products.PloneSurvey.interfaces import IPloneSurveyQuestion
-from Products.PloneSurvey.interfaces import ISurvey
-from Products.PloneSurvey.interfaces import ISurveyTextQuestion
+from Products.PloneSurvey.interfaces.survey_question \
+    import IPloneSurveyQuestion
+from Products.PloneSurvey.interfaces.survey import ISurvey
+from Products.PloneSurvey.interfaces.survey_text_question \
+    import ISurveyTextQuestion
 
 from base import INTEGRATION_TESTING
 
@@ -52,13 +54,11 @@ class TestClassesImplements(unittest.TestCase):
         self.s1 = getattr(self.portal, 's1')
 
     def testSurveyInterface(self):
-        from Products.PloneSurvey.interfaces import ISurvey
         SurveyObject = getattr(self.portal, 's1')
         assert ISurvey.providedBy(SurveyObject)
         assert verifyObject(ISurvey, SurveyObject)
 
     def testSurveyTextQuestionInterface(self):
-        from Products.PloneSurvey.interfaces import ISurveyTextQuestion
         self.s1.invokeFactory('Survey Text Question', 'stq1')
         stq1 = getattr(self.s1, 'stq1')
         assert ISurveyTextQuestion.providedBy(stq1)

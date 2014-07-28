@@ -4,7 +4,7 @@
            i18n_domain="plonesurvey">
 
     <browser:page
-        for="Products.PloneSurvey.interfaces.ISurvey"
+        for="Products.PloneSurvey.interfaces.survey.ISurvey"
         class=".print_survey.PrintSurveyView"
         name="print_survey"
         template="print_survey.pt"

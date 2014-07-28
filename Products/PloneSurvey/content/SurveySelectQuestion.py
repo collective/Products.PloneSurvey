@@ -7,7 +7,8 @@ from Products.ATContentTypes.content.base import registerATCT
 from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import LIKERT_OPTIONS_MAP
 from Products.PloneSurvey.config import PROJECTNAME
-from Products.PloneSurvey.interfaces import IPloneSurveyQuestion
+from Products.PloneSurvey.interfaces.survey_question \
+    import IPloneSurveyQuestion
 
 from BaseQuestion import BaseQuestion
 from schemata import SurveySelectQuestionSchema

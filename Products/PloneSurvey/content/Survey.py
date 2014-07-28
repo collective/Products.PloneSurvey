@@ -30,7 +30,7 @@ from Products.PloneSurvey import PloneSurveyMessageFactory as _
 from Products.PloneSurvey import permissions
 from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.config import BARCHART_COLORS
-from Products.PloneSurvey.interfaces import ISurvey
+from Products.PloneSurvey.interfaces.survey import ISurvey
 from Products.PloneSurvey.config import DEFAULT_SURVEY_INVITE
 
 from schemata import SurveySchema
@@ -440,9 +440,6 @@ class Survey(ATCTOrderedFolder):
         except KeyError:
             # TODO try/except should be removed at some point
             # probably old survey, create respondent details
-            if respondent.find('@'):
-                saved_details = respondent.split('@')
-            # saved_details = respondent.split('@')
             self.respondents[respondent] = PersistentMapping(start='',
                                                              ip_address='',
                                                              end='')

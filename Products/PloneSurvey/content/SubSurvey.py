@@ -49,13 +49,15 @@ class SubSurvey(ATCTOrderedFolder):
         else:
             portal_membership = getToolByName(self, 'portal_membership')
             if not portal_membership.isAnonymousUser():
-                if portal_membership.getAuthenticatedMember().getId() == user_id:
+                member_id = portal_membership.getAuthenticatedMember().getId()
+                if member_id == user_id:
                     return user_id
             else:
                 survey_cookie = self.aq_parent.getId()
                 if self.aq_parent.getAllowAnonymous() and self.REQUEST.has_key(survey_cookie) and request.get(survey_cookie, "Anonymous") == user_id:
                     return user_id
-            # XXX survey is probably being spoofed, need another field for allow users without cookies, for now let them through
+            # XXX survey is probably being spoofed, need another field for
+            # allow users without cookies, for now let them through
             return user_id
         survey_url = self.aq_parent.absolute_url()
         return self.REQUEST.RESPONSE.redirect(survey_url)

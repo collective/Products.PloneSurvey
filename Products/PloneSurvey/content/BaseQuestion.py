@@ -142,12 +142,12 @@ class BaseQuestion(ATCTContent):
     security.declarePrivate('_get_commentLabel_default')
 
     def _get_commentLabel_default(self):
-        foo = _(u'commentLabelDefault', default=u"Comment - mandatory if \"no\"")
+        foo = _(u'commentLabelDefault',
+                default=u"Comment - mandatory if \"no\"")
         translation_service = getToolByName(self, 'translation_service')
         return translation_service.utranslate(
-             domain='plonesurvey',
-             msgid=u'commentLabelDefault',
-             default=u'Comment - mandatory if "no"',
-             context=self)
+            domain='plonesurvey',
+            msgid=u'commentLabelDefault',
+            default=u'Comment - mandatory if "no"', context=self)
 
 InitializeClass(BaseQuestion)

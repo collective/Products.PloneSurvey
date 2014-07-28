@@ -2,37 +2,37 @@
            i18n_domain="plonesurvey">
 
     <browser:page
-       for="Products.PloneSurvey.interfaces.ISurvey"
+       for="Products.PloneSurvey.interfaces.survey.ISurvey"
        name="Products.PloneSurvey.comments_view"
        template="comments_view.pt"
        permission="zope2.View"/>
 
     <browser:page
-       for="Products.PloneSurvey.interfaces.ISurvey"
+       for="Products.PloneSurvey.interfaces.survey.ISurvey"
        name="Products.PloneSurvey.html_spreadsheet"
        template="html_spreadsheet.pt"
        permission="zope2.View"/>
 
     <browser:page
-       for="Products.PloneSurvey.interfaces.ISurvey"
+       for="Products.PloneSurvey.interfaces.survey.ISurvey"
        name="Products.PloneSurvey.question_barchart"
        template="question_barchart.pt"
        permission="zope2.View"/>
 
     <browser:page
-       for="Products.PloneSurvey.interfaces.ISurvey"
+       for="Products.PloneSurvey.interfaces.survey.ISurvey"
        name="Products.PloneSurvey.survey_barchart"
        template="survey_barchart.pt"
        permission="zope2.View"/>
 
     <browser:page
-       for="Products.PloneSurvey.interfaces.ISurvey"
+       for="Products.PloneSurvey.interfaces.survey.ISurvey"
        name="Products.PloneSurvey.survey_view_results"
        template="survey_view_results.pt"
        permission="zope2.View"/>
 
     <browser:page
-       for="Products.PloneSurvey.interfaces.ISurvey"
+       for="Products.PloneSurvey.interfaces.survey.ISurvey"
        class=".respondents_table.RespondentsTableView"
        name="Products.PloneSurvey.respondents_table"
        template="respondents_table.pt"

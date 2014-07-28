@@ -2,7 +2,7 @@
 _ = context.translate
 
 from Products.CMFCore.utils import getToolByName
-portal_properties   = getToolByName(context, 'portal_properties')
+portal_properties = getToolByName(context, 'portal_properties')
 
 acl_users = context.get_acl_users()
 pu = getToolByName(context, 'plone_utils')
