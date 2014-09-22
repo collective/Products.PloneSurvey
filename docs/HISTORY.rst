@@ -4,6 +4,8 @@ Changelog for Products.PloneSurvey
 1.4.8 - Unreleased
 ------------------
 
+  * Captcha integration with collective.recaptcha, if quintagroup.plonecaptchas isn't installed [fdelia]
+
 1.4.7 - 2014-05-17
 ------------------
 
@@ -15,11 +17,11 @@ Changelog for Products.PloneSurvey
     [Manuel Gualda Caballero]
 
   * Fix: mistake link url for @@Products.PloneSurvey.html_spreadsheet at survey_view_results.pt
-    [terapyon] 
+    [terapyon]
 
   * Restored minimal Plone 3 compatibility (but beware z3c.rml version)
     [keul]
-  
+
   * Fixed getAnswerFor return value for selectionBox fields. Now force to return a string like radio
     [cekk]
 

@@ -1065,7 +1065,7 @@ msgstr "spedisci un promemoria/invito del sondaggio"
 #. Default: "Product quintagroup.plonecaptchas not installed. If you prefer to use the product collective.recaptcha instead of quintagroup.plonecaptchas then verifies that recaptcha private and public keys are configured. Go to path/to/site/@@recaptcha-settings to configure."
 #: ../content/Survey.py:1087
 msgid "showCaptcha"
-msgstr "Il prodotto quintagroup.plonecaptchas non è installato. Se preferisci utilizzare il prodotto collective.recaptcha invece di quintagroup.plonecaptchas verifica che le chiavi recaptcha privata e pubblica siano configurate. Vai a percorso/al/sito/@@recaptcha-settings per configurare."
+msgstr "Il prodotto quintagroup.plonecaptchas non è installato. Se preferisci utilizzare il prodotto collective.recaptcha invece di quintagroup.plonecaptchas verifica che le chiavi recaptcha privata e pubblica siano configurate. Vai a percorso/al/sito/@@recaptcha-settings per configurarle."
 
 #. Default: "Submit"
 #: ../skins/plone_survey/survey_view.cpt:99

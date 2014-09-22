@@ -39,6 +39,12 @@ from Products.PloneSurvey.permissions import ViewSurveyResults
 
 from schemata import SurveySchema
 
+try:
+    from collective.recaptcha.settings import getRecaptchaSettings
+    using_collective_recaptcha = True
+except ImportError:
+    using_collective_recaptcha = False
+
 
 # Dumb class to work around bug in _getPropertyProviderForUser which
 # causes it to always operate on portal.acl_users
@@ -1062,15 +1068,27 @@ class Survey(ATCTOrderedFolder):
                 errors.append(user)
         return errors
 
+    security.declareProtected(permissions.View, 'collective_recaptcha_enabled')
+
+    def collective_recaptcha_enabled(self):
+        if using_collective_recaptcha:
+            settings = getRecaptchaSettings()
+            if settings.public_key and settings.private_key:
+                return True
+        return False
+
     security.declareProtected(permissions.ModifyPortalContent, 'pre_validate')
 
     def pre_validate(self, REQUEST, errors):
         """ checks captcha """
         product_installed = self.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas')
-        if not product_installed and REQUEST.get('showCaptcha', 0):
+        if not product_installed and not self.collective_recaptcha_enabled() and REQUEST.get('showCaptcha', 0):
             if int(REQUEST.get('showCaptcha')):
-                errors['showCaptcha'] = \
-                    'Product quintagroup.plonecaptchas not installed'
+                errors['showCaptcha'] = _('showCaptcha',
+                    default='Product quintagroup.plonecaptchas not installed. '
+                            'If you prefer to use the product collective.recaptcha instead of quintagroup.plonecaptchas '
+                            'then verifies that recaptcha private and public keys are configured. '
+                            'Go to path/to/site/@@recaptcha-settings to configure.')
 
     security.declareProtected(permissions.View, 'isCaptchaInstalled')
 
@@ -1078,6 +1096,7 @@ class Survey(ATCTOrderedFolder):
         """ checks captcha """
         product_installed = self.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas')
         return product_installed
+
 
     security.declarePrivate('_get_emailInvite_default')
 

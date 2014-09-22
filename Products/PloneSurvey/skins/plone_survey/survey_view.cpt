@@ -26,6 +26,7 @@
                     completed python:here.checkCompletedFor(member_id);
                     show_captcha here/getShowCaptcha|nothing;
                     captcha_installed context/isCaptchaInstalled;
+                    recaptcha_enabled context/collective_recaptcha_enabled;
                     isAnon context/@@plone_portal_state/anonymous;
                     pagetype here/portal_type">
 
@@ -79,8 +80,13 @@
                           tal:content="structure question/getBody" />
                 </tal:question>
 
-                <tal:captcha tal:condition="python:show_captcha and captcha_installed">
-                    <div metal:use-macro="here/captcha_widget/macros/captcha" />
+                <tal:captcha tal:condition="python:show_captcha and (captcha_installed or recaptcha_enabled)">
+                    <tal:captcha_installed tal:condition="captcha_installed">
+                        <div metal:use-macro="here/captcha_widget/macros/captcha" />
+                    </tal:captcha_installed>
+                    <tal:recaptcha_enabled tal:condition="python: not captcha_installed and recaptcha_enabled">
+                        <div metal:use-macro="here/recaptcha_widget/macros/recaptcha" />
+                    </tal:recaptcha_enabled>
                 </tal:captcha>
 
                 <div class="formControls">
