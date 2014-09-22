@@ -972,6 +972,16 @@ msgstr "Prego, fornisci un indirizzo e-mail"
 msgid "please_provide_fullname"
 msgstr "Prego fornisci un nome"
 
+#. Default: "Fill the captcha protection field below, for being sure that you are an human."
+#: ../skins/plone_survey/recaptcha_widget.pt:13
+msgid "recaptcha_check_help"
+msgstr "Inserisci il codice di protezione captcha qui sotto, per essere sicuri che tu sia un umano."
+
+#. Default: "Protection from spam"
+#: ../skins/plone_survey/recaptcha_widget.pt:8
+msgid "recaptcha_check_label"
+msgstr "Protezione dallo spam"
+
 #. Default: "Reset"
 #: ../skins/plone_survey/respondents_view.cpt:76
 msgid "reset_button"
