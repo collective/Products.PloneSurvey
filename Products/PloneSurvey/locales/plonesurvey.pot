@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-24 17:02+0000\n"
+"POT-Creation-Date: 2014-09-22 08:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -251,6 +251,11 @@ msgstr ""
 
 #: ../content/Survey.py:514
 msgid "[${survey_title}] New survey submitted"
+msgstr ""
+
+#. Default: "Captcha protection code is wrong. Please retry."
+#: ../skins/plone_survey/validate_survey.vpy:83
+msgid "captcha_code_wrong"
 msgstr ""
 
 #. Default: "Comment - mandatory if \"no\""
