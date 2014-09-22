@@ -1004,6 +1004,11 @@ msgstr ""
 msgid "send_survey_reminder_label"
 msgstr ""
 
+#. Default: "Product quintagroup.plonecaptchas not installed. If you prefer to use the product collective.recaptcha instead of quintagroup.plonecaptchas then verifies that recaptcha private and public keys are configured. Go to path/to/site/@@recaptcha-settings to configure."
+#: ../content/Survey.py:1087
+msgid "showCaptcha"
+msgstr ""
+
 #. Default: "Submit"
 #: ../skins/plone_survey/survey_view.cpt:99
 msgid "submit_button"
