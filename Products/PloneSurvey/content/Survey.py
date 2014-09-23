@@ -1072,7 +1072,11 @@ class Survey(ATCTOrderedFolder):
 
     def collective_recaptcha_enabled(self):
         if using_collective_recaptcha:
-            settings = getRecaptchaSettings()
+            try:
+                settings = getRecaptchaSettings()
+            except TypeError:
+                # collective.recaptcha not configured
+                return False
             if settings.public_key and settings.private_key:
                 return True
         return False

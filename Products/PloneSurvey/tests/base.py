@@ -27,8 +27,6 @@ class TestCase(PloneSandboxLayer):
         # Load ZCML
         import Products.PloneSurvey
         self.loadZCML(package=Products.PloneSurvey)
-        import collective.recaptcha
-        self.loadZCML(package=collective.recaptcha)
 
         # Install product and call its initialize() function
         z2.installProduct(app, PROJECTNAME)
@@ -54,8 +52,6 @@ class TestAnonCase(PloneSandboxLayer):
         # Load ZCML
         import Products.PloneSurvey
         self.loadZCML(package=Products.PloneSurvey)
-        import collective.recaptcha
-        self.loadZCML(package=collective.recaptcha)
 
         # Install product and call its initialize() function
         z2.installProduct(app, PROJECTNAME)
@@ -89,8 +85,6 @@ class TestMailCase(PloneSandboxLayer):
         # Load ZCML
         import Products.PloneSurvey
         self.loadZCML(package=Products.PloneSurvey)
-        import collective.recaptcha
-        self.loadZCML(package=collective.recaptcha)
 
         # Install product and call its initialize() function
         z2.installProduct(app, PROJECTNAME)
@@ -129,8 +123,6 @@ class TestBranchingCase(PloneSandboxLayer):
         # Load ZCML
         import Products.PloneSurvey
         self.loadZCML(package=Products.PloneSurvey)
-        import collective.recaptcha
-        self.loadZCML(package=collective.recaptcha)
 
         # Install product and call its initialize() function
         z2.installProduct(app, PROJECTNAME)
@@ -179,8 +171,6 @@ class FunctionalTestCase(PloneSandboxLayer):
         # Load ZCML
         import Products.PloneSurvey
         self.loadZCML(package=Products.PloneSurvey)
-        import collective.recaptcha
-        self.loadZCML(package=collective.recaptcha)
 
         # Install product and call its initialize() function
         z2.installProduct(app, PROJECTNAME)
