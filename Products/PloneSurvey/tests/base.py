@@ -196,6 +196,33 @@ FUNCTIONAL_TESTING = FunctionalTesting(bases=(FUNCTIONAL_FIXTURE,),
                                        name='fixture:Functional')
 
 
+class ReCaptchaTestCase(PloneSandboxLayer):
+
+    defaultBases = (PLONE_FIXTURE,)
+
+    def setUpZope(self, app, configurationContext):
+        # Load ZCML
+        import Products.PloneSurvey
+        self.loadZCML(package=Products.PloneSurvey)
+        import collective.recaptcha
+        self.loadZCML(package=collective.recaptcha)
+
+        # Install product and call its initialize() function
+        z2.installProduct(app, PROJECTNAME)
+
+    def setUpPloneSite(self, portal):
+        # Install into Plone site using portal_setup
+        self.applyProfile(portal, '%s:default' % PROJECTNAME)
+
+    def tearDownZope(self, app):
+        # Uninstall product
+        z2.uninstallProduct(app, PROJECTNAME)
+
+FIXTURE = ReCaptchaTestCase()
+INTEGRATION_RECAPTCHA_TESTING = IntegrationTesting(bases=(FIXTURE,),
+                                                   name='fixture:ReCaptcha')
+
+
 def loadRespondents(portal):
     """Load the test respondents"""
     data_path = os.path.dirname(utils.__file__)
