@@ -73,7 +73,7 @@ for q in questions:
 
 if not state.getErrors():
     if context.getShowCaptcha():
-        if context.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas'):
+        if context.isCaptchaInstalled():
             context.captcha_validator()
         else:
             recaptcha_verify = context.restrictedTraverse('@@captcha/verify', None)
