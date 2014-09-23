@@ -5,6 +5,7 @@ Changelog for Products.PloneSurvey
 ------------------
 
   * Captcha integration with collective.recaptcha, if quintagroup.plonecaptchas isn't installed [fdelia]
+  * Fix captcha integration with quintagroup.plonecaptchas in validate_survery for anonymous [fdelia]
 
 1.4.7 - 2014-05-17
 ------------------
