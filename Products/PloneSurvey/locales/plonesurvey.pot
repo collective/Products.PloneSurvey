@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-24 17:02+0000\n"
+"POT-Creation-Date: 2014-09-22 08:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -251,6 +251,11 @@ msgstr ""
 
 #: ../content/Survey.py:514
 msgid "[${survey_title}] New survey submitted"
+msgstr ""
+
+#. Default: "Captcha protection code is wrong. Please retry."
+#: ../skins/plone_survey/validate_survey.vpy:83
+msgid "captcha_code_wrong"
 msgstr ""
 
 #. Default: "Comment - mandatory if \"no\""
@@ -919,6 +924,16 @@ msgstr ""
 msgid "please_provide_fullname"
 msgstr ""
 
+#. Default: "Fill the captcha protection field below, for being sure that you are an human."
+#: ../skins/plone_survey/recaptcha_widget.pt:13
+msgid "recaptcha_check_help"
+msgstr ""
+
+#. Default: "Protection from spam"
+#: ../skins/plone_survey/recaptcha_widget.pt:8
+msgid "recaptcha_check_label"
+msgstr ""
+
 #. Default: "Reset"
 #: ../skins/plone_survey/respondents_view.cpt:76
 msgid "reset_button"
@@ -997,6 +1012,11 @@ msgstr ""
 #. Default: "send survey reminder/invite"
 #: ../skins/plone_survey/manage_respondents.cpt:100
 msgid "send_survey_reminder_label"
+msgstr ""
+
+#. Default: "Product quintagroup.plonecaptchas not installed. If you prefer to use the product collective.recaptcha instead of quintagroup.plonecaptchas then verifies that recaptcha private and public keys are configured. Go to path/to/site/@@recaptcha-settings to configure."
+#: ../content/Survey.py:1087
+msgid "showCaptcha"
 msgstr ""
 
 #. Default: "Submit"

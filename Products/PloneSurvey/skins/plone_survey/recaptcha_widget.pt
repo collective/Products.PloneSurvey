@@ -1,0 +1,21 @@
+<div metal:define-macro="recaptcha"
+     tal:omit-tag=""
+     i18n:domain="plonesurvey">
+  <div class="field"
+       tal:define="error errors/recaptcha_response_field|nothing"
+       tal:attributes="class python:error and 'field error' or 'field'">
+
+     <label for="recaptcha_response_field" i18n:translate="recaptcha_check_label">Protection from spam</label>
+     <span class="fieldRequired" title="Required"
+           i18n:domain="plone" i18n:attributes="title title_required;"
+           i18n:translate="label_required">(Required)</span>
+
+     <div class="formHelp" i18n:translate="recaptcha_check_help">
+        Fill the captcha protection field below, for being sure that you are an human.
+     </div>
+
+     <div tal:content="error">Validation error output</div>
+
+     <tal:block tal:replace="structure context/@@captcha/image_tag"/>
+  </div>
+</div>

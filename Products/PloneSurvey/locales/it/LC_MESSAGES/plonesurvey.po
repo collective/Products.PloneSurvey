@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.PloneSurvey 1.4.2\n"
-"POT-Creation-Date: 2014-02-24 16:57+0000\n"
+"POT-Creation-Date: 2014-09-22 08:58+0000\n"
 "PO-Revision-Date: 2011-01-14 09:57+0000\n"
 "Last-Translator: luca.fabbri <luca.fabbri at redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.net>\n"
@@ -255,6 +255,11 @@ msgstr "Puoi aggiungere domane al questionario."
 msgid "[${survey_title}] New survey submitted"
 msgstr "[${survey_title}] Nuovo questionario compilato"
 
+#. Default: "Captcha protection code is wrong. Please retry."
+#: ../skins/plone_survey/validate_survey.vpy:83
+msgid "captcha_code_wrong"
+msgstr "Il codice di protezione captcha è errato. Prego riprova."
+
 #. Default: "Comment - mandatory if \"no\""
 #: ../content/BaseQuestion.py:132
 msgid "commentLabelDefault"
@@ -375,13 +380,13 @@ msgstr "Gli utenti anonimi saranno in grado di compilare il questionario"
 msgid "help_allow_save"
 msgstr "Permetti agli utenti autenticati di salvare il questionario per finirlo in seguito."
 
-#. 
+#.
 #. Default: "Enter the options you want to be available to the user here. Press enter to separate the options."
 #: ../content/schemata.py:469
 msgid "help_answer_options"
 msgstr "Immetti qui le opzioni da rendere disponibili all'utente. Premi invio per separare le opzioni."
 
-#. 
+#.
 #. Default: "The comment label."
 #: ../content/schemata.py:275
 msgid "help_comment_label"
@@ -392,7 +397,7 @@ msgstr "Etichetta del commento."
 msgid "help_confidential"
 msgstr "Evita che o username dei partecipanti compaia nei risultati"
 
-#. 
+#.
 #. Default: "Add a short description of the survey here."
 #: ../content/schemata.py:187
 msgid "help_description"
@@ -403,7 +408,7 @@ msgstr "Aggiungi qui una breve descrizione del questionario."
 msgid "help_email_invite"
 msgstr "Una e-mail di invito verrà inviata ai partecipanti caricati, usa '**Name**' per il nome dei partecipanti e '**Survey**' per il titolo del questionario come collegamento al questionario."
 
-#. 
+#.
 #. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
 #: ../content/schemata.py:63
 msgid "help_exit_url"
@@ -411,7 +416,7 @@ msgstr ""
 "Questo è l'URL verso il quale l'utente sarà indirizzato al completamento del questionario.\n"
 " Usa \"http://sito.al.quale.andare/pagina\" o \"percorso/della/pagina\" per un collegamento interno al portale"
 
-#. 
+#.
 #. Default: "Please select what type of input you would like to use for this question."
 #: ../content/schemata.py:378
 msgid "help_input_type"
@@ -432,7 +437,7 @@ msgstr "Inserisci l'indirizzo e-mail della persona da cui parte l'invito al ques
 msgid "help_invite_from_name"
 msgstr "Inserisci il nome della persona da cui parte l'invito al questionario"
 
-#. 
+#.
 #. Default: "Select what type of comment box you would like."
 #: ../content/schemata.py:262
 msgid "help_label_comment_type"
@@ -460,31 +465,31 @@ msgstr ""
 "Lascia vuoto per rendere la domanda obbligatoria, o inserisci un valore per \"nessuna risposta\". per esempio: \"Non applicabile\".\n"
 " Se questo campo è a seleziona multipla, inserisci un testo casuale, che non comparirà nel questionario, per rendere questa domanda obbligatoria."
 
-#. 
+#.
 #. Default: "The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally."
 #: ../content/schemata.py:201
 msgid "help_previous_question"
 msgstr "La domanda condizionale determina se visualizzare questo questionario secondario. Seleziona 'Nessuna' per visualizzare il questionario secondario incondizionatamente."
 
-#. 
+#.
 #. Default: "Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed."
 #: ../content/schemata.py:214
 msgid "help_previous_question_answer"
 msgstr "Inserisci una risposta obbligatoria alla domanda condizionale qui sopra per determinare se il questionario secondario sia visualizzato."
 
-#. 
+#.
 #. Default: "Check this box if the required answer should be selected for this Sub Survey to be displayed."
 #: ../content/schemata.py:227
 msgid "help_previous_question_answer_yes_no"
 msgstr "Attiva la casella se la risposta obbligatoria deve essere selezionata affinchè  il questionario secondario sia visualizzato."
 
-#. 
+#.
 #. Default: "Add a long description of the question here, to clarify any details."
 #: ../content/schemata.py:312
 msgid "help_question_description"
 msgstr "Aggiungi qui una descrizione estesa della domanda, per chiarire qualunque dettaglio."
 
-#. 
+#.
 #. Default: "Select if this question is required, meaning participant must give a response."
 #: ../content/schemata.py:249
 msgid "help_required"
@@ -500,25 +505,25 @@ msgstr "Visualizza le opzioni di gradimento in ordine inverso, da male a buono."
 msgid "help_saved_text"
 msgstr "Questo è il messaggio che verrà visualizzato agli utenti che salveranno il questionario ma non lo invieranno."
 
-#. 
+#.
 #. Default: "Enter an email address to receive notifications of survey completions."
 #: ../content/schemata.py:107
 msgid "help_survey_notification_email"
 msgstr "Inserisci un indirizzo e-mail per ricevere le notifiche di completamento del questionario."
 
-#. 
+#.
 #. Default: "Select a method to receive notification emails."
 #: ../content/schemata.py:118
 msgid "help_survey_notification_method"
 msgstr "Scegli un metodo di ricezione per le e-mail di notifica."
 
-#. 
+#.
 #. Default: "Enter a number of columns for this field (width of the field in the characters)"
 #: ../content/schemata.py:402
 msgid "help_text_cols"
 msgstr "Inserisci un numero di colonne per questo campo (larghezza del campo in caratteri)."
 
-#. 
+#.
 #. Default: "Enter a number of rows for this field. This value is applicable only in the Text Area input type"
 #: ../content/schemata.py:414
 msgid "help_text_rows"
@@ -529,13 +534,13 @@ msgstr "Inserisci un numero di righe per questo campo. Questo valore è applicab
 msgid "help_textlocation"
 msgstr "Seleziona dove il blocco di testo sopra deve comparire."
 
-#. 
+#.
 #. Default: "This is the message that will be displayed to the user when they complete the survey."
 #: ../content/schemata.py:39
 msgid "help_thankyou"
 msgstr "Questo è il messaggio che apparirà all'utente quando avrà completato il questionario."
 
-#. 
+#.
 #. Default: "Select a validation for this question"
 #: ../content/schemata.py:427
 msgid "help_validation"
@@ -556,7 +561,7 @@ msgstr "Importa partecipanti da sorgente CSV"
 msgid "label_all_emails"
 msgstr "E-mail ad ogni compilazione."
 
-#. 
+#.
 #. Default: "Allow Anonymous"
 #: ../content/schemata.py:85
 msgid "label_allow_anonymous"
@@ -567,7 +572,7 @@ msgstr "Consenti anonimi"
 msgid "label_allow_save"
 msgstr "Abilita funzionalità di salvataggio"
 
-#. 
+#.
 #. Default: "Answer options"
 #: ../content/schemata.py:468
 msgid "label_answer_options"
@@ -593,13 +598,13 @@ msgstr "Compari tra la domanda e la risposta"
 msgid "label_check_boxes"
 msgstr "Caselle di controllo"
 
-#. 
+#.
 #. Default: "Comment label"
 #: ../content/schemata.py:274
 msgid "label_comment_label"
 msgstr "Etichetta del commento"
 
-#. 
+#.
 #. Default: "Comment Type"
 #: ../content/schemata.py:261
 msgid "label_comment_type"
@@ -610,7 +615,7 @@ msgstr "Tipo di commento"
 msgid "label_confidential"
 msgstr "Confidenziale"
 
-#. 
+#.
 #. Default: "Survey description"
 #: ../content/schemata.py:186
 msgid "label_description"
@@ -636,7 +641,7 @@ msgstr "E-mail di invito"
 msgid "label_endingyear"
 msgstr "Anno finale"
 
-#. 
+#.
 #. Default: "Exit URL"
 #: ../content/schemata.py:62
 msgid "label_exit_url"
@@ -652,7 +657,7 @@ msgstr "Nome"
 msgid "label_futureyears"
 msgstr "Anni nel futuro"
 
-#. 
+#.
 #. Default: "Input Type"
 #: ../content/schemata.py:377
 msgid "label_input_type"
@@ -743,25 +748,25 @@ msgstr "Modifica Questionario"
 msgid "label_overview_no_question"
 msgstr "Non ci sono domande in questa pagina."
 
-#. 
+#.
 #. Default: "Conditional Question"
 #: ../content/schemata.py:200
 msgid "label_previous_question"
 msgstr "Domanda condizionale"
 
-#. 
+#.
 #. Default: "Required Answer"
 #: ../content/schemata.py:213
 msgid "label_previous_question_answer"
 msgstr "Risposta obbligatoria"
 
-#. 
+#.
 #. Default: "Use Required Answer?"
 #: ../content/schemata.py:226
 msgid "label_previous_question_answer_yes_no"
 msgstr "Usa risposta obbligatoria?"
 
-#. 
+#.
 #. Default: "Description"
 #: ../content/schemata.py:311
 msgid "label_question_description"
@@ -772,7 +777,7 @@ msgstr "Descrizione"
 msgid "label_radio_buttons"
 msgstr "Pulsanti di scelta"
 
-#. 
+#.
 #. Default: "Required"
 #: ../content/schemata.py:248
 msgid "label_required"
@@ -795,7 +800,7 @@ msgstr "Ripristina "
 msgid "label_reverselikert"
 msgstr "Inverti la scala di gradimento"
 
-#. 
+#.
 #. Default: "'Saved' message text"
 #: ../content/schemata.py:50
 msgid "label_saved_text"
@@ -831,13 +836,13 @@ msgstr "Anno iniziale"
 msgid "label_survey_closed"
 msgstr "Chiuso"
 
-#. 
+#.
 #. Default: "Survey Notification Email Address"
 #: ../content/schemata.py:105
 msgid "label_survey_notification_email"
 msgstr "Indirizzo e-mail per la notifica"
 
-#. 
+#.
 #. Default: "Survey Notification Method"
 #: ../content/schemata.py:117
 msgid "label_survey_notification_method"
@@ -853,7 +858,7 @@ msgstr "Aperto"
 msgid "label_text_area"
 msgstr "Area di testo"
 
-#. 
+#.
 #. Default: "Cols (width in characters)"
 #: ../content/schemata.py:401
 msgid "label_text_cols"
@@ -864,7 +869,7 @@ msgstr "Colonne (larghezza in caratteri)"
 msgid "label_text_field"
 msgstr "Campo di testo"
 
-#. 
+#.
 #. Default: "Rows (number of lines)"
 #: ../content/schemata.py:413
 msgid "label_text_rows"
@@ -880,7 +885,7 @@ msgstr "Blocco di testo"
 msgid "label_textlocation"
 msgstr "Posizione del blocco di testo"
 
-#. 
+#.
 #. Default: "'Thank you' message text"
 #: ../content/schemata.py:37
 msgid "label_thank"
@@ -901,7 +906,7 @@ msgstr "Questa domanda ha un campo di testo, per i risultati usare"
 msgid "label_use_options_below"
 msgstr "Usa le opzioni sottostanti"
 
-#. 
+#.
 #. Default: "Validation"
 #: ../content/schemata.py:426
 msgid "label_validation"
@@ -966,6 +971,16 @@ msgstr "Prego, fornisci un indirizzo e-mail"
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:8
 msgid "please_provide_fullname"
 msgstr "Prego fornisci un nome"
+
+#. Default: "Fill the captcha protection field below, for being sure that you are an human."
+#: ../skins/plone_survey/recaptcha_widget.pt:13
+msgid "recaptcha_check_help"
+msgstr "Inserisci il codice di protezione captcha qui sotto, per essere sicuri che tu sia un umano."
+
+#. Default: "Protection from spam"
+#: ../skins/plone_survey/recaptcha_widget.pt:8
+msgid "recaptcha_check_label"
+msgstr "Protezione dallo spam"
 
 #. Default: "Reset"
 #: ../skins/plone_survey/respondents_view.cpt:76
@@ -1046,6 +1061,11 @@ msgstr "spedisci un invito per il sondaggio"
 #: ../skins/plone_survey/manage_respondents.cpt:100
 msgid "send_survey_reminder_label"
 msgstr "spedisci un promemoria/invito del sondaggio"
+
+#. Default: "Product quintagroup.plonecaptchas not installed. If you prefer to use the product collective.recaptcha instead of quintagroup.plonecaptchas then verifies that recaptcha private and public keys are configured. Go to path/to/site/@@recaptcha-settings to configure."
+#: ../content/Survey.py:1087
+msgid "showCaptcha"
+msgstr "Il prodotto quintagroup.plonecaptchas non è installato. Se preferisci utilizzare il prodotto collective.recaptcha invece di quintagroup.plonecaptchas verifica che le chiavi recaptcha privata e pubblica siano configurate. Vai a percorso/al/sito/@@recaptcha-settings per configurarle."
 
 #. Default: "Submit"
 #: ../skins/plone_survey/survey_view.cpt:99
