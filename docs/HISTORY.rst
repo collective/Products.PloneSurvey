@@ -1,7 +1,7 @@
 Changelog for Products.PloneSurvey
 ==================================
 
-1.4.8 - Unreleased
+1.4.8 - 2015-01-06
 ------------------
 
   * Captcha integration with collective.recaptcha, if quintagroup.plonecaptchas isn't installed [fdelia]
