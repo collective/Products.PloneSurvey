@@ -74,8 +74,8 @@ class SubSurvey(ATCTOrderedFolder):
             path=path)
         for result in results:
             object = result.getObject()
-            questions.append(object.getId(), object.Title() + ', ' +
-                             str(object.getQuestionOptions()))
+            questions.append((object.getId(), object.Title() + ', ' +
+                             str(object.getQuestionOptions())))
         # vocab_list = DisplayList((questions))
         return questions
 
