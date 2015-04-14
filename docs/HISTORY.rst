@@ -3,7 +3,9 @@ Changelog for Products.PloneSurvey
 
 1.4.9 - Unreleased
 ------------------
-
+  * Fix typo in `getValidationQuestions` method that breaks SubSurvey creation
+    when a Select question was created in the form
+    [cekk]
 
 1.4.8 - 2015-01-06
 ------------------
