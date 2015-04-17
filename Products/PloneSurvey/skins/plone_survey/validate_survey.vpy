@@ -72,7 +72,7 @@ for q in questions:
             state.setError(q.getId(), "%s %s" % (error_msg, qnum))
 
 if not state.getErrors():
-    if context.getShowCaptcha():
+    if context.getShowCaptcha() and not context.hasMorePages():
         if context.isCaptchaInstalled():
             context.captcha_validator()
         else:

@@ -136,6 +136,22 @@ class SubSurvey(ATCTOrderedFolder):
                 return page()
         return self.exitSurvey()
 
+    security.declareProtected(permissions.View, 'hasMorePages')
+
+    def hasMorePages(self):
+        """Return True if survey has more pages to display"""
+        previous_page = True
+        parent = self.aq_parent
+        pages = parent.getFolderContents(
+            contentFilter={'portal_type': 'Sub Survey', }, full_objects=True)
+        for page in pages:
+            if previous_page:
+                if page.getId() == self.getId():
+                    previous_page = False
+            elif page.displaySubSurvey():
+                return True
+        return False
+
     security.declareProtected(permissions.View, 'displaySubSurvey')
 
     def displaySubSurvey(self):
