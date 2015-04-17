@@ -286,6 +286,16 @@ class Survey(ATCTOrderedFolder):
                 return page()
         return self.exitSurvey()
 
+    security.declareProtected(permissions.View, 'hasMorePages')
+
+    def hasMorePages(self):
+        """Return True if survey has more pages to display"""
+        pages = self.getFolderContents(
+            contentFilter={'portal_type': 'Sub Survey', }, full_objects=True)
+        if not pages:
+            return False
+        return True
+
     security.declareProtected(permissions.View, 'exitSurvey')
 
     def exitSurvey(self):

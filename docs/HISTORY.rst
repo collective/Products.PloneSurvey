@@ -3,6 +3,10 @@ Changelog for Products.PloneSurvey
 
 1.4.9 - Unreleased
 ------------------
+
+  * On a multipage survey only display captcha on last page
+    [keul]
+
   * Fix typo in `getValidationQuestions` method that breaks SubSurvey creation
     when a Select question was created in the form
     [cekk]
