@@ -1,4 +1,4 @@
-import unittest2 as unittest
+import unittest
 
 from zope.interface.verify import verifyClass
 from zope.interface.verify import verifyObject
