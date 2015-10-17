@@ -411,23 +411,11 @@ class Survey(ATCTOrderedFolder):
 
     def getRemoteIp(self, request=None):
         """returns the ip address of the survey respondent"""
-        # XXX put in placeholder for working out the ip address
         if self.getConfidential():
             return
         if request is None:
             request = getattr(self, 'REQUEST', None)
         return request.getClientAddr()
-        ip_address = self.REQUEST.environ['REMOTE_ADDR']
-        if ip_address == "127.0.0.1":
-            try:
-                ip_address = self.REQUEST.environ['HTTP_X_FORWARDED_FOR']
-            except KeyError:
-                # might be using it on a localhost
-                return
-        return ip_address
-        # return self.REQUEST.getClientAddr()
-        # return self.REQUEST['REMOTE_ADDR']
-        # return self.REQUEST['HTTP_X_FORWARDED_FOR']
 
     security.declareProtected(permissions.ModifyPortalContent,
                               'getRespondentsDetails')
