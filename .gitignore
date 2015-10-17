@@ -30,6 +30,8 @@ parts/
 dist/
 var/
 local/
+/buildout.cfg
+/pip-selfcheck.json
 
 # OSX
 .DS_Store
