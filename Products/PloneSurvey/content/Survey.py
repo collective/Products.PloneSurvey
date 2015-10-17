@@ -154,7 +154,7 @@ class Survey(ATCTOrderedFolder):
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
-                ]},
+            ]},
             full_objects=True)
         return questions
 
@@ -191,7 +191,7 @@ class Survey(ATCTOrderedFolder):
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
-                ]},
+            ]},
             full_objects=True)
         for object in objects:
             if object.portal_type == 'Sub Survey':
@@ -203,7 +203,7 @@ class Survey(ATCTOrderedFolder):
                         'Survey Date Question',
                         'Survey Select Question',
                         'Survey Text Question',
-                        ]},
+                    ]},
                     full_objects=True)
                 for sub_survey_object in sub_survey_objects:
                     questions.append(sub_survey_object)
@@ -235,7 +235,7 @@ class Survey(ATCTOrderedFolder):
                 'Sub Survey',
                 'Survey Matrix',
                 'Survey Select Question',
-                ]},
+            ]},
             full_objects=True)
         for object in objects:
             if object.portal_type == 'Sub Survey':
@@ -243,7 +243,7 @@ class Survey(ATCTOrderedFolder):
                     contentFilter={'portal_type': [
                         'Survey Matrix',
                         'Survey Select Question',
-                        ]},
+                    ]},
                     full_objects=True)
                 for sub_survey_object in sub_survey_objects:
                     if sub_survey_object.portal_type == 'Survey Matrix':
@@ -939,7 +939,8 @@ class Survey(ATCTOrderedFolder):
                         i = i + 1
                 row.append(answer)
 #                if question.getCommentType():
-#                line.append('"' + test(question.getCommentsFor(user), question.getCommentsFor(user).replace('"',"'"), "Blank") + '"')
+#                line.append('"' + test(question.getCommentsFor(user),
+#                question.getCommentsFor(user).replace('"',"'"), "Blank") + '"')
             row.append(self.checkCompletedFor(user) and
                        'Completed' or 'Not Completed')
             sheet.writerow(row)
@@ -1099,10 +1100,11 @@ class Survey(ATCTOrderedFolder):
         if not product_installed and not self.collective_recaptcha_enabled() and REQUEST.get('showCaptcha', 0):
             if int(REQUEST.get('showCaptcha')):
                 errors['showCaptcha'] = _('showCaptcha',
-                    default='Product quintagroup.plonecaptchas not installed. '
-                            'If you prefer to use the product collective.recaptcha instead of quintagroup.plonecaptchas '
-                            'then verifies that recaptcha private and public keys are configured. '
-                            'Go to path/to/site/@@recaptcha-settings to configure.')
+                                          default='Product quintagroup.plonecaptchas not installed. '
+                                          'If you prefer to use the product collective.recaptcha '
+                                          'instead of quintagroup.plonecaptchas '
+                                          'then verifies that recaptcha private and public keys are configured. '
+                                          'Go to path/to/site/@@recaptcha-settings to configure.')
 
     security.declareProtected(permissions.View, 'isCaptchaInstalled')
 
@@ -1111,11 +1113,9 @@ class Survey(ATCTOrderedFolder):
         product_installed = self.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas')
         return product_installed
 
-
     security.declarePrivate('_get_emailInvite_default')
 
     def _get_emailInvite_default(self):
-        foo = _('emailInviteDefault', default=DEFAULT_SURVEY_INVITE)
         translation_service = getToolByName(self, 'translation_service')
         return translation_service.utranslate(domain='plonesurvey',
                                               msgid='emailInviteDefault',
