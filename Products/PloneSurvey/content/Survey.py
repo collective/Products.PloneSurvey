@@ -25,9 +25,9 @@ from Products.CMFCore.exceptions import BadRequest
 from Products.PluggableAuthService.PluggableAuthService \
     import addPluggableAuthService
 from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
-from Products.PlonePAS.Extensions.Install import challenge_chooser_setup
-from Products.PlonePAS.Extensions.Install import registerPluginTypes
-from Products.PlonePAS.Extensions.Install import setupPlugins
+from Products.PlonePAS.setuphandlers import challenge_chooser_setup
+from Products.PlonePAS.setuphandlers import registerPluginTypes
+from Products.PlonePAS.setuphandlers import setupPlugins
 
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
 from Products.PloneSurvey.config import PROJECTNAME
