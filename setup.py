@@ -39,7 +39,7 @@ setup(
         'reportlab<3.0',
     ],
     extras_require={
-        "test": ["plone.app.testing", "collective.recaptcha", ],
+        "test": ["unittest2", "plone.app.testing", "collective.recaptcha", ],
     },
     entry_points="""
     # -*- Entry points: -*-
