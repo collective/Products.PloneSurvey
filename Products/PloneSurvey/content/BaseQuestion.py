@@ -14,8 +14,6 @@ from Products.ATContentTypes.content.base import ATCTContent
 from Products.CMFCore import permissions
 from Products.CMFCore.utils import getToolByName
 
-from Products.PloneSurvey import PloneSurveyMessageFactory as _
-
 
 class BaseQuestion(ATCTContent):
     """Base class for survey questions"""
@@ -129,7 +127,6 @@ class BaseQuestion(ATCTContent):
     security.declarePrivate('_get_yes_no_default')
 
     def _get_yes_no_default(self):
-        foo = (_(u'Yes'), _(u'No'))
         translation_service = getToolByName(self, 'translation_service')
         return (translation_service.utranslate(domain='plonesurvey',
                                                msgid=u'Yes',
@@ -141,8 +138,6 @@ class BaseQuestion(ATCTContent):
     security.declarePrivate('_get_commentLabel_default')
 
     def _get_commentLabel_default(self):
-        foo = _(u'commentLabelDefault',
-                default=u"Comment - mandatory if \"no\"")
         translation_service = getToolByName(self, 'translation_service')
         return translation_service.utranslate(
             domain='plonesurvey',
