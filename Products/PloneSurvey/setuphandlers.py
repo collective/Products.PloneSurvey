@@ -1,6 +1,10 @@
 import logging
 
+from zope.component import getUtility
+
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.interfaces import INavigationSchema, ITypesSchema
+from plone.registry.interfaces import IRegistry
 
 LOGGER_ID = 'Products.PloneSurvey'
 PROFILE_ID = 'profile-Products.PloneSurvey:default'
@@ -12,6 +16,13 @@ def importVarious(context):
     # Only run step if a flag file is present
     if context.readDataFile('PloneSurvey.txt') is None:
         return
+    registry = getUtility(IRegistry)
+    navigation_settings = registry.forInterface(INavigationSchema, prefix='plone')
+    if 'Survey' not in navigation_settings.displayed_types:
+        navigation_settings.displayed_types = list(navigation_settings.displayed_types).extend(['Survey'])
+    types_settings = registry.forInterface(ITypesSchema, prefix='plone')
+    if 'Survey' not in types_settings.default_page_types:
+        types_settings.default_page_types = list(types_settings.default_page_types).extend(['Survey'])
 
 
 def nullStep(context, logger=None):
