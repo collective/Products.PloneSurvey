@@ -16,6 +16,7 @@
     title="Import various Plone Survey settings"
     description="Various Plone Survey issues."
     handler="Products.PloneSurvey.setuphandlers.importVarious">
+    <depends name="typeinfo"/>
   </genericsetup:importStep>
 
   <genericsetup:upgradeStep
