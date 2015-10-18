@@ -19,12 +19,12 @@ NOTIFICATION_METHOD = DisplayList((
     ('', _(u'label_no_emails', default=u'No emails')),
     ('each_submission', _(u'label_all_emails',
                           default=u'Email on each submission')),
-    ))
+))
 
 TEXT_INPUT_TYPE = DisplayList((
     ('text', _(u'label_text_field', default=u'Text Field')),
     ('area', _(u'label_text_area', default=u'Text Area')),
-    ))
+))
 
 SELECT_INPUT_TYPE = DisplayList((
     ('radio', _(u'label_radio_buttons', default=u'Radio Buttons')),
@@ -32,7 +32,7 @@ SELECT_INPUT_TYPE = DisplayList((
     ('multipleSelect', _(u'label_multiple_selection_box',
                          default=u'Multiple Selection Box')),
     ('checkbox', _(u'label_check_boxes', default=u'Check Boxes')),
-    ))
+))
 
 TEXT_LOCATION = IntDisplayList((
     (0, _(u'label_does_not_appear', default=u'Does not appear')),
@@ -40,13 +40,13 @@ TEXT_LOCATION = IntDisplayList((
     (2, _(u'label_appears_between_question_and_answer',
           default=u'Appears between question and answer')),
     (3, _(u'label_appears_after_answer', default=u'Appears after answer')),
-    ))
+))
 
 COMMENT_TYPE = DisplayList((
     ('', _(u'label_no_comment_field', default=u'None')),
     ('text', _(u'label_text_field', default=u'Text Field')),
     ('area', _(u'label_text_area', default=u'Text Area')),
-    ))
+))
 
 LIKERT_OPTIONS = IntDisplayList((
     (0, _(u'label_use_options_below', default=u'Use the options below')),
@@ -55,7 +55,7 @@ LIKERT_OPTIONS = IntDisplayList((
     (2, _(u'list_useful_notuseful',
           default=u'("Very Useful", "Useful", "Quite Useful", "A little Useful", "Not Useful")')),
     (3, _(u'list_agree_disagree', default=u'("Agree Strongly", "Agree", "Neutral", "Disagree", "Disagree Strongly")')),
-    ))
+))
 
 LIKERT_OPTIONS_MAP = {
     1: IntDisplayList((
@@ -64,22 +64,22 @@ LIKERT_OPTIONS_MAP = {
         (3, _(u'OK Only', default=u'OK Only')),
         (2, _(u'Poor', default=u'Poor')),
         (1, _(u'Very Poor', default=u'Very Poor')),
-        )),
+    )),
     2: IntDisplayList((
         (5, _(u'Very Useful', default=u'Very Useful')),
         (4, _(u'Useful', default=u'Useful')),
         (3, _(u'Quite Useful', default=u'Quite Useful')),
         (2, _(u'A little Useful', default=u'A little Useful')),
         (1, _(u'Not Useful', default=u'Not Useful')),
-        )),
+    )),
     3: IntDisplayList((
         (5, _(u'Agree Strongly', default=u'Agree Strongly')),
         (4, _(u'Agree', default=u'Agree')),
         (3, _(u'Neutral', default=u'Neutral')),
         (2, _(u'Disagree', default=u'Disagree')),
         (1, _(u'Disagree Strongly', default=u'Disagree Strongly')),
-        )),
-    }
+    )),
+}
 
 BARCHART_COLORS = ['barchart_blue.gif',
                    'barchart_green.gif',
