@@ -3,6 +3,7 @@ import csv
 import os
 import transaction
 import urllib
+
 from Products.CMFPlone.utils import safe_unicode
 
 from cStringIO import StringIO
@@ -13,11 +14,13 @@ from AccessControl import ClassSecurityInfo
 from AccessControl import getSecurityManager
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
+from zope.component import getUtility
 from zope.i18n import translate
 
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
 from Products.ATContentTypes.utils import DT2dt
+from Products.CMFPlone.interfaces import IMailSchema
 from Products.CMFCore import permissions
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.exceptions import BadRequest
@@ -28,6 +31,7 @@ from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
 from Products.PlonePAS.setuphandlers import challenge_chooser_setup
 from Products.PlonePAS.setuphandlers import registerPluginTypes
 from Products.PlonePAS.setuphandlers import setupPlugins
+from plone.registry.interfaces import IRegistry
 
 from Products.PloneSurvey import PloneSurveyMessageFactory as _
 from Products.PloneSurvey.config import PROJECTNAME
@@ -577,9 +581,10 @@ class Survey(ATCTOrderedFolder):
 
     def send_email(self, userid):
         """ Send email to nominated address """
-        properties = self.portal_properties.site_properties
+        registry = getUtility(IRegistry)
+        mail_settings = registry.forInterface(IMailSchema, prefix='plone')
         mTo = self.getSurveyNotificationEmail()
-        mFrom = properties.email_from_address
+        mFrom = mail_settings.email_from_address
         mSubj = translate(_(
             '[${survey_title}] New survey submitted',
             mapping={'survey_title': self.Title()}),
@@ -714,7 +719,8 @@ class Survey(ATCTOrderedFolder):
 
     def sendSurveyInvite(self, email_address):
         """Send a survey Invite"""
-        portal_properties = getToolByName(self, 'portal_properties')
+        registry = getUtility(IRegistry)
+        mail_settings = registry.forInterface(IMailSchema, prefix='plone')
         acl_users = self.get_acl_users()
         user = acl_users.getUserById(email_address)
         user_details = self.getAuthenticatedRespondent(email_address)
@@ -739,8 +745,7 @@ class Survey(ATCTOrderedFolder):
             email_body=email_body,
             subject="Survey %s" % self.title_or_id())
         host = self.MailHost
-        site_props = portal_properties.site_properties
-        mail_text = mail_text.encode(site_props.default_charset or 'utf-8')
+        mail_text = mail_text.encode(mail_settings.email_charset or 'utf-8')
         host.send(mail_text)
         self.registerRespondentSent(email_address)
 
