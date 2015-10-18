@@ -183,19 +183,32 @@ class TestReadDoesNotWrite(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.s1 = getattr(self.portal, 's1')
         s1 = getattr(self.portal, 's1')
         s1.invokeFactory('Survey Text Question', 'stq1')
 
     def testReadDoesNotWrite(self):
         s1 = getattr(self.portal, 's1')
+        # commit, as we've added a question
+        transaction.commit()
         original_size = s1._p_estimated_size
+        respondent_size = s1.respondents._p_estimated_size
         assert s1.getRespondents() == []
+        logout()
+        assert s1._p_changed is False
+        assert s1.respondents._p_changed is None
+        assert s1.stq1._p_changed is False
         # view the survey
         result = s1.survey_view(REQUEST=Request())
+        assert s1._p_changed is False
+        # a respondent has been added on view
+        assert s1.respondents._p_changed is True
+        assert s1.stq1._p_changed is False
         transaction.commit()
         # XXX this should not cause an increase in the object size
-        assert s1._p_estimated_size != original_size
-        logout()
+        assert s1._p_estimated_size == original_size, \
+            "Survey size increased from %s to %s" % (original_size,
+                                                     s1._p_estimated_size)
         # submit a response
         self.layer['request'].form['stq1'] = 'An answer'
         dummy_controller_state = ControllerState(
@@ -214,6 +227,16 @@ class TestReadDoesNotWrite(unittest.TestCase):
         )
         assert controller_state.getErrors() == {}, controller_state.getErrors()
         assert len(s1.getRespondents()) == 1
+        assert s1._p_changed is False
+        assert s1.respondents._p_changed is True
+        assert s1.stq1._p_changed is False
         transaction.commit()
-        # this should cause an increase in the object size
-        assert s1._p_estimated_size > original_size
+        # the survey itself should not increase in size
+        assert s1._p_estimated_size == original_size, \
+            "Survey size increased from %s to %s" % (original_size,
+                                                     s1._p_estimated_size)
+        # the respondents should increase in size
+        assert s1.respondents._p_estimated_size > respondent_size, \
+            "Respondents size increased from %s to %s" % (
+                respondent_size,
+                s1.respondents._p_estimated_size)
