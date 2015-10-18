@@ -65,7 +65,7 @@ class TestInstallation(unittest.TestCase):
     def testDisplayedTypes(self):
         registry = getUtility(IRegistry)
         navigation_settings = registry.forInterface(INavigationSchema, prefix='plone')
-        self.assertIn('Survey' in navigation_settings.displayed_types)
+        self.assertIn('Survey', navigation_settings.displayed_types)
 
     def testPermissions(self):
         """
