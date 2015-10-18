@@ -53,7 +53,8 @@ class SubSurvey(ATCTOrderedFolder):
                     return user_id
             else:
                 survey_cookie = self.aq_parent.getId()
-                if self.aq_parent.getAllowAnonymous() and self.REQUEST.has_key(survey_cookie) and request.get(survey_cookie, "Anonymous") == user_id:
+                if self.aq_parent.getAllowAnonymous() and survey_cookie in self.REQUEST and \
+                   request.get(survey_cookie, "Anonymous") == user_id:
                     return user_id
             # XXX survey is probably being spoofed, need another field for
             # allow users without cookies, for now let them through
@@ -99,7 +100,7 @@ class SubSurvey(ATCTOrderedFolder):
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
-                ]}, full_objects=True)
+            ]}, full_objects=True)
         return questions
 
     security.declareProtected(permissions.View, 'hasDateQuestion')
