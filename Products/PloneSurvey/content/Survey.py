@@ -726,10 +726,10 @@ class Survey(ATCTOrderedFolder):
         user_details = self.getAuthenticatedRespondent(email_address)
         email_from_name = self.getInviteFromName()
         if not email_from_name:
-            email_from_name = self.email_from_name
+            email_from_name = mail_settings.email_from_name
         email_from_address = self.getInviteFromEmail()
         if not email_from_address:
-            email_from_address = self.email_from_address
+            email_from_address = mail_settings.email_from_address
         email_body = self.getEmailInvite()
         email_body = email_body.replace('**Name**', user_details['fullname'])
         survey_url = self.absolute_url() + '/login_form_bridge?email=' + \
