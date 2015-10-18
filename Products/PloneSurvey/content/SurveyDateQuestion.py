@@ -32,8 +32,8 @@ class SurveyDateQuestion(BaseQuestion):
         showYMD = form.get('showYMD', None)
         showHM = form.get('showHM', None)
         # Booleans seems not to return 1 or 0, but python True/False
-        is_showYMD_set = (showYMD == True)
-        is_showHM_set = (showHM == True)
+        is_showYMD_set = (showYMD is True)
+        is_showHM_set = (showHM is True)
         if not is_showYMD_set and not is_showHM_set:
             errors['showYMD'] = u'At least one of these must be selected.'
             errors['showHM'] = u'At least one of these must be selected.'
