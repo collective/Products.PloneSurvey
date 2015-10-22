@@ -7,6 +7,8 @@ try:
 except ImportError:
     # Old Zope/Plone
     from Globals import InitializeClass
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
 
@@ -53,18 +55,21 @@ class BaseQuestion(ATCTContent):
         survey = None
         ob = self
         while survey is None:
-            ob = ob.aq_parent
+            ob = aq_parent(aq_inner(ob))
             if ob.meta_type == 'Survey':
                 survey = ob
             elif getattr(ob, '_isPortalRoot', False):
                 raise Exception("Could not find a parent Survey.")
         portal_membership = getToolByName(self, 'portal_membership')
-        if portal_membership.isAnonymousUser() \
-           and not survey.getAllowAnonymous():
+        is_anon = portal_membership.isAnonymousUser()
+        if is_anon and not survey.getAllowAnonymous():
             raise Unauthorized(
                 "This survey is not available to anonymous users."
             )
         userid = self.getSurveyId()
+        if is_anon and userid not in survey.getRespondents():
+            # anon is not added on survey view, so may need to be added
+            survey.addRespondent(userid)
         # Call the real method for storing the answer for this user.
         return self._addAnswer(userid, value, comments)
 

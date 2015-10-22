@@ -387,7 +387,6 @@ class Survey(ATCTOrderedFolder):
         # expires = (DateTime() + 365).toZone('GMT').rfc822()
         # cookie expires in 1 year (365 days)
         response.setCookie(survey_cookie, user_id, path='/')
-        self.addRespondent(user_id)
         return user_id
 
     security.declareProtected(permissions.View, 'getAnonymousId')

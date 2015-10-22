@@ -202,7 +202,7 @@ class TestReadDoesNotWrite(unittest.TestCase):
         result = s1.survey_view(REQUEST=Request())
         assert s1._p_changed is False
         # a respondent has been added on view
-        assert s1.respondents._p_changed is True
+        assert s1.respondents._p_changed is None
         assert s1.stq1._p_changed is False
         transaction.commit()
         # XXX this should not cause an increase in the object size
