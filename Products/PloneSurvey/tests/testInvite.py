@@ -1,4 +1,4 @@
-import unittest2 as unittest
+import unittest
 
 from base import INTEGRATION_Mail_TESTING
 from base import loadRespondents

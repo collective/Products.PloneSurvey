@@ -1,9 +1,12 @@
-import unittest2 as unittest
+import transaction
+import unittest
 
 from DateTime import DateTime
 
 from plone.app.testing import login, logout
 from plone.app.testing import TEST_USER_ID, setRoles
+from ZPublisher.BaseRequest import BaseRequest as Request
+
 
 from Products.CMFFormController.ControllerState import ControllerState
 from Products.CMFCore.utils import getToolByName
@@ -132,7 +135,8 @@ class TestNoCookiesWorks(unittest.TestCase):
         )
         assert controller_state.getErrors() == {}, controller_state.getErrors()
         self.layer['request'].form['stq2'] = 'Another answer'
-        self.layer['request'].form['survey_user_id'] = s1.getRespondents()[0]
+        self.layer['request'].form['survey_user_id'] = \
+            s1.getRespondentsList()[0]
         dummy_controller_state = ControllerState(
             id='survey_view',
             context=s1.ss1,
@@ -148,7 +152,7 @@ class TestNoCookiesWorks(unittest.TestCase):
             ['validate_survey', ]
         )
         assert controller_state.getErrors() == {}, controller_state.getErrors()
-        respondents = s1.getRespondents()
+        respondents = s1.getRespondentsList()
         assert len(respondents) == 1, respondents
 
 
@@ -171,3 +175,68 @@ class TestReturnsFirstPage(unittest.TestCase):
         assert userid[:-12] == expected_userid[:-12], \
             "Anonymous id generation not working - %s, %s" % (userid,
                                                               expected_userid)
+
+
+class TestReadDoesNotWrite(unittest.TestCase):
+    """Ensure survey does not commit on first read"""
+    layer = INTEGRATION_ANON_SURVEY_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.s1 = getattr(self.portal, 's1')
+        s1 = getattr(self.portal, 's1')
+        s1.invokeFactory('Survey Text Question', 'stq1')
+
+    def testReadDoesNotWrite(self):
+        s1 = getattr(self.portal, 's1')
+        # commit, as we've added a question
+        transaction.commit()
+        original_size = s1._p_estimated_size
+        respondent_size = s1.respondents._p_estimated_size
+        assert s1.getRespondentsList() == []
+        logout()
+        assert s1._p_changed is False
+        assert s1.respondents._p_changed is False
+        assert s1.stq1._p_changed is False
+        # view the survey
+        result = s1.survey_view(REQUEST=Request())
+        assert s1._p_changed is False
+        assert s1.respondents._p_changed is False
+        assert s1.stq1._p_changed is False
+        transaction.commit()
+        # XXX this should not cause an increase in the object size
+        assert s1._p_estimated_size == original_size, \
+            "Survey size increased from %s to %s" % (original_size,
+                                                     s1._p_estimated_size)
+        # submit a response
+        self.layer['request'].form['stq1'] = 'An answer'
+        dummy_controller_state = ControllerState(
+            id='survey_view',
+            context=s1,
+            button='submit',
+            status='success',
+            errors={},
+            next_action=None,
+        )
+        controller = self.portal.portal_form_controller
+        controller_state = controller.validate(
+            dummy_controller_state,
+            self.layer['request'],
+            ['validate_survey', ]
+        )
+        assert controller_state.getErrors() == {}, controller_state.getErrors()
+        assert len(s1.getRespondentsList()) == 1
+        assert s1._p_changed is False
+        assert s1.respondents._p_changed is True
+        assert s1.stq1._p_changed is False
+        transaction.commit()
+        # the survey itself should not increase in size
+        assert s1._p_estimated_size == original_size, \
+            "Survey size increased from %s to %s" % (original_size,
+                                                     s1._p_estimated_size)
+        # the respondents should increase in size
+        assert s1.respondents._p_estimated_size > respondent_size, \
+            "Respondents size increased from %s to %s" % (
+                respondent_size,
+                s1.respondents._p_estimated_size)

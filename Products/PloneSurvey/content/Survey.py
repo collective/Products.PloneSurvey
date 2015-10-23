@@ -387,7 +387,6 @@ class Survey(ATCTOrderedFolder):
         # expires = (DateTime() + 365).toZone('GMT').rfc822()
         # cookie expires in 1 year (365 days)
         response.setCookie(survey_cookie, user_id, path='/')
-        self.addRespondent(user_id)
         return user_id
 
     security.declareProtected(permissions.View, 'getAnonymousId')
@@ -411,23 +410,11 @@ class Survey(ATCTOrderedFolder):
 
     def getRemoteIp(self, request=None):
         """returns the ip address of the survey respondent"""
-        # XXX put in placeholder for working out the ip address
         if self.getConfidential():
             return
         if request is None:
             request = getattr(self, 'REQUEST', None)
         return request.getClientAddr()
-        ip_address = self.REQUEST.environ['REMOTE_ADDR']
-        if ip_address == "127.0.0.1":
-            try:
-                ip_address = self.REQUEST.environ['HTTP_X_FORWARDED_FOR']
-            except KeyError:
-                # might be using it on a localhost
-                return
-        return ip_address
-        # return self.REQUEST.getClientAddr()
-        # return self.REQUEST['REMOTE_ADDR']
-        # return self.REQUEST['HTTP_X_FORWARDED_FOR']
 
     security.declareProtected(permissions.ModifyPortalContent,
                               'getRespondentsDetails')
@@ -487,18 +474,6 @@ class Survey(ATCTOrderedFolder):
             start=DateTime(),
             ip_address=self.getRemoteIp(),
             end='')
-
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'getRespondents')
-
-    def getRespondents(self):
-        """Return a list of respondents"""
-        questions = self.getAllQuestionsInOrder()
-        users = {}
-        for question in questions:
-            for user in question.answers.keys():
-                users[user] = 1
-        return users.keys()
 
     security.declareProtected(ViewSurveyResults, 'getRespondentFullName')
 
@@ -753,7 +728,7 @@ class Survey(ATCTOrderedFolder):
         if use_transactions:
             transaction.abort()
         respondents = self.acl_users.getUsers()
-        already_completed = self.getRespondents()
+        already_completed = self.getRespondentsList()
         for respondent in respondents:
             if use_transactions:
                 transaction.get()
@@ -830,7 +805,7 @@ class Survey(ATCTOrderedFolder):
         sheet.writerow(('user',) + tuple(q.Title()
                        for q in questions) + ('completed',))
 
-        for user in self.getRespondents():
+        for user in self.getRespondentsList():
             if self.getConfidential():
                 row = ['Anonymous']
             else:
@@ -896,7 +871,7 @@ class Survey(ATCTOrderedFolder):
             ignore_meta_types=['SurveyMatrix', ])
         sheet.writerow(('user',) + tuple(q.Title()
                        for q in questions) + ('completed',))
-        for user in self.getRespondents():
+        for user in self.getRespondentsList():
             if self.getConfidential():
                 row = ['Anonymous']
             else:
@@ -1008,7 +983,7 @@ class Survey(ATCTOrderedFolder):
                 options_row.append(options[i])
         sheet.writerow(row)
         sheet.writerow(options_row)
-        for user in self.getRespondents():
+        for user in self.getRespondentsList():
             if self.getConfidential():
                 row = ['Anonymous']
             else:

@@ -1,21 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
-      metal:use-macro="here/main_template/macros/master"
+      metal:use-macro="context/main_template/macros/master"
       i18n:domain="plonesurvey">
 
 <body>
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
-        tal:define="users here/getRespondents">
+        tal:define="already_responded context/getRespondentsList">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" /> 
         <h1>
-            <span tal:replace="here/Title">Title</span><br />
+            <span tal:replace="context/Title">Title</span><br />
             <span i18n:translate="respondents_for_survey">Respondents for survey</span>
         </h1>
         <div tal:condition="not:context/getAllowAnonymous">
-            <div tal:define="already_responded context/getRespondents;
-                             respondents python:context.get_acl_users().getUserNames()">
+            <div tal:define="respondents python:context.get_acl_users().getUserNames()">
                 Responses: <span tal:replace="python:len(already_responded)" />/<span tal:replace="python:len(respondents)" />
                 - <span tal:condition="respondents"
                         tal:replace="python:round(float(len(already_responded))/float(len(respondents))*100, 2)" />%
@@ -24,13 +23,13 @@
 
         <div tal:condition="context/getAllowAnonymous">
             <div>
-                Responses: <span tal:replace="python:len(users)" />
+                Responses: <span tal:replace="python:len(already_responded)" />
             </div>
         </div>
 
         <form name="reset_users_form"
               method="post"
-              tal:condition="users"
+              tal:condition="already_responded"
               tal:attributes="action template/id">
             <input type="hidden" name="form.submitted" value="1" />
             <fieldset>
@@ -50,7 +49,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tal:items repeat="user users"> 
+                    <tal:items repeat="user already_responded">
                         <tr tal:define="user_details python:here.getRespondentDetails(user)">
                             <td>
                                 <input type="checkbox"
@@ -58,7 +57,7 @@
                                        name="answer"
                                        value="option"
                                        tal:attributes="value user;
-                                                       name string:users;" />
+                                                       name string:user;" />
                             </td>
                             <td>
                                 <span tal:replace="python:context.getRespondentFullName(user) or user" />
@@ -72,7 +71,7 @@
                 </tbody>
             </table>
             <div class="formControls"
-                 tal:condition="users">
+                 tal:condition="already_responded">
                 <input class="context"
                        type="submit"
                        value="Reset"
@@ -80,13 +79,13 @@
                        i18n:attributes="value reset_button" />
             </div>
         </form>
-        <div tal:condition="not:users" i18n:translate="label_no_users_yet">
+        <div tal:condition="not:already_responded"
+             i18n:translate="label_no_users_yet">
             No users have completed the survey yet.
         </div>
         <div tal:condition="not:context/getAllowAnonymous">
             <h2>Users who have not responded yet</h2>
-            <ul tal:define="already_responded context/getRespondents;
-                            respondents python:context.get_acl_users().getUserNames()">
+            <ul tal:define="respondents python:context.get_acl_users().getUserNames()">
                 <tal:repeat repeat="respondent respondents">
                     <li tal:condition="python:respondent not in already_responded"
                         tal:content="respondent" />

@@ -1,4 +1,4 @@
-import unittest2 as unittest
+import unittest
 
 from AccessControl import Unauthorized
 
@@ -254,7 +254,7 @@ class TestAddAnswer(unittest.TestCase):
                 question.addAnswer('Anonymous Text answer')
                 # need to login as original user, as anonymous cannot getAnswer
                 login(self.portal, TEST_USER_NAME)
-                users = s1.getRespondents()
+                users = s1.getRespondentsList()
                 assert len(users) == 1, 'More than one user responded'
                 assert question.getAnswerFor(users[0]) == \
                     'Anonymous Text answer', "Answer not saved correctly"
