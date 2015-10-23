@@ -11,7 +11,7 @@
             <th i18n:translate="respondents_time_taken">Time Taken</th>
         </tr>
     </thead>
-    <tbody tal:define="already_responded context/getRespondents;">
+    <tbody tal:define="already_responded context/getRespondentsList;">
         <tal:items repeat="user already_responded"> 
             <tr tal:define="user_details python:here.getRespondentDetails(user)">
                 <td>

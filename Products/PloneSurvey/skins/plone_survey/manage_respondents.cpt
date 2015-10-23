@@ -6,7 +6,7 @@
 <body>
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
-        tal:define="already_responded context/getRespondents;
+        tal:define="already_responded context/getRespondentsList;
                     respondents context/getAuthenticatedRespondents;
                     standard_module modules/Products/PythonScripts/standard">
 
@@ -17,8 +17,7 @@
         </h1>
         <div tal:condition="not:respondents" i18n:translate="no_respondents_label">No respondents</div>
         <div tal:condition="not:context/getAllowAnonymous">
-             <div tal:define="already_responded context/getRespondents;
-                              respondents python:context.get_acl_users().getUserNames()">
+             <div tal:define="respondents python:context.get_acl_users().getUserNames()">
                  <tal:block i18n:translate="responses_stats">Responses:</tal:block>
                  <span tal:replace="python:len(already_responded)" />/<span tal:replace="python:len(respondents)" />
                  <tal:percentage tal:condition="respondents">

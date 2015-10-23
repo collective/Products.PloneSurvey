@@ -475,18 +475,6 @@ class Survey(ATCTOrderedFolder):
             ip_address=self.getRemoteIp(),
             end='')
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'getRespondents')
-
-    def getRespondents(self):
-        """Return a list of respondents"""
-        questions = self.getAllQuestionsInOrder()
-        users = {}
-        for question in questions:
-            for user in question.answers.keys():
-                users[user] = 1
-        return users.keys()
-
     security.declareProtected(ViewSurveyResults, 'getRespondentFullName')
 
     def getRespondentFullName(self, userid):
@@ -740,7 +728,7 @@ class Survey(ATCTOrderedFolder):
         if use_transactions:
             transaction.abort()
         respondents = self.acl_users.getUsers()
-        already_completed = self.getRespondents()
+        already_completed = self.getRespondentsList()
         for respondent in respondents:
             if use_transactions:
                 transaction.get()
@@ -817,7 +805,7 @@ class Survey(ATCTOrderedFolder):
         sheet.writerow(('user',) + tuple(q.Title()
                        for q in questions) + ('completed',))
 
-        for user in self.getRespondents():
+        for user in self.getRespondentsList():
             if self.getConfidential():
                 row = ['Anonymous']
             else:
@@ -883,7 +871,7 @@ class Survey(ATCTOrderedFolder):
             ignore_meta_types=['SurveyMatrix', ])
         sheet.writerow(('user',) + tuple(q.Title()
                        for q in questions) + ('completed',))
-        for user in self.getRespondents():
+        for user in self.getRespondentsList():
             if self.getConfidential():
                 row = ['Anonymous']
             else:
@@ -995,7 +983,7 @@ class Survey(ATCTOrderedFolder):
                 options_row.append(options[i])
         sheet.writerow(row)
         sheet.writerow(options_row)
-        for user in self.getRespondents():
+        for user in self.getRespondentsList():
             if self.getConfidential():
                 row = ['Anonymous']
             else:

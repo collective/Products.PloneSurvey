@@ -135,7 +135,8 @@ class TestNoCookiesWorks(unittest.TestCase):
         )
         assert controller_state.getErrors() == {}, controller_state.getErrors()
         self.layer['request'].form['stq2'] = 'Another answer'
-        self.layer['request'].form['survey_user_id'] = s1.getRespondents()[0]
+        self.layer['request'].form['survey_user_id'] = \
+            s1.getRespondentsList()[0]
         dummy_controller_state = ControllerState(
             id='survey_view',
             context=s1.ss1,
@@ -151,7 +152,7 @@ class TestNoCookiesWorks(unittest.TestCase):
             ['validate_survey', ]
         )
         assert controller_state.getErrors() == {}, controller_state.getErrors()
-        respondents = s1.getRespondents()
+        respondents = s1.getRespondentsList()
         assert len(respondents) == 1, respondents
 
 
@@ -193,16 +194,15 @@ class TestReadDoesNotWrite(unittest.TestCase):
         transaction.commit()
         original_size = s1._p_estimated_size
         respondent_size = s1.respondents._p_estimated_size
-        assert s1.getRespondents() == []
+        assert s1.getRespondentsList() == []
         logout()
         assert s1._p_changed is False
-        assert s1.respondents._p_changed is None
+        assert s1.respondents._p_changed is False
         assert s1.stq1._p_changed is False
         # view the survey
         result = s1.survey_view(REQUEST=Request())
         assert s1._p_changed is False
-        # a respondent has been added on view
-        assert s1.respondents._p_changed is None
+        assert s1.respondents._p_changed is False
         assert s1.stq1._p_changed is False
         transaction.commit()
         # XXX this should not cause an increase in the object size
@@ -226,7 +226,7 @@ class TestReadDoesNotWrite(unittest.TestCase):
             ['validate_survey', ]
         )
         assert controller_state.getErrors() == {}, controller_state.getErrors()
-        assert len(s1.getRespondents()) == 1
+        assert len(s1.getRespondentsList()) == 1
         assert s1._p_changed is False
         assert s1.respondents._p_changed is True
         assert s1.stq1._p_changed is False

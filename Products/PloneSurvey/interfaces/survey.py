@@ -37,9 +37,6 @@ class ISurvey(Interface):
     def getAnonymousId():
         """ """
 
-    def getRespondents():
-        """Return a list of respondents"""
-
     def getAnswersByUser(userid):
         """Return a set of answers by user id"""
 

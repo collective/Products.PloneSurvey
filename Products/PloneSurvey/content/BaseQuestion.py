@@ -67,7 +67,7 @@ class BaseQuestion(ATCTContent):
                 "This survey is not available to anonymous users."
             )
         userid = self.getSurveyId()
-        if is_anon and userid not in survey.getRespondents():
+        if is_anon and userid not in survey.getRespondentsList():
             # anon is not added on survey view, so may need to be added
             survey.addRespondent(userid)
         # Call the real method for storing the answer for this user.
