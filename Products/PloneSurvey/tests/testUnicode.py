@@ -41,6 +41,5 @@ class TestUnicodeInSpreadsheet(unittest.TestCase):
         csv_list = fixLineEndings(csv_file)
         csv_list = csv_list.split("\n")
         # this is a hiragana a utf8 encoded
-        import pdb;pdb.set_trace()
         assert '\xe3\x81\x82' == csv_list[1][16:19], "Answer not in file"
         assert len(csv_list[1].split(',')) == 3, "Answer treated as list"
