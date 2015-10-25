@@ -105,6 +105,8 @@ class BaseQuestion(ATCTContent):
         if self.getInputType() in ['radio', 'selectionBox']:
             if not answer:
                 return ""
+            if isinstance(answer, unicode):
+                answer = answer.encode('utf8')
             return str(answer)
         return answer
 

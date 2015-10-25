@@ -814,14 +814,19 @@ class Survey(ATCTOrderedFolder):
                 answer = question.getAnswerFor(user) or ''
                 # handle there being no answer (e.g branched question)
                 if answer:
-                    if not (isinstance(answer, str) or isinstance(answer, int)):
+                    if not (isinstance(answer, str) or \
+                            isinstance(answer, unicode) or \
+                            isinstance(answer, int)):
                         # It's a sequence, filter out empty values
                         answer = ', '.join(filter(None, answer))
                 row.append(answer.replace('"', "'").replace('\r\n', ' '))
 
             row.append(self.checkCompletedFor(user) and
                        'Completed' or 'Not Completed')
-
+            for i, col in enumerate(row):
+                if isinstance(col, unicode):
+                    col = col.encode('utf8')
+                row[i] = col
             sheet.writerow(row)
 
         return data.getvalue()

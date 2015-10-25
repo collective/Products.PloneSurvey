@@ -2,7 +2,8 @@ import unittest
 
 from DateTime import DateTime
 
-from plone.app.testing import TEST_USER_ID, setRoles
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
 
 from base import INTEGRATION_TESTING
 from base import fixLineEndings
