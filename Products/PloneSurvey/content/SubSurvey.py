@@ -114,7 +114,7 @@ class SubSurvey(ATCTOrderedFolder):
 
     @protect(PostOnly)
     @security.protected(View)
-    def getNextPage(self):
+    def getNextPage(self, REQUEST=None):
         """Return the next page of the survey"""
         previous_page = True
         parent = self.aq_parent
