@@ -3,7 +3,7 @@ from zope.interface import implements
 
 from Products.Archetypes.atapi import IntDisplayList
 from Products.ATContentTypes.content.base import registerATCT
-from Products.CMFCore import permissions
+from Products.CMFCore.permissions import View
 
 from Products.PloneSurvey.config import LIKERT_OPTIONS_MAP
 from Products.PloneSurvey.config import PROJECTNAME
@@ -19,13 +19,10 @@ class SurveySelectQuestion(BaseQuestion):
     schema = SurveySelectQuestionSchema
     portal_type = 'Survey Select Question'
     _at_rename_after_creation = True
-
     implements(IPloneSurveyQuestion)
-
     security = ClassSecurityInfo()
 
-    security.declareProtected(permissions.View, 'validateAnswer')
-
+    @security.protected(View)
     def validateAnswer(self, value, comments, state):
         """Validate the question"""
         validates = True
@@ -70,8 +67,7 @@ class SurveySelectQuestion(BaseQuestion):
             # provided, then None is stored instead of empty string
             self.addAnswer(value, comments)
 
-    security.declareProtected(permissions.View, 'getRequired')
-
+    @security.protected(View)
     def getRequired(self):
         """Return 1 or 0 depending on if a null value exists"""
         if self.getNullValue():
@@ -79,8 +75,7 @@ class SurveySelectQuestion(BaseQuestion):
         else:
             return 1
 
-    security.declareProtected(permissions.View, 'getQuestionOptions')
-
+    @security.protected(View)
     def getQuestionOptions(self):
         """Return the options for this question"""
         if self.getLikertOptions():
@@ -97,8 +92,7 @@ class SurveySelectQuestion(BaseQuestion):
             return vocab
         return self.getAnswerOptions()
 
-    security.declareProtected(permissions.View, 'getAggregateAnswers')
-
+    @security.protected(View)
     def getAggregateAnswers(self):
         """Return a mapping of aggregrate answer values,
         suitable for a histogram"""
@@ -123,8 +117,7 @@ class SurveySelectQuestion(BaseQuestion):
                             aggregate_answers[value] = 1
         return aggregate_answers
 
-    security.declareProtected(permissions.View, 'getPercentageAnswers')
-
+    @security.protected(View)
     def getPercentageAnswers(self):
         """Return a mapping of aggregrate answer values,
         suitable for a barchart"""
@@ -142,8 +135,7 @@ class SurveySelectQuestion(BaseQuestion):
             pct_aggregate_answers[k] = int(value * 100)
         return pct_aggregate_answers
 
-    security.declareProtected(permissions.View, 'getPercentages')
-
+    @security.protected(View)
     def getPercentages(self):
         """Return a mapping of percentages for each answer"""
         total = 0

@@ -6,11 +6,11 @@ import urllib
 
 from Products.CMFPlone.utils import safe_unicode
 
+from AccessControl import ClassSecurityInfo
 from cStringIO import StringIO
 from DateTime import DateTime
 from ZODB.POSException import ConflictError
 from zope.interface import implements
-from AccessControl import ClassSecurityInfo
 from AccessControl import getSecurityManager
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
@@ -21,7 +21,9 @@ from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
 from Products.ATContentTypes.utils import DT2dt
 from Products.CMFPlone.interfaces import IMailSchema
-from Products.CMFCore import permissions
+from Products.CMFCore.permissions import ManagePortal
+from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFCore.permissions import View
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.exceptions import BadRequest
 
@@ -67,13 +69,10 @@ class Survey(ATCTOrderedFolder):
     """You can add questions to surveys"""
     schema = SurveySchema
     _at_rename_after_creation = True
-
     implements(ISurvey)
-
     security = ClassSecurityInfo()
 
-    security.declareProtected(permissions.ModifyPortalContent, 'reset')
-
+    @security.protected(ModifyPortalContent)
     def reset(self):
         """Remove all respondents."""
         self.respondents = OOBTree()
@@ -86,14 +85,12 @@ class Survey(ATCTOrderedFolder):
             if id != 'acl_users':
                 raise
 
-    security.declarePrivate('createLocalPas')
-
+    @security.private
     def createLocalPas(self):
         """Create PAS acl_users else login_form does not work"""
         # need Manager role to add an acl_users object
         remove_role = False
-        if not getSecurityManager().checkPermission(permissions.ManagePortal,
-                                                    self):
+        if not getSecurityManager().checkPermission(ManagePortal, self):
             portal_membership = getToolByName(self, 'portal_membership')
             current_user = portal_membership.getAuthenticatedMember()
             current_userid = current_user.getId()
@@ -129,27 +126,23 @@ class Survey(ATCTOrderedFolder):
         if remove_role:
             self.manage_delLocalRoles(userids=[current_userid, ])
 
-    security.declarePublic('canSetDefaultPage')
-
+    @security.public
     def canSetDefaultPage(self):
         """Doesn't make sense for surveys to allow alternate views"""
         return False
 
-    security.declarePublic('canConstrainTypes')
-
+    @security.public
     def canConstrainTypes(self):
         """Should not be able to add non survey types"""
         return False
 
-    security.declareProtected(permissions.View, 'isMultipage')
-
+    @security.protected(View)
     def isMultipage(self):
         """Return true if there is more than one page in the survey"""
         if self.getFolderContents(contentFilter={'portal_type': 'Sub Survey'}):
             return True
 
-    security.declareProtected(permissions.View, 'getQuestions')
-
+    @security.protected(View)
     def getQuestions(self):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(
@@ -162,8 +155,7 @@ class Survey(ATCTOrderedFolder):
             full_objects=True)
         return questions
 
-    security.declareProtected(permissions.View, 'getAllQuestions')
-
+    @security.protected(View)
     def getAllQuestions(self):
         """Return all the questions in the survey"""
         portal_catalog = getToolByName(self, 'portal_catalog')
@@ -183,8 +175,7 @@ class Survey(ATCTOrderedFolder):
             questions.append(result.getObject())
         return questions
 
-    security.declareProtected(permissions.View, 'getAllQuestionsInOrder')
-
+    @security.protected(View)
     def getAllQuestionsInOrder(self, include_sub_survey=False):
         """Return all the questions in the survey"""
         questions = []
@@ -229,8 +220,7 @@ class Survey(ATCTOrderedFolder):
                 questions.append(object)
         return questions
 
-    security.declareProtected(permissions.View, 'getAllSelectQuestionsInOrder')
-
+    @security.protected(View)
     def getAllSelectQuestionsInOrder(self):
         """Return all the vocab driven questions in the survey"""
         questions = []
@@ -268,8 +258,7 @@ class Survey(ATCTOrderedFolder):
                 questions.append(object)
         return questions
 
-    security.declareProtected(permissions.View, 'hasDateQuestion')
-
+    @security.protected(View)
     def hasDateQuestion(self):
         """Return true if there is a date question in this part of the survey
         to import the js"""
@@ -279,8 +268,7 @@ class Survey(ATCTOrderedFolder):
             return True
         return False
 
-    security.declareProtected(permissions.View, 'getNextPage')
-
+    @security.protected(View)
     def getNextPage(self):
         """Return the next page of the survey"""
         pages = self.getFolderContents(
@@ -290,8 +278,7 @@ class Survey(ATCTOrderedFolder):
                 return page()
         return self.exitSurvey()
 
-    security.declareProtected(permissions.View, 'hasMorePages')
-
+    @security.protected(View)
     def hasMorePages(self):
         """Return True if survey has more pages to display"""
         pages = self.getFolderContents(
@@ -300,8 +287,7 @@ class Survey(ATCTOrderedFolder):
             return False
         return True
 
-    security.declareProtected(permissions.View, 'exitSurvey')
-
+    @security.protected(View)
     def exitSurvey(self):
         """Return the defined exit url"""
         self.setCompletedForUser()
@@ -312,8 +298,7 @@ class Survey(ATCTOrderedFolder):
             exit_url = self.portal_url() + '/' + exit_url
         return self.REQUEST.RESPONSE.redirect(exit_url)
 
-    security.declareProtected(permissions.View, 'saveSurvey')
-
+    @security.protected(View)
     def saveSurvey(self):
         """Return the defined exit url"""
         exit_url = self.getExitUrl()
@@ -323,8 +308,7 @@ class Survey(ATCTOrderedFolder):
             exit_url = self.portal_url() + '/' + exit_url
         return self.REQUEST.RESPONSE.redirect(exit_url)
 
-    security.declareProtected(permissions.View, 'setCompletedForUser')
-
+    @security.protected(View)
     def setCompletedForUser(self):
         """Set completed for a user"""
         userid = self.getSurveyId()
@@ -357,8 +341,7 @@ class Survey(ATCTOrderedFolder):
         if self.getSurveyNotificationMethod() == 'each_submission':
             self.send_email(userid)
 
-    security.declareProtected(permissions.View, 'checkCompletedFor')
-
+    @security.protected(View)
     def checkCompletedFor(self, user_id):
         """Check whether a user has completed the survey"""
         completed = self.getCompletedFor()
@@ -366,8 +349,7 @@ class Survey(ATCTOrderedFolder):
             return True
         return False
 
-    security.declareProtected(permissions.View, 'getSurveyId')
-
+    @security.protected(View)
     def getSurveyId(self):
         """Return the userid for the survey"""
         request = self.REQUEST
@@ -394,8 +376,7 @@ class Survey(ATCTOrderedFolder):
         self.addRespondent(user_id)
         return user_id
 
-    security.declareProtected(permissions.View, 'getAnonymousId')
-
+    @security.protected(View)
     def getAnonymousId(self):
         """returns the id to use for an anonymous user"""
         portal_membership = getToolByName(self, 'portal_membership')
@@ -411,8 +392,7 @@ class Survey(ATCTOrderedFolder):
                 self.portal_url()+'/login_form?came_from='+self.absolute_url())
         return portal_membership.getAuthenticatedMember().getId()
 
-    security.declareProtected(permissions.View, 'getRemoteIp')
-
+    @security.protected(View)
     def getRemoteIp(self, request=None):
         """returns the ip address of the survey respondent"""
         # XXX put in placeholder for working out the ip address
@@ -433,16 +413,12 @@ class Survey(ATCTOrderedFolder):
         # return self.REQUEST['REMOTE_ADDR']
         # return self.REQUEST['HTTP_X_FORWARDED_FOR']
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'getRespondentsDetails')
-
+    @security.protected(ModifyPortalContent)
     def getRespondentsDetails(self):
         """Return a list of respondents details"""
         return self.respondents
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'getRespondentsList')
-
+    @security.protected(ModifyPortalContent)
     def getRespondentsList(self):
         """Return a list of respondents details"""
         users = {}
@@ -450,8 +426,7 @@ class Survey(ATCTOrderedFolder):
             users[user] = 1
         return users.keys()
 
-    security.declareProtected(ViewSurveyResults, 'getRespondentDetails')
-
+    @security.protected(ViewSurveyResults)
     def getRespondentDetails(self, respondent):
         """Return details of a respondent"""
         try:
@@ -476,8 +451,7 @@ class Survey(ATCTOrderedFolder):
             details_dict['time_taken'] = ''
         return details_dict
 
-    security.declareProtected(permissions.ModifyPortalContent, 'addRespondent')
-
+    @security.protected(ModifyPortalContent)
     def addRespondent(self, user_id):
         """Add a respondent to the survey"""
         # TODO needs moving to an event handler
@@ -492,9 +466,7 @@ class Survey(ATCTOrderedFolder):
             ip_address=self.getRemoteIp(),
             end='')
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'getRespondents')
-
+    @security.protected(ModifyPortalContent)
     def getRespondents(self):
         """Return a list of respondents"""
         questions = self.getAllQuestionsInOrder()
@@ -504,8 +476,7 @@ class Survey(ATCTOrderedFolder):
                 users[user] = 1
         return users.keys()
 
-    security.declareProtected(ViewSurveyResults, 'getRespondentFullName')
-
+    @security.protected(ViewSurveyResults)
     def getRespondentFullName(self, userid):
         """get user. used by results spreadsheets to show fullname"""
         portal_membership = getToolByName(self, 'portal_membership')
@@ -517,8 +488,7 @@ class Survey(ATCTOrderedFolder):
             return full_name
         return member.id
 
-    security.declareProtected(ViewSurveyResults, 'getAnswersByUser')
-
+    @security.protected(ViewSurveyResults)
     def getAnswersByUser(self, userid):
         """Return a set of answers by user id"""
         questions = self.getAllQuestionsInOrder()
@@ -528,15 +498,13 @@ class Survey(ATCTOrderedFolder):
             answers[question.getId()] = answer
         return answers
 
-    security.declareProtected(permissions.View, 'getQuestionsCount')
-
+    @security.protected(View)
     def getQuestionsCount(self):
         """Return a count of questions asked"""
         # XXX is this used anywhere?
         return len(self.questions)
 
-    security.declareProtected(permissions.View, 'getSurveyColors')
-
+    @security.protected(View)
     def getSurveyColors(self, num_options):
         """Return the colors for the barchart"""
         colors = BARCHART_COLORS
@@ -546,17 +514,14 @@ class Survey(ATCTOrderedFolder):
             num_colors = len(colors)
         return colors
 
-    security.declareProtected(ResetOwnResponses, 'resetForAuthenticatedUser')
-
+    @security.protected(ResetOwnResponses)
     def resetForAuthenticatedUser(self):
         mtool = getToolByName(self, 'portal_membership')
         member = mtool.getAuthenticatedMember()
         user_id = member.getMemberId()
         return self._resetForUser(user_id)
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'resetForUser')
-
+    @security.protected(ModifyPortalContent)
     def resetForUser(self, userid):
         """Remove answer for a single user"""
         self._resetForUser(userid)
@@ -577,8 +542,7 @@ class Survey(ATCTOrderedFolder):
             # TODO old survey instance
             self.reset()
 
-    security.declareProtected(permissions.View, 'send_email')
-
+    @security.protected(View)
     def send_email(self, userid):
         """ Send email to nominated address """
         registry = getUtility(IRegistry)
@@ -609,16 +573,14 @@ class Survey(ATCTOrderedFolder):
             # XXX too many things can go wrong
             pass
 
-    security.declarePublic('translateThankYouMessage')
-
+    @security.public
     def translateThankYouMessage(self):
         """ """
         return self.translate(msgid="text_default_thank_you",
                               default="Thank you for completing the survey.",
                               domain="plonesurvey")
 
-    security.declarePublic('translateSavedMessage')
-
+    @security.public
     def translateSavedMessage(self):
         """ """
         return self.translate(
@@ -627,9 +589,7 @@ class Survey(ATCTOrderedFolder):
                     u"Don't forget to come back and finish it.",
             domain="plonesurvey")
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'deleteAuthenticatedRespondent')
-
+    @security.protected(ModifyPortalContent)
     def deleteAuthenticatedRespondent(self, email, REQUEST=None):
         """Delete authenticated respondent"""
         # xxx: delete answers by this user as well?
@@ -647,9 +607,7 @@ class Survey(ATCTOrderedFolder):
                 safe_unicode("Respondent %s deleted" % email))
             REQUEST.RESPONSE.redirect(REQUEST.HTTP_REFERER)
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'addAuthenticatedRespondent')
-
+    @security.protected(ModifyPortalContent)
     def addAuthenticatedRespondent(self, emailaddress, **kw):
         acl_users = self.get_acl_users()
         portal_registration = getToolByName(self, 'portal_registration')
@@ -673,9 +631,7 @@ class Survey(ATCTOrderedFolder):
         acl_users.mutable_properties.setPropertiesForUser(user, props)
         return True
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'registerRespondentSent')
-
+    @security.protected(ModifyPortalContent)
     def registerRespondentSent(self, email_address):
         """Mark the respondent as being sent an email"""
         acl_users = self.get_acl_users()
@@ -685,9 +641,7 @@ class Survey(ATCTOrderedFolder):
         props.setProperty('email_sent', str(DateTime()))
         acl_users.mutable_properties.setPropertiesForUser(user, props)
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'getAuthenticatedRespondent')
-
+    @security.protected(ModifyPortalContent)
     def getAuthenticatedRespondent(self, emailaddress):
         """
         Return dictionary with respondent details.
@@ -702,9 +656,7 @@ class Survey(ATCTOrderedFolder):
             di[k] = v
         return di
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'getAuthenticatedRespondents')
-
+    @security.protected(ModifyPortalContent)
     def getAuthenticatedRespondents(self):
         """Build up the list of users"""
         respondents = []
@@ -714,9 +666,7 @@ class Survey(ATCTOrderedFolder):
         return [self.getAuthenticatedRespondent(user_id)
                 for user_id in respondents]
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'sendSurveyInvite')
-
+    @security.protected(ModifyPortalContent)
     def sendSurveyInvite(self, email_address):
         """Send a survey Invite"""
         registry = getUtility(IRegistry)
@@ -749,9 +699,7 @@ class Survey(ATCTOrderedFolder):
         host.send(mail_text)
         self.registerRespondentSent(email_address)
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'sendSurveyInviteAll')
-
+    @security.protected(ModifyPortalContent)
     def sendSurveyInviteAll(self, send_to_all=False, use_transactions=False):
         """Send survey Invites to all respondents"""
         number_sent = 0
@@ -782,8 +730,7 @@ class Survey(ATCTOrderedFolder):
             self.createLocalPas()
         return self.acl_users
 
-    security.declareProtected(ViewSurveyResults, 'setCsvHeaders')
-
+    @security.protected(ViewSurveyResults)
     def setCsvHeaders(self, filetype='csv'):
         """Set the CSV headers"""
         REQUEST = self.REQUEST
@@ -796,8 +743,7 @@ class Survey(ATCTOrderedFolder):
             'attachment; filename=%s' % file)
         return REQUEST
 
-    security.declareProtected(ViewSurveyResults, 'buildSpreadsheetUrl')
-
+    @security.protected(ViewSurveyResults)
     def buildSpreadsheetUrl(self, filetype='csv'):
         """Create a filename for the spreadsheets"""
         date = DateTime().strftime("%Y-%m-%d")
@@ -806,23 +752,20 @@ class Survey(ATCTOrderedFolder):
         url = "%s.%s" % (id, filetype)
         return url
 
-    security.declareProtected(ViewSurveyResults, 'spreadsheet2')
-
+    @security.protected(ViewSurveyResults)
     def spreadsheet2(self):
         """Return spreadsheet 2"""
         self.setCsvHeaders()
         return self.buildSpreadsheet2()
 
-    security.declareProtected(ViewSurveyResults, 'spreadsheet2_tab')
-
+    @security.protected(ViewSurveyResults)
     def spreadsheet2_tab(self):
         """Return spreadsheet 2 tab"""
         self.setCsvHeaders(filetype='tsv')
         dialect = csv.excel_tab
         return self.buildSpreadsheet2(dialect)
 
-    security.declareProtected(ViewSurveyResults, 'buildSpreadsheet2')
-
+    @security.protected(ViewSurveyResults)
     def buildSpreadsheet2(self, dialect=csv.excel):
         """Build spreadsheet 2.
             excel_tab
@@ -856,16 +799,13 @@ class Survey(ATCTOrderedFolder):
 
         return data.getvalue()
 
-    security.declareProtected(ViewSurveyResults, 'spreadsheet3')
-
+    @security.protected(ViewSurveyResults)
     def spreadsheet3(self):
         """Return spreadsheet 3"""
         self.setCsvHeaders()
         return self.buildSpreadsheet3()
 
-    security.declareProtected(ViewSurveyResults,
-                              'get_all_questions_in_order_filtered')
-
+    @security.protected(ViewSurveyResults)
     def get_all_questions_in_order_filtered(self,
                                             include_sub_survey=False,
                                             ignore_meta_types=[],
@@ -891,8 +831,7 @@ class Survey(ATCTOrderedFolder):
                 result.append(question)
         return result
 
-    security.declareProtected(ViewSurveyResults, 'buildSpreadsheet3')
-
+    @security.protected(ViewSurveyResults)
     def buildSpreadsheet3(self):
         """Build spreadsheet 3."""
         data = StringIO()
@@ -951,16 +890,13 @@ class Survey(ATCTOrderedFolder):
             sheet.writerow(row)
         return data.getvalue()
 
-    security.declareProtected(ViewSurveyResults, 'summary_spreadsheet')
-
+    @security.protected(ViewSurveyResults)
     def summary_spreadsheet(self):
         """Return summary spreadsheet"""
         self.setCsvHeaders()
         return self.buildSummarySpreadsheet()
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'buildSummarySpreadsheet')
-
+    @security.protected(ModifyPortalContent)
     def buildSummarySpreadsheet(self):
         """Build the summary spreadsheet."""
         data = StringIO()
@@ -984,8 +920,7 @@ class Survey(ATCTOrderedFolder):
                     sheet.writerow(row)
         return data.getvalue()
 
-    security.declareProtected(ViewSurveyResults, 'spreadsheet_select')
-
+    @security.protected(ViewSurveyResults)
     def spreadsheet_select(self):
         """Return spreadsheet select"""
         self.setCsvHeaders()
@@ -995,8 +930,7 @@ class Survey(ATCTOrderedFolder):
             return self.buildSelectSpreadsheet()
         return self.buildSelectSpreadsheet(boolean=True)
 
-    security.declareProtected(ViewSurveyResults, 'buildSelectSpreadsheet')
-
+    @security.protected(ViewSurveyResults)
     def buildSelectSpreadsheet(self, boolean=False):
         """Build the select spreadsheet."""
         data = StringIO()
@@ -1048,8 +982,7 @@ class Survey(ATCTOrderedFolder):
 
     # TODO next two methods are still needed for the tests,
     # but should be removed and the tests fixed
-    security.declareProtected(permissions.ModifyPortalContent, 'openFile')
-
+    @security.protected(ModifyPortalContent)
     def openFile(self):
         """open the file, and return the file contents"""
         data_path = os.path.abspath('import')
@@ -1066,9 +999,7 @@ class Survey(ATCTOrderedFolder):
         data_catch.close()
         return input
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'uploadRespondents')
-
+    @security.protected(ModifyPortalContent)
     def uploadRespondents(self, input=None):
         """upload the respondents"""
         if input is None:
@@ -1084,8 +1015,7 @@ class Survey(ATCTOrderedFolder):
                 errors.append(user)
         return errors
 
-    security.declareProtected(permissions.View, 'collective_recaptcha_enabled')
-
+    @security.protected(View)
     def collective_recaptcha_enabled(self):
         if using_collective_recaptcha:
             try:
@@ -1097,8 +1027,7 @@ class Survey(ATCTOrderedFolder):
                 return True
         return False
 
-    security.declareProtected(permissions.ModifyPortalContent, 'pre_validate')
-
+    @security.protected(ModifyPortalContent)
     def pre_validate(self, REQUEST, errors):
         """ checks captcha """
         product_installed = self.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas')
@@ -1111,15 +1040,13 @@ class Survey(ATCTOrderedFolder):
                                           'then verifies that recaptcha private and public keys are configured. '
                                           'Go to path/to/site/@@recaptcha-settings to configure.')
 
-    security.declareProtected(permissions.View, 'isCaptchaInstalled')
-
+    @security.protected(View)
     def isCaptchaInstalled(self):
         """ checks captcha """
         product_installed = self.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas')
         return product_installed
 
-    security.declarePrivate('_get_emailInvite_default')
-
+    @security.private
     def _get_emailInvite_default(self):
         translation_service = getToolByName(self, 'translation_service')
         return translation_service.utranslate(domain='plonesurvey',

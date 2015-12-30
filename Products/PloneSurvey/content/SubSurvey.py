@@ -1,12 +1,11 @@
-import string
 from AccessControl import ClassSecurityInfo
-
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
-from Products.CMFCore import permissions
+from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFCore.permissions import View
 from Products.CMFCore.utils import getToolByName
-
 from Products.PloneSurvey.config import PROJECTNAME
+import string
 
 from schemata import SubSurveySchema
 
@@ -18,26 +17,22 @@ class SubSurvey(ATCTOrderedFolder):
     portal_type = 'Sub Survey'
     security = ClassSecurityInfo()
 
-    security.declarePublic('canSetDefaultPage')
-
+    @security.public
     def canSetDefaultPage(self):
         """Doesn't make sense for surveys to allow alternate views"""
         return False
 
-    security.declarePublic('canConstrainTypes')
-
+    @security.public
     def canConstrainTypes(self):
         """Should not be able to add non survey types"""
         return False
 
-    security.declareProtected(permissions.View, 'isMultipage')
-
+    @security.protected(View)
     def isMultipage(self):
         """Return true if there is more than one page in the survey"""
         return True
 
-    security.declareProtected(permissions.View, 'getSurveyId')
-
+    @security.protected(View)
     def getSurveyId(self):
         """Return the userid for the survey"""
         request = self.REQUEST
@@ -62,9 +57,7 @@ class SubSurvey(ATCTOrderedFolder):
         survey_url = self.aq_parent.absolute_url()
         return self.REQUEST.RESPONSE.redirect(survey_url)
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'getValidationQuestions')
-
+    @security.protected(ModifyPortalContent)
     def getValidationQuestions(self):
         """Return the questions for the validation field"""
         portal_catalog = getToolByName(self, 'portal_catalog')
@@ -80,8 +73,7 @@ class SubSurvey(ATCTOrderedFolder):
         # vocab_list = DisplayList((questions))
         return questions
 
-    security.declareProtected(permissions.View, 'getBranchingCondition')
-
+    @security.protected(View)
     def getBranchingCondition(self):
         """Return the title of the branching question"""
         branchings = ''
@@ -90,8 +82,7 @@ class SubSurvey(ATCTOrderedFolder):
         branchings = branch_question.Title()+':'+self.getRequiredAnswer()
         return branchings
 
-    security.declareProtected(permissions.View, 'getQuestions')
-
+    @security.protected(View)
     def getQuestions(self):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(
@@ -103,8 +94,7 @@ class SubSurvey(ATCTOrderedFolder):
             ]}, full_objects=True)
         return questions
 
-    security.declareProtected(permissions.View, 'hasDateQuestion')
-
+    @security.protected(View)
     def hasDateQuestion(self):
         """Return true if there is a date question in this part of the survey
         to import the js"""
@@ -114,15 +104,13 @@ class SubSurvey(ATCTOrderedFolder):
             return True
         return False
 
-    security.declareProtected(permissions.View, 'checkCompleted')
-
+    @security.protected(View)
     def checkCompleted(self):
         """Return true if this page is completed"""
         # XXX
         return True
 
-    security.declareProtected(permissions.View, 'getNextPage')
-
+    @security.protected(View)
     def getNextPage(self):
         """Return the next page of the survey"""
         previous_page = True
@@ -137,8 +125,7 @@ class SubSurvey(ATCTOrderedFolder):
                 return page()
         return self.exitSurvey()
 
-    security.declareProtected(permissions.View, 'hasMorePages')
-
+    @security.protected(View)
     def hasMorePages(self):
         """Return True if survey has more pages to display"""
         previous_page = True
@@ -153,8 +140,7 @@ class SubSurvey(ATCTOrderedFolder):
                 return True
         return False
 
-    security.declareProtected(permissions.View, 'displaySubSurvey')
-
+    @security.protected(View)
     def displaySubSurvey(self):
         """Determine whether this page should be displayed"""
         parent = self.aq_parent

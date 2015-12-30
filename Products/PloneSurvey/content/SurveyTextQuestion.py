@@ -1,8 +1,6 @@
 from AccessControl import ClassSecurityInfo
-from zope.interface import implements
-
 from Products.ATContentTypes.content.base import registerATCT
-from Products.CMFCore import permissions
+from Products.CMFCore.permissions import View
 from Products.validation import validation
 
 from Products.PloneSurvey.config import PROJECTNAME
@@ -12,6 +10,7 @@ from Products.PloneSurvey.interfaces.survey_question \
     import IPloneSurveyQuestion
 from Products.PloneSurvey.interfaces.survey_text_question \
     import ISurveyTextQuestion
+from zope.interface import implements
 
 from schemata import SurveyTextQuestionSchema
 
@@ -21,13 +20,11 @@ class SurveyTextQuestion(BaseQuestion):
     schema = SurveyTextQuestionSchema
     portal_type = 'Survey Text Question'
     _at_rename_after_creation = True
+    security = ClassSecurityInfo()
 
     implements(IPloneSurveyQuestion, ISurveyTextQuestion)
 
-    security = ClassSecurityInfo()
-
-    security.declareProtected(permissions.View, 'validateAnswer')
-
+    @security.protected(View)
     def validateAnswer(self, value, state):
         """Validate the question"""
         if len(value) > self.getMaxLength():
@@ -42,16 +39,14 @@ class SurveyTextQuestion(BaseQuestion):
         else:
             self.addAnswer(value)
 
-    security.declareProtected(permissions.View, 'getValidators')
-
+    @security.protected(View)
     def getValidators(self):
         """Return a list of validators"""
         validator_list = ['None', ]
         validator_list.extend(TEXT_VALIDATORS)
         return validator_list
 
-    security.declareProtected(permissions.View, 'validateQuestion')
-
+    @security.protected(View)
     def validateQuestion(self, value):
         """Return a list of validators"""
         validator = self.getValidation()

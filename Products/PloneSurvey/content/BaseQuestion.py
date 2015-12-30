@@ -2,16 +2,12 @@
 
 from AccessControl import ClassSecurityInfo
 from AccessControl import Unauthorized
-try:
-    from AccessControl.class_init import InitializeClass
-except ImportError:
-    # Old Zope/Plone
-    from Globals import InitializeClass
+from AccessControl.class_init import InitializeClass
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
-
 from Products.ATContentTypes.content.base import ATCTContent
-from Products.CMFCore import permissions
+from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFCore.permissions import View
 from Products.CMFCore.utils import getToolByName
 
 
@@ -23,24 +19,20 @@ class BaseQuestion(ATCTContent):
     allowed_content_types = ()
     include_default_actions = 1
     _at_rename_after_creation = True
-
     security = ClassSecurityInfo()
 
-    security.declareProtected(permissions.ModifyPortalContent, 'reset')
-
+    @security.protected(ModifyPortalContent)
     def reset(self):
         """Remove answers for all users."""
         self.answers = OOBTree()
 
-    security.declareProtected(permissions.ModifyPortalContent, 'resetForUser')
-
+    @security.protected(ModifyPortalContent)
     def resetForUser(self, userid):
         """Remove answer for a single user"""
         if userid in self.answers:
             del self.answers[userid]
 
-    security.declareProtected(permissions.View, 'addAnswer')
-
+    @security.protected(View)
     def addAnswer(self, value, comments=""):
         """Add an answer and optional comments for a user.
         This method protects _addAnswer from anonymous users specifying a
@@ -87,8 +79,7 @@ class BaseQuestion(ATCTContent):
             # we need to inform the ZODB about the change manually.
             self.answers._p_changed = 1
 
-    security.declareProtected(permissions.View, 'getAnswerFor')
-
+    @security.protected(View)
     def getAnswerFor(self, userid):
         """Get a specific user's answer"""
         answer = self.answers.get(userid, {}).get('value', None)
@@ -101,14 +92,12 @@ class BaseQuestion(ATCTContent):
             return str(answer)
         return answer
 
-    security.declareProtected(permissions.View, 'getCommentsFor')
-
+    @security.protected(View)
     def getCommentsFor(self, userid):
         """Get a specific user's comments"""
         return self.answers.get(userid, {}).get('comments', None)
 
-    security.declareProtected(permissions.View, 'getComments')
-
+    @security.protected(View)
     def getComments(self):
         """Return a userid, comments mapping"""
         mlist = []
@@ -119,13 +108,11 @@ class BaseQuestion(ATCTContent):
             mlist.append(mapping)
         return mlist
 
-    security.declareProtected(permissions.View, 'getNumberOfRespondents')
-
+    @security.protected(View)
     def getNumberOfRespondents(self):
         return len(self.answers.keys())
 
-    security.declarePrivate('_get_yes_no_default')
-
+    @security.private
     def _get_yes_no_default(self):
         translation_service = getToolByName(self, 'translation_service')
         return (translation_service.utranslate(domain='plonesurvey',
@@ -135,8 +122,7 @@ class BaseQuestion(ATCTContent):
                                                msgid=u'No',
                                                context=self), )
 
-    security.declarePrivate('_get_commentLabel_default')
-
+    @security.private
     def _get_commentLabel_default(self):
         translation_service = getToolByName(self, 'translation_service')
         return translation_service.utranslate(
