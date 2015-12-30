@@ -14,6 +14,8 @@ from zope.interface import implements
 from AccessControl import getSecurityManager
 from BTrees.OOBTree import OOBTree
 from persistent.mapping import PersistentMapping
+from plone.protect import PostOnly
+from plone.protect import protect
 from zope.component import getUtility
 from zope.i18n import translate
 
@@ -268,8 +270,9 @@ class Survey(ATCTOrderedFolder):
             return True
         return False
 
+    @protect(PostOnly)
     @security.protected(View)
-    def getNextPage(self):
+    def getNextPage(self, REQUEST=None):
         """Return the next page of the survey"""
         pages = self.getFolderContents(
             contentFilter={'portal_type': 'Sub Survey', }, full_objects=True)

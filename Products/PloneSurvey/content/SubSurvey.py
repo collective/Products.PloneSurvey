@@ -4,6 +4,8 @@ from Products.ATContentTypes.content.base import registerATCT
 from Products.CMFCore.permissions import ModifyPortalContent
 from Products.CMFCore.permissions import View
 from Products.CMFCore.utils import getToolByName
+from plone.protect import PostOnly
+from plone.protect import protect
 from Products.PloneSurvey.config import PROJECTNAME
 import string
 
@@ -110,6 +112,7 @@ class SubSurvey(ATCTOrderedFolder):
         # XXX
         return True
 
+    @protect(PostOnly)
     @security.protected(View)
     def getNextPage(self):
         """Return the next page of the survey"""
