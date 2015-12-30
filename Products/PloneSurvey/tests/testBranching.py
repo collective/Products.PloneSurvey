@@ -66,7 +66,7 @@ class TestRadioBranching(unittest.TestCase):
         self.s1.ssq1.addAnswer('No')
         next_page = self.s1.getNextPage()
         assert self.s1.ss1.displaySubSurvey()
-        assert '<base href="http://nohost/plone/s1/ss1/" />' in next_page
+        assert '<meta content="http://nohost/plone/s1/ss1"' in next_page
 
     def testAnswerYes(self):
         """S1 as yes should return ss2"""
@@ -74,7 +74,7 @@ class TestRadioBranching(unittest.TestCase):
         next_page = self.s1.getNextPage()
         assert not self.s1.ss1.displaySubSurvey()
         assert self.s1.ss2.displaySubSurvey()
-        assert '<base href="http://nohost/plone/s1/ss2/" />' in next_page
+        assert '<meta content="http://nohost/plone/s1/ss2"' in next_page
 
 
 class TestSubSurveyRadioBranching(unittest.TestCase):
@@ -131,23 +131,21 @@ class TestCheckboxBranching(unittest.TestCase):
         self.s1.ssq1.addAnswer('No')
         next_page = self.s1.getNextPage()
         assert self.s1.ss1.displaySubSurvey()
-        assert '<base href="http://nohost/plone/s1/ss1/" />' in next_page
+        assert '<meta content="http://nohost/plone/s1/ss1"' in next_page
 
     def testAnswerYes(self):
         """S1 as yes should exit survey"""
         self.s1.ssq1.addAnswer('Yes')
         next_page = self.s1.getNextPage()
         assert not self.s1.ss1.displaySubSurvey()
-        assert '<base href="http://nohost/plone/s1/ss2/" />' in next_page
+        assert '<meta content="http://nohost/plone/s1/ss2"' in next_page
 
     def testAnswerList(self):
         """S1 with yes should return ss1"""
         self.s1.ssq1.addAnswer(['Yes', 'No'])
         next_page = self.s1.getNextPage()
         assert self.s1.ss1.displaySubSurvey()
-        assert '<base href="http://nohost/plone/s1/ss1/" />' in next_page, \
-            next_page[next_page.find('<base href'):
-                      next_page.find('<base href')+100]
+        assert '<meta content="http://nohost/plone/s1/ss1"' in next_page
 
 
 class TestSubSurveyCheckboxBranching(unittest.TestCase):
