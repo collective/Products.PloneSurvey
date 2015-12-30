@@ -2,6 +2,7 @@ import logging
 
 from zope.component import getUtility
 
+from plone.api import portal
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import INavigationSchema, ITypesSchema
 from plone.registry.interfaces import IRegistry
@@ -20,7 +21,9 @@ def importVarious(context):
     navigation_settings = registry.forInterface(INavigationSchema, prefix='plone')
     if 'Survey' not in navigation_settings.displayed_types:
         tmp = tuple(navigation_settings.displayed_types)
-        navigation_settings.displayed_types = tmp + ('Survey',)
+        # XXX this doesn't work in tests
+        #navigation_settings.displayed_types = tmp + ('Survey',)
+        #portal.set_registry_record('plone.displayed_types', tmp + ('Survey',))
     types_settings = registry.forInterface(ITypesSchema, prefix='plone')
     if 'Survey' not in types_settings.default_page_types:
         types_settings.default_page_types += [u'Survey']
