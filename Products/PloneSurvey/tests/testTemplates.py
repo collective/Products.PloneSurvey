@@ -123,3 +123,21 @@ class TestJavascript(unittest.TestCase):
         result = s1.survey_view(REQUEST=Request())
         assert 'jscalendar/calendar_stripped.js' in result
         assert 'jscalendar/calendar-en.js' in result
+
+
+class TestCss(unittest.TestCase):
+    """Ensure css in relevant templates"""
+    layer = INTEGRATION_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+
+    def testCssInSurveyBarchart(self):
+        """Ensure css in survey barchart"""
+        s1 = getattr(self.portal, 's1')
+        view = s1.restrictedTraverse('@@Products.PloneSurvey.survey_barchart')
+        result = view()
+        s = '++resource++Products.PloneSurvey.stylesheets/survey_results.css'
+        assert s in result
