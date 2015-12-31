@@ -7,13 +7,17 @@
     <style type="text/css" media="all"
            tal:content="string:@import url($portal_url/jscalendar/calendar-system.css);" />
 </metal:block>
-<metal:block metal:fill-slot="javascript_head_slot"
-    tal:condition="context/hasDateQuestion">
+<metal:block metal:fill-slot="javascript_head_slot">
     <script type="text/javascript" charset="iso-8859-1"
+            tal:condition="context/hasDateQuestion"
             tal:attributes="src string:$portal_url/jscalendar/calendar_stripped.js">
     </script>
     <script type="text/javascript" charset="iso-8859-1"
+            tal:condition="context/hasDateQuestion"
             tal:attributes="src string:$portal_url/jscalendar/calendar-en.js">
+    </script>
+    <script type="text/javascript" charset="iso-8859-1"
+            tal:attributes="src string:$portal_url/++resource++Products.PloneSurvey.javascripts/survey_reset.js">
     </script>
 </metal:block>
 </head>
@@ -113,7 +117,8 @@
             </fieldset>
         </form>
 
-        <form name="edit_form"
+        <form  id="survey_reset_form"
+              name="edit_form"
               method="post"
               tal:attributes="action context/absolute_url"
               tal:condition="completed">
