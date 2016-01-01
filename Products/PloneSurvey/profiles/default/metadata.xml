@@ -2,6 +2,6 @@
 <metadata>
   <version>1.4.3</version>
   <dependencies>
-    <dependency>profile-Products.ATContentTypes:base</dependency>
+    <dependency>profile-Products.ATContentTypes:default</dependency>
   </dependencies>
 </metadata>
