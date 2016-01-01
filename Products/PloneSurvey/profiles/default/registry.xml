@@ -5,10 +5,10 @@
     <value purge="false">
       <element>Survey</element>
     </value>
-  </record>
+  </record-->
   <record name="plone.default_page_types" interface="Products.CMFPlone.interfaces.controlpanel.ITypesSchema" field="default_page_types">
     <value purge="false">
       <element>Survey</element>
     </value>
-  </record-->
+  </record>
 </registry>
