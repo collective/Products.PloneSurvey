@@ -21,7 +21,7 @@ def importVarious(context):
     navigation_settings = registry.forInterface(INavigationSchema, prefix='plone')
     if 'Survey' not in navigation_settings.displayed_types:
         tmp = tuple(navigation_settings.displayed_types)
-        # XXX this doesn't work in tests
+        # XXX this doesn't work in registry.xml in tests
         portal.set_registry_record('plone.displayed_types', tmp + ('Survey',))
 
 

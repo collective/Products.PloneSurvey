@@ -57,6 +57,11 @@ class TestInstallation(unittest.TestCase):
         navigation_settings = registry.forInterface(INavigationSchema, prefix='plone')
         self.assertIn('Survey', navigation_settings.displayed_types)
 
+    def testDefaultpageType(self):
+        registry = getUtility(IRegistry)
+        default_page_types = registry.get('plone.default_page_types', [])
+        self.assertIn('Survey', default_page_types)
+
     def testPermissions(self):
         """
         Test permissions are configured correctly
