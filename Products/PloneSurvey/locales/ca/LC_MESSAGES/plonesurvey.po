@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PloneSurvey 1.2.0\n"
-"POT-Creation-Date: 2014-02-24 17:02+0000\n"
+"POT-Creation-Date: 2016-02-22 14:15+0000\n"
 "PO-Revision-Date: 2008-12-15 16:17+0100\n"
 "Last-Translator: Pilar Marinas Luis <pilar.marinas@upcnet.es>\n"
 "Language-Team: \n"
@@ -20,7 +20,7 @@ msgid "${users} have been reset."
 msgstr ""
 
 #. Default: "A little Useful"
-#: ../config.py:87
+#: ../config.py:72
 msgid "A little Useful"
 msgstr ""
 
@@ -44,22 +44,26 @@ msgstr ""
 msgid "A sub page within a survey."
 msgstr ""
 
+#: ../profiles.zcml:12
+msgid "A survey product for Plone."
+msgstr ""
+
 #: ../profiles/default/types/Survey_Text_Question.xml
 msgid "A textual question within a survey."
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:44
+#: ../skins/plone_survey/manage_respondents.cpt:43
 msgid "Action"
 msgstr ""
 
 #. Default: "Agree"
-#: ../config.py:92
+#: ../config.py:77
 #, fuzzy
 msgid "Agree"
 msgstr "D'acord"
 
 #. Default: "Agree Strongly"
-#: ../config.py:91
+#: ../config.py:76
 #, fuzzy
 msgid "Agree Strongly"
 msgstr "Totalment d'acord"
@@ -70,13 +74,13 @@ msgid "Completed"
 msgstr "Completada"
 
 #. Default: "Disagree"
-#: ../config.py:94
+#: ../config.py:79
 #, fuzzy
 msgid "Disagree"
 msgstr "En desacord"
 
 #. Default: "Disagree Strongly"
-#: ../config.py:95
+#: ../config.py:80
 #, fuzzy
 msgid "Disagree Strongly"
 msgstr "Totalment en desacord"
@@ -85,29 +89,29 @@ msgstr "Totalment en desacord"
 msgid "Done importing respondents"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:42
+#: ../skins/plone_survey/manage_respondents.cpt:41
 msgid "Email Address"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:43
+#: ../skins/plone_survey/manage_respondents.cpt:42
 msgid "Email Sent"
 msgstr ""
 
 #. Default: "Good"
-#: ../config.py:78
+#: ../config.py:63
 msgid "Good"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:36
+#: ../skins/plone_survey/manage_respondents.cpt:35
 msgid "Invited Respondents"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:41
+#: ../skins/plone_survey/manage_respondents.cpt:40
 msgid "Name"
 msgstr ""
 
 #. Default: "Neutral"
-#: ../config.py:93
+#: ../config.py:78
 #, fuzzy
 msgid "Neutral"
 msgstr "Neutral"
@@ -116,7 +120,7 @@ msgstr "Neutral"
 #. <td i18n:translate="" tal:condition="python: question.aq_parent.portal_type != 'Sub Survey' and question.portal_type != 'Sub Survey'">
 #. No
 #. </td>
-#: ../content/BaseQuestion.py:120
+#: ../content/BaseQuestion.py:139
 msgid "No"
 msgstr "No"
 
@@ -125,12 +129,12 @@ msgid "No source file given"
 msgstr ""
 
 #. Default: "Not Useful"
-#: ../config.py:88
+#: ../config.py:73
 msgid "Not Useful"
 msgstr ""
 
 #. Default: "OK Only"
-#: ../config.py:79
+#: ../config.py:64
 msgid "OK Only"
 msgstr ""
 
@@ -140,7 +144,7 @@ msgstr ""
 
 #: ../skins/plone_survey/validate_add_authenticated_respondent.vpy:35
 #: ../skins/plone_survey/validate_reset_survey.vpy:8
-#: ../skins/plone_survey/validate_survey.vpy:80
+#: ../skins/plone_survey/validate_survey.vpy:92
 msgid "Please correct the errors shown."
 msgstr ""
 
@@ -153,13 +157,17 @@ msgstr ""
 msgid "Please select"
 msgstr "Seleccioni, si us plau"
 
+#: ../profiles.zcml:12
+msgid "Plone Survey"
+msgstr ""
+
 #. Default: "Poor"
-#: ../config.py:80
+#: ../config.py:65
 msgid "Poor"
 msgstr ""
 
 #. Default: "Quite Useful"
-#: ../config.py:86
+#: ../config.py:71
 msgid "Quite Useful"
 msgstr ""
 
@@ -175,7 +183,7 @@ msgstr ""
 msgid "Survey"
 msgstr ""
 
-#: ../content/Survey.py:518
+#: ../content/Survey.py:563
 msgid "Survey ${survey_title}"
 msgstr ""
 
@@ -225,7 +233,7 @@ msgid "There are no questions to reset."
 msgstr ""
 
 #. Default: "Useful"
-#: ../config.py:85
+#: ../config.py:70
 msgid "Useful"
 msgstr ""
 
@@ -233,22 +241,22 @@ msgstr ""
 msgid "Users who have not responded yet"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:96
+#: ../skins/plone_survey/manage_respondents.cpt:95
 msgid "Users who have responded"
 msgstr ""
 
 #. Default: "Very Good"
-#: ../config.py:77
+#: ../config.py:62
 msgid "Very Good"
 msgstr ""
 
 #. Default: "Very Poor"
-#: ../config.py:81
+#: ../config.py:66
 msgid "Very Poor"
 msgstr ""
 
 #. Default: "Very Useful"
-#: ../config.py:84
+#: ../config.py:69
 msgid "Very Useful"
 msgstr ""
 
@@ -256,7 +264,7 @@ msgstr ""
 #. <td i18n:translate="" tal:condition="python: question.aq_parent.portal_type == 'Sub Survey'  or question.portal_type == 'Sub Survey'">
 #. Yes
 #. </td>
-#: ../content/BaseQuestion.py:120
+#: ../content/BaseQuestion.py:139
 msgid "Yes"
 msgstr "Sí"
 
@@ -264,17 +272,22 @@ msgstr "Sí"
 msgid "You can add questions to surveys."
 msgstr ""
 
-#: ../content/Survey.py:514
+#: ../content/Survey.py:558
 msgid "[${survey_title}] New survey submitted"
 msgstr ""
 
+#. Default: "Captcha protection code is wrong. Please retry."
+#: ../skins/plone_survey/validate_survey.vpy:83
+msgid "captcha_code_wrong"
+msgstr ""
+
 #. Default: "Comment - mandatory if \"no\""
-#: ../content/BaseQuestion.py:132
+#: ../content/BaseQuestion.py:151
 msgid "commentLabelDefault"
 msgstr ""
 
 #. Default: "Complete for User"
-#: ../skins/plone_survey/manage_respondents.cpt:77
+#: ../skins/plone_survey/manage_respondents.cpt:76
 msgid "complete_for_user_label"
 msgstr ""
 
@@ -284,7 +297,7 @@ msgid "create_respondent_button"
 msgstr ""
 
 #. Default: "Delete Respondent"
-#: ../skins/plone_survey/manage_respondents.cpt:72
+#: ../skins/plone_survey/manage_respondents.cpt:71
 msgid "delete_respondent_label"
 msgstr ""
 
@@ -339,7 +352,7 @@ msgstr ""
 msgid "download_selectasboolean_spreadsheet"
 msgstr ""
 
-#: ../content/Survey.py:962
+#: ../content/Survey.py:1098
 msgid "emailInviteDefault"
 msgstr ""
 
@@ -353,7 +366,7 @@ msgstr ""
 msgid "email_address_invalid"
 msgstr ""
 
-#: ../content/Survey.py:521
+#: ../content/Survey.py:567
 msgid "has been completed by user: ${userid}"
 msgstr ""
 
@@ -412,190 +425,190 @@ msgid "heading_totals_for"
 msgstr "Totals per ${title}:"
 
 #. Default: "Anonymous user will be able to fill the survey"
-#: ../content/schemata.py:86
+#: ../content/schemata.py:117
 msgid "help_allow_anonymous"
 msgstr ""
 
 #. Default: "Allow logged in users to save survey for finishing later."
-#: ../content/schemata.py:96
+#: ../content/schemata.py:129
 msgid "help_allow_save"
 msgstr ""
 
-#. 
+#.
 #. Default: "Enter the options you want to be available to the user here. Press enter to separate the options."
-#: ../content/schemata.py:469
+#: ../content/schemata.py:572
 #, fuzzy
 msgid "help_answer_options"
 msgstr "Introdueixi aquí les opcions disponibles per a l'usuari. Col·loqui una opció per línia."
 
-#. 
+#.
 #. Default: "The comment label."
-#: ../content/schemata.py:275
+#: ../content/schemata.py:344
 #, fuzzy
 msgid "help_comment_label"
 msgstr "L'etiqueta del comentari"
 
 #. Default: "Prevent respondents usernames from appearing in results"
-#: ../content/schemata.py:76
+#: ../content/schemata.py:104
 msgid "help_confidential"
 msgstr ""
 
-#. 
+#.
 #. Default: "Add a short description of the survey here."
-#: ../content/schemata.py:187
+#: ../content/schemata.py:237
 #, fuzzy
 msgid "help_description"
 msgstr "Agregui una breu descripció del qüestionari aquí."
 
 #. Default: "An email invite will be sent to loaded respondents, use '**Name**' for the respondents name, and '**Survey**' for the title of the survey as a link to the survey."
-#: ../content/schemata.py:151
+#: ../content/schemata.py:194
 msgid "help_email_invite"
 msgstr ""
 
-#. 
+#.
 #. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
-#: ../content/schemata.py:63
+#: ../content/schemata.py:89
 #, fuzzy
 msgid "help_exit_url"
 msgstr "Aquesta és la URL a la que es redirigirà a l'usuari quan finalitzi el qüestionari. Utilitzar \" http://site.to.go.to/page\" o \" route/to/page\" per aquest portal"
 
-#. 
+#.
 #. Default: "Please select what type of input you would like to use for this question."
-#: ../content/schemata.py:378
+#: ../content/schemata.py:465
 #, fuzzy
 msgid "help_input_type"
 msgstr "Seleccioni el tipus d'entrada que utilitzarà per a aquesta pregunta."
 
 #. Default: "Enter an introduction for the survey."
-#: ../content/schemata.py:26
+#: ../content/schemata.py:45
 msgid "help_introduction"
 msgstr ""
 
 #. Default: "Enter person's email address that the survey invite email is from."
-#: ../content/schemata.py:177
+#: ../content/schemata.py:224
 msgid "help_invite_from_email"
 msgstr ""
 
 #. Default: "Enter person's name that the survey invite email is from."
-#: ../content/schemata.py:166
+#: ../content/schemata.py:210
 msgid "help_invite_from_name"
 msgstr ""
 
-#. 
+#.
 #. Default: "Select what type of comment box you would like."
-#: ../content/schemata.py:262
+#: ../content/schemata.py:329
 #, fuzzy
 msgid "help_label_comment_type"
 msgstr "Seleccioni el tipus de quadre de comentari que desitja."
 
 #. Default: "Select a Likert scale to use for options, or use the box below."
-#: ../content/schemata.py:447
+#: ../content/schemata.py:545
 msgid "help_likertoptions"
 msgstr ""
 
 #. Default: "Enter the maximum number of characters a user can enter for this question"
-#: ../content/schemata.py:390
+#: ../content/schemata.py:480
 msgid "help_maxlength"
 msgstr ""
 
 #. Default: "Leave this blank to make the question required, or enter a value for no response, eg Not applicable"
-#: ../content/schemata.py:548
+#: ../content/schemata.py:665
 msgid "help_nullvalue"
 msgstr ""
 
 #. Default: "Leave this blank to make the question required, or enter a value for no response, eg Not applicable. If this is a multiple select or checkbox field, enter some random text, which will not appear in the survey, to make this question not required."
-#: ../content/schemata.py:480
+#: ../content/schemata.py:585
 msgid "help_nullvalue_select"
 msgstr ""
 
-#. 
+#.
 #. Default: "The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally."
-#: ../content/schemata.py:201
+#: ../content/schemata.py:254
 #, fuzzy
 msgid "help_previous_question"
 msgstr "La pregunta condicional determina si aquest sub qüestionari es mostrarà. Seleccioni 'Cap' per a mostrar el sub qüestionari incondicionalment."
 
-#. 
+#.
 #. Default: "Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed."
-#: ../content/schemata.py:214
+#: ../content/schemata.py:271
 #, fuzzy
 msgid "help_previous_question_answer"
 msgstr "Introdueixi la resposta que determinarà si el sub qüestionari serà mostrat."
 
-#. 
+#.
 #. Default: "Check this box if the required answer should be selected for this Sub Survey to be displayed."
-#: ../content/schemata.py:227
+#: ../content/schemata.py:288
 #, fuzzy
 msgid "help_previous_question_answer_yes_no"
 msgstr "Seleccioni aquesta opció si la resposta a aquesta pregunta serà utilitzada per a mostrar un sub qüestionari."
 
-#. 
+#.
 #. Default: "Add a long description of the question here, to clarify any details."
-#: ../content/schemata.py:312
+#: ../content/schemata.py:386
 #, fuzzy
 msgid "help_question_description"
 msgstr "Agregui una descripció de la pregunta aquí, per a aclarir qualsevol detall."
 
-#. 
+#.
 #. Default: "Select if this question is required, meaning participant must give a response."
-#: ../content/schemata.py:249
+#: ../content/schemata.py:314
 #, fuzzy
 msgid "help_required"
 msgstr "Seleccioni si la pregunta ha de ser resposta de forma obligatòria."
 
 #. Default: "Display the likert options in reverse order, bad to good."
-#: ../content/schemata.py:458
+#: ../content/schemata.py:558
 msgid "help_reverselikert"
 msgstr ""
 
 #. Default: "This is the message that will be displayed to the user when they save the survey, but don't submit it."
-#: ../content/schemata.py:52
+#: ../content/schemata.py:75
 msgid "help_saved_text"
 msgstr ""
 
-#. 
+#.
 #. Default: "Enter an email address to receive notifications of survey completions."
-#: ../content/schemata.py:107
+#: ../content/schemata.py:143
 #, fuzzy
 msgid "help_survey_notification_email"
 msgstr "Introdueixi l'adreça de correu electrònic a la qual es notificarà quan el qüestionari es completi."
 
-#. 
+#.
 #. Default: "Select a method to receive notification emails."
-#: ../content/schemata.py:118
+#: ../content/schemata.py:158
 #, fuzzy
 msgid "help_survey_notification_method"
 msgstr "Seleccioni el mètode per a rebre missatges de notificació."
 
-#. 
+#.
 #. Default: "Enter a number of columns for this field (width of the field in the characters)"
-#: ../content/schemata.py:402
+#: ../content/schemata.py:494
 #, fuzzy
 msgid "help_text_cols"
 msgstr "Introduexi un nombre de columnes per a aquest camp (ample del camp en caràcters) "
 
-#. 
+#.
 #. Default: "Enter a number of rows for this field. This value is applicable only in the Text Area input type"
-#: ../content/schemata.py:414
+#: ../content/schemata.py:508
 #, fuzzy
 msgid "help_text_rows"
 msgstr "Introdueixi el nombre de files per a aquest camp. Aquest valor és aplicable únicament en el tipus 'pregunta de text'"
 
 #. Default: "Select where the text block above should appear."
-#: ../content/schemata.py:303
+#: ../content/schemata.py:374
 msgid "help_textlocation"
 msgstr ""
 
-#. 
+#.
 #. Default: "This is the message that will be displayed to the user when they complete the survey."
-#: ../content/schemata.py:39
+#: ../content/schemata.py:60
 #, fuzzy
 msgid "help_thankyou"
 msgstr "Aquest és el missatge que serà mostrat a l'usuari quan completi el qüestionari."
 
-#. 
+#.
 #. Default: "Select a validation for this question"
-#: ../content/schemata.py:427
+#: ../content/schemata.py:524
 #, fuzzy
 msgid "help_validation"
 msgstr "Seleccioni la validació d'aquesta pregunta."
@@ -610,80 +623,85 @@ msgstr ""
 msgid "import_respondents_from_source"
 msgstr ""
 
+#. Default: "The file must have exactly two columns, user name and email address, in this order, without headline."
+#: ../browser/templates/import_respondents.pt:30
+msgid "import_respondents_from_source_help"
+msgstr ""
+
 #. Default: "Email on each submission"
-#: ../config.py:26
+#: ../config.py:20
 #, fuzzy
 msgid "label_all_emails"
 msgstr "Enviar un correu electrònic al finalitzar cada enquesta"
 
-#. 
+#.
 #. Default: "Allow Anonymous"
-#: ../content/schemata.py:85
+#: ../content/schemata.py:116
 #, fuzzy
 msgid "label_allow_anonymous"
 msgstr "Permetre respostes anònimes"
 
 #. Default: "Allow Save Functionality"
-#: ../content/schemata.py:95
+#: ../content/schemata.py:128
 msgid "label_allow_save"
 msgstr ""
 
-#. 
+#.
 #. Default: "Answer options"
-#: ../content/schemata.py:468
+#: ../content/schemata.py:571
 #, fuzzy
 msgid "label_answer_options"
 msgstr "Opcions de resposta"
 
 #. Default: "Appears above question"
-#: ../config.py:52
+#: ../config.py:39
 msgid "label_appears_above_question"
 msgstr ""
 
 #. Default: "Appears after answer"
-#: ../config.py:54
+#: ../config.py:42
 msgid "label_appears_after_answer"
 msgstr ""
 
 #. Default: "Appears between question and answer"
-#: ../config.py:53
+#: ../config.py:40
 msgid "label_appears_between_question_and_answer"
 msgstr ""
 
 #. Default: "Check Boxes"
-#: ../config.py:38
+#: ../config.py:34
 #, fuzzy
 msgid "label_check_boxes"
 msgstr "Casellas de verificació"
 
-#. 
+#.
 #. Default: "Comment label"
-#: ../content/schemata.py:274
+#: ../content/schemata.py:343
 #, fuzzy
 msgid "label_comment_label"
 msgstr "Etiquetes de comentari"
 
-#. 
+#.
 #. Default: "Comment Type"
-#: ../content/schemata.py:261
+#: ../content/schemata.py:328
 #, fuzzy
 msgid "label_comment_type"
 msgstr "Tipus de comentari"
 
 #. Default: "Confidential"
-#: ../content/schemata.py:75
+#: ../content/schemata.py:103
 msgid "label_confidential"
 msgstr ""
 
-#. 
+#.
 #. Default: "Survey description"
-#: ../content/schemata.py:186
+#: ../content/schemata.py:235
 #, fuzzy
 msgid "label_description"
 msgstr "Descripció del qüestionari"
 
 #. Default: "Does not appear"
-#: ../config.py:51
+#: ../config.py:38
 msgid "label_does_not_appear"
 msgstr ""
 
@@ -693,18 +711,18 @@ msgid "label_email_address"
 msgstr ""
 
 #. Default: "Email Invite"
-#: ../content/schemata.py:150
+#: ../content/schemata.py:193
 msgid "label_email_invite"
 msgstr ""
 
 #. Default: "Ending Year"
-#: ../content/schemata.py:349
+#: ../content/schemata.py:432
 msgid "label_endingyear"
 msgstr ""
 
-#. 
+#.
 #. Default: "Exit URL"
-#: ../content/schemata.py:62
+#: ../content/schemata.py:88
 #, fuzzy
 msgid "label_exit_url"
 msgstr "URL de sortida"
@@ -715,34 +733,34 @@ msgid "label_fullname"
 msgstr ""
 
 #. Default: "Future Years"
-#: ../content/schemata.py:358
+#: ../content/schemata.py:443
 msgid "label_futureyears"
 msgstr ""
 
-#. 
+#.
 #. Default: "Input Type"
-#: ../content/schemata.py:377
+#: ../content/schemata.py:464
 #, fuzzy
 msgid "label_input_type"
 msgstr "Tipus d'entrada"
 
 #. Default: "Introduction"
-#: ../content/schemata.py:24
+#: ../content/schemata.py:43
 msgid "label_introduction"
 msgstr ""
 
 #. Default: "Email Invite From"
-#: ../content/schemata.py:176
+#: ../content/schemata.py:223
 msgid "label_invite_from_email"
 msgstr ""
 
 #. Default: "Person Invite From"
-#: ../content/schemata.py:165
+#: ../content/schemata.py:209
 msgid "label_invite_from_name"
 msgstr ""
 
 #. Default: "Likert Options"
-#: ../content/schemata.py:446
+#: ../content/schemata.py:544
 msgid "label_likertoptions"
 msgstr ""
 
@@ -753,35 +771,35 @@ msgid "label_matrix_question"
 msgstr "Pregunta"
 
 #. Default: "Maximum length of characters"
-#: ../content/schemata.py:389
+#: ../content/schemata.py:478
 msgid "label_maxlength"
 msgstr ""
 
 #. Default: "Multiple Selection Box"
-#: ../config.py:37
+#: ../config.py:32
 #, fuzzy
 msgid "label_multiple_selection_box"
 msgstr "Múltiples caixes de selecció"
 
 #. Default: "None"
-#: ../config.py:58
+#: ../config.py:46
 msgid "label_no_comment_field"
 msgstr ""
 
 #. Default: "No emails"
-#: ../config.py:25
+#: ../config.py:19
 #, fuzzy
 msgid "label_no_emails"
 msgstr "Sense correus electrònics"
 
 #. Default: "No users have completed the survey yet."
-#: ../skins/plone_survey/respondents_view.cpt:83
+#: ../skins/plone_survey/respondents_view.cpt:82
 #, fuzzy
 msgid "label_no_users_yet"
 msgstr "Cap enquestat ha acabat el qüestionari encara."
 
 #. Default: "Null Value"
-#: ../content/schemata.py:479
+#: ../content/schemata.py:584
 msgid "label_nullvalue"
 msgstr ""
 
@@ -821,43 +839,43 @@ msgstr "editar"
 msgid "label_overview_no_question"
 msgstr "No hi ha preguntes en aquesta pàgina."
 
-#. 
+#.
 #. Default: "Conditional Question"
-#: ../content/schemata.py:200
+#: ../content/schemata.py:252
 #, fuzzy
 msgid "label_previous_question"
 msgstr "Pregunta condicional"
 
-#. 
+#.
 #. Default: "Required Answer"
-#: ../content/schemata.py:213
+#: ../content/schemata.py:269
 #, fuzzy
 msgid "label_previous_question_answer"
 msgstr "Resposta requerida"
 
-#. 
+#.
 #. Default: "Use Required Answer?"
-#: ../content/schemata.py:226
+#: ../content/schemata.py:286
 #, fuzzy
 msgid "label_previous_question_answer_yes_no"
 msgstr "Usar resposta requerida?"
 
-#. 
+#.
 #. Default: "Description"
-#: ../content/schemata.py:311
+#: ../content/schemata.py:383
 #, fuzzy
 msgid "label_question_description"
 msgstr "Descripció"
 
 #. Default: "Radio Buttons"
-#: ../config.py:35
+#: ../config.py:30
 #, fuzzy
 msgid "label_radio_buttons"
 msgstr "Botó d'opció"
 
-#. 
+#.
 #. Default: "Required"
-#: ../content/schemata.py:248
+#: ../content/schemata.py:313
 #, fuzzy
 msgid "label_required"
 msgstr "Requerit"
@@ -881,108 +899,96 @@ msgid "label_reset"
 msgstr "Buidar"
 
 #. Default: "Reverse Likert Scale"
-#: ../content/schemata.py:457
+#: ../content/schemata.py:557
 msgid "label_reverselikert"
 msgstr ""
 
-#. 
+#.
 #. Default: "'Saved' message text"
-#: ../content/schemata.py:50
+#: ../content/schemata.py:73
 #, fuzzy
 msgid "label_saved_text"
 msgstr "Missatge de guardat"
 
 #. Default: "Selection Box"
-#: ../config.py:36
+#: ../config.py:31
 #, fuzzy
 msgid "label_selection_box"
 msgstr "Caixa de selecció"
 
 #. Default: "Show Captcha"
-#: ../content/schemata.py:134
+#: ../content/schemata.py:177
 msgid "label_show_captcha"
 msgstr ""
 
 #. Default: "Show hours and minutes"
-#: ../content/schemata.py:331
+#: ../content/schemata.py:410
 msgid "label_showhm"
 msgstr ""
 
 #. Default: "Show date"
-#: ../content/schemata.py:322
+#: ../content/schemata.py:399
 msgid "label_showymd"
 msgstr ""
 
 #. Default: "Starting Year"
-#: ../content/schemata.py:340
+#: ../content/schemata.py:421
 msgid "label_startingyear"
 msgstr ""
 
-#. Default: "Closed"
-#: ../config.py:21
-#, fuzzy
-msgid "label_survey_closed"
-msgstr "Tancada"
-
-#. 
+#.
 #. Default: "Survey Notification Email Address"
-#: ../content/schemata.py:105
+#: ../content/schemata.py:141
 #, fuzzy
 msgid "label_survey_notification_email"
 msgstr "Adreça de correu electrònic per a la notificació del qüestionari"
 
-#. 
+#.
 #. Default: "Survey Notification Method"
-#: ../content/schemata.py:117
+#: ../content/schemata.py:156
 #, fuzzy
 msgid "label_survey_notification_method"
 msgstr "Mètode de notificació del qüestionari"
 
-#. Default: "Open"
-#: ../config.py:20
-#, fuzzy
-msgid "label_survey_open"
-msgstr "Oberta"
-
 #. Default: "Text Area"
-#: ../config.py:31
+#: ../config.py:26
 #, fuzzy
 msgid "label_text_area"
 msgstr "Area de text"
 
-#. 
+#.
 #. Default: "Cols (width in characters)"
-#: ../content/schemata.py:401
+#: ../content/schemata.py:493
 #, fuzzy
 msgid "label_text_cols"
 msgstr "Columnes (ample en caracters)"
 
 #. Default: "Text Field"
-#: ../config.py:30
+#: ../config.py:25
 #, fuzzy
 msgid "label_text_field"
 msgstr "Camp de text"
 
-#. 
+#.
 #. Default: "Rows (number of lines)"
-#: ../content/schemata.py:413
+#: ../content/schemata.py:507
 #, fuzzy
 msgid "label_text_rows"
 msgstr "Files (nombre de línies)"
 
 #. Default: "Text Block"
-#: ../content/schemata.py:290
+#: ../content/schemata.py:360
 msgid "label_textblockbody"
 msgstr ""
 
 #. Default: "Location of Text Block"
-#: ../content/schemata.py:302
+#: ../content/schemata.py:373
 msgid "label_textlocation"
 msgstr ""
 
-#. 
+#.
 #. Default: "'Thank you' message text"
-#: ../content/schemata.py:37
+#: ../content/schemata.py:58
 #, fuzzy
 msgid "label_thank"
 msgstr "Missatge d'agraïment"
@@ -1002,13 +1008,13 @@ msgid "label_use_detailed_for_text"
 msgstr "La resposta a aquesta pregunta és de tipus text, per a resultats usi la "
 
 #. Default: "Use the options below"
-#: ../config.py:69
+#: ../config.py:52
 msgid "label_use_options_below"
 msgstr ""
 
-#. 
+#.
 #. Default: "Validation"
-#: ../content/schemata.py:426
+#: ../content/schemata.py:523
 #, fuzzy
 msgid "label_validation"
 msgstr "Validació"
@@ -1017,7 +1023,7 @@ msgstr "Validació"
 #. <legend i18n:translate="legend_already_completed">
 #. You have already filled in this survey
 #. </legend>
-#: ../skins/plone_survey/survey_view.cpt:116
+#: ../skins/plone_survey/survey_view.cpt:122
 msgid "legend_already_completed"
 msgstr "Vostè ja ha respost aquest qüestionari."
 
@@ -1025,22 +1031,22 @@ msgstr "Vostè ja ha respost aquest qüestionari."
 #. <legend i18n:translate="legend_question_details">
 #. Question details
 #. </legend>
-#: ../skins/plone_survey/survey_view.cpt:58
+#: ../skins/plone_survey/survey_view.cpt:59
 msgid "legend_question_details"
 msgstr "Detalls de la pregunta"
 
 #. Default: "(\"Agree Strongly\", \"Agree\", \"Neutral\", \"Disagree\", \"Disagree Strongly\")"
-#: ../config.py:72
+#: ../config.py:57
 msgid "list_agree_disagree"
 msgstr ""
 
 #. Default: "(\"Very Good\", \"Good\", \"OK Only\", \"Poor\", \"Very Poor\")"
-#: ../config.py:70
+#: ../config.py:53
 msgid "list_good_poor"
 msgstr ""
 
 #. Default: "(\"Very Useful\", \"Useful\", \"Quite Useful\", \"A little Useful\", \"Not Useful\")"
-#: ../config.py:71
+#: ../config.py:55
 msgid "list_useful_notuseful"
 msgstr ""
 
@@ -1079,15 +1085,25 @@ msgstr ""
 msgid "please_provide_fullname"
 msgstr ""
 
+#. Default: "Fill the captcha protection field below, for being sure that you are an human."
+#: ../skins/plone_survey/recaptcha_widget.pt:13
+msgid "recaptcha_check_help"
+msgstr ""
+
+#. Default: "Protection from spam"
+#: ../skins/plone_survey/recaptcha_widget.pt:8
+msgid "recaptcha_check_label"
+msgstr ""
+
 #. Default: "Reset"
 #. <input class="context" i18n:attributes="value reset_button" name="submit" tal:attributes="tabindex tabindex/next" type="submit" value="Reset"/>
-#: ../skins/plone_survey/respondents_view.cpt:76
+#: ../skins/plone_survey/respondents_view.cpt:75
 msgid "reset_button"
 msgstr "Buidar"
 
 #. Default: "Reset Survey"
 #. <input class="context" i18n:attributes="value reset_survey_button" name="form.button.reset_survey" tabindex="" tal:attributes="tabindex tabindex/next" type="submit" value="Reset Survey"/>
-#: ../skins/plone_survey/survey_view.cpt:122
+#: ../skins/plone_survey/survey_view.cpt:128
 msgid "reset_survey_button"
 msgstr "Buidar qüestionari"
 
@@ -1095,13 +1111,13 @@ msgstr "Buidar qüestionari"
 #. <legend i18n:translate="reset_users">
 #. Reset Users
 #. </legend>
-#: ../skins/plone_survey/respondents_view.cpt:37
+#: ../skins/plone_survey/respondents_view.cpt:36
 msgid "reset_users"
 msgstr "Buidar usuaris"
 
 #. Default: "End"
 #: ../browser/results/respondents_table.pt:10
-#: ../skins/plone_survey/respondents_view.cpt:48
+#: ../skins/plone_survey/respondents_view.cpt:47
 msgid "respondents_end"
 msgstr ""
 
@@ -1115,68 +1131,73 @@ msgstr "Enquestats"
 
 #. Default: "IP Address"
 #: ../browser/results/respondents_table.pt:8
-#: ../skins/plone_survey/respondents_view.cpt:46
+#: ../skins/plone_survey/respondents_view.cpt:45
 msgid "respondents_ip"
 msgstr ""
 
 #. Default: "Start"
 #: ../browser/results/respondents_table.pt:9
-#: ../skins/plone_survey/respondents_view.cpt:47
+#: ../skins/plone_survey/respondents_view.cpt:46
 msgid "respondents_start"
 msgstr ""
 
 #. Default: "Time Taken"
 #: ../browser/results/respondents_table.pt:11
-#: ../skins/plone_survey/respondents_view.cpt:49
+#: ../skins/plone_survey/respondents_view.cpt:48
 msgid "respondents_time_taken"
 msgstr ""
 
 #. Default: "User Id"
 #: ../browser/results/respondents_table.pt:7
-#: ../skins/plone_survey/respondents_view.cpt:45
+#: ../skins/plone_survey/respondents_view.cpt:44
 msgid "respondents_userid"
 msgstr ""
 
 #. Default: "Responses:"
-#: ../skins/plone_survey/manage_respondents.cpt:22
+#: ../skins/plone_survey/manage_respondents.cpt:21
 msgid "responses_stats"
 msgstr ""
 
 #. Default: "Save"
 #. <input class="context" i18n:attributes="value save_button" name="form.button.save" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="nothing" type="submit" value="Save"/>
-#: ../skins/plone_survey/survey_view.cpt:87
+#: ../skins/plone_survey/survey_view.cpt:93
 msgid "save_button"
 msgstr "Desar"
 
 #. Default: "Send Invite"
-#: ../skins/plone_survey/manage_respondents.cpt:56
+#: ../skins/plone_survey/manage_respondents.cpt:55
 msgid "send_invite_label"
 msgstr ""
 
 #. Default: "Send Reminder"
-#: ../skins/plone_survey/manage_respondents.cpt:66
+#: ../skins/plone_survey/manage_respondents.cpt:65
 msgid "send_reminder_label"
 msgstr ""
 
 #. Default: "send survey invite"
-#: ../skins/plone_survey/manage_respondents.cpt:90
+#: ../skins/plone_survey/manage_respondents.cpt:89
 msgid "send_survey_invite_label"
 msgstr ""
 
 #. Default: "send survey reminder/invite"
-#: ../skins/plone_survey/manage_respondents.cpt:100
+#: ../skins/plone_survey/manage_respondents.cpt:99
 msgid "send_survey_reminder_label"
+msgstr ""
+
+#. Default: "Product quintagroup.plonecaptchas not installed. If you prefer to use the product collective.recaptcha instead of quintagroup.plonecaptchas then verifies that recaptcha private and public keys are configured. Go to path/to/site/@@recaptcha-settings to configure."
+#: ../content/Survey.py:1081
+msgid "showCaptcha"
 msgstr ""
 
 #. Default: "Submit"
 #. <input class="context" i18n:attributes="value submit_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="not: here/isMultipage" type="submit" value="Submit"/>
-#: ../skins/plone_survey/survey_view.cpt:99
+#: ../skins/plone_survey/survey_view.cpt:105
 msgid "submit_button"
 msgstr "Enviar"
 
 #. <input class="context" i18n:attributes="value submit_page_button" name="form.button.submit" tabindex="" tal:attributes="tabindex tabindex/next" tal:condition="here/isMultipage" type="submit" value="Next"/>
 #. Default: "Next"
-#: ../skins/plone_survey/survey_view.cpt:93
+#: ../skins/plone_survey/survey_view.cpt:99
 msgid "submit_page_button"
 msgstr "Següent"
 
@@ -1193,11 +1214,11 @@ msgstr "Buidar qüestionari"
 msgid "title_required"
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:93
+#: ../skins/plone_survey/manage_respondents.cpt:92
 msgid "to all respondents who have not been invited yet."
 msgstr ""
 
-#: ../skins/plone_survey/manage_respondents.cpt:103
+#: ../skins/plone_survey/manage_respondents.cpt:102
 msgid "to all respondents who have not yet responded."
 msgstr ""
 
@@ -1226,4 +1247,3 @@ msgstr "veure enquestats"
 #: ../browser/results/survey_view_results.pt:18
 msgid "view_results_barchart"
 msgstr ""
-
