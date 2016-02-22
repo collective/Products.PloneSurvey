@@ -403,7 +403,6 @@ msgstr ""
 #. </h2>
 #. Default: "Totals for ${title}:"
 #: ../browser/results/survey_barchart.pt:21
-#, fuzzy
 msgid "heading_totals_for"
 msgstr "Celkový přehled pro ${enablingObjective} ${title} :"
 
@@ -420,14 +419,12 @@ msgstr ""
 #.
 #. Default: "Enter the options you want to be available to the user here. Press enter to separate the options."
 #: ../content/schemata.py:572
-#, fuzzy
 msgid "help_answer_options"
 msgstr "Zadejte seznam odpovědí, které mají být nabídnuty uživateli"
 
 #.
 #. Default: "The comment label."
 #: ../content/schemata.py:344
-#, fuzzy
 msgid "help_comment_label"
 msgstr "Poznámka"
 
@@ -439,7 +436,6 @@ msgstr ""
 #.
 #. Default: "Add a short description of the survey here."
 #: ../content/schemata.py:237
-#, fuzzy
 msgid "help_description"
 msgstr "Zadejte krátký popis dotazníku"
 
@@ -451,14 +447,12 @@ msgstr ""
 #.
 #. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
 #: ../content/schemata.py:89
-#, fuzzy
 msgid "help_exit_url"
 msgstr "Zadejte URL, kam bude uživatel přesměrován po dokončení dotazníku. Použijte buď \"http://cil.presmerovani.cz/stranka\" nebo jen /stranka/na/tomto/portale\"."
 
 #.
 #. Default: "Please select what type of input you would like to use for this question."
 #: ../content/schemata.py:465
-#, fuzzy
 msgid "help_input_type"
 msgstr "Vyberte, jaký typ položky se má pro tuto otázku použít."
 
@@ -480,7 +474,6 @@ msgstr ""
 #.
 #. Default: "Select what type of comment box you would like."
 #: ../content/schemata.py:329
-#, fuzzy
 msgid "help_label_comment_type"
 msgstr "Vyberte, jaký typ pole komentáře má být použit."
 
@@ -507,35 +500,30 @@ msgstr ""
 #.
 #. Default: "The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally."
 #: ../content/schemata.py:254
-#, fuzzy
 msgid "help_previous_question"
 msgstr "Podmínka určuje, kdy se má zobrazit pod-dotazník."
 
 #.
 #. Default: "Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed."
 #: ../content/schemata.py:271
-#, fuzzy
 msgid "help_previous_question_answer"
 msgstr "Zadejte prosím požadovanou odpověď pro výše vybranou otázku."
 
 #.
 #. Default: "Check this box if the required answer should be selected for this Sub Survey to be displayed."
 #: ../content/schemata.py:288
-#, fuzzy
 msgid "help_previous_question_answer_yes_no"
 msgstr "Zaškrtněte toto políčko, pokud požadovaná odpověď má být uživatelem vybrána (aby mohl pokračovat pod-dotazníkem)."
 
 #.
 #. Default: "Add a long description of the question here, to clarify any details."
 #: ../content/schemata.py:386
-#, fuzzy
 msgid "help_question_description"
 msgstr "Zadejte podrobný popis otázky"
 
 #.
 #. Default: "Select if this question is required, meaning participant must give a response."
 #: ../content/schemata.py:314
-#, fuzzy
 msgid "help_required"
 msgstr "Je tato otázka povinná (uživatel si musí vybrat jednu z odpovědí nebo vložit nějaký text)."
 
@@ -552,28 +540,24 @@ msgstr ""
 #.
 #. Default: "Enter an email address to receive notifications of survey completions."
 #: ../content/schemata.py:143
-#, fuzzy
 msgid "help_survey_notification_email"
 msgstr "Zadejte emailovou adresu na kterou se mají zasílat informace o nově  vyplněném dotazníku."
 
 #.
 #. Default: "Select a method to receive notification emails."
 #: ../content/schemata.py:158
-#, fuzzy
 msgid "help_survey_notification_method"
 msgstr "Vyberte metodu pro příjem notifikačních zpráv."
 
 #.
 #. Default: "Enter a number of columns for this field (width of the field in the characters)"
 #: ../content/schemata.py:494
-#, fuzzy
 msgid "help_text_cols"
 msgstr "Zadejte šířku sloupce tohoto pole (šířka je udávána v počtu znaků)."
 
 #.
 #. Default: "Enter a number of rows for this field. This value is applicable only in the Text Area input type"
 #: ../content/schemata.py:508
-#, fuzzy
 msgid "help_text_rows"
 msgstr "Zadejte výšku tohoto pole (výška je udávána v počtu řádků a má význam pouze u typu pole Text Area)"
 
@@ -585,14 +569,12 @@ msgstr ""
 #.
 #. Default: "This is the message that will be displayed to the user when they complete the survey."
 #: ../content/schemata.py:60
-#, fuzzy
 msgid "help_thankyou"
 msgstr "Zde zadejte zprávu, která se zobrazí uživateli jakmile dokončí dotazník"
 
 #.
 #. Default: "Select a validation for this question"
 #: ../content/schemata.py:524
-#, fuzzy
 msgid "help_validation"
 msgstr "Zadejte validátor pro tuto otázku."
 
@@ -613,14 +595,12 @@ msgstr ""
 
 #. Default: "Email on each submission"
 #: ../config.py:20
-#, fuzzy
 msgid "label_all_emails"
 msgstr "Email při každé odpovědi na dotazník"
 
 #.
 #. Default: "Allow Anonymous"
 #: ../content/schemata.py:116
-#, fuzzy
 msgid "label_allow_anonymous"
 msgstr "Povolit dotazník anonymům"
 
@@ -632,7 +612,6 @@ msgstr ""
 #.
 #. Default: "Answer options"
 #: ../content/schemata.py:571
-#, fuzzy
 msgid "label_answer_options"
 msgstr "Odpovědi"
 
@@ -653,21 +632,18 @@ msgstr ""
 
 #. Default: "Check Boxes"
 #: ../config.py:34
-#, fuzzy
 msgid "label_check_boxes"
 msgstr "Zatrhávací políčka"
 
 #.
 #. Default: "Comment label"
 #: ../content/schemata.py:343
-#, fuzzy
 msgid "label_comment_label"
 msgstr "Poznámka"
 
 #.
 #. Default: "Comment Type"
 #: ../content/schemata.py:328
-#, fuzzy
 msgid "label_comment_type"
 msgstr "Typ poznámky"
 
@@ -679,7 +655,6 @@ msgstr ""
 #.
 #. Default: "Survey description"
 #: ../content/schemata.py:235
-#, fuzzy
 msgid "label_description"
 msgstr "Popis dotazníku"
 
@@ -706,7 +681,6 @@ msgstr ""
 #.
 #. Default: "Exit URL"
 #: ../content/schemata.py:88
-#, fuzzy
 msgid "label_exit_url"
 msgstr "Přesměrování"
 
@@ -723,7 +697,6 @@ msgstr ""
 #.
 #. Default: "Input Type"
 #: ../content/schemata.py:464
-#, fuzzy
 msgid "label_input_type"
 msgstr "Typ otázky"
 
@@ -759,7 +732,6 @@ msgstr ""
 
 #. Default: "Multiple Selection Box"
 #: ../config.py:32
-#, fuzzy
 msgid "label_multiple_selection_box"
 msgstr "Vícenasobný výběr "
 
@@ -770,7 +742,6 @@ msgstr ""
 
 #. Default: "No emails"
 #: ../config.py:19
-#, fuzzy
 msgid "label_no_emails"
 msgstr "Nezasílat emaily"
 
@@ -817,41 +788,35 @@ msgstr ""
 #.
 #. Default: "Conditional Question"
 #: ../content/schemata.py:252
-#, fuzzy
 msgid "label_previous_question"
 msgstr "Rozhodná otázka"
 
 #.
 #. Default: "Required Answer"
 #: ../content/schemata.py:269
-#, fuzzy
 msgid "label_previous_question_answer"
 msgstr "Vyžadována odpověď"
 
 #.
 #. Default: "Use Required Answer?"
 #: ../content/schemata.py:286
-#, fuzzy
 msgid "label_previous_question_answer_yes_no"
 msgstr "Použít vyžadovanou odpověď?"
 
 #.
 #. Default: "Description"
 #: ../content/schemata.py:383
-#, fuzzy
 msgid "label_question_description"
 msgstr "Popis"
 
 #. Default: "Radio Buttons"
 #: ../config.py:30
-#, fuzzy
 msgid "label_radio_buttons"
 msgstr "Výběr jedné z možností"
 
 #.
 #. Default: "Required"
 #: ../content/schemata.py:313
-#, fuzzy
 msgid "label_required"
 msgstr "Vyžadováno"
 
@@ -879,13 +844,11 @@ msgstr ""
 #.
 #. Default: "'Saved' message text"
 #: ../content/schemata.py:73
-#, fuzzy
 msgid "label_saved_text"
 msgstr "Uložený text"
 
 #. Default: "Selection Box"
 #: ../config.py:31
-#, fuzzy
 msgid "label_selection_box"
 msgstr "Výběr jedné z možností pomocí rozbalovacího menu"
 
@@ -912,40 +875,34 @@ msgstr ""
 #.
 #. Default: "Survey Notification Email Address"
 #: ../content/schemata.py:141
-#, fuzzy
 msgid "label_survey_notification_email"
 msgstr "Notifikační email adresa"
 
 #.
 #. Default: "Survey Notification Method"
 #: ../content/schemata.py:156
-#, fuzzy
 msgid "label_survey_notification_method"
 msgstr "Způsob notifikace"
 
 #. Default: "Text Area"
 #: ../config.py:26
-#, fuzzy
 msgid "label_text_area"
 msgstr "Textová oblast (více textu) "
 
 #.
 #. Default: "Cols (width in characters)"
 #: ../content/schemata.py:493
-#, fuzzy
 msgid "label_text_cols"
 msgstr "Šířka (počet znaků)"
 
 #. Default: "Text Field"
 #: ../config.py:25
-#, fuzzy
 msgid "label_text_field"
 msgstr "Textové pole (řádek textu)"
 
 #.
 #. Default: "Rows (number of lines)"
 #: ../content/schemata.py:507
-#, fuzzy
 msgid "label_text_rows"
 msgstr "Výška (počet řádek)"
 
@@ -962,7 +919,6 @@ msgstr ""
 #.
 #. Default: "'Thank you' message text"
 #: ../content/schemata.py:58
-#, fuzzy
 msgid "label_thank"
 msgstr "Závěrečný (děkovný) text"
 
@@ -984,7 +940,6 @@ msgstr ""
 #.
 #. Default: "Validation"
 #: ../content/schemata.py:523
-#, fuzzy
 msgid "label_validation"
 msgstr "Validace"
 

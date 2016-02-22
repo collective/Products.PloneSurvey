@@ -24,7 +24,6 @@ msgstr ""
 
 #. Default: "A little Useful"
 #: ../config.py:72
-#, fuzzy
 msgid "A little Useful"
 msgstr "Trochę Przydatne"
 
@@ -62,13 +61,11 @@ msgstr ""
 
 #. Default: "Agree"
 #: ../config.py:77
-#, fuzzy
 msgid "Agree"
 msgstr "Tak"
 
 #. Default: "Agree Strongly"
 #: ../config.py:76
-#, fuzzy
 msgid "Agree Strongly"
 msgstr "Zdecydowanie Tak"
 
@@ -79,13 +76,11 @@ msgstr "ukończona"
 
 #. Default: "Disagree"
 #: ../config.py:79
-#, fuzzy
 msgid "Disagree"
 msgstr "Nie"
 
 #. Default: "Disagree Strongly"
 #: ../config.py:80
-#, fuzzy
 msgid "Disagree Strongly"
 msgstr "Zdecydowanie Nie"
 
@@ -117,7 +112,6 @@ msgstr ""
 
 #. Default: "Neutral"
 #: ../config.py:78
-#, fuzzy
 msgid "Neutral"
 msgstr "Obojętne"
 
@@ -135,13 +129,11 @@ msgstr ""
 
 #. Default: "Not Useful"
 #: ../config.py:73
-#, fuzzy
 msgid "Not Useful"
 msgstr "Nieprzydatne"
 
 #. Default: "OK Only"
 #: ../config.py:64
-#, fuzzy
 msgid "OK Only"
 msgstr "Średnio"
 
@@ -170,13 +162,11 @@ msgstr ""
 
 #. Default: "Poor"
 #: ../config.py:65
-#, fuzzy
 msgid "Poor"
 msgstr "Źle"
 
 #. Default: "Quite Useful"
 #: ../config.py:71
-#, fuzzy
 msgid "Quite Useful"
 msgstr "Całkiem Przydatne"
 
@@ -243,7 +233,6 @@ msgstr ""
 
 #. Default: "Useful"
 #: ../config.py:70
-#, fuzzy
 msgid "Useful"
 msgstr "Przydatne"
 
@@ -257,19 +246,16 @@ msgstr ""
 
 #. Default: "Very Good"
 #: ../config.py:62
-#, fuzzy
 msgid "Very Good"
 msgstr "Bardzo dobrze"
 
 #. Default: "Very Poor"
 #: ../config.py:66
-#, fuzzy
 msgid "Very Poor"
 msgstr "Bardzo Źle"
 
 #. Default: "Very Useful"
 #: ../config.py:69
-#, fuzzy
 msgid "Very Useful"
 msgstr "Bardzo Przydatne"
 
@@ -326,7 +312,6 @@ msgstr "Zostaną usunięte wszystkie odpowiedzi w tej ankiecie. Czy chcesz konty
 #. </p>
 #. Default: "This is an overview of the current survey: ${title}"
 #: ../browser/questions/survey_overview.pt:36
-#, fuzzy
 msgid "desc_survey_overview"
 msgstr "To jest przegląd pytań w tej ankiecie."
 
@@ -449,14 +434,12 @@ msgstr ""
 #.
 #. Default: "Enter the options you want to be available to the user here. Press enter to separate the options."
 #: ../content/schemata.py:572
-#, fuzzy
 msgid "help_answer_options"
 msgstr "Wpisz możliwe odpowiedzi, po jednej w linii."
 
 #.
 #. Default: "The comment label."
 #: ../content/schemata.py:344
-#, fuzzy
 msgid "help_comment_label"
 msgstr "Nagłówek komentarza."
 
@@ -468,7 +451,6 @@ msgstr ""
 #.
 #. Default: "Add a short description of the survey here."
 #: ../content/schemata.py:237
-#, fuzzy
 msgid "help_description"
 msgstr "Dodaj krótki opis ankiety."
 
@@ -480,14 +462,12 @@ msgstr ""
 #.
 #. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
 #: ../content/schemata.py:89
-#, fuzzy
 msgid "help_exit_url"
 msgstr "To jest adres, pod który zostanie przekierowany użytkownik po wypełnineiu ankiety. Dla stron wewnątrz tego portalu użyj ścieżki względnej, np. 'ścieżka/do/podstrony'"
 
 #.
 #. Default: "Please select what type of input you would like to use for this question."
 #: ../content/schemata.py:465
-#, fuzzy
 msgid "help_input_type"
 msgstr "Wybierz typ pól dla tego pytania."
 
@@ -509,7 +489,6 @@ msgstr ""
 #.
 #. Default: "Select what type of comment box you would like."
 #: ../content/schemata.py:329
-#, fuzzy
 msgid "help_label_comment_type"
 msgstr "Wybierz typ pola komentarza."
 
@@ -536,35 +515,30 @@ msgstr ""
 #.
 #. Default: "The conditional question determines whether to display this Sub Survey. Select 'None' to display the Sub Survey unconditionally."
 #: ../content/schemata.py:254
-#, fuzzy
 msgid "help_previous_question"
 msgstr "Pytanie warunkowe determinuje wyświetlanie Ankiety Zagnieżdżonej. Wybierz 'Brak' aby wyświetlić ją bezwarunkowo."
 
 #.
 #. Default: "Enter a required answer to the conditional question above to determine whether this Sub Survey is displayed."
 #: ../content/schemata.py:271
-#, fuzzy
 msgid "help_previous_question_answer"
 msgstr "Wpisz odpowiedź wymaganą na powyższe pytanie, aby została wyświetlona ankieta zagnieżdzona."
 
 #.
 #. Default: "Check this box if the required answer should be selected for this Sub Survey to be displayed."
 #: ../content/schemata.py:288
-#, fuzzy
 msgid "help_previous_question_answer_yes_no"
 msgstr "Zaznacz jeśli aby wyśiwetlić ankietę zagnieżdżoną musi zostać udzielona wymagana odpowiedź."
 
 #.
 #. Default: "Add a long description of the question here, to clarify any details."
 #: ../content/schemata.py:386
-#, fuzzy
 msgid "help_question_description"
 msgstr "Dodaj dłuższy opis pytania, wyjaśniający wszelkie niejasności."
 
 #.
 #. Default: "Select if this question is required, meaning participant must give a response."
 #: ../content/schemata.py:314
-#, fuzzy
 msgid "help_required"
 msgstr "Zaznacz jeśli to pytanie jest wymagane, tzn. jeśli użytkownik musi udzielić na nie odpowiedzi."
 
@@ -581,28 +555,24 @@ msgstr ""
 #.
 #. Default: "Enter an email address to receive notifications of survey completions."
 #: ../content/schemata.py:143
-#, fuzzy
 msgid "help_survey_notification_email"
 msgstr "Wpisz adres email, na który będą przesyłane powiadomienia."
 
 #.
 #. Default: "Select a method to receive notification emails."
 #: ../content/schemata.py:158
-#, fuzzy
 msgid "help_survey_notification_method"
 msgstr "Wybierz sposób otrzymywaina powiadomień."
 
 #.
 #. Default: "Enter a number of columns for this field (width of the field in the characters)"
 #: ../content/schemata.py:494
-#, fuzzy
 msgid "help_text_cols"
 msgstr "Wpisz liczbę kolumn tego pola (szerokość w znakach)"
 
 #.
 #. Default: "Enter a number of rows for this field. This value is applicable only in the Text Area input type"
 #: ../content/schemata.py:508
-#, fuzzy
 msgid "help_text_rows"
 msgstr "Wpisz liczbę wierszy tego pola. Ta wartość jest brana pod uwagę tylko jeśli został wybrany Obszar Tekstowy."
 
@@ -614,14 +584,12 @@ msgstr ""
 #.
 #. Default: "This is the message that will be displayed to the user when they complete the survey."
 #: ../content/schemata.py:60
-#, fuzzy
 msgid "help_thankyou"
 msgstr "Ta wiadomość zostanie wyświetlona użytkownikowi po wypełnieniu ankiety."
 
 #.
 #. Default: "Select a validation for this question"
 #: ../content/schemata.py:524
-#, fuzzy
 msgid "help_validation"
 msgstr "Wybierz jeden z gotowych walidatorów"
 
@@ -642,14 +610,12 @@ msgstr ""
 
 #. Default: "Email on each submission"
 #: ../config.py:20
-#, fuzzy
 msgid "label_all_emails"
 msgstr "Email po każdym wypełnieniu ankiety"
 
 #.
 #. Default: "Allow Anonymous"
 #: ../content/schemata.py:116
-#, fuzzy
 msgid "label_allow_anonymous"
 msgstr "Zezwól na dostęp anonimowym użytkownikom"
 
@@ -661,45 +627,38 @@ msgstr ""
 #.
 #. Default: "Answer options"
 #: ../content/schemata.py:571
-#, fuzzy
 msgid "label_answer_options"
 msgstr "Opcje odpowiedzi"
 
 #. Default: "Appears above question"
 #: ../config.py:39
-#, fuzzy
 msgid "label_appears_above_question"
 msgstr "Przed pytaniem"
 
 #. Default: "Appears after answer"
 #: ../config.py:42
-#, fuzzy
 msgid "label_appears_after_answer"
 msgstr "Po odpowiedzi"
 
 #. Default: "Appears between question and answer"
 #: ../config.py:40
-#, fuzzy
 msgid "label_appears_between_question_and_answer"
 msgstr "Pomiędzy pytaniem i odpowiedzią"
 
 #. Default: "Check Boxes"
 #: ../config.py:34
-#, fuzzy
 msgid "label_check_boxes"
 msgstr "Pola wielokrotnego wyboru (checkbox)"
 
 #.
 #. Default: "Comment label"
 #: ../content/schemata.py:343
-#, fuzzy
 msgid "label_comment_label"
 msgstr "Nagłówek komentarza"
 
 #.
 #. Default: "Comment Type"
 #: ../content/schemata.py:328
-#, fuzzy
 msgid "label_comment_type"
 msgstr "Typ komentarza"
 
@@ -711,13 +670,11 @@ msgstr ""
 #.
 #. Default: "Survey description"
 #: ../content/schemata.py:235
-#, fuzzy
 msgid "label_description"
 msgstr "Opis ankiety"
 
 #. Default: "Does not appear"
 #: ../config.py:38
-#, fuzzy
 msgid "label_does_not_appear"
 msgstr "Niewidoczny"
 
@@ -739,7 +696,6 @@ msgstr ""
 #.
 #. Default: "Exit URL"
 #: ../content/schemata.py:88
-#, fuzzy
 msgid "label_exit_url"
 msgstr "Adres URL po zakończeniu."
 
@@ -756,7 +712,6 @@ msgstr ""
 #.
 #. Default: "Input Type"
 #: ../content/schemata.py:464
-#, fuzzy
 msgid "label_input_type"
 msgstr "Typ pola"
 
@@ -782,7 +737,6 @@ msgstr ""
 
 #. Default: "Question"
 #: ../browser/questions/question_matrix_macro.pt:31
-#, fuzzy
 msgid "label_matrix_question"
 msgstr "Pytanie"
 
@@ -793,25 +747,21 @@ msgstr ""
 
 #. Default: "Multiple Selection Box"
 #: ../config.py:32
-#, fuzzy
 msgid "label_multiple_selection_box"
 msgstr "Lista wielokrotnego wyboru"
 
 #. Default: "None"
 #: ../config.py:46
-#, fuzzy
 msgid "label_no_comment_field"
 msgstr "Brak"
 
 #. Default: "No emails"
 #: ../config.py:19
-#, fuzzy
 msgid "label_no_emails"
 msgstr "Brak"
 
 #. Default: "No users have completed the survey yet."
 #: ../skins/plone_survey/respondents_view.cpt:82
-#, fuzzy
 msgid "label_no_users_yet"
 msgstr "Nikt nie wypełnił jeszcze tej ankiety"
 
@@ -822,79 +772,67 @@ msgstr ""
 
 #. Default: "Add Page"
 #: ../browser/questions/survey_overview.pt:109
-#, fuzzy
 msgid "label_overview_add_page"
 msgstr "Dodaj Stronę"
 
 #. Default: "Add Question"
 #: ../browser/questions/survey_overview.pt:49
-#, fuzzy
 msgid "label_overview_add_question"
 msgstr "Dodaj Pytanie"
 
 #. Default: "Branching:"
 #: ../browser/questions/survey_overview.pt:80
-#, fuzzy
 msgid "label_overview_branching"
 msgstr "rozgałęzienia"
 
 #. Default: "Survey Contents"
 #: ../browser/questions/survey_overview.pt:27
-#, fuzzy
 msgid "label_overview_contents"
 msgstr "zawartość"
 
 # NEW
 #. Default: "Edit Survey"
 #: ../browser/questions/survey_overview.pt:19
-#, fuzzy
 msgid "label_overview_edit"
 msgstr "edycja"
 
 #. Default: "There are no questions on this page."
 #: ../browser/questions/survey_overview.pt:93
-#, fuzzy
 msgid "label_overview_no_question"
 msgstr "Brak pytań na tej stronie."
 
 #.
 #. Default: "Conditional Question"
 #: ../content/schemata.py:252
-#, fuzzy
 msgid "label_previous_question"
 msgstr "Pytanie warunkowe"
 
 #.
 #. Default: "Required Answer"
 #: ../content/schemata.py:269
-#, fuzzy
 msgid "label_previous_question_answer"
 msgstr "Wymagana odpowiedź"
 
 #.
 #. Default: "Use Required Answer?"
 #: ../content/schemata.py:286
-#, fuzzy
 msgid "label_previous_question_answer_yes_no"
 msgstr "Czy używać \"wymaganej odpowiedzi\"?"
 
 #.
 #. Default: "Description"
 #: ../content/schemata.py:383
-#, fuzzy
 msgid "label_question_description"
 msgstr "Opis"
 
 #. Default: "Radio Buttons"
 #: ../config.py:30
-#, fuzzy
 msgid "label_radio_buttons"
 msgstr "Pola jednokrotnego wyboru (radiobutton)"
 
 #.
 #. Default: "Required"
 #: ../content/schemata.py:313
-#, fuzzy
 msgid "label_required"
 msgstr "Wymagane"
 
@@ -912,7 +850,6 @@ msgstr "(Wymagane)"
 #. <input class="standalone" i18n:attributes="value label_reset" name="reset" type="submit" value=" Reset "/>
 #. Default: "Reset"
 #: ../skins/plone_survey/survey_reset_form.cpt:22
-#, fuzzy
 msgid "label_reset"
 msgstr "Resetuj"
 
@@ -924,13 +861,11 @@ msgstr ""
 #.
 #. Default: "'Saved' message text"
 #: ../content/schemata.py:73
-#, fuzzy
 msgid "label_saved_text"
 msgstr "Tekst wiadomości 'Zapisano'"
 
 #. Default: "Selection Box"
 #: ../config.py:31
-#, fuzzy
 msgid "label_selection_box"
 msgstr "Lista rozwijalna (select)"
 
@@ -957,40 +892,34 @@ msgstr ""
 #.
 #. Default: "Survey Notification Email Address"
 #: ../content/schemata.py:141
-#, fuzzy
 msgid "label_survey_notification_email"
 msgstr "Adres email wykorzystywany do powiadomień"
 
 #.
 #. Default: "Survey Notification Method"
 #: ../content/schemata.py:156
-#, fuzzy
 msgid "label_survey_notification_method"
 msgstr "Sposób otrzymywania powiadomień"
 
 #. Default: "Text Area"
 #: ../config.py:26
-#, fuzzy
 msgid "label_text_area"
 msgstr "Obszar tekstowy (textarea)"
 
 #.
 #. Default: "Cols (width in characters)"
 #: ../content/schemata.py:493
-#, fuzzy
 msgid "label_text_cols"
 msgstr "Kolumny (szerokość w znakach)"
 
 #. Default: "Text Field"
 #: ../config.py:25
-#, fuzzy
 msgid "label_text_field"
 msgstr "Pole tekstowe"
 
 #.
 #. Default: "Rows (number of lines)"
 #: ../content/schemata.py:507
-#, fuzzy
 msgid "label_text_rows"
 msgstr "Wiersze (liczba linii)"
 
@@ -1007,7 +936,6 @@ msgstr ""
 #.
 #. Default: "'Thank you' message text"
 #: ../content/schemata.py:58
-#, fuzzy
 msgid "label_thank"
 msgstr "Tekst wiadomości 'Dziękujemy'"
 
@@ -1020,20 +948,17 @@ msgstr ""
 # input type, for results use the </span>
 #. Default: "This question had a text input type, for results use the"
 #: ../browser/results/survey_barchart.pt:49
-#, fuzzy
 msgid "label_use_detailed_for_text"
 msgstr "To pytanie zawiera pola tekstowe, aby zobaczyć wyniki pobierz "
 
 #. Default: "Use the options below"
 #: ../config.py:52
-#, fuzzy
 msgid "label_use_options_below"
 msgstr "Użyj odpowiedzi z poniższego pola"
 
 #.
 #. Default: "Validation"
 #: ../content/schemata.py:523
-#, fuzzy
 msgid "label_validation"
 msgstr "Walidacja"
 
@@ -1055,19 +980,16 @@ msgstr "Szczegóły pytania"
 
 #. Default: "(\"Agree Strongly\", \"Agree\", \"Neutral\", \"Disagree\", \"Disagree Strongly\")"
 #: ../config.py:57
-#, fuzzy
 msgid "list_agree_disagree"
 msgstr "(\"Zdecydowanie Tak\", \"Tak\", \"Obojętne\", \"Nie\", \"Zdecydowanie Nie\")"
 
 #. Default: "(\"Very Good\", \"Good\", \"OK Only\", \"Poor\", \"Very Poor\")"
 #: ../config.py:53
-#, fuzzy
 msgid "list_good_poor"
 msgstr "(\"Bardzo Dobrze\", \"Dobrze\", \"Średnio\", \"Źle\", \"Bardzo Źle\")"
 
 #. Default: "(\"Very Useful\", \"Useful\", \"Quite Useful\", \"A little Useful\", \"Not Useful\")"
 #: ../config.py:55
-#, fuzzy
 msgid "list_useful_notuseful"
 msgstr "(\"Bardzo Przydatne\", \"Przydatne\", \"Całkiem Przydatne\", \"Trochę Przydatne\", \"Nieprzydatne\")"
 

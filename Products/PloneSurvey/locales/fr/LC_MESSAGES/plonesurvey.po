@@ -430,14 +430,12 @@ msgstr "Permettre aux utilisateurs connectés de sauvegarder leur sondage pour l
 #.
 #. Default: "Enter the options you want to be available to the user here. Press enter to separate the options."
 #: ../content/schemata.py:572
-#, fuzzy
 msgid "help_answer_options"
 msgstr "Entrez les options que vous voulez rendre accessibles aux utilisateurs ici. Appuyez sur entrée pour séparer les options."
 
 #.
 #. Default: "The comment label."
 #: ../content/schemata.py:344
-#, fuzzy
 msgid "help_comment_label"
 msgstr "Étiquette du commentaire."
 
@@ -466,7 +464,6 @@ msgstr "Ceci est l'URL vers laquelle l'utilisateur sera redirigé apres avoir so
 #.
 #. Default: "Please select what type of input you would like to use for this question."
 #: ../content/schemata.py:465
-#, fuzzy
 msgid "help_input_type"
 msgstr "Veuillez sélectionner le type d'entrée que vous désirez utiliser pour cette question."
 
@@ -488,7 +485,6 @@ msgstr "Saisir le nom de la personne qui sera utilisé pour envoyer l'email d'in
 #.
 #. Default: "Select what type of comment box you would like."
 #: ../content/schemata.py:329
-#, fuzzy
 msgid "help_label_comment_type"
 msgstr "Sélectionnez le type de boite de commentaire que vous désirez."
 
@@ -533,14 +529,12 @@ msgstr "Sélectionnez si la reponse obligatoire doit être sélectionnée pour q
 #.
 #. Default: "Add a long description of the question here, to clarify any details."
 #: ../content/schemata.py:386
-#, fuzzy
 msgid "help_question_description"
 msgstr "Ajouter une longue description à la question ici, pour clarifier certains détails."
 
 #.
 #. Default: "Select if this question is required, meaning participant must give a response."
 #: ../content/schemata.py:314
-#, fuzzy
 msgid "help_required"
 msgstr "Sélectionnez si cette question est obligatoire, signifiant que l'utilisateur doit fournir une réponse."
 
@@ -563,21 +557,18 @@ msgstr "Entrez une adresse email pour recevoir les notifications de soumission d
 #.
 #. Default: "Select a method to receive notification emails."
 #: ../content/schemata.py:158
-#, fuzzy
 msgid "help_survey_notification_method"
 msgstr "Sélectionnez une méthode pour recevoir les notifications par courriel."
 
 #.
 #. Default: "Enter a number of columns for this field (width of the field in the characters)"
 #: ../content/schemata.py:494
-#, fuzzy
 msgid "help_text_cols"
 msgstr "Entrez un nombre de colonnes pour ce champ (largeur du champ en caractères)."
 
 #.
 #. Default: "Enter a number of rows for this field. This value is applicable only in the Text Area input type"
 #: ../content/schemata.py:508
-#, fuzzy
 msgid "help_text_rows"
 msgstr "Entrez un nombre de lignes pour ce champ. Cette valeur est applicable uniquement pour une entrée de type 'zone de texte'."
 
@@ -595,7 +586,6 @@ msgstr "Ceci est le message qui sera affiché à l'utilisateur une fois qu'il au
 #.
 #. Default: "Select a validation for this question"
 #: ../content/schemata.py:524
-#, fuzzy
 msgid "help_validation"
 msgstr "Sélectionnez une méthode de validation pour cette question."
 
@@ -616,14 +606,12 @@ msgstr ""
 
 #. Default: "Email on each submission"
 #: ../config.py:20
-#, fuzzy
 msgid "label_all_emails"
 msgstr "Envoyer un courriel à chaque soumission"
 
 #.
 #. Default: "Allow Anonymous"
 #: ../content/schemata.py:116
-#, fuzzy
 msgid "label_allow_anonymous"
 msgstr "Permettre l'anonymat"
 
@@ -635,7 +623,6 @@ msgstr "Activer la fonctionnalité de sauvegarde"
 #.
 #. Default: "Answer options"
 #: ../content/schemata.py:571
-#, fuzzy
 msgid "label_answer_options"
 msgstr "Options de réponse"
 
@@ -656,21 +643,18 @@ msgstr "Apparaît entre la question et la réponse"
 
 #. Default: "Check Boxes"
 #: ../config.py:34
-#, fuzzy
 msgid "label_check_boxes"
 msgstr "Case à cocher"
 
 #.
 #. Default: "Comment label"
 #: ../content/schemata.py:343
-#, fuzzy
 msgid "label_comment_label"
 msgstr "Étiquette du commentaire"
 
 #.
 #. Default: "Comment Type"
 #: ../content/schemata.py:328
-#, fuzzy
 msgid "label_comment_type"
 msgstr "Type de commentaire"
 
@@ -708,7 +692,6 @@ msgstr "Année de fin"
 #.
 #. Default: "Exit URL"
 #: ../content/schemata.py:88
-#, fuzzy
 msgid "label_exit_url"
 msgstr "URL d'abandon"
 
@@ -725,7 +708,6 @@ msgstr "Années futures"
 #.
 #. Default: "Input Type"
 #: ../content/schemata.py:464
-#, fuzzy
 msgid "label_input_type"
 msgstr "Type d'entrée"
 
@@ -751,7 +733,6 @@ msgstr "Appréciations"
 
 #. Default: "Question"
 #: ../browser/questions/question_matrix_macro.pt:31
-#, fuzzy
 msgid "label_matrix_question"
 msgstr "Question"
 
@@ -762,7 +743,6 @@ msgstr "Nombre maximum de caractères"
 
 #. Default: "Multiple Selection Box"
 #: ../config.py:32
-#, fuzzy
 msgid "label_multiple_selection_box"
 msgstr "Boite de selection multiple"
 
@@ -773,7 +753,6 @@ msgstr "Aucun commentaire"
 
 #. Default: "No emails"
 #: ../config.py:19
-#, fuzzy
 msgid "label_no_emails"
 msgstr "Pas d'envoi de courriel"
 
@@ -789,78 +768,66 @@ msgstr "Valeur nulle"
 
 #. Default: "Add Page"
 #: ../browser/questions/survey_overview.pt:109
-#, fuzzy
 msgid "label_overview_add_page"
 msgstr "Ajouter une page"
 
 #. Default: "Add Question"
 #: ../browser/questions/survey_overview.pt:49
-#, fuzzy
 msgid "label_overview_add_question"
 msgstr "Ajouter une question"
 
 #. Default: "Branching:"
 #: ../browser/questions/survey_overview.pt:80
-#, fuzzy
 msgid "label_overview_branching"
 msgstr "branchement"
 
 #. Default: "Survey Contents"
 #: ../browser/questions/survey_overview.pt:27
-#, fuzzy
 msgid "label_overview_contents"
 msgstr "contenu"
 
 #. Default: "Edit Survey"
 #: ../browser/questions/survey_overview.pt:19
-#, fuzzy
 msgid "label_overview_edit"
 msgstr "modifier"
 
 #. Default: "There are no questions on this page."
 #: ../browser/questions/survey_overview.pt:93
-#, fuzzy
 msgid "label_overview_no_question"
 msgstr "Il n'y a aucune question sur cette page."
 
 #.
 #. Default: "Conditional Question"
 #: ../content/schemata.py:252
-#, fuzzy
 msgid "label_previous_question"
 msgstr "Question conditionnelle"
 
 #.
 #. Default: "Required Answer"
 #: ../content/schemata.py:269
-#, fuzzy
 msgid "label_previous_question_answer"
 msgstr "Réponse obligatoire"
 
 #.
 #. Default: "Use Required Answer?"
 #: ../content/schemata.py:286
-#, fuzzy
 msgid "label_previous_question_answer_yes_no"
 msgstr "Réponse de l'utilisateur obligatoire"
 
 #.
 #. Default: "Description"
 #: ../content/schemata.py:383
-#, fuzzy
 msgid "label_question_description"
 msgstr "Description"
 
 #. Default: "Radio Buttons"
 #: ../config.py:30
-#, fuzzy
 msgid "label_radio_buttons"
 msgstr "Boutons radio"
 
 #.
 #. Default: "Required"
 #: ../content/schemata.py:313
-#, fuzzy
 msgid "label_required"
 msgstr "Obligatoire"
 
@@ -872,14 +839,12 @@ msgstr "Obligatoire"
 #: ../browser/questions/question_date_macro.pt:14
 #: ../browser/questions/question_macro.pt:13
 #: ../browser/questions/question_matrix_macro.pt:51
-#, fuzzy
 msgid "label_required_in_parentheses"
 msgstr "Obligatoire"
 
 #. <input class="standalone" i18n:attributes="value label_reset" name="reset" type="submit" value=" Reset "/>
 #. Default: "Reset"
 #: ../skins/plone_survey/survey_reset_form.cpt:22
-#, fuzzy
 msgid "label_reset"
 msgstr "Réinitialiser "
 
@@ -891,13 +856,11 @@ msgstr "Inverser les appréciations"
 #.
 #. Default: "'Saved' message text"
 #: ../content/schemata.py:73
-#, fuzzy
 msgid "label_saved_text"
 msgstr "Enregistré"
 
 #. Default: "Selection Box"
 #: ../config.py:31
-#, fuzzy
 msgid "label_selection_box"
 msgstr "Boite de sélection"
 
@@ -924,40 +887,34 @@ msgstr "Année de début"
 #.
 #. Default: "Survey Notification Email Address"
 #: ../content/schemata.py:141
-#, fuzzy
 msgid "label_survey_notification_email"
 msgstr "Adresse du courriel pour la notification"
 
 #.
 #. Default: "Survey Notification Method"
 #: ../content/schemata.py:156
-#, fuzzy
 msgid "label_survey_notification_method"
 msgstr "Méthode de notification"
 
 #. Default: "Text Area"
 #: ../config.py:26
-#, fuzzy
 msgid "label_text_area"
 msgstr "Zone de texte"
 
 #.
 #. Default: "Cols (width in characters)"
 #: ../content/schemata.py:493
-#, fuzzy
 msgid "label_text_cols"
 msgstr "Colonnes (largeur en caractères)"
 
 #. Default: "Text Field"
 #: ../config.py:25
-#, fuzzy
 msgid "label_text_field"
 msgstr "Champ de texte"
 
 #.
 #. Default: "Rows (number of lines)"
 #: ../content/schemata.py:507
-#, fuzzy
 msgid "label_text_rows"
 msgstr "Lignes (nombre de lignes)"
 
@@ -974,7 +931,6 @@ msgstr "Position du bloc de texte"
 #.
 #. Default: "'Thank you' message text"
 #: ../content/schemata.py:58
-#, fuzzy
 msgid "label_thank"
 msgstr "Merci"
 
@@ -982,7 +938,6 @@ msgstr "Merci"
 # input type, for results use the </span>
 #. Default: "This question had a date input type, for results use the"
 #: ../browser/results/survey_barchart.pt:56
-#, fuzzy
 msgid "label_use_detailed_for_date"
 msgstr "Cette question comportait un champ date. Pour consulter les résultats vous devez utiliser le "
 
@@ -990,7 +945,6 @@ msgstr "Cette question comportait un champ date. Pour consulter les résultats v
 # input type, for results use the </span>
 #. Default: "This question had a text input type, for results use the"
 #: ../browser/results/survey_barchart.pt:49
-#, fuzzy
 msgid "label_use_detailed_for_text"
 msgstr "Cette question comportait un champ texte. Pour consulter les résultats vous devez utiliser le "
 
@@ -1002,7 +956,6 @@ msgstr "Utiliser les options ci-dessous"
 #.
 #. Default: "Validation"
 #: ../content/schemata.py:523
-#, fuzzy
 msgid "label_validation"
 msgstr "Validation"
 
@@ -1085,7 +1038,6 @@ msgstr ""
 #. <input class="context" i18n:attributes="value reset_button" name="submit" tal:attributes="tabindex tabindex/next" type="submit" value="Reset"/>
 #. Default: "Reset"
 #: ../skins/plone_survey/respondents_view.cpt:75
-#, fuzzy
 msgid "reset_button"
 msgstr "Réinitialiser"
 

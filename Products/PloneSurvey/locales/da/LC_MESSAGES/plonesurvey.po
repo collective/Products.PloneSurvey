@@ -299,7 +299,6 @@ msgstr "Dette vil fjerne alle svar fra dette survey. Er du sikker?"
 #. </p>
 #. Default: "This is an overview of the current survey: ${title}"
 #: ../browser/questions/survey_overview.pt:36
-#, fuzzy
 msgid "desc_survey_overview"
 msgstr "Dette er en oversigt over surveyet."
 
@@ -422,14 +421,12 @@ msgstr ""
 #.
 #. Default: "Enter the options you want to be available to the user here. Press enter to separate the options."
 #: ../content/schemata.py:572
-#, fuzzy
 msgid "help_answer_options"
 msgstr "Skriv de mulige svar her. Brug enter til at seperere svarmulighederne"
 
 #.
 #. Default: "The comment label."
 #: ../content/schemata.py:344
-#, fuzzy
 msgid "help_comment_label"
 msgstr "Kommentar."
 
@@ -441,7 +438,6 @@ msgstr ""
 #.
 #. Default: "Add a short description of the survey here."
 #: ../content/schemata.py:237
-#, fuzzy
 msgid "help_description"
 msgstr "En kort beskrivelse af surveyet her."
 
@@ -453,7 +449,6 @@ msgstr ""
 #.
 #. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
 #: ../content/schemata.py:89
-#, fuzzy
 msgid "help_exit_url"
 msgstr "Dette er den URL, som brugeren vil blive henvist til n�r han har afsluttet surveyet. Brug \"http://site.to.go.to/page\" eller \"route/to/page\" hvis siden ligger p� dette site."
 
@@ -704,7 +699,6 @@ msgstr ""
 #.
 #. Default: "Input Type"
 #: ../content/schemata.py:464
-#, fuzzy
 msgid "label_input_type"
 msgstr "Inputtype"
 
@@ -730,7 +724,6 @@ msgstr ""
 
 #. Default: "Question"
 #: ../browser/questions/question_matrix_macro.pt:31
-#, fuzzy
 msgid "label_matrix_question"
 msgstr "Sp�rgsm�l"
 
@@ -751,13 +744,11 @@ msgstr ""
 
 #. Default: "No emails"
 #: ../config.py:19
-#, fuzzy
 msgid "label_no_emails"
 msgstr "ingen email"
 
 #. Default: "No users have completed the survey yet."
 #: ../skins/plone_survey/respondents_view.cpt:82
-#, fuzzy
 msgid "label_no_users_yet"
 msgstr "Ingen brugere endnu."
 
@@ -768,13 +759,11 @@ msgstr ""
 
 #. Default: "Add Page"
 #: ../browser/questions/survey_overview.pt:109
-#, fuzzy
 msgid "label_overview_add_page"
 msgstr "Tilf�j side"
 
 #. Default: "Add Question"
 #: ../browser/questions/survey_overview.pt:49
-#, fuzzy
 msgid "label_overview_add_question"
 msgstr "Tilf�j sp�rgsm�l"
 
@@ -785,19 +774,16 @@ msgstr ""
 
 #. Default: "Survey Contents"
 #: ../browser/questions/survey_overview.pt:27
-#, fuzzy
 msgid "label_overview_contents"
 msgstr "inhold"
 
 #. Default: "Edit Survey"
 #: ../browser/questions/survey_overview.pt:19
-#, fuzzy
 msgid "label_overview_edit"
 msgstr "rediger"
 
 #. Default: "There are no questions on this page."
 #: ../browser/questions/survey_overview.pt:93
-#, fuzzy
 msgid "label_overview_no_question"
 msgstr "Der e ringen sp�rgsm�l p� denne side."
 
@@ -810,7 +796,6 @@ msgstr ""
 #.
 #. Default: "Required Answer"
 #: ../content/schemata.py:269
-#, fuzzy
 msgid "label_previous_question_answer"
 msgstr "Svar p�kr�vet"
 
@@ -834,7 +819,6 @@ msgstr ""
 #.
 #. Default: "Required"
 #: ../content/schemata.py:313
-#, fuzzy
 msgid "label_required"
 msgstr "P�kr�vet"
 
@@ -852,7 +836,6 @@ msgstr "(P�kr�vet)"
 #. <input class="standalone" i18n:attributes="value label_reset" name="reset" type="submit" value=" Reset "/>
 #. Default: "Reset"
 #: ../skins/plone_survey/survey_reset_form.cpt:22
-#, fuzzy
 msgid "label_reset"
 msgstr "Annuller"
 
@@ -895,7 +878,6 @@ msgstr ""
 #.
 #. Default: "Survey Notification Email Address"
 #: ../content/schemata.py:141
-#, fuzzy
 msgid "label_survey_notification_email"
 msgstr "Enqu�te notificatie-emailadres"
 
@@ -907,27 +889,23 @@ msgstr ""
 
 #. Default: "Text Area"
 #: ../config.py:26
-#, fuzzy
 msgid "label_text_area"
 msgstr "Tekstbox"
 
 #.
 #. Default: "Cols (width in characters)"
 #: ../content/schemata.py:493
-#, fuzzy
 msgid "label_text_cols"
 msgstr "Kollonner (bredde i karakterer)"
 
 #. Default: "Text Field"
 #: ../config.py:25
-#, fuzzy
 msgid "label_text_field"
 msgstr "Tekstfelt"
 
 #.
 #. Default: "Rows (number of lines)"
 #: ../content/schemata.py:507
-#, fuzzy
 msgid "label_text_rows"
 msgstr "R�kker (antal linjer)"
 
@@ -944,7 +922,6 @@ msgstr ""
 #.
 #. Default: "'Thank you' message text"
 #: ../content/schemata.py:58
-#, fuzzy
 msgid "label_thank"
 msgstr "Tak"
 
@@ -966,7 +943,6 @@ msgstr ""
 #.
 #. Default: "Validation"
 #: ../content/schemata.py:523
-#, fuzzy
 msgid "label_validation"
 msgstr "Validering"
 

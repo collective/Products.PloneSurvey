@@ -60,13 +60,11 @@ msgstr ""
 
 #. Default: "Agree"
 #: ../config.py:77
-#, fuzzy
 msgid "Agree"
 msgstr "Ados"
 
 #. Default: "Agree Strongly"
 #: ../config.py:76
-#, fuzzy
 msgid "Agree Strongly"
 msgstr "Guztiz ados"
 
@@ -77,13 +75,11 @@ msgstr ""
 
 #. Default: "Disagree"
 #: ../config.py:79
-#, fuzzy
 msgid "Disagree"
 msgstr "Ez nago ados"
 
 #. Default: "Disagree Strongly"
 #: ../config.py:80
-#, fuzzy
 msgid "Disagree Strongly"
 msgstr "Guztiz aurka"
 
@@ -114,7 +110,6 @@ msgstr ""
 
 #. Default: "Neutral"
 #: ../config.py:78
-#, fuzzy
 msgid "Neutral"
 msgstr "Neutrala"
 
@@ -315,7 +310,6 @@ msgstr "Inkestaren erantzun guztiak ezabatuko ditu honek. Ziur al zaude?"
 #. </p>
 #. Default: "This is an overview of the current survey: ${title}"
 #: ../browser/questions/survey_overview.pt:36
-#, fuzzy
 msgid "desc_survey_overview"
 msgstr "Inkestaren gainbegirada bat da hau (????)"
 
@@ -438,7 +432,6 @@ msgstr ""
 #.
 #. Default: "Enter the options you want to be available to the user here. Press enter to separate the options."
 #: ../content/schemata.py:572
-#, fuzzy
 msgid "help_answer_options"
 msgstr "Erabiltzaileak erantzuteko izango dituen aukerak jarri hemen. Idatzi aukera bat lerro bakoitzeko."
 
@@ -456,7 +449,6 @@ msgstr ""
 #.
 #. Default: "Add a short description of the survey here."
 #: ../content/schemata.py:237
-#, fuzzy
 msgid "help_description"
 msgstr "Inkestaren deskribapen laburra"
 
@@ -468,14 +460,12 @@ msgstr ""
 #.
 #. Default: "This is the URL that the user will be directed to on completion of the survey.\nUse \"http://site.to.go.to/page\" or \"route/to/page\" for this portal"
 #: ../content/schemata.py:89
-#, fuzzy
 msgid "help_exit_url"
 msgstr "Inkesta bukatutakoan erabiltzailea helbide honetara bideratuko dugu. Erabili \"http://zerbitzaria.com\" kanpoko helbide batera joateko edo \"orrialderako/bide/hau\" atari barruko helbide batera joateko."
 
 #.
 #. Default: "Please select what type of input you would like to use for this question."
 #: ../content/schemata.py:465
-#, fuzzy
 msgid "help_input_type"
 msgstr "Aukeratu zein motako elementua erabili nahi duzun galdera honentzat"
 
@@ -497,7 +487,6 @@ msgstr ""
 #.
 #. Default: "Select what type of comment box you would like."
 #: ../content/schemata.py:329
-#, fuzzy
 msgid "help_label_comment_type"
 msgstr "Aukeratu nolako iruzkin kutxa erabili nahi duzun"
 
@@ -564,14 +553,12 @@ msgstr ""
 #.
 #. Default: "Enter an email address to receive notifications of survey completions."
 #: ../content/schemata.py:143
-#, fuzzy
 msgid "help_survey_notification_email"
 msgstr "Inkestak betetakoan notifikazioa jasotzeko eposta helbidea gehitu"
 
 #.
 #. Default: "Select a method to receive notification emails."
 #: ../content/schemata.py:158
-#, fuzzy
 msgid "help_survey_notification_method"
 msgstr "Eposta bidezko notifikazioak jasotzeko modua aukeratu"
 
@@ -595,7 +582,6 @@ msgstr ""
 #.
 #. Default: "This is the message that will be displayed to the user when they complete the survey."
 #: ../content/schemata.py:60
-#, fuzzy
 msgid "help_thankyou"
 msgstr "Erabiltzaileak inkesta betetakoan ikusiko duen mezua da hau"
 
@@ -622,14 +608,12 @@ msgstr ""
 
 #. Default: "Email on each submission"
 #: ../config.py:20
-#, fuzzy
 msgid "label_all_emails"
 msgstr "Eposta bidali bidalketa bakoitzean"
 
 #.
 #. Default: "Allow Anonymous"
 #: ../content/schemata.py:116
-#, fuzzy
 msgid "label_allow_anonymous"
 msgstr "Erabiltzaile anonimoek erantzutea baimendu"
 
@@ -641,7 +625,6 @@ msgstr ""
 #.
 #. Default: "Answer options"
 #: ../content/schemata.py:571
-#, fuzzy
 msgid "label_answer_options"
 msgstr "Erantzunaren aukerak"
 
@@ -662,7 +645,6 @@ msgstr ""
 
 #. Default: "Check Boxes"
 #: ../config.py:34
-#, fuzzy
 msgid "label_check_boxes"
 msgstr "Aukera kutxak (checkbox)"
 
@@ -686,7 +668,6 @@ msgstr ""
 #.
 #. Default: "Survey description"
 #: ../content/schemata.py:235
-#, fuzzy
 msgid "label_description"
 msgstr "Deskribapena"
 
@@ -713,7 +694,6 @@ msgstr ""
 #.
 #. Default: "Exit URL"
 #: ../content/schemata.py:88
-#, fuzzy
 msgid "label_exit_url"
 msgstr "Irteera URLa"
 
@@ -755,7 +735,6 @@ msgstr ""
 
 #. Default: "Question"
 #: ../browser/questions/question_matrix_macro.pt:31
-#, fuzzy
 msgid "label_matrix_question"
 msgstr "AGldera"
 
@@ -766,7 +745,6 @@ msgstr ""
 
 #. Default: "Multiple Selection Box"
 #: ../config.py:32
-#, fuzzy
 msgid "label_multiple_selection_box"
 msgstr "Aukera anitzeko kutxa "
 
@@ -777,13 +755,11 @@ msgstr ""
 
 #. Default: "No emails"
 #: ../config.py:19
-#, fuzzy
 msgid "label_no_emails"
 msgstr "Epostarik ez"
 
 #. Default: "No users have completed the survey yet."
 #: ../skins/plone_survey/respondents_view.cpt:82
-#, fuzzy
 msgid "label_no_users_yet"
 msgstr "Inork ez du inkestarik bete"
 
@@ -794,13 +770,11 @@ msgstr ""
 
 #. Default: "Add Page"
 #: ../browser/questions/survey_overview.pt:109
-#, fuzzy
 msgid "label_overview_add_page"
 msgstr "Orrialdea gehitu"
 
 #. Default: "Add Question"
 #: ../browser/questions/survey_overview.pt:49
-#, fuzzy
 msgid "label_overview_add_question"
 msgstr "Galdera gehitu"
 
@@ -811,19 +785,16 @@ msgstr ""
 
 #. Default: "Survey Contents"
 #: ../browser/questions/survey_overview.pt:27
-#, fuzzy
 msgid "label_overview_contents"
 msgstr "edukiak"
 
 #. Default: "Edit Survey"
 #: ../browser/questions/survey_overview.pt:19
-#, fuzzy
 msgid "label_overview_edit"
 msgstr "editatu"
 
 #. Default: "There are no questions on this page."
 #: ../browser/questions/survey_overview.pt:93
-#, fuzzy
 msgid "label_overview_no_question"
 msgstr "Orrialde honetan ez dago galderarik"
 
@@ -848,7 +819,6 @@ msgstr ""
 #.
 #. Default: "Description"
 #: ../content/schemata.py:383
-#, fuzzy
 msgid "label_question_description"
 msgstr "Deskribapena"
 
@@ -860,7 +830,6 @@ msgstr ""
 #.
 #. Default: "Required"
 #: ../content/schemata.py:313
-#, fuzzy
 msgid "label_required"
 msgstr "Derrigorrezkoa"
 
@@ -878,7 +847,6 @@ msgstr "(Beharrezkoa)"
 #. <input class="standalone" i18n:attributes="value label_reset" name="reset" type="submit" value=" Reset "/>
 #. Default: "Reset"
 #: ../skins/plone_survey/survey_reset_form.cpt:22
-#, fuzzy
 msgid "label_reset"
 msgstr "Berrezarri"
 
@@ -921,40 +889,34 @@ msgstr ""
 #.
 #. Default: "Survey Notification Email Address"
 #: ../content/schemata.py:141
-#, fuzzy
 msgid "label_survey_notification_email"
 msgstr "Inkestaren notifikazio eposta"
 
 #.
 #. Default: "Survey Notification Method"
 #: ../content/schemata.py:156
-#, fuzzy
 msgid "label_survey_notification_method"
 msgstr "Inkesta notifikatzeko modua"
 
 #. Default: "Text Area"
 #: ../config.py:26
-#, fuzzy
 msgid "label_text_area"
 msgstr "Testu area"
 
 #.
 #. Default: "Cols (width in characters)"
 #: ../content/schemata.py:493
-#, fuzzy
 msgid "label_text_cols"
 msgstr "Zutabe kopurua"
 
 #. Default: "Text Field"
 #: ../config.py:25
-#, fuzzy
 msgid "label_text_field"
 msgstr "Testu kutxa"
 
 #.
 #. Default: "Rows (number of lines)"
 #: ../content/schemata.py:507
-#, fuzzy
 msgid "label_text_rows"
 msgstr "Lerro kopurua"
 
@@ -971,7 +933,6 @@ msgstr ""
 #.
 #. Default: "'Thank you' message text"
 #: ../content/schemata.py:58
-#, fuzzy
 msgid "label_thank"
 msgstr "'Eskerrik asko' mezua"
 
@@ -995,7 +956,6 @@ msgstr ""
 #.
 #. Default: "Validation"
 #: ../content/schemata.py:523
-#, fuzzy
 msgid "label_validation"
 msgstr "Balidazioa"
 

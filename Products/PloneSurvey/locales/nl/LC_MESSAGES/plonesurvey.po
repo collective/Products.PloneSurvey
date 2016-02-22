@@ -982,7 +982,6 @@ msgstr "(\"Erg Goed\", \"Goed\", \"Matig\", \"Slecht\", \"Zeer Slecht\")"
 
 #. Default: "(\"Very Useful\", \"Useful\", \"Quite Useful\", \"A little Useful\", \"Not Useful\")"
 #: ../config.py:55
-#, fuzzy
 msgid "list_useful_notuseful"
 msgstr "(\"Erg Nuttig\", \"Nuttig\", \"Redelijk Nuttig\", \"Een Beetje Nuttig\", \"Niet Nuttig\")"
 
