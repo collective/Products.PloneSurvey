@@ -712,7 +712,7 @@ class Survey(ATCTOrderedFolder):
             email_from_name=email_from_name,
             email_from_address=email_from_address,
             email_body=email_body,
-            subject="Survey %s" % self.title_or_id())
+            subject=self.title_or_id())
         host = self.MailHost
         site_props = portal_properties.site_properties
         mail_text = mail_text.encode(site_props.default_charset or 'utf-8')
