@@ -29,7 +29,7 @@ class testReCaptcha(unittest.TestCase):
     def testIncludeReCaptcha(self):
         """Test if captcha is included in the page"""
         result = self.s1.survey_view(REQUEST=Request())
-        assert "<input type='hidden' name='recaptcha_response_field' value='manual_challenge' />" in result
+        assert '<label for="recaptcha_response_field">Protection from spam</label>' in result
 
     def testValidationReCaptcha(self):
         """Test if captcha works"""
