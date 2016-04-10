@@ -71,23 +71,6 @@ for q in questions:
                 domain='plonesurvey')
             state.setError(q.getId(), "%s %s" % (error_msg, qnum))
 
-if not state.getErrors():
-    if context.getShowCaptcha() and not context.hasMorePages():
-        if context.isCaptchaInstalled():
-            context.captcha_validator()
-        else:
-            recaptcha_verify = context.restrictedTraverse('@@captcha/verify', None)
-            if recaptcha_verify:
-                try:
-                    if not recaptcha_verify():
-                        error_msg = _(msgid='captcha_code_wrong',
-                            default=u'Captcha protection code is wrong. Please retry.',
-                            domain='plonesurvey')
-                        state.setError('recaptcha_response_field', error_msg)
-                except ValueError:
-                    # No recaptcha private key configured
-                    pass
-
 if state.getErrors():
     context.plone_utils.addPortalMessage(_(u'Please correct the errors shown.'), 'error')
     return state.set(status='failure')

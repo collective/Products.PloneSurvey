@@ -1012,25 +1012,6 @@ class Survey(ATCTOrderedFolder):
                 return True
         return False
 
-    @security.protected(ModifyPortalContent)
-    def pre_validate(self, REQUEST, errors):
-        """ checks captcha """
-        product_installed = self.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas')
-        if not product_installed and not self.collective_recaptcha_enabled() and REQUEST.get('showCaptcha', 0):
-            if int(REQUEST.get('showCaptcha')):
-                errors['showCaptcha'] = _('showCaptcha',
-                                          default='Product quintagroup.plonecaptchas not installed. '
-                                          'If you prefer to use the product collective.recaptcha '
-                                          'instead of quintagroup.plonecaptchas '
-                                          'then verifies that recaptcha private and public keys are configured. '
-                                          'Go to path/to/site/@@recaptcha-settings to configure.')
-
-    @security.protected(View)
-    def isCaptchaInstalled(self):
-        """ checks captcha """
-        product_installed = self.portal_quickinstaller.isProductInstalled('quintagroup.plonecaptchas')
-        return product_installed
-
     @security.private
     def _get_emailInvite_default(self):
         translation_service = getToolByName(self, 'translation_service')

@@ -29,7 +29,6 @@
                     questions context/getQuestions;
                     completed python:context.checkCompletedFor(member_id);
                     show_captcha context/getShowCaptcha|nothing;
-                    captcha_installed context/isCaptchaInstalled;
                     recaptcha_enabled context/collective_recaptcha_enabled;
                     isAnon context/@@plone_portal_state/anonymous;
                     pagetype context/portal_type">
