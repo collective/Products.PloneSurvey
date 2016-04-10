@@ -105,8 +105,4 @@ class SurveyMatrixQuestion(BaseQuestion):
             pct_answers[k] = int(value * 100)
         return pct_answers
 
-    @security.protected(View)
-    def getAnswerOptionsWeights(self):
-        return self.aq_parent.getAnswerOptionsWeights()
-
 registerATCT(SurveyMatrixQuestion, PROJECTNAME)

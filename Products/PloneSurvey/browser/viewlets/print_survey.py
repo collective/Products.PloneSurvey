@@ -1,9 +1,4 @@
-# Since Plone4.3 ViewPageTemplateFile moved to zope.browserpage
-try:
-    from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
-except:
-    from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
-
+from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 from z3c.rml.rml2pdf import parseString
 from Products.Five.browser import BrowserView
 
