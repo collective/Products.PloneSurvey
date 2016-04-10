@@ -1,12 +1,13 @@
-import string
 from AccessControl import ClassSecurityInfo
-
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
-from Products.CMFCore import permissions
+from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFCore.permissions import View
 from Products.CMFCore.utils import getToolByName
-
+from plone.protect import PostOnly
+from plone.protect import protect
 from Products.PloneSurvey.config import PROJECTNAME
+import string
 
 from schemata import SubSurveySchema
 
@@ -18,26 +19,22 @@ class SubSurvey(ATCTOrderedFolder):
     portal_type = 'Sub Survey'
     security = ClassSecurityInfo()
 
-    security.declarePublic('canSetDefaultPage')
-
+    @security.public
     def canSetDefaultPage(self):
         """Doesn't make sense for surveys to allow alternate views"""
         return False
 
-    security.declarePublic('canConstrainTypes')
-
+    @security.public
     def canConstrainTypes(self):
         """Should not be able to add non survey types"""
         return False
 
-    security.declareProtected(permissions.View, 'isMultipage')
-
+    @security.protected(View)
     def isMultipage(self):
         """Return true if there is more than one page in the survey"""
         return True
 
-    security.declareProtected(permissions.View, 'getSurveyId')
-
+    @security.protected(View)
     def getSurveyId(self):
         """Return the userid for the survey"""
         request = self.REQUEST
@@ -53,7 +50,8 @@ class SubSurvey(ATCTOrderedFolder):
                     return user_id
             else:
                 survey_cookie = self.aq_parent.getId()
-                if self.aq_parent.getAllowAnonymous() and self.REQUEST.has_key(survey_cookie) and request.get(survey_cookie, "Anonymous") == user_id:
+                if self.aq_parent.getAllowAnonymous() and survey_cookie in self.REQUEST and \
+                   request.get(survey_cookie, "Anonymous") == user_id:
                     return user_id
             # XXX survey is probably being spoofed, need another field for
             # allow users without cookies, for now let them through
@@ -61,9 +59,7 @@ class SubSurvey(ATCTOrderedFolder):
         survey_url = self.aq_parent.absolute_url()
         return self.REQUEST.RESPONSE.redirect(survey_url)
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'getValidationQuestions')
-
+    @security.protected(ModifyPortalContent)
     def getValidationQuestions(self):
         """Return the questions for the validation field"""
         portal_catalog = getToolByName(self, 'portal_catalog')
@@ -79,8 +75,7 @@ class SubSurvey(ATCTOrderedFolder):
         # vocab_list = DisplayList((questions))
         return questions
 
-    security.declareProtected(permissions.View, 'getBranchingCondition')
-
+    @security.protected(View)
     def getBranchingCondition(self):
         """Return the title of the branching question"""
         branchings = ''
@@ -89,8 +84,7 @@ class SubSurvey(ATCTOrderedFolder):
         branchings = branch_question.Title()+':'+self.getRequiredAnswer()
         return branchings
 
-    security.declareProtected(permissions.View, 'getQuestions')
-
+    @security.protected(View)
     def getQuestions(self):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(
@@ -99,11 +93,10 @@ class SubSurvey(ATCTOrderedFolder):
                 'Survey Matrix',
                 'Survey Select Question',
                 'Survey Text Question',
-                ]}, full_objects=True)
+            ]}, full_objects=True)
         return questions
 
-    security.declareProtected(permissions.View, 'hasDateQuestion')
-
+    @security.protected(View)
     def hasDateQuestion(self):
         """Return true if there is a date question in this part of the survey
         to import the js"""
@@ -113,16 +106,15 @@ class SubSurvey(ATCTOrderedFolder):
             return True
         return False
 
-    security.declareProtected(permissions.View, 'checkCompleted')
-
+    @security.protected(View)
     def checkCompleted(self):
         """Return true if this page is completed"""
         # XXX
         return True
 
-    security.declareProtected(permissions.View, 'getNextPage')
-
-    def getNextPage(self):
+    @protect(PostOnly)
+    @security.protected(View)
+    def getNextPage(self, REQUEST=None):
         """Return the next page of the survey"""
         previous_page = True
         parent = self.aq_parent
@@ -136,8 +128,7 @@ class SubSurvey(ATCTOrderedFolder):
                 return page()
         return self.exitSurvey()
 
-    security.declareProtected(permissions.View, 'hasMorePages')
-
+    @security.protected(View)
     def hasMorePages(self):
         """Return True if survey has more pages to display"""
         previous_page = True
@@ -152,8 +143,7 @@ class SubSurvey(ATCTOrderedFolder):
                 return True
         return False
 
-    security.declareProtected(permissions.View, 'displaySubSurvey')
-
+    @security.protected(View)
     def displaySubSurvey(self):
         """Determine whether this page should be displayed"""
         parent = self.aq_parent

@@ -2,7 +2,8 @@ from AccessControl import ClassSecurityInfo
 from zope.interface import implements
 
 from Products.ATContentTypes.content.base import registerATCT
-from Products.CMFCore import permissions
+from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFCore.permissions import View
 
 from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.interfaces.survey_question \
@@ -17,13 +18,10 @@ class SurveyDateQuestion(BaseQuestion):
     schema = SurveyDateQuestionSchema
     portal_type = 'Survey Date Question'
     _at_rename_after_creation = True
-
     implements(IPloneSurveyQuestion)
-
     security = ClassSecurityInfo()
 
-    security.declareProtected(permissions.ModifyPortalContent, 'post_validate')
-
+    @security.protected(ModifyPortalContent)
     def post_validate(self, REQUEST=None, errors=None):
         """Do the complex validation for the edit form"""
         form = REQUEST.form
@@ -32,8 +30,8 @@ class SurveyDateQuestion(BaseQuestion):
         showYMD = form.get('showYMD', None)
         showHM = form.get('showHM', None)
         # Booleans seems not to return 1 or 0, but python True/False
-        is_showYMD_set = (showYMD == True)
-        is_showHM_set = (showHM == True)
+        is_showYMD_set = (showYMD is True)
+        is_showHM_set = (showHM is True)
         if not is_showYMD_set and not is_showHM_set:
             errors['showYMD'] = u'At least one of these must be selected.'
             errors['showHM'] = u'At least one of these must be selected.'
@@ -75,14 +73,12 @@ class SurveyDateQuestion(BaseQuestion):
                 errors['futureYears'] = u'Future years must be an integer.'
         return errors
 
-    security.declareProtected(permissions.View, 'getInputType')
-
+    @security.protected(View)
     def getInputType(self):
         """Return a hard coded input type"""
         return 'date'
 
-    security.declareProtected(permissions.View, 'validateAnswer')
-
+    @security.protected(View)
     def validateAnswer(self, form, question_id, state):
         """Validate the question"""
         """Construct the deadline from the form"""

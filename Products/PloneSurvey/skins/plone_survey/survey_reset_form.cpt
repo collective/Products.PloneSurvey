@@ -2,6 +2,13 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="plonesurvey">
+<head>
+<metal:block metal:fill-slot="javascript_head_slot">
+    <script type="text/javascript" charset="iso-8859-1"
+            tal:attributes="src string:$portal_url/++resource++Products.PloneSurvey.javascripts/survey_reset.js">
+    </script>
+</metal:block>
+</head>
 <body>
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"

@@ -1,7 +1,11 @@
 import unittest
 
-from plone.app.testing import TEST_USER_ID, setRoles
+from zope.component import getUtility
+
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.interfaces import INavigationSchema
+from plone.app.testing import TEST_USER_ID, setRoles
+from plone.registry.interfaces import IRegistry
 
 from Products.PloneSurvey import permissions
 from base import INTEGRATION_TESTING
@@ -20,16 +24,6 @@ class TestInstallation(unittest.TestCase):
                           'Survey Matrix Question',
                           'Survey Select Question',
                           'Survey Text Question')
-
-    def testCssInstalled(self):
-        self.failUnless(
-            '++resource++Products.PloneSurvey.stylesheets/survey_results.css'
-            in self.portal.portal_css.getResourceIds())
-
-    def testJsInstalled(self):
-        self.failUnless(
-            '++resource++Products.PloneSurvey.javascripts/survey_reset.js'
-            in self.portal.portal_javascripts.getResourceIds())
 
     def testSkinLayersInstalled(self):
         self.failUnless('plone_survey' in self.portal.portal_skins.objectIds())
@@ -58,12 +52,15 @@ class TestInstallation(unittest.TestCase):
             assert t.replace(' ', '') == \
                 self.portal.portal_types.getTypeInfo(t).content_meta_type, t
 
-    def testMetaTypesNotToList(self):
-        navtree_props = self.portal.portal_properties.navtree_properties
-        metaTypesNotToList = navtree_props.metaTypesNotToList
-        for t in self.metaTypes:
-            if t not in ['Survey', 'Sub Survey']:
-                self.failUnless(t in metaTypesNotToList)
+    def testDisplayedTypes(self):
+        registry = getUtility(IRegistry)
+        navigation_settings = registry.forInterface(INavigationSchema, prefix='plone')
+        self.assertIn('Survey', navigation_settings.displayed_types)
+
+    def testDefaultpageType(self):
+        registry = getUtility(IRegistry)
+        default_page_types = registry.get('plone.default_page_types', [])
+        self.assertIn('Survey', default_page_types)
 
     def testPermissions(self):
         """

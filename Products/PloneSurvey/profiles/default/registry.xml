@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<registry>
+  <!-- The following declarations doesn't work correctly in tests setup => made it in setuphandlers -->
+  <!--record name="plone.displayed_types" interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema" field="displayed_types">
+    <value purge="false">
+      <element>Survey</element>
+    </value>
+  </record-->
+  <record name="plone.default_page_types" interface="Products.CMFPlone.interfaces.controlpanel.ITypesSchema" field="default_page_types">
+    <value purge="false">
+      <element>Survey</element>
+    </value>
+  </record>
+</registry>

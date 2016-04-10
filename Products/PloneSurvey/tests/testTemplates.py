@@ -91,3 +91,53 @@ class TestAnonSurveyView(unittest.TestCase):
         s1 = getattr(self.portal, 's1')
         result = s1.survey_view(REQUEST=Request())
         self.assertEqual(result.find('Error Type') >= 0, False)
+
+
+class TestJavascript(unittest.TestCase):
+    """Ensure javascript in relevant templates"""
+    layer = INTEGRATION_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+
+    def testJsInSurveyView(self):
+        """Ensure reset js in survey view"""
+        s1 = getattr(self.portal, 's1')
+        result = s1.survey_view(REQUEST=Request())
+        assert '++resource++Products.PloneSurvey.javascripts/survey_reset.js' \
+            in result
+
+    def testJsInSurveyReset(self):
+        """Ensure reset js in reset view"""
+        s1 = getattr(self.portal, 's1')
+        result = s1.survey_reset_form(REQUEST=Request())
+        assert '++resource++Products.PloneSurvey.javascripts/survey_reset.js' \
+            in result
+
+    def testJsForDateQuestion(self):
+        """Ensure js for date questions"""
+        s1 = getattr(self.portal, 's1')
+        s1.invokeFactory('Survey Date Question', 'sdq1')
+        result = s1.survey_view(REQUEST=Request())
+        assert 'jscalendar/calendar_stripped.js' in result
+        assert 'jscalendar/calendar-en.js' in result
+
+
+class TestCss(unittest.TestCase):
+    """Ensure css in relevant templates"""
+    layer = INTEGRATION_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Survey', 's1')
+
+    def testCssInSurveyBarchart(self):
+        """Ensure css in survey barchart"""
+        s1 = getattr(self.portal, 's1')
+        view = s1.restrictedTraverse('@@Products.PloneSurvey.survey_barchart')
+        result = view()
+        s = '++resource++Products.PloneSurvey.stylesheets/survey_results.css'
+        assert s in result

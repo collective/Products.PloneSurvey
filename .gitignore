@@ -15,7 +15,9 @@
 .mr.developer.cfg
 .hg/
 .bzr/
+.idea/
 .svn/
+pip-selfcheck.json
 .project
 .pydevproject
 bin/

@@ -34,6 +34,7 @@ setup(
     install_requires=[
         'setuptools',
         'Products.CMFPlone',
+        'Products.ATContentTypes',
         'z3c.rml<2.6.0',
         'reportlab<3.0',
     ],

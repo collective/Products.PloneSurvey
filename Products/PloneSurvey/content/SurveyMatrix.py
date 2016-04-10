@@ -4,7 +4,7 @@ from BTrees.OOBTree import OOBTree
 from Products.Archetypes.atapi import IntDisplayList
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
-from Products.CMFCore import permissions
+from Products.CMFCore.permissions import View
 from Products.CMFPlone.utils import safe_unicode
 
 from Products.PloneSurvey.config import LIKERT_OPTIONS_MAP
@@ -19,15 +19,13 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
     schema = SurveyMatrixSchema
     portal_type = 'Survey Matrix'
     _at_rename_after_creation = True
-
     security = ClassSecurityInfo()
 
     # A matrix doesn't have answers of its own, but it needs to have an
     # 'answers' attribute so that it plays properly with getAnswerFor etc.
     answers = OOBTree()
 
-    security.declareProtected(permissions.View, 'validateAnswer')
-
+    @security.protected(View)
     def validateAnswer(self, form, state):
         """Validate the question"""
         matrix_questions = self.getQuestions()
@@ -47,20 +45,17 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
                 domain='plonesurvey')
             state.setError(self.getId(), "%s %s" % (error_msg, error_string))
 
-    security.declarePublic('canSetDefaultPage')
-
+    @security.public
     def canSetDefaultPage(self):
         """Doesn't make sense for surveys to allow alternate views"""
         return False
 
-    security.declarePublic('canConstrainTypes')
-
+    @security.public
     def canConstrainTypes(self):
         """Should not be able to add non survey types"""
         return False
 
-    security.declareProtected(permissions.View, 'getRequired')
-
+    @security.protected(View)
     def getRequired(self):
         """Return 1 or 0 depending on if a null value exists"""
         if self.getNullValue():
@@ -68,8 +63,7 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
         else:
             return 1
 
-    security.declareProtected(permissions.View, 'getQuestionOptions')
-
+    @security.protected(View)
     def getQuestionOptions(self):
         """Return the options for this question"""
         if self.getLikertOptions():
@@ -86,8 +80,7 @@ class SurveyMatrix(ATCTOrderedFolder, BaseQuestion):
             return vocab
         return self.getAnswerOptions()
 
-    security.declareProtected(permissions.View, 'getQuestions')
-
+    @security.protected(View)
     def getQuestions(self):
         """Return the questions for this part of the survey"""
         questions = self.getFolderContents(

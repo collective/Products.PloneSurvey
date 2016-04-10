@@ -3,7 +3,7 @@
 >From: "<span tal:replace="python:options['email_from_name']" />" <span tal:replace="structure lt"/><span tal:replace="python:options['email_from_address']" /><span tal:replace="structure gt"/>
 To: <span tal:replace="structure lt"/><span tal:replace="python:options['user'].getId()"/><span tal:replace="structure gt"/>
 Subject: <span tal:replace="options/subject"/>
-Content-Type: text/html; charset=<span tal:replace="here/portal_properties/site_properties/default_charset" />
+Content-Type: text/html; charset=<span tal:replace="python:here.portal_registry.get('plone.email_charset', 'utf-8')" />
 Content-Transfer-Encoding: 8bit
 
 <html>

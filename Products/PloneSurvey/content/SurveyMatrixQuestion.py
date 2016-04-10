@@ -2,7 +2,7 @@ from AccessControl import ClassSecurityInfo
 from zope.interface import implements
 
 from Products.ATContentTypes.content.base import registerATCT
-from Products.CMFCore import permissions
+from Products.CMFCore.permissions import View
 
 from Products.PloneSurvey.config import PROJECTNAME
 from Products.PloneSurvey.interfaces.survey_question \
@@ -17,13 +17,10 @@ class SurveyMatrixQuestion(BaseQuestion):
     schema = SurveyMatrixQuestionSchema
     portal_type = 'Survey Matrix Question'
     _at_rename_after_creation = True
-
     implements(IPloneSurveyQuestion)
-
     security = ClassSecurityInfo()
 
-    security.declareProtected(permissions.View, 'validateAnswer')
-
+    @security.protected(View)
     def validateAnswer(self, value, state):
         """Validate the question"""
         try:
@@ -43,14 +40,12 @@ class SurveyMatrixQuestion(BaseQuestion):
             return 1
         self.addAnswer(value)
 
-    security.declareProtected(permissions.View, 'getRequired')
-
+    @security.protected(View)
     def getRequired(self):
         """Return 1 or 0 depending on if a null value exists"""
         return self.aq_parent.getRequired()
 
-    security.declareProtected(permissions.View, 'getAggregateAnswers')
-
+    @security.protected(View)
     def getAggregateAnswers(self):
         """Return a mapping of aggregrate answer values,
         suitable for a histogram"""
@@ -76,8 +71,7 @@ class SurveyMatrixQuestion(BaseQuestion):
                             aggregate_answers[value] = 1
         return aggregate_answers
 
-    security.declareProtected(permissions.View, 'getPercentageAnswers')
-
+    @security.protected(View)
     def getPercentageAnswers(self):
         """Return a mapping of aggregrate answer values,
         suitable for a barchart"""
@@ -95,8 +89,7 @@ class SurveyMatrixQuestion(BaseQuestion):
             pct_aggregate_answers[k] = int(value * 100)
         return pct_aggregate_answers
 
-    security.declareProtected(permissions.View, 'getPercentages')
-
+    @security.protected(View)
     def getPercentages(self):
         """Return a mapping of percentages for each answer"""
         total = 0
@@ -112,8 +105,7 @@ class SurveyMatrixQuestion(BaseQuestion):
             pct_answers[k] = int(value * 100)
         return pct_answers
 
-    security.declareProtected(permissions.View, 'getAnswerOptionsWeights')
-
+    @security.protected(View)
     def getAnswerOptionsWeights(self):
         return self.aq_parent.getAnswerOptionsWeights()
 
