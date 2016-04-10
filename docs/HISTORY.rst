@@ -1,12 +1,14 @@
 Changelog for Products.PloneSurvey
 ==================================
 
-1.4.9 - Unreleased
+1.4.9 - 2016-04-10
 ------------------
 
+  * Update locales with i18dudue [tcurvelo]
+  * Fix PlonePAS imports [davidemoro]
+  * Don't create the respondent for anon on survey view [Michael Davis]
   * On a multipage survey only display captcha on last page
     [keul]
-
   * Fix typo in `getValidationQuestions` method that breaks SubSurvey creation
     when a Select question was created in the form
     [cekk]
