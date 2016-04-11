@@ -83,11 +83,8 @@
                           tal:content="structure question/getBody" />
                 </tal:question>
 
-                <tal:captcha tal:condition="python:show_captcha and (captcha_installed or recaptcha_enabled) and not context.hasMorePages()">
-                    <tal:captcha_installed tal:condition="captcha_installed">
-                        <div metal:use-macro="context/captcha_widget/macros/captcha" />
-                    </tal:captcha_installed>
-                    <tal:recaptcha_enabled tal:condition="python:not captcha_installed and recaptcha_enabled">
+                <tal:captcha tal:condition="python:show_captcha and recaptcha_enabled and not context.hasMorePages()">
+                    <tal:recaptcha_enabled tal:condition="python:recaptcha_enabled">
                         <div metal:use-macro="context/recaptcha_widget/macros/recaptcha" />
                     </tal:recaptcha_enabled>
                 </tal:captcha>

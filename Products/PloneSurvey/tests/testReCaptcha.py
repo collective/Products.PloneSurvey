@@ -48,7 +48,7 @@ class testReCaptcha(unittest.TestCase):
             self.layer['request'],
             ['validate_survey', ]
         )
-        assert controller_state.getErrors() != {}, \
+        assert controller_state.getErrors() == {}, \
             "Validation error raised: %s" % controller_state.getErrors()
 
 
