@@ -3,6 +3,7 @@ Changelog for Products.PloneSurvey
 
 2.0.0 - Unreleased
 ------------------
+  * Remove ${enablingObjective} from translations [gaudenzius]
 
 1.4.9 - 2016-04-10
 ------------------

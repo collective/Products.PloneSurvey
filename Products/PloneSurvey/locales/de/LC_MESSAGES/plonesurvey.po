@@ -405,16 +405,10 @@ msgstr "Ergebnisse der Umfrage ${title}"
 msgid "heading_survey_overview"
 msgstr "Umfrageübersicht"
 
-#. <h2 i18n:translate="heading_totals_for">
-#. Totals for
-#. ${enablingObjective}
-#. ${title}
-#. :
-#. </h2>
 #. Default: "Totals for ${title}:"
 #: ../browser/results/survey_barchart.pt:21
 msgid "heading_totals_for"
-msgstr "Zusammenfassung für ${enablingObjective} ${title} :"
+msgstr "Zusammenfassung für ${title}:"
 
 #. Default: "Anonymous user will be able to fill the survey"
 #: ../content/schemata.py:117
