@@ -57,7 +57,7 @@
                                        name="answer"
                                        value="option"
                                        tal:attributes="value user;
-                                                       name string:user;" />
+                                                       name string:users;" />
                             </td>
                             <td>
                                 <span tal:replace="python:context.getRespondentFullName(user) or user" />
