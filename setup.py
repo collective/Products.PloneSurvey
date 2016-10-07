@@ -37,6 +37,7 @@ setup(
         'Products.ATContentTypes',
         'z3c.rml<2.6.0',
         'reportlab<3.0',
+        'plone.api',
     ],
     extras_require={
         "test": ["plone.app.testing",

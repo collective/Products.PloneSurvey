@@ -1,15 +1,34 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plonesurvey">
 
   <genericsetup:registerProfile
-      name="default"
-      title="Plone Survey"
-      directory="profiles/default"
-      description="A survey product for Plone."
+      name="install-base"
+      title="Plone Survey Base Installation"
+      directory="profiles/base"
+      description="Basic Installation used for Plone4 and Plone5 profiles"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+  <genericsetup:registerProfile
+      zcml:condition="not-have plone-5"
+      name="default"
+      title="Plone Survey"
+      directory="profiles/plone4"
+      description="A survey product for Plone."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
+
+  <genericsetup:registerProfile
+      zcml:condition="have plone-5"
+      name="default"
+      title="Plone Survey"
+      directory="profiles/plone5"
+      description="A survey product for Plone."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
 
   <genericsetup:importStep
     name="PloneSurvey_various"

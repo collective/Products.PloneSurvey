@@ -22,7 +22,6 @@ from zope.i18n import translate
 from Products.ATContentTypes.content.base import ATCTOrderedFolder
 from Products.ATContentTypes.content.base import registerATCT
 from Products.ATContentTypes.utils import DT2dt
-from Products.CMFPlone.interfaces import IMailSchema
 from Products.CMFCore.permissions import ManagePortal
 from Products.CMFCore.permissions import ModifyPortalContent
 from Products.CMFCore.permissions import View
@@ -52,6 +51,12 @@ try:
     using_collective_recaptcha = True
 except ImportError:
     using_collective_recaptcha = False
+
+try:
+    from Products.CMFPlone.interfaces.controlpanel import IMailSchema
+    HAS_REGISTRY_MAIL_SETTINGS = True  # plone5
+except ImportError:
+    HAS_REGISTRY_MAIL_SETTINGS = False  # plone4
 
 
 # Dumb class to work around bug in _getPropertyProviderForUser which
@@ -391,7 +396,7 @@ class Survey(ATCTOrderedFolder):
             return anon_id + str(DateTime())
         elif portal_membership.isAnonymousUser():
             return self.REQUEST.RESPONSE.redirect(
-                self.portal_url()+'/login_form?came_from='+self.absolute_url())
+                self.portal_url() + '/login_form?came_from=' + self.absolute_url())
         return portal_membership.getAuthenticatedMember().getId()
 
     @security.protected(View)
@@ -525,10 +530,8 @@ class Survey(ATCTOrderedFolder):
     @security.protected(View)
     def send_email(self, userid):
         """ Send email to nominated address """
-        registry = getUtility(IRegistry)
-        mail_settings = registry.forInterface(IMailSchema, prefix='plone')
         mTo = self.getSurveyNotificationEmail()
-        mFrom = mail_settings.email_from_address
+        mFrom = self._portal_email_from['mail']
         mSubj = translate(_(
             '[${survey_title}] New survey submitted',
             mapping={'survey_title': self.Title()}),
@@ -646,20 +649,36 @@ class Survey(ATCTOrderedFolder):
         return [self.getAuthenticatedRespondent(user_id)
                 for user_id in respondents]
 
+    @property
+    def _portal_email_from(self):
+        """obtain email settings from registry (on plone5) or
+        mailhost properties (for plone4)
+        """
+        if HAS_REGISTRY_MAIL_SETTINGS:
+            registry = getUtility(IRegistry)
+            mail_settings = registry.forInterface(IMailSchema, prefix='plone')
+            name = mail_settings.email_from_name
+            mail = mail_settings.email_from_address
+            charset = mail_settings.email_charset
+        else:
+            portal = getToolByName(self, 'portal_url').getPortalObject()
+            name = portal.getProperty('email_from_name')
+            mail = portal.getProperty('email_from_address')
+            charset = portal.getProperty('email_charset')
+        return dict(name=name, mail=mail, charset=charset)
+
     @security.protected(ModifyPortalContent)
     def sendSurveyInvite(self, email_address):
         """Send a survey Invite"""
-        registry = getUtility(IRegistry)
-        mail_settings = registry.forInterface(IMailSchema, prefix='plone')
         acl_users = self.get_acl_users()
         user = acl_users.getUserById(email_address)
         user_details = self.getAuthenticatedRespondent(email_address)
         email_from_name = self.getInviteFromName()
         if not email_from_name:
-            email_from_name = mail_settings.email_from_name
+            email_from_name = self._portal_email_from['name']
         email_from_address = self.getInviteFromEmail()
         if not email_from_address:
-            email_from_address = mail_settings.email_from_address
+            email_from_address = self._portal_email_from['mail']
         email_body = self.getEmailInvite()
         email_body = email_body.replace('**Name**', user_details['fullname'])
         survey_url = self.absolute_url() + '/login_form_bridge?email=' + \
@@ -675,7 +694,7 @@ class Survey(ATCTOrderedFolder):
             email_body=email_body,
             subject=self.title_or_id())
         host = self.MailHost
-        mail_text = mail_text.encode(mail_settings.email_charset or 'utf-8')
+        mail_text = mail_text.encode(self._portal_email_from['charset'] or 'utf-8')
         host.send(mail_text)
         self.registerRespondentSent(email_address)
 
@@ -848,7 +867,7 @@ class Survey(ATCTOrderedFolder):
                                 answer += '1;'
                             else:
                                 answer += '0;'
-                        answer = '"' + answer[0:len(answer)-1] + '"'
+                        answer = '"' + answer[0:len(answer) - 1] + '"'
                     elif answerList:
                         answer = '"' + answerList + '"'
                     else:

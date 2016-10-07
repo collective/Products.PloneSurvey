@@ -5,6 +5,9 @@ Changelog for Products.PloneSurvey
 ------------------
   * Remove ${enablingObjective} from translations [gaudenzius]
 
+  * Bring back Plone4 compatiblity [fRiSi]
+
+
 1.4.9 - 2016-04-10
 ------------------
 
@@ -93,7 +96,7 @@ Changelog for Products.PloneSurvey
     [Michael Davis]
 
 1.4.2 - 2011-02-23
--------------------
+------------------
 
   * Patch from Gaudenz Steinlin for Sendmail issue in Plone4
     [Michael Davis]
@@ -109,13 +112,13 @@ Changelog for Products.PloneSurvey
 __ http://dev.plone.org/plone/ticket/11520
 
 1.4.1 - 2010-10-11
-----------------------
+------------------
 
   * New version as messed up the distribution
     [Michael Davis]
 
 1.4.0 - 2010-10-10
-----------------------
+------------------
 
   * Polish translation and i18n improvements
     [Maciej Zieba]
