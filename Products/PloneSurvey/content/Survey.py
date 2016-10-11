@@ -403,7 +403,7 @@ class Survey(ATCTOrderedFolder):
             return anon_id + str(DateTime())
         elif portal_membership.isAnonymousUser():
             return self.REQUEST.RESPONSE.redirect(
-                self.portal_url()+'/login_form?came_from='+self.absolute_url())
+                self.portal_url() + '/login_form?came_from=' + self.absolute_url())
         return portal_membership.getAuthenticatedMember().getId()
 
     security.declareProtected(permissions.View, 'getRemoteIp')
@@ -557,12 +557,12 @@ class Survey(ATCTOrderedFolder):
         mFrom = properties.email_from_address
         mSubj = translate(_(
             '[${survey_title}] New survey submitted',
-            mapping={'survey_title': self.Title()}),
+            mapping={'survey_title': safe_unicode(self.Title())}),
             context=self.REQUEST)
         message = []
         message.append(translate(_(
             'Survey ${survey_title}',
-            mapping={'survey_title': self.Title()}),
+            mapping={'survey_title': safe_unicode(self.Title())}),
             context=self.REQUEST))
         message.append(translate(_(
             'has been completed by user: ${userid}',
@@ -572,7 +572,7 @@ class Survey(ATCTOrderedFolder):
                        '/@@Products.PloneSurvey.survey_view_results')
         mMsg = '\n\n'.join(message)
         try:
-            self.MailHost.send(mMsg.encode('utf-8'), mTo, mFrom, mSubj)
+            self.MailHost.send(mMsg, mTo, mFrom, mSubj, charset='utf-8')
         except ConflictError:
             raise
         except:
@@ -899,7 +899,7 @@ class Survey(ATCTOrderedFolder):
                                 answer += '1;'
                             else:
                                 answer += '0;'
-                        answer = '"' + answer[0:len(answer)-1] + '"'
+                        answer = '"' + answer[0:len(answer) - 1] + '"'
                     elif answerList:
                         answer = '"' + answerList + '"'
                     else:

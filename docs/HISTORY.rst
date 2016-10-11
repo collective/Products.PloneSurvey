@@ -7,6 +7,8 @@ Changelog for Products.PloneSurvey
 
   * Remove ${enablingObjective} from translations [gaudenzius]
 
+  * Fix survey-notification emails containing non ascii-characters in survey title [fRiSi]
+
 
 1.4.9 - 2016-04-10
 ------------------
