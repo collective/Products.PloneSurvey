@@ -708,15 +708,19 @@ class Survey(ATCTOrderedFolder):
             '<a href="' + survey_url + '">' + self.Title() + '</a>')
         mail_text = self.survey_send_invite_template(
             user=user,
-            recipient=user.getId(),
-            email_from_name=email_from_name,
-            email_from_address=email_from_address,
             email_body=email_body,
             subject=self.title_or_id())
         host = self.MailHost
         site_props = portal_properties.site_properties
-        mail_text = mail_text.encode(site_props.default_charset or 'utf-8')
-        host.send(mail_text)
+        charset = site_props.default_charset or 'utf-8'
+        mail_text = safe_unicode(mail_text)
+        host.send(mail_text,
+                  mto=user.getId(),
+                  mfrom=u"{} <{}>".format(
+                        safe_unicode(email_from_name), email_from_address),
+                  subject=safe_unicode(self.title_or_id()),
+                  charset=charset,
+                  msg_type='text/html')
         self.registerRespondentSent(email_address)
 
     security.declareProtected(permissions.ModifyPortalContent,

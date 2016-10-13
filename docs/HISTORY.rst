@@ -9,6 +9,11 @@ Changelog for Products.PloneSurvey
 
   * Fix survey-notification emails containing non ascii-characters in survey title [fRiSi]
 
+  * Use Mailhost to encode email headers in survey invitations correctly.
+
+    ATTENTION: existing customizations of survey_send_invite_template need to be adapted
+    [fRiSi]
+
 
 1.4.9 - 2016-04-10
 ------------------
