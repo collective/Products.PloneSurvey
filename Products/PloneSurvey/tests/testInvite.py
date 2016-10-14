@@ -1,4 +1,5 @@
 import unittest
+import quopri
 
 from base import INTEGRATION_Mail_TESTING
 from base import loadRespondents
@@ -19,7 +20,7 @@ class TestEmail(unittest.TestCase):
         s1.survey_send_invite(email='user1@here.com')
         messages = self.portal.MailHost.messages
         first_message = messages[0]
-        assert '<user1@here.com>' in first_message
+        assert 'To: user1@here.com' in first_message
         assert 'user1@here.com' in first_message
         assert 'Dear User One' in first_message
 
@@ -27,7 +28,7 @@ class TestEmail(unittest.TestCase):
         s1 = getattr(self.portal, 's1')
         s1.survey_send_invite(email='user1@here.com')
         messages = self.portal.MailHost.messages
-        first_message = messages[0]
+        first_message = quopri.decodestring(messages[0])
         user = s1.getAuthenticatedRespondent('user1@here.com')
         expected_key = user['key']
         expected_string = 'key=' + expected_key
@@ -161,4 +162,4 @@ class TestSentFrom(unittest.TestCase):
         s1.setInviteFromEmail('survey@here.com')
         s1.sendSurveyInvite('user2@here.com')
         messages = self.portal.MailHost.messages
-        assert 'From: "Survey Manager" <survey@here.com>' in messages[0]
+        assert 'From: Survey Manager <survey@here.com>' in messages[0]
