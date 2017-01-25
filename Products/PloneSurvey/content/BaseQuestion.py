@@ -102,12 +102,22 @@ class BaseQuestion(ATCTContent):
         if self.getInputType() in ['multipleSelect', 'checkbox']:
             if type(answer) == 'NoneType':
                 return []
+            if isinstance(answer, int):
+                return [str(answer)]
+
         if self.getInputType() in ['radio', 'selectionBox']:
             if not answer:
-                return ""
+                return []
             if isinstance(answer, unicode):
                 answer = answer.encode('utf8')
-            return str(answer)
+            return [str(answer)]
+
+        if self.getInputType() in ['area']:
+            if not answer:
+                return ''
+            if isinstance(answer, unicode):
+                answer = answer.encode('utf8')
+
         return answer
 
     security.declareProtected(permissions.View, 'getCommentsFor')

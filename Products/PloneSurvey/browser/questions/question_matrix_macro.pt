@@ -40,7 +40,7 @@
             </th>
         </tr>
         </thead>
-        
+
         <tr tal:repeat="matrix_question matrix_questions"
             tal:attributes="class python:repeat['matrix_question'].odd() and 'odd' or 'even'">
             <div tal:omit-tag=""
@@ -83,7 +83,7 @@
                     <select tal:condition="python: question.getInputType() == 'multipleSelect' and hasOptions"
                             tal:define="answer python:request.get(str(qid) + '-' + str(mqid), None) or matrix_question.getAnswerFor(member_id);"
                             multiple="multiple"
-                            tal:attributes="name string:${qid}-${mqid}; 
+                            tal:attributes="name string:${qid}-${mqid};
                                             id string:${qid}-${mqid};">
                         <option tal:repeat="option question/getQuestionOptions"
                                 class="noborder"
@@ -103,7 +103,7 @@
                            tal:attributes="value option;
                                            name string:${qid}-${mqid};
                                            id string:${qid}-${mqid};
-                                           checked python: answer and option in answer;"/>
+                                           checked python: answer and str(option) in answer;"/>
                 </td>
             </div>
         </tr>
